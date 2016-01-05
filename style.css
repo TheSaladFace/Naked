@@ -1,0 +1,1433 @@
+/*
+Theme Name: nude
+Theme URI: http://nakedthemes.com
+Author: Naked Themes
+Author URI: http://nakedthemes.com
+Description: Hi, I am the ultra minimal starter theme _tk, ready for your next awesome WordPress project! I am the most seamless and minimalistic integration of Twitter Bootstrap Framework into the _s starter theme from Automattic, the guys behind WordPress.  
+Version: 1.0
+License: GNU General Public License
+License URI: see license.txt
+Tags: responsive-layout, one-column, two-columns, three-columns, left-sidebar, right-sidebar, custom-background, custom-colors, custom-header, custom-menu, featured-images, flexible-header, microformats, post-formats, rtl-language-support, sticky-post, theme-options, threaded-comments, translation-ready  
+*/
+
+/* Import the necessary TK Bootstrap WP CSS additions */
+
+/* Small devices (tablets, 768px and up) */
+/*@media (min-width: 768px) 
+{ 
+    div[class^="col"]{padding-left:5px; padding-right:5px;}
+}
+*/
+
+div[class^="col"]{padding-left:20px; padding-right:20px;}
+div[class^="row"]{margin-left:-20px; margin-right:-20px;}
+.fw-container {
+	position: relative;
+	margin-right: auto;
+	margin-left: auto;
+	padding-left: 20px!important;
+	padding-right: 20px!important;
+}
+@media (min-width: 768px) {
+  .fw-container {
+    width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  .fw-container {
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  .fw-container {
+    width: 1170px;
+  }
+}
+.fw-container-fluid {
+	position: relative;
+	margin-right: auto;
+	margin-left: auto;
+	padding-left: 0px!important;
+	padding-right: 0px!important;
+}
+.fw-row {
+	margin-left: -20px!important;
+	margin-right: -20px!important;
+}
+.fw-col-xs-1, .fw-col-sm-1, .fw-col-md-1, .fw-col-lg-1, .fw-col-xs-2, .fw-col-sm-2, .fw-col-md-2, .fw-col-lg-2, .fw-col-xs-3, .fw-col-sm-3, .fw-col-md-3, .fw-col-lg-3, .fw-col-xs-4, .fw-col-sm-4, .fw-col-md-4, .fw-col-lg-4, .fw-col-xs-5, .fw-col-sm-5, .fw-col-md-5, .fw-col-lg-5, .fw-col-xs-6, .fw-col-sm-6, .fw-col-md-6, .fw-col-lg-6, .fw-col-xs-7, .fw-col-sm-7, .fw-col-md-7, .fw-col-lg-7, .fw-col-xs-8, .fw-col-sm-8, .fw-col-md-8, .fw-col-lg-8, .fw-col-xs-9, .fw-col-sm-9, .fw-col-md-9, .fw-col-lg-9, .fw-col-xs-10, .fw-col-sm-10, .fw-col-md-10, .fw-col-lg-10, .fw-col-xs-11, .fw-col-sm-11, .fw-col-md-11, .fw-col-lg-11, .fw-col-xs-12, .fw-col-sm-12, .fw-col-md-12, .fw-col-lg-12 {
+	position: relative;
+	min-height: 1px;
+	padding-left: 20px!important;
+	padding-right: 20px!important;
+}
+
+@import url( inc/css/audio-player-styling.css );
+ul, menu, dir {
+ padding:0px;
+}
+.sticky
+{
+	background: #A2D9FD;
+	border: 3px solid black;
+	padding: 10px;
+}
+
+.gallery-caption
+{
+	color: #707070;
+	color: rgba(51, 51, 51, 0.7);
+	display: block;
+	font-family: "Noto Sans", sans-serif;
+	font-size: 12px;
+	font-size: 1.2rem;
+	line-height: 1.5;
+	padding: 0.5em 0;
+}
+
+.bypostauthor
+{
+	background: #FFF;
+}
+
+/*override bootstrap blue form */
+textarea:focus, input:focus, input[type]:focus, .uneditable-input:focus {   
+    border-color: #fff;
+    box-shadow: 0px;
+    outline: 0 none;
+}
+/* My Minimal WordPress Styling comes here */
+
+/* Alignment */
+
+
+
+
+
+
+/* Make sure embeds and iframes fit their containers */
+embed,
+iframe,
+object
+{
+	max-width: 100%;
+}
+
+
+/* Text meant only for screen readers */
+.screen-reader-text
+{
+	clip: rect(1px, 1px, 1px, 1px);
+	position: absolute !important;
+}
+
+.screen-reader-text:hover,
+.screen-reader-text:active,
+.screen-reader-text:focus
+{
+	background-color: #f1f1f1;
+	border-radius: 3px;
+	box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+	clip: auto !important;
+	color: #21759b;
+	display: block;
+	font-size: 14px;
+	font-weight: bold;
+	height: auto;
+	left: 5px;
+	line-height: normal;
+	padding: 15px 23px 14px;
+	text-decoration: none;
+	top: 5px;
+	width: auto;
+	z-index: 100000;
+ /* Above WP toolbar */;
+}
+
+/*general*/
+.italic
+{
+	font-style: italic;
+}
+/* Content */
+.main-content-inner
+{
+	padding-bottom: 1.5em;
+}
+
+.hentry
+{
+	margin: 0;
+}
+
+
+/* Clearing */
+.clear
+{
+	clear: both;
+}
+
+
+/* Here some needed widget styles 
+ * Most widgets are adapted in the file bootstrap-wp.js - and REALLY easy to modify! ;) */
+.widget
+{
+	margin-bottom: 2em;
+}
+
+.widget_nav_menu ul.sub-menu li, .widget_pages ul.children li
+{
+	padding-left: 15px;
+}
+
+/* Hiding the search widget's button in widgets. thats just too old-skool. :) but if you want it back, just delete the next line. 
+ * Note: you can change the whole appearance of the search_form() function in our searchform.php */
+.widget_search .search-form input[type="submit"] { display: none; }
+
+/* Make sure select elements fit in widgets */
+.widget select {
+	max-width: 100%;
+}
+
+/* Nested comments? They are threaded and nested already, you just need to add your own styling to finalize!  
+ * For example with some margin, like the line below ;) Delete, modify, change classes in HTML if you desire another style */
+ .comment .children { margin-left: 1.5em; } 
+ 
+ /*clear bootstrap default container*/
+ /*.container{padding:0;}*/
+ 
+ 
+ 
+    
+
+ 
+ 
+ /*bootstrap extra width override*/
+
+/*@media (min-width: 1308px)
+{
+	.container
+	{
+		max-width:100%;
+		width:1308px;
+	}
+}
+ 
+ /*nude styles */
+ 
+
+ .border-bottom{border-bottom:1px solid #e4e4e4;}
+/**
+* 1: General
+* -----------------------------------------------------------------------------
+*/
+
+/* Custom, iPhone Retina */ 
+@media only screen and (min-width : 320px) 
+{
+	
+}
+
+/* Extra Small Devices, Phones */ 
+@media only screen and (min-width : 480px)
+{
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) 
+{
+	
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) 
+{
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) 
+{
+	
+}
+
+/**
+* 2: Single Post
+* -----------------------------------------------------------------------------
+*/
+
+/* Custom, iPhone Retina */ 
+@media only screen and (min-width : 320px) 
+{
+	
+}
+
+/* Extra Small Devices, Phones */ 
+@media only screen and (min-width : 480px)
+{
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) 
+{
+	.entry-header{margin-bottom:40px;}
+	.entry-meta { width: 240px; float: left; line-height: 21px;}
+	.entry-content {padding-left:280px;	}
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) 
+{
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) 
+{
+	
+}
+
+
+
+/**
+* 3: Extra Top Bar
+* -----------------------------------------------------------------------------
+*/
+
+/* Custom, iPhone Retina */ 
+@media only screen and (min-width : 320px) 
+{
+	/*default styles, will be overwritten by  options*/
+	.top-bar-first a { font-weight: 400;  font-style: normal;  color: #cccccc;  font-size: 14px;}
+	.extra-nav-container{/*background-color:#f6f6f6;*/}
+	
+	.menu-top-left-container{ padding: 15px 0px 0px 15px; }
+	.social-container{ padding: 15px 18px 15px 0px; }
+	
+	.widget-row{  padding-top: 10px;  padding-bottom: 10px;}
+	
+	.top-bar-second{ text-align:right;}
+	.top-bar-first{ text-align:left;}
+	
+	.social-icon, .top-bar-first ul{ list-style-type: none; margin: 0; padding: 0; list-style-type: none; display: inline-block;}
+	.social-icon li,.top-bar-first li{ display: inline; }
+	.top-bar-first li a{ padding: 0px 20px 0px 0px; font-size:14px; }
+	.top-bar-first li a:hover, .top-right-widget li a:hover{ text-decoration:none;	}
+	.social-icon li a{ padding: 0px 10px 0px 10px; font-size: 21px;  color:#ddd;}
+	.search-icon{ font-size: 17px; color:#000000;margin-top: 2px;display: inline-block; }
+	.search-icon-left-border{	border-left: 1px solid #ccc; padding: 0px 10px 0px 20px;	 margin-left: 14px;	}
+	.search-icon-outside{ position:absolute;}
+	.search-toggle {  cursor: pointer;  float: right;  height: 26px;  text-align: center;	  font-size:17px;  padding-left: 20px;  margin-left: 12px;  margin-right:-4px;border-left:1px solid #ddd;}
+	.search-toggle .screen-reader-text { left: 5px; /* Avoid a horizontal scrollbar when the site has a long menu */ }
+	.social-container{  display: inline-block;	}
+}
+
+/* Extra Small Devices, Phones */ 
+@media only screen and (min-width : 480px)
+{
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) 
+{
+	.menu-top-left-container{ padding: 5px 0px 5px 0px; }
+	.social-container{ padding: 5px 0px 5px 0px; }
+	.menu-nav.border-bottom{ padding: 0px 0px 25px 0px; }
+	.social-container{ padding: 12px 0px 12px 0px; }
+	
+	.top-right-widget{text-align:right;}
+	.top-left-widget{text-align:left;}
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) 
+{
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) 
+{
+	.navbar-small{ padding: 35px 0px 35px 0px;}
+}
+
+/* Giant Screens */
+/*@media (min-width: 1308px)
+{
+}    
+   */
+/**
+* 4: Menu / Nav Bar
+* -----------------------------------------------------------------------------
+*/
+
+/* Custom, iPhone Retina */ 
+@media only screen and (min-width : 320px) 
+{
+	.logo-nav.border-bottom{border:0px;}
+	.navbar-small {padding: 30px 0px 30px 0px; }
+	.site-navigation ul{list-style:none;margin:0;}
+	.site-navigation li{border-top:1px solid rgba(255,255,255,0.2);}
+	.site-navigation ul ul{margin-left:20px;}
+	.site-navigation a{color:#333;display:block;}
+	.hovereffect{position:relative;display:inline-block;text-align:center;}
+	.hovereffect:hover,.hovereffect:focus{outline:none;}
+	.primary-navigation{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;}
+	.primary-navigation.toggled-on{padding:0;}
+	.primary-navigation .nav-menu{border-bottom:1px solid rgba(255,255,255,0.2);display:none;}
+	.primary-navigation.toggled-on .nav-menu{display:block;}
+	.primary-navigation a{line-height:inherit;display:block;padding:7px 0;}
+	.primary-navigation a:before{font-family:FontAwesome;font-style:normal;position:relative;font-size:16px;line-height:0;margin-right:5px;top:1px;font-weight:100;display:inline-block;width:1em;text-align:center;}
+	.menu-nav.border-bottom{border-bottom:0;}
+	.primary-navigation{display:block;overflow:hidden;border-top:1px solid #ddd;}
+	.primary-navigation .mega-nav{display:none;}
+	.logo-container{text-align:center;}
+	.site-navigation-container{text-align:left;min-height:40px;}
+	.primary-navigation a{border-bottom:1px solid #eee;padding:9px 0;}
+	.primary-navigation li a{padding-left:4px;}
+	.primary-navigation li li a{padding-left:20px;}
+	.primary-navigation li a::before{content:'';width:0;height:0;border-top:5px solid transparent;border-bottom:5px solid transparent;border-left:5px solid #111;position:relative;top:-1px;left:-3px;}
+	.primary-navigation li li li a{padding-left:40px;}
+	.site-navigation ul ul{margin-left:0;}
+	.hovereffect{position:relative;display:block;text-align:left;}
+	
+	.secondary-navigation{margin:48px 0;}
+	.secondary-navigation a{padding:9px 0;}
+	.icon-menu{font-size:14px;color:#fff;}
+	.menu-toggle{background-color:#000;border-radius:0;cursor:pointer;font-size:0;height:40px;overflow:hidden;position:absolute;top:0;right:0;text-align:center;width:40px;border:0;z-index:1002;margin:0;padding:2px 0 0;}
+	.menu-toggle:before{color:#fff;content:"\f419";display:inline;margin-top:16px;}
+	.menu-toggle:active,.menu-toggle:focus,.menu-toggle:hover{background-color:#444;}
+	.menu-toggle:focus{outline:1px dotted;}
+	.current_page_item::before,.current_page_item::after{opacity:1;-webkit-transform:translateX(0px);-moz-transform:translateX(0px);transform:translateX(0px);}
+}
+
+/* Extra Small Devices, Phones */ 
+@media only screen and (min-width : 480px)
+{
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) 
+{
+	/*default styles, will be overwritten by  options*/
+	.primary-navigation ul>li>a { padding-left: 4px; font-size: 16px; font-weight:bold;} /*first level menu*/
+	.primary-navigation .mega-menu-col > a{font-size:16px;color:#fff;} /*mega menu headers*/
+	.primary-navigation ul li ul li a{font-size:16px;color:#fff;} /*mega menu children*/
+	.primary-navigation ul li ul li a { font-weight:normal;} /*all sub links*/
+	
+	.site-navigation-container, .navigation-inner { text-align: center; margin-bottom: 15px;}	
+	.logo-nav.border-bottom{border-bottom:1px solid #e4e4e4;}
+	.navbar-small{ padding: 30px 0px 0px 0px; }
+	.menu-nav.border-bottom{ padding: 0px 0px 25px 0px;}
+	.menu-nav.border-bottom{border-bottom:1px solid #ddd;}
+	.primary-navigation{border-top:0 solid #ddd;overflow:visible;display:inline-block;float:none;margin:0 1px 0 -36px;padding:0;}
+	.vcenter-topbar{display:inline-block;vertical-align:middle;float:none;}
+	.primary-navigation a{border-bottom:0;white-space:nowrap;display:inline-block;padding:0 12px;}
+	.primary-navigation .mega-nav{display:inline-block;}
+	#menu-short{border-top:0 solid #ddd;}
+	.primary-navigation .mega-menu-col > a{display:inline-block;width:auto!important;margin-top:5px;margin-bottom:10px;text-transform:none;padding:0!important;}
+	.primary-navigation .mega-menu-col{border-left:1px solid #222;display:table-cell;width:1px;padding:0 30px;}
+	.hovereffect::before,.hovereffect::after{display:inline-block;opacity:0;-webkit-transition:0 .3s opacity .2s;-moz-transition:0 .3s opacity .2s;transition:transform .3s opacity .2s;font-size:38px;line-height:38px;color:#ddd;top:6px;position:relative;}
+	.hovereffect::before{content:'[';-webkit-transform:translateX(20px);-moz-transform:translateX(20px);transform:translateX(20px);}
+	.hovereffect::after{content:']';-webkit-transform:translateX(-20px);-moz-transform:translateX(-20px);transform:translateX(-20px);}
+	.primary-navigation.toggled-on{border-bottom:0;margin:0;padding:0;}
+	.primary-navigation .menu-toggle{display:none;padding:0;}
+	.primary-navigation .nav-menu{border-bottom:0;display:block;}
+	.primary-navigation a:before{position:relative;font-size:16px;line-height:0;margin-right:9px;top:2px;font-weight:100;}
+	.primary-navigation ul ul a{white-space:normal;width:176px;display:block;padding:18px 10px 18px 17px;}
+	.primary-navigation .menu-item-has-children > a,.primary-navigation .page_item_has_children > a{padding-right:26px;}
+	.primary-navigation .menu-item-has-children > a:after,.primary-navigation .page_item_has_children > a:after{-webkit-font-smoothing:antialiased;content:"";display:inline-block;position:absolute;right:20px;top:31px;width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;border-top:5px solid #111;}
+	.primary-navigation li .menu-item-has-children > a,.primary-navigation li .page_item_has_children > a{padding-right:20px;width:168px;}
+	.primary-navigation li{border:0;display:inline-block;height:68px;line-height:68px;position:relative;margin-left:10px;}
+	.primary-navigation li li{border:0;display:block;height:auto;line-height:1.0909090909;margin-left:0;text-align:left;}
+	.primary-navigation ul li:hover > ul,.primary-navigation ul li.focus > ul{left:auto;}
+	.primary-navigation ul ul li:hover > ul,.primary-navigation ul ul li.focus > ul{left:100%;}
+	.primary-navigation ul ul{background-color:#000;float:left;position:absolute;top:68px;left:-999em;z-index:99999;margin:0;}
+	.primary-navigation ul ul ul{left:-999em;top:0;}
+	.primary-navigation .mega-menu .menu-item{float:none;color:#FFF;text-transform:none;line-height:20px;}
+	.primary-navigation ul .mega-menu ul{position:static;float:none;}
+	.primary-navigation .menu-item-has-mega-menu{position:relative;}
+	.arrow-up{position:absolute;display:block;width:0;z-index:1;top:-7px;left:20px;border-color:#000 transparent;border-style:solid;border-width:0 8px 8px;}
+	.primary-navigation .mega-menu{position:absolute;left:-5000px;top:100%;background:#000;z-index:10;
+	transition: opacity .25s ease-in-out;
+   -moz-transition: opacity .25s ease-in-out;
+   -webkit-transition: opacity .25s ease-in-out;
+   	opacity:0;}
+	.primary-navigation .mega-menu a { display: inline-block; position: relative; line-height: 22px; text-transform: none; padding: 2px 0 2px 0;}
+	#masthead .primary-navigation .mega-menu .current-menu-item a{font-weight:400;}
+	.primary-navigation .mega-menu a:hover,.primary-navigation .mega-menu a:focus{}
+	.primary-navigation .mega-menu p{margin:0 0 1em;}
+	.primary-navigation .mega-menu a:before{top:-2px;line-height:22px;text-decoration:none;}
+	.primary-navigation .mega-menu a:after{display:none!important;}
+	.primary-navigation .menu-item-has-mega-menu:hover .mega-menu{display:block;}
+	.primary-navigation .mega-menu-row{width:100%;display:table;table-layout:fixed;border-top:1px solid #484848;padding:30px 0;}
+	.primary-navigation .mega-menu-row:first-child{border-top:none;}
+	.primary-navigation .mega-menu-col:first-child{border-left:none;}
+	.primary-navigation .mega-menu-col > a:before{top:2px;}
+	.primary-navigation .mega-menu-row .menu-item-has-icon > p{margin-left:-27px;}
+	.primary-navigation .mega-menu-row .sub-menu-has-icons a:before,.primary-navigation .mega-menu-row > .menu-item-has-icon > a:before{position:absolute;left:-27px;width:18px;text-align:center;margin:0;}
+	.primary-navigation .mega-menu-row > .menu-item-has-icon > a{left:27px;}
+	.primary-navigation .mega-menu-col p + .sub-menu{margin-top:12px;}
+	.primary-navigation li a::before,.primary-navigation .sub-menu .sub-menu .arrow-up,.primary-navigation .mega-menu-row .arrow-up{display:none;}
+	.site-navigation-container,.navigation-inner{text-align:center;}
+	.hovereffect:hover::before,.hovereffect:hover::after,.hovereffect:focus::before,.hovereffect:focus::after,.hovering::before,.hovering::after,{opacity:1;-webkit-transform:translateX(0px);-moz-transform:translateX(0px);transform:translateX(0px);}
+	.primary-navigation .mega-menu ul,.primary-navigation .mega-menu li,.primary-navigation .mega-menu li:hover,.primary-navigation .mega-menu li:hover a{background:none;}
+	.primary-navigation .mega-menu-col .sub-menu .sub-menu,.primary-navigation .mega-menu-row .sub-menu-has-icons{padding-left:27px;}
+	
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) 
+{
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) 
+{
+	.site-navigation-container, .navigation-inner { text-align: center; margin-bottom: 0px;}	
+	.menu-nav.border-bottom{ padding: 0px; }
+	.navbar-small {padding: 20px 0px 20px 0px; }
+	.primary-navigation{float:right;margin:0 -27px 0 -12px;padding:0;}
+	.vcenter-menubar{display:inline-block;vertical-align:middle;float:none;}
+	.logo-container{text-align:left;}
+}
+
+/* Giant Screens */
+@media (min-width: 1308px)
+{
+}  
+
+/**
+* 5: Extra Editor Area
+* -----------------------------------------------------------------------------
+*/
+
+/* Custom, iPhone Retina */ 
+@media only screen and (min-width : 320px) 
+{
+	.extra-editor{border-bottom:1px solid #e5e5e5; }
+	.extra-editor .container{padding-bottom:0px;}
+	.extra-content{text-align:center;padding:20px 0 20px 0;}
+}
+
+/* Extra Small Devices, Phones */ 
+@media only screen and (min-width : 480px)
+{
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) 
+{
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) 
+{
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) 
+{
+}
+
+/* Giant Screens */
+@media (min-width: 1308px)
+{
+} 
+
+
+
+
+
+/**
+* 6: Fancy Search
+* -----------------------------------------------------------------------------
+*/
+
+/* Custom, iPhone Retina */ 
+@media only screen and (min-width : 320px) 
+{
+	.full-height{height:100%;}
+	.full-search-container{display:table;}
+	.search-inner{display:table-cell;vertical-align:middle;}
+	#search{position:fixed;top:0;left:0;width:100%;height:100%;background-color:rgba(255,255,255,1);-webkit-transition:all .5s ease-in-out;-moz-transition:all .5s ease-in-out;-o-transition:all .5s ease-in-out;-ms-transition:all .5s ease-in-out;transition:all .5s ease-in-out;-webkit-transform:translate(0px,0px) scale(0,0);-moz-transform:translate(0px,0px) scale(0,0);-o-transform:translate(0px,0px) scale(0,0);-ms-transform:translate(0px,0px) scale(0,0);transform:translate(0px,0px) scale(0,0);opacity:0;z-index:1004;}
+	.close-button{cursor:pointer;position:absolute;right:20px;top:20px;font-size:15px;color:#000;border:1px solid #ddd;padding:10px;}
+	.morphsearch-label{-webkit-transform:translate(-40px,0px) scale(1,1);-moz-transform:translate(-40px,0px) scale(1,1);-o-transform:translate(-40px,0px) scale(1,1);-ms-transform:translate(-40px,0px) scale(1,1);transform:translate(-40px,0px) scale(1,1);-webkit-transition:all .3s ease-out;-moz-transition:all .3s ease-out;-o-transition:all .3s ease-out;-ms-transition:all .3s ease-out;transition:all .3s ease-in-out;-webkit-transition-delay:.4s;-moz-transition-delay:.4s;-o-transition-delay:.4s;transition-delay:.4s;border-top:1px solid #ddd!important;margin-top:30px;padding:35px 0 0;}
+	#search.open .morphsearch-label{-webkit-transform:translate(0px,0px) scale(1,1);-moz-transform:translate(0px,0px) scale(1,1);-o-transform:translate(0px,0px) scale(1,1);-ms-transform:translate(0px,0px) scale(1,1);transform:translate(0px,0px) scale(1,1);}
+	#search.open{-webkit-transform:translate(0px,0px) scale(1,1);-moz-transform:translate(0px,0px) scale(1,1);-o-transform:translate(0px,0px) scale(1,1);-ms-transform:translate(0px,0px) scale(1,1);transform:translate(0px,0px) scale(1,1);opacity:1;}
+	.morphsearch-form{position:relative;top:50%;transform:translateY(-50%);width:60%;margin-left:auto;margin-right:auto;height:300px;padding:10px;}
+	.morphsearch-input{font-size:60px;height:120px;line-height:70px;background-color:transparent;border:0;color:#000!important;width:100%;padding:0;}
+	::-webkit-input-placeholder,:-moz-placeholder,::-moz-placeholder,:-ms-input-placeholder{color:#000;}
+}
+
+/* Extra Small Devices, Phones */ 
+@media only screen and (min-width : 480px)
+{
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) 
+{
+	.close-button{right:100px;top:100px;font-size:24px;padding:20px;}
+	.morphsearch-input{font-size:100px;line-height:120px;}
+	.morphsearch-form{padding:75px;}
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) 
+{
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) 
+{
+}
+
+/* Giant Screens */
+@media (min-width: 1308px)
+{
+}    
+
+
+
+/**
+* 7: Featured Thumbnail Slider
+* -----------------------------------------------------------------------------
+*/
+
+/* Custom, iPhone Retina */ 
+@media only screen and (min-width : 320px) 
+{
+	
+}
+
+/* Extra Small Devices, Phones */ 
+@media only screen and (min-width : 480px)
+{
+	
+}
+@media only screen and (min-width : 560px)
+{
+	
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) 
+{
+
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) 
+{
+	
+}
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1100px) 
+{
+	
+}
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) 
+{
+	
+}
+
+
+
+
+
+
+/**
+* 6: Meta Stylings
+* -----------------------------------------------------------------------------
+*/
+
+/* Custom, iPhone Retina */ 
+@media only screen and (min-width : 320px) 
+{
+	/*.rowheader:after{border-style: solid;
+  border-width: 8px 0px;
+  -moz-border-image: url(inc/img/borderback.png) 8 0 round repeat;
+  -webkit-border-image: url(inc/img/borderback.png) 8 0 repeat;
+  -o-border-image: url(inc/img/borderback.png) 8 0 repeat;
+  border-image: url(inc/img/borderback.png) 8 0 repeat;
+  	border-width: 8px;}
+}*/
+
+
+
+
+/* Extra Small Devices, Phones */ 
+@media only screen and (min-width : 480px)
+{
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) 
+{
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) 
+{
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) 
+{
+}
+
+/* Giant Screens */
+@media (min-width: 1308px)
+{
+}    
+
+
+
+/**
+* Post
+* -----------------------------------------------------------------------------
+*/
+
+/* Custom, iPhone Retina */ 
+@media only screen and (min-width : 320px) 
+{
+	.parallax-bg{background-size: cover;background-attachment: fixed;}
+}
+
+/* Extra Small Devices, Phones */ 
+@media only screen and (min-width : 480px)
+{
+	
+}
+@media only screen and (min-width : 560px)
+{
+	
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) 
+{
+
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) 
+{
+	
+}
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1100px) 
+{
+	
+}
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) 
+{
+	
+}
+ 
+
+
+
+
+
+
+/**
+* 8: Blog - also contains default typographic styles etc
+* -----------------------------------------------------------------------------
+*/
+
+/* Custom, iPhone Retina */ 
+@media only screen and (min-width : 320px) 
+{
+	.narrow-left{	padding-left:0px;}
+	.narrow-right{ padding-right:0px;}
+	.offset-left{ padding-left:0px!important;}
+	.offset-right{	padding-right:0px!important;	}
+	.post-format-left	{display:none;}
+	.post-format-right{color: #eee; font-size: 50px; padding-top: 8px; display: inline-block; position: absolute; margin-right: 0px; right: 0px; }
+	.row-border-left, .row-border-right{border-left:0px;border-right:0px;}
+	.alignleft	{margin-left:0px;}
+	.alignright{margin-right:0px;}
+	.aligncenter{	margin-left:0px;margin-right:0px;}
+	
+	
+	.main-content-inner{padding-top:0px;}
+	.main-content-inner p{color:#3d3d3d;line-height:27px;font-size:18px;}
+	.section-title{  margin-bottom: 20px; }
+	
+	
+	
+	/*.large .item-1 p {	font-size:15px;}
+	.large .item-2 p {	font-size: 120px;}*/
+	
+	
+	/*blockquote*/
+	.post_format-post-format-quote{padding-bottom:0px;}
+	.main-content-inner blockquote p{  font-size: 28px;  font-family: "Playfair Display";  line-height: 38px;}
+	.main-content-inner blockquote{	padding:50px 0px 54px 0px;margin:30px 0px 60px 0px;border-left:0px;position: relative;text-align: center;}
+	.main-content-inner blockquote p:before {background: #ffffff;  color: #444; content: "\201C"; left: 50%; padding: 0 40px;  position: absolute;  top: -6px;  -webkit-transform: translateX(-50%);  -ms-transform: translateX(-50%);  transform: translateX(-50%);  font-size: 50px;}
+	.main-content-inner blockquote:after {border-style: solid;border-width: 8px 0px;-moz-border-image: url(inc/img/borderback.png) 8 0 round repeat;-webkit-border-image: url(inc/img/borderback.png) 8 0 repeat;-o-border-image: url(inc/img/borderback.png) 8 0 repeat;border-image: url(inc/img/borderback.png) 8 0 repeat;border-width: 8px;bottom: 0;content: "";display: block;left: 50%;margin-left: -200px;position: absolute;top: 0;width: 400px;z-index: -1;}
+	.main-content-inner blockquote cite {display: block;	font-size: 24px;color: #999;padding-top: 25px;}
+	
+	/*status*/
+	.post_format-post-format-status{padding-bottom:0px;}
+	.status{position:relative;}
+	.status p{  font-size: 28px;  font-family: "Playfair Display";  line-height: 38px;}
+	.status p{	padding:50px 0px 54px 0px;margin:30px 0px 60px 0px;border-left:0px;position: relative;text-align: center;}
+	.status .icon-chat-1 {background: #ffffff;  color: #444; left: 50%; padding: 0 40px;  position: absolute;  top: -5px;  -webkit-transform: translateX(-50%);  -ms-transform: translateX(-50%);  transform: translateX(-50%);  font-size: 13px;}
+	.status p:after {border-style: solid;border-width: 8px 0px;-moz-border-image: url(inc/img/borderback.png) 8 0 round repeat;-webkit-border-image: url(inc/img/borderback.png) 8 0 repeat;-o-border-image: url(inc/img/borderback.png) 8 0 repeat;border-image: url(inc/img/borderback.png) 8 0 repeat;border-width: 8px;bottom: 0;content: "";display: block;left: 50%;margin-left: -200px;position: absolute;top: 0;width: 400px;z-index: -1;}
+	
+	/*aside*/
+	.post_format-post-format-aside{padding-bottom:0px;}
+	.post-type-aside{position:relative;}
+	.post-type-aside p{  font-size: 28px;  font-family: "Playfair Display";  line-height: 38px;}
+	.post-type-aside p{	padding:50px 0px 54px 0px;margin:30px 0px 60px 0px;border-left:0px;position: relative;text-align: center;}
+	.post-type-aside .icon-plus-squared {background: #ffffff;  color: #444; left: 50%; padding: 0 40px;  position: absolute;  top: -7px;  -webkit-transform: translateX(-50%);  -ms-transform: translateX(-50%);  transform: translateX(-50%);  font-size: 16px;}
+	.post-type-aside p:after {border-style: solid;border-width: 8px 0px;-moz-border-image: url(inc/img/borderback.png) 8 0 round repeat;-webkit-border-image: url(inc/img/borderback.png) 8 0 repeat;-o-border-image: url(inc/img/borderback.png) 8 0 repeat;border-image: url(inc/img/borderback.png) 8 0 repeat;border-width: 8px;bottom: 0;content: "";display: block;left: 50%;margin-left: -200px;position: absolute;top: 0;width: 400px;z-index: -1;}
+	
+	/*link*/
+	.post_format-post-format-link{padding-bottom:0px;}
+	.post-type-link{position:relative;}
+	.post-type-link p{  font-size: 28px;  font-family: "Playfair Display";  line-height: 38px;}
+	.post-type-link p{	padding:50px 0px 54px 0px;margin:30px 0px 60px 0px;border-left:0px;position: relative;text-align: center;}
+	.post-type-link .icon-link-5 {background: #ffffff;  color: #444; left: 50%; padding: 0 40px;  position: absolute;  top: -6px;  -webkit-transform: translateX(-50%);  -ms-transform: translateX(-50%);  transform: translateX(-50%);  font-size: 16px;}
+	.post-type-link p:after {border-style: solid;border-width: 8px 0px;-moz-border-image: url(inc/img/borderback.png) 8 0 round repeat;-webkit-border-image: url(inc/img/borderback.png) 8 0 repeat;-o-border-image: url(inc/img/borderback.png) 8 0 repeat;border-image: url(inc/img/borderback.png) 8 0 repeat;border-width: 8px;bottom: 0;content: "";display: block;left: 50%;margin-left: -200px;position: absolute;top: 0;width: 400px;z-index: -1;}
+	
+	
+	/*category and tag styling and hovers*/
+	/*category and tag styling and hovers*/
+	.meta-categories a,.meta-tags a{font-size:12px;letter-spacing:2px;display:inline-block;background-color:#c9c9c9;text-transform:uppercase;color:#fff;-webkit-transition:background-color .35s linear;-moz-transition:background-color .35s linear;-o-transition:background-color .35s linear;-ms-transition:background-color .35s linear;transition:background-color .35s linear;margin:0 -3px 1px 0;  padding: 6px 4px 4px 6px; line-height: 11px;}
+	.meta-categories a:hover,.meta-tags a:hover{background-color:#666;color:#fff;text-decoration:none;}
+
+	.spacer-small{margin-bottom:10px;}
+	.spacer-medium{margin-bottom:20px;}
+	.spacer-large{margin-bottom:30px;}
+	.spacer-divider{padding-bottom: 15px;	margin-bottom: 5px;border-bottom: 1px solid #e6e6e6;}
+
+	/*need to override blog colours*/
+	.item-2 p{color:#fff;}
+	.item-1 p{color:#fff;}
+	.large .item-1 p{padding-top:32px;}
+
+}
+
+/* Extra Small Devices, Phones */ 
+@media only screen and (min-width : 480px)
+{
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) 
+{
+	
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) 
+{
+		h2{font-size:54px;}
+		/*note, some of the styles here are found in the naked-plugin-style.css file found in naked/plugins/naked-helper/ directory.
+		these styles are portable across themes and are styles for the wordpress editor formats dropdown*/
+	
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) 
+{
+	.narrow-left{	padding-left:110px;}
+	.narrow-right{padding-right:110px;	}
+	.offset-left{padding-left:0px!important;}
+	.offset-right{	padding-right:0px!important;	}
+	.post-format-left	{color: #eee;  font-size: 50px;  display: inline-block;  position: absolute;margin-left: -123px; /* padding left from .narrow-left above - 14px for extra*/}
+	.row-border-left{	border-left:1px solid #000;}
+	.row-border-right{border-right:1px solid #000;	}
+	.narrow-left .alignleft{	margin-left:-110px;}
+	.narrow-right .alignright{margin-right:-110px;}
+	.narrow-left .aligncenter{margin-left:-110px;	margin-right:0px; max-width: 100%!important;}
+	.narrow-right .aligncenter{margin-left:0px;margin-right:-110px; max-width: 100%!important;}
+	.narrow-left .narrow-right .aligncenter{margin-left:-110px;margin-right:-110px; max-width: 100%!important;}
+}
+
+/* Giant Screens */
+@media (min-width: 1308px)
+{
+}   
+
+
+/**
+* 9: SideBar /Widgets - also contains default typographic styles etc
+* -----------------------------------------------------------------------------
+*/
+
+/* Custom, iPhone Retina */ 
+@media only screen and (min-width : 320px) 
+{
+	.widget-paragraph {font-size:16px; line-height: 25px;margin-bottom:18px;}
+	.widget-title{margin-bottom:9px;  color: #333;}
+	.sidebar h3{margin-top:0px; margin-bottom:30px;}
+	
+	.widget-author,.widget-date,.widget-author a,.widget-date a{color:#ccc;font-style:italic;}
+	/*category and tag styling and hovers*/
+	.widget-categories a,.widget-tags a{font-size:12px;letter-spacing:2px;display:inline-block;background-color:#c9c9c9;text-transform:uppercase;color:#fff;-webkit-transition:background-color .35s linear;-moz-transition:background-color .35s linear;-o-transition:background-color .35s linear;-ms-transition:background-color .35s linear;transition:background-color .35s linear;margin:0 -3px 1px 0;  padding: 6px 4px 4px 6px; line-height: 11px;}
+	.widget-categories a:hover,.widget-tags a:hover{background-color:#666;color:#fff;text-decoration:none;}
+	.related-posts-wrap li{margin-bottom:40px;}
+	.recent-posts-wrap li{margin-bottom:40px;}
+	.popular-posts-wrap li{margin-bottom:40px;}
+	.featured-posts-wrap li{margin-bottom:40px;}
+	.widget{border-bottom: 1px solid #ddd;  padding-bottom: 50px;  margin-bottom: 50px;}
+	.ad_widget{padding-bottom: 60px;}
+	
+	.twitter-row {  margin-bottom: 10px;  font-size: 16px;line-height:25px;}
+	.twitter-row .entry-meta { font-size: 16px; }
+	.twitter-date{border-bottom: 0px solid #ddd;}
+	.twitter-row .username{ font-size: 22px;  display: inline-block;color:#ccc}
+	.twitter-feed-twitter {  font-size: 22px;  display: inline-block;  margin-left: -4px;  margin-right: 6px;margin-bottom: 8px;  margin-bottom: 13px;}
+	.twitter-actions {	}
+	.twitter-large { color: #ddd;  font-size: 50px;  margin-left: -15px;  padding-bottom: 0px;  display: inline-block; }
+	.striped-divider{height:8px; background-image:url('inc/img/borderback.png');  margin-top: 16px;  margin-bottom: 16px;}
+	
+	.widget-paragraph .item-2 p {  margin-top: -5px!important;}/*overwrite underneath letter positioning problem*/
+	.image-title{padding-top: 10px;}
+	.small-widget-image {display:inline-block; float:left;padding-right: 20px;}
+}
+
+/* Extra Small Devices, Phones */ 
+@media only screen and (min-width : 480px)
+{
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) 
+{
+	.sidebar-padder {  padding-left: 70px;  padding-top: 55px;  margin-left: 40px;  border-left: 1px solid #ddd;}
+
+
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) 
+{
+		
+	
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) 
+{
+	
+}
+
+/* Giant Screens */
+@media (min-width: 1308px)
+{
+}    
+
+
+/**
+* 9: Footer
+* -----------------------------------------------------------------------------
+*/
+
+/* Custom, iPhone Retina */ 
+@media only screen and (min-width : 320px) 
+{
+	#minimal-footer-next, #minimal-footer-prev{  margin-top: 5px;}
+}
+
+/* Extra Small Devices, Phones */ 
+@media only screen and (min-width : 480px)
+{
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) 
+{
+	
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) 
+{
+		
+	
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) 
+{
+	
+}
+
+/* Giant Screens */
+@media (min-width: 1308px)
+{
+}    
+/*
+* === EXTRA EDITOR ===
+*/	
+
+
+
+
+
+ 
+ /*spacers*/
+ .spacer-5{
+ 	 margin-bottom:5px;
+ }
+  .spacer-10{
+ 	 margin-bottom:10px;
+ }
+  .spacer-15{
+ 	 margin-bottom:15px;
+ }
+  .spacer-20{
+ 	 margin-bottom:20px;
+ }
+  .spacer-25{
+ 	 margin-bottom:25px;
+ }
+   .spacer-30{
+ 	 margin-bottom:30px;
+ }
+  .spacer-35{
+ 	 margin-bottom:35px;
+ }
+  .spacer-40{
+ 	 margin-bottom:40px;
+ }
+  .spacer-45{
+ 	 margin-bottom:45px;
+ }
+   .spacer-50{
+ 	 margin-bottom:50px;
+ }
+ 
+
+	
+/*
+* --- general ---
+*/
+
+
+/*
+* ---  tag / category hovers ---
+*/
+
+ 
+
+
+
+
+/**
+* Quote
+**/
+.quote-container, .link-container, .aside-container, .status-container
+{
+	border: 0px dashed #ddd;
+	background-color:#f6f6f6;
+}
+.aside-container
+{
+	padding: 40px;
+}
+.status-container
+{
+	padding: 40px;
+}
+.link-container
+{
+	text-align: center;
+	padding: 40px;
+	padding-bottom: 50px;
+}
+.link-container a
+{
+	margin-bottom: 0;
+	padding:30px;
+}
+
+
+
+/**
+General Tags
+*//
+td, th {
+padding: 25px;
+BACKGROUND-COLOR: #f6f6f6;
+border: 2px solid #fff;
+}
+
+/**
+* Galleries
+**/
+.mfp-fade.mfp-bg 
+{
+	  opacity: 0;
+	  -webkit-transition: all 0.15s ease-out;
+	  -moz-transition: all 0.15s ease-out;
+	  transition: all 0.15s ease-out;
+}
+/* overlay animate in */
+.mfp-fade.mfp-bg.mfp-ready 
+{
+	  opacity: 0.8;
+}
+/* overlay animate out */
+.mfp-fade.mfp-bg.mfp-removing
+{
+	  opacity: 0;
+}
+
+/* content at start */
+.mfp-fade.mfp-wrap .mfp-content
+{
+	  opacity: 0;
+	  -webkit-transition: all 0.15s ease-out;
+	  -moz-transition: all 0.15s ease-out;
+	  transition: all 0.15s ease-out;
+}
+/* content animate it */
+.mfp-fade.mfp-wrap.mfp-ready .mfp-content 
+{
+	  opacity: 1;
+}
+/* content animate out */
+.mfp-fade.mfp-wrap.mfp-removing .mfp-content 
+{
+	  opacity: 0;
+}
+/**
+* Blog
+**/
+.widget ul
+{
+list-style-type: none;
+padding:0;
+}
+
+
+
+
+
+.post-format-hidden, .border-left, .border-right
+{
+	display:none;
+}
+.intro{
+font-size: 23px;
+line-height: 34px;
+color:#3c3c3c;
+}
+
+
+
+/* Images and wp-captions should always fit and be responsive */
+img
+{
+	display: inline-block;
+	height: auto;
+	max-width: 100%;
+}
+
+.wp-caption
+{
+	max-width: 100%;
+	margin-bottom: 0px;
+}
+
+.wp-caption.aligncenter
+{
+	margin-bottom: 10px;
+}
+
+.wp-caption img[class*="wp-image-"]
+{
+	display: block;
+}
+
+.wp-caption .wp-caption-text
+{
+	text-align: center;
+	  margin-top: 0px;
+	  margin-bottom: 0px;
+	  font-size: 14px;
+	  color: #999;
+	  
+}
+
+.alignleft
+{
+	display: inline;
+	float: left;
+	margin-right: 50px;
+	margin-bottom:40px;
+}
+.alignleft .wp-caption-text{
+text-align:left;	
+}
+
+.alignright
+{
+	display: inline;
+	float: right;
+	margin-left: 50px;
+	margin-bottom:40px;
+}
+.alignright .wp-caption-text{
+text-align:left;
+}
+.aligncenter
+{
+	clear: both;
+	display: block;
+	margin: 0 auto;
+}
+
+/*comments*/
+.alert-info {
+/* color: #000; */
+background-color: #f3f3f3;
+border-color: #ddd;
+border: 0px solid #ddd;
+padding: 30px;
+margin-bottom: 28px;
+/* font-size: 14px; */
+}
+.comments-title{
+	padding-bottom: 20px;
+}
+.form-control {
+display: block;
+width: 100%;
+border: 1px solid #ddd;
+border-radius: 0px;
+-webkit-box-shadow: none;
+box-shadow: none;
+padding: 30px;
+}
+.form-control:focus {
+  border-color: #444;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0), 0 0 8px rgba(0, 0, 0, 0);
+}
+.page-header {
+border-bottom: 0px solid #eee; 
+}
+.media-left, .media>.pull-left {
+padding-right: 30px;
+}
+.panel-footer {
+padding: 30px 0px;
+background-color: transparent;
+border-top: 1px solid #ddd;
+border-bottom-right-radius: 3px;
+border-bottom-left-radius: 3px;
+}
+.btn-primary {
+color: #fff;
+background-color: #000;
+border-color: #000;
+}
+.btn {
+display: inline-block;
+padding: 8px 32px;
+margin-bottom: 0;
+font-size: 14px;
+font-weight: 400;
+line-height: 1.42857143;
+text-align: center;
+white-space: nowrap;
+vertical-align: middle;
+-ms-touch-action: manipulation;
+touch-action: manipulation;
+cursor: pointer;
+-webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+background-image: none;
+border: 0px solid transparent;
+border-radius: 0px;
+}
+/*
+* --- large left and right arrows (stick to edges of window) ---
+*/
+.nav-doubleflip
+{
+width:100%;
+z-index:1000;
+}
+
+.thumb-doubleflip
+{
+
+width:100%;
+z-index:1000;
+}
+
+.stick {
+    position:fixed;
+    top:155px;
+}
+
+
+
+
+.naked-related-posts {
+padding: 50px 0px 45px 0px;
+margin-bottom: 30px;
+border-bottom: 1px solid #ddd;
+border-top: 1px solid #ddd;
+}
+.justified-gallery>a>.caption, .justified-gallery>div>.caption 
+{
+	padding: 20px;
+}
+
+.light
+{
+	color:#bbb;
+}
+.archive-titles
+{
+	margin: 0px;
+}
+.archive-container
+{
+	border-bottom: 1px solid #ddd;
+}
+.archive-header
+{
+	text-align: center;
+	padding: 25px;
+	padding-top:40px;
+}
+.black-line{border-left:0px;}
+@media only screen and (min-width : 992px) 
+{
+	.black-line{border-left:1px solid;}
+	.black-line-adjust{margin-left:-1px;}
+	
+}
+.no-gutter{
+    margin-right:0;
+    margin-left:0;
+}
+.no-gutter > [class*='col-'] {
+    padding-right:0;
+    padding-left:0;
+}
+.blog-row h1, .grid p, .no-paragraph-margin-last > :last-child{ /*resets*/
+	margin:0px;
+}
+
+
+
+
+
+
+
+
+
+/**
+* Ads
+*/
+.ad-multiline
+{
+	  display: inline-block;
+	  margin-left: -4px; /*corrects inline-block small gap */
+}
+
+
+
+ /**
+ * Popular Posts Widget
+ */
+ img.tptn_thumb {
+	
+}
+.tptn_link,.tptn_author,.tptn_date,.tptn_excerpt{
+
+}
+.tptn_link,.tptn_excerpt{
+	display: inline-block;
+}
+.tptn_posts_daily ul li, .tptn_posts ul li {
+	clear:both;
+	list-style:none;
+	display:block;
+	background: none;
+	padding:0;
+}
+
+.tptn_posts_daily ul, .tptn_posts ul {
+	margin:0;
+	padding:0;
+}
+.smallp{
+	margin-top:10px;
+}
+.tptn_posts_daily .tptn_title, .tptn_posts .tptn_title {
+
+}
+.tptn_title{
+	margin-top: 10px;
+  display: block;
+}
+.tptn_excerpt {
+  display: block;
+  margin-top: 10px;
+}
+.tptn_after_thumb {
+	margin-top: 12px;
+	display: block;
+}
+.tptn_posts_widget li{
+margin-bottom:20px;
+}
+/*  
+ == Quick CSS styling tips ==
+
+ You can start off in a rough direction with some minimal styles.
+ See below for some tips. ;)
+
+  
+ == Want to have the whole site wrapped? ==  
+  
+ Just fill the .container class with some background color to have a the whole site "wrapped".
+ This works so easy because every main part is wrapped only once into a container class by bootstrap. 
+ Try out by decommenting the next line and go from there. 
+	
+ .container { background: #f9f9f9; border-right: 1px solid #eee; border-left: 1px solid #eee; }
+
+
+ == Want to wrap just the content and sidebar in Bootstrap style? == 
+  
+ That one is a great example to show that some things are much cleaner and easier to do via just adding some HTML classes. 
+ In this case, we will add just one CSS class "panel", look for example at the beginning in content.php! 
+ 
+ 
+ == Infinite Scrolling by Jetpack ==
+ You can enable this cool feature by simply decommenting the lines below and make sure you use the same classes on the right place in your html.. 
+
+/* Globally hidden elements when Infinite Scroll is supported and in use. 
+ * Older / Newer Posts Navigation (the pagination, must always be hidden), Theme Footer only when set to scrolling.. */ 
+
+/* 
+.infinite-scroll .page-links, 
+.infinite-scroll.neverending .site-footer { 
+	display: none;
+}
+*/
+
+/* When Infinite Scroll has reached its end we need to re-display elements that were hidden (via .neverending) before */
+
+/*
+.infinity-end.neverending .site-footer {
+	display: block;
+} 
+*/
+
+/* Hey, if you don't need my comments anymore, just delete me! :)  */  	
+
+
+
