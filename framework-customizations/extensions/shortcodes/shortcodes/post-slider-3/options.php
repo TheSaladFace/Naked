@@ -1,9 +1,9 @@
 <?php if (!defined('FW')) die('Forbidden');
 
 $options = array(
-	
+
 	'id'    => array( 'type' => 'unique' ),
-	'opt_posts_slider_categories' => array(
+	'opt_posts_block_categories' => array(
 										'type'       => 'multi-select',
 										'label'      => __( 'Population Categories', 'unyson' ),
 										'population' => 'taxonomy',
@@ -13,8 +13,8 @@ $options = array(
 										'help'       =>__( 'Begin typing and the field will search the categories, select the ones you require', 'unyson'  ),
 									),
 									'id'    => array( 'type' => 'unique' ),
-									
-									'opt_posts_slider_number_posts'                      => array(
+
+									'opt_posts_block_number_posts'                      => array(
 										'label' => __( 'Number of Posts', 'unyson' ),
 										'type'  => 'text',
 										'value' => '10',
@@ -22,8 +22,8 @@ $options = array(
 											'unyson' ),
 										'help'  => __( 'The slider will only use up to the number you choose to populate', 'unyson' ),
 									),
-									
-									'opt_posts_slider_ordering'              => array(
+
+									'opt_posts_block_ordering'              => array(
 										'label'   => __( 'Order Method', 'unyson' ),
 										'type'    => 'short-select',
 										'value'   => '1',
@@ -37,8 +37,8 @@ $options = array(
 											'parent' => 'parent',
 										),
 									),
-									
-									'opt_posts_slider_number_slides'              => array(
+
+									'opt_posts_block_number_slides'              => array(
 										'label'   => __( 'Number of Slides', 'unyson' ),
 										'type'    => 'select',
 										'value'   => '3',
@@ -53,22 +53,21 @@ $options = array(
 											'7' => '7',
 										),
 									),
-									'opt_posts_slider_functionality' =>array(
+									'opt_posts_block_functionality' =>array(
 										'type' => 'addable-box',
 										'label' => __('Add Post Elements', 'unyson'),
 										'desc'  => __('Add / remove / reorder elements to be displayed in each post', 'unyson'),
-										'template' => '{{- opt_posts_slider_rows }}',
+										'template' => '{{- opt_posts_block_rows }}',
 										'popup-title' => null,
 										'size' => 'small', // small, medium, large
 										'limit' => 0, // limit the number of popup`s that can be added
 										'box-options' => array(
-											'opt_posts_slider_rows' => array(
+											'opt_posts_block_rows' => array(
 												'label'   => __( 'Row Type', 'unyson' ),
 												'type'    => 'select',
 												'choices' => array(
-													'Thumbnail' => 'Thumbnail',
 													'Title' => 'Title',
-													'Title + Excerpt' => 'Title + Excerpt',
+													'Excerpt' => 'Excerpt',
 													'Categories' => 'Categories',
 													'Tags' => 'Tags',
 													'Read More' => 'Read More',
@@ -82,11 +81,11 @@ $options = array(
 													'Share Boxes' => 'Share Boxes',
 													'Divider' => 'Divider',
 												),
-												
+
 											),
 										),
 									),
-									'opt_posts_slider_number_categories'              => array(
+									'opt_posts_block_number_categories'              => array(
 										'label'   => __( 'Number of Categories / Tags', 'unyson' ),
 										'type'    => 'short-select',
 										'value'   => '2',
@@ -101,14 +100,14 @@ $options = array(
 										),
 										'help'    => __( 'This will only be necessary if you choose to display the category or tags of the posts below each slide' ),
 									),
-									'opt_posts_block_excerpt_length'                      => array(
+									'opt_posts_block_large_excerpt_length'                      => array(
 										'label' => __( 'Excerpt Length', 'unyson' ),
 										'type'  => 'text',
 										'value' => '11',
 										'desc'  => __( 'Enter the length of the automatic excerpt in words (If added below)',
 											'unyson' ),
 										'help'       =>__( '', 'unyson'  ),
-									),	
+									),
 									'opt_small_image_ratio'              => array(
 										'label'   => __( 'Featured Image Ratio', 'unyson' ),
 										'type'    => 'short-select',
@@ -119,7 +118,7 @@ $options = array(
 											'21:9' => '21:9',
 											'16:9' => '16:9',
 											'3:2' => '3:2',
-											'4:3' => '4:3',					
+											'4:3' => '4:3',
 											'1:1' => '1:1',
 											'3:4' => '3:4',
 											'2:3' => '2:3',
@@ -137,7 +136,7 @@ $options = array(
 									'opt_divider_type'              => array(
 									    'type'  => 'image-picker',
 									    'value' => 'divider-dotted',
-									   
+
 									    'label' => __('Divider Type', 'unyson'),
 									    'desc'  => __('Please select the type of divider you wish to use. ', 'unyson'),
 									    'choices' => array(
@@ -149,8 +148,8 @@ $options = array(
 									    ),
 									    'blank' => false, // (optional) if true, images can be deselected
 									),
-											
-									
+
+
 );
 
 ?>

@@ -1,7 +1,7 @@
 <?php if (!defined('FW')) die('Forbidden');
 
 $options = array(
-	
+
 	'id'    => array( 'type' => 'unique' ),
 	'opt_posts_block_number_posts'              =>array(
 		'type'  => 'text',
@@ -22,7 +22,7 @@ $options = array(
 			'value' => 'No',
 			'label' => __('No', 'unyson'),
 		),
-	),	
+	),
 	'opt_posts_block_columns'              => array(
 		'label'   => __( 'Number of Columns', 'unyson' ),
 		'type'    => 'short-select',
@@ -103,7 +103,7 @@ $options = array(
 					'Share Boxes' => 'Share Boxes',
 					'Divider' => 'Divider',
 				),
-				
+
 			),
 		),
 	),
@@ -130,7 +130,7 @@ $options = array(
 			'unyson' ),
 		'help'       =>__( '', 'unyson'  ),
 	),
-	'opt_large_image_ratio'              => array(
+	'opt_small_image_ratio'              => array(
 		'label'   => __( 'Featured Image Ratio', 'unyson' ),
 		'type'    => 'short-select',
 		'value'   => '3:2',
@@ -139,14 +139,14 @@ $options = array(
 		'choices' => array(
 			'16:9' => '16:9',
 			'3:2' => '3:2',
-			'4:3' => '4:3',					
+			'4:3' => '4:3',
 			'1:1' => '1:1',
 			'3:4' => '3:4',
 			'2:3' => '2:3',
 			'9:16' => '9:16',
 		),
 	),
-	
+
 	'opt_posts_block_hover_effects'              =>array(
 		'type'  => 'switch',
 		'value' => 'Yes',
@@ -161,7 +161,7 @@ $options = array(
 			'label' => __('No', 'unyson'),
 		),
 	),
-	
+
 	'opt_image_hover_item_1'       => array(
 		'type'         => 'multi-picker',
 		'label'        => false,
@@ -184,7 +184,7 @@ $options = array(
 		'choices'      => array(
 			//Single column
 			'1'  => array(
-				'opt_image_hover_item_1_text'       =>array(
+				'opt_image_hover_item_text'       =>array(
 				    'type'  => 'text',
 				    'value' => 'N',
 				    'attr'  => array( 'class' => 'custom-class', 'data-foo' => 'bar' ),
@@ -195,7 +195,7 @@ $options = array(
 			),
 			//2 col content left choice
 			'2'  => array(
-					'opt_image_hover_item_1_icon'                =>array(
+					'opt_image_hover_item_icon'                =>array(
 					'type'  => 'icon',
 					'value' => 'fa-smile-o',
 					'attr'  => array( 'class' => 'custom-class', 'data-foo' => 'bar' ),
@@ -206,7 +206,7 @@ $options = array(
 			),
 			//2 col content right choice
 			'3'  => array(
-					'opt_image_hover_item_1_image'             => array(
+					'opt_image_hover_item_image'             => array(
 					'label' => __( '', 'unyson' ),
 					'desc'  => __( 'Please upload the image you wish to use',
 						'unyson' ),
@@ -215,8 +215,8 @@ $options = array(
 							'unyson' ),
 				),
 			),
-								
-			
+
+
 		),
 		'show_borders' => false,
 	),
@@ -242,7 +242,7 @@ $options = array(
 		'choices'      => array(
 			//Single column
 			'1'  => array(
-				'opt_image_hover_item_2_text'       =>array(
+				'opt_image_hover_item_text'       =>array(
 				    'type'  => 'text',
 				    'value' => 'N',
 				    'attr'  => array( 'class' => 'custom-class', 'data-foo' => 'bar' ),
@@ -253,7 +253,7 @@ $options = array(
 			),
 			//2 col content left choice
 			'2'  => array(
-					'opt_image_hover_item_2_icon'                =>array(
+					'opt_image_hover_item_icon'                =>array(
 					'type'  => 'icon',
 					'value' => 'fa-smile-o',
 					'attr'  => array( 'class' => 'custom-class', 'data-foo' => 'bar' ),
@@ -264,7 +264,7 @@ $options = array(
 			),
 			//2 col content right choice
 			'3'  => array(
-					'opt_image_hover_item_2_image'             => array(
+					'opt_image_hover_item_image'             => array(
 					'label' => __( '', 'unyson' ),
 					'desc'  => __( 'Please upload the image you wish to use',
 						'unyson' ),
@@ -273,8 +273,8 @@ $options = array(
 							'unyson' ),
 				),
 			),
-								
-			
+
+
 		),
 		'show_borders' => false,
 	),
@@ -289,7 +289,7 @@ $options = array(
 	'opt_divider_type'              => array(
 	    'type'  => 'image-picker',
 	    'value' => 'divider-dotted',
-	   
+
 	    'label' => __('Divider Type', 'unyson'),
 	    'desc'  => __('Please select the type of divider you wish to use. ', 'unyson'),
 	    'choices' => array(

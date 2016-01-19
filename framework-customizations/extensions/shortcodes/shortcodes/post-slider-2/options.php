@@ -1,9 +1,9 @@
 <?php if (!defined('FW')) die('Forbidden');
 
 $options = array(
-	
+
 	'id'    => array( 'type' => 'unique' ),
-	'opt_post_slider_categories' => array(
+	'opt_posts_block_categories' => array(
 										'type'       => 'multi-select',
 										'label'      => __( 'Population Categories', 'unyson' ),
 										'population' => 'taxonomy',
@@ -12,8 +12,8 @@ $options = array(
 											'unyson' ),
 										'help'       =>__( 'Begin typing and the field will search the categories, select the ones you require', 'unyson'  ),
 									),
-									
-									'opt_post_slider_number_posts'                      => array(
+
+									'opt_posts_block_number_posts'                      => array(
 										'label' => __( 'Number of Posts', 'unyson' ),
 										'type'  => 'text',
 										'value' => '10',
@@ -36,7 +36,7 @@ $options = array(
 											'7' => '7',
 										),
 									),
-									'opt_post_slider_ordering'              => array(
+									'opt_posts_block_ordering'              => array(
 										'label'   => __( 'Order Method', 'unyson' ),
 										'type'    => 'short-select',
 										'value'   => '1',
@@ -50,7 +50,7 @@ $options = array(
 											'parent' => 'parent',
 										),
 									),
-									'opt_post_slider_initial'              =>array(
+									'opt_posts_block_initial'              =>array(
 									    'type'  => 'switch',
 									    'value' => 'Show',
 									    'label' => __('Show Initial Slide Info Rows', 'fw'),
@@ -64,7 +64,7 @@ $options = array(
 										'label' => __('Hide', 'fw'),
 									    ),
 									),
-									'opt_post_slider_buttons'              =>array(
+									'opt_posts_block_buttons'              =>array(
 									    'type'  => 'switch',
 									    'value' => 'Show',
 									    'label' => __('Show Prev / Next Buttons', 'fw'),
@@ -78,21 +78,21 @@ $options = array(
 										'label' => __('Hide', 'fw'),
 									    ),
 									),
-									'opt_post_slider_functionality' =>array(
+									'opt_posts_block_functionality' =>array(
 										'type' => 'addable-box',
 										'label' => __('Add Initial Slide Info Rows', 'fw'),
 										'desc'  => __('Add / remove / reorder rows to be displayed initially each slide', 'fw'),
-										'template' => '{{- opt_post_slider_rows }}',
+										'template' => '{{- opt_posts_block_rows }}',
 										'popup-title' => null,
 										'size' => 'small', // small, medium, large
 										'limit' => 0, // limit the number of popup`s that can be added
 									 	'box-options' => array(
-											'opt_post_slider_rows' => array(
+											'opt_posts_block_rows' => array(
 												'label'   => __( 'Row Type', 'unyson' ),
 												'type'    => 'select',
 												'choices' => array(
 													'Title' => 'Title',
-													'Title + Excerpt' => 'Title + Excerpt',
+													'Title+Excerpt' => 'Title+Excerpt',
 													'Categories' => 'Categories',
 													'Tags' => 'Tags',
 													'Read More' => 'Read More',
@@ -106,25 +106,25 @@ $options = array(
 													'Share Boxes' => 'Share Boxes',
 													'Divider' => 'Divider',
 												),
-												
+
 											),
 										),
 									),
-									'opt_post_slider_functionality_hover' =>array(
+									'opt_posts_block_functionality_hover' =>array(
 										'type' => 'addable-box',
 										'label' => __('Add Hover Slide Info Rows', 'fw'),
 										'desc'  => __('Add / remove / reorder rows to be displayed on hover in each slide', 'fw'),
-										'template' => '{{- opt_post_slider_rows }}',
+										'template' => '{{- opt_posts_block_rows }}',
 										'popup-title' => null,
 										'size' => 'small', // small, medium, large
 										'limit' => 0, // limit the number of popup`s that can be added
 									 	'box-options' => array(
-											'opt_post_slider_rows' => array(
+											'opt_posts_block_rows' => array(
 												'label'   => __( 'Row Type', 'unyson' ),
 												'type'    => 'select',
 												'choices' => array(
 													'Title' => 'Title',
-													'Title + Excerpt' => 'Title + Excerpt',
+													'Title+Excerpt' => 'Title+Excerpt',
 													'Categories' => 'Categories',
 													'Tags' => 'Tags',
 													'Read More' => 'Read More',
@@ -137,11 +137,11 @@ $options = array(
 													'Date+Comments+Author' => 'Date+Comments+Author',
 													'Share Boxes' => 'Share Boxes',
 												),
-												
+
 											),
 										),
 									),
-									'opt_post_slider_number_categories'              => array(
+									'opt_posts_block_number_categories'              => array(
 										'label'   => __( 'Number of Categories / Tags', 'unyson' ),
 										'type'    => 'short-select',
 										'value'   => '2',
@@ -182,7 +182,7 @@ $options = array(
 											'21:9' => '21:9',
 											'16:9' => '16:9',
 											'3:2' => '3:2',
-											'4:3' => '4:3',					
+											'4:3' => '4:3',
 											'1:1' => '1:1',
 											'3:4' => '3:4',
 											'2:3' => '2:3',
@@ -197,8 +197,8 @@ $options = array(
 											'unyson' ),
 										'help'       =>__( '', 'unyson'  ),
 									),
-									
-									
+
+
 );
 
 ?>

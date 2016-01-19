@@ -1,145 +1,8 @@
 <?php if (!defined('FW')) die('Forbidden');
 
-/*'opt_posts_block_functionality2'             => array(
-		'type'          => 'addable-box',
-		'label' => __('Add Post Elements', 'unyson'),
-		'desc'  => __('Add / remove / reorder elements to be displayed in each post', 'unyson'),
-		'template'      => '{{- opt_header_element_type.template}}',
-		'box-options' => array(
-											
-			'opt_header_element_type'       => array(
-				'type'         => 'multi-picker',
-				'label'        => false,
-				'size' => 'large',
-				'desc'         => false,
-				'picker'       => array(
-					'template' => array(
-						'label'   => __( 'Choose Row Type', 'unyson' ),
-						'type'    => 'select',
-						'choices' => array(
-							'Thumbnail' => 'Thumbnail',
-							'Title' => 'Title',
-							'Excerpt' => 'Excerpt',
-							'Categories' => 'Categories',
-							'Tags' => 'Tags',
-							'Read More' => 'Read More',
-							'Date' => 'Date',
-							'Author' => 'Author',
-							'Comments' => 'Comments',
-							'Date+Comments' => 'Date+Comments',
-							'Comments+Author' => 'Comments+Author',
-							'Date+Author' => 'Date+Author',
-							'Date+Comments+Author' => 'Date+Comments+Author',
-							'Share Boxes' => 'Share Boxes',
-							'Divider' => 'Divider',
-						),
-					)
-				),
-				'choices'      => array(
-					'Thumbnail'  => array(
-						'opt_large_image_ratio'              => array(
-							'label'   => __( 'Featured Image Ratio', 'unyson' ),
-							'type'    => 'short-select',
-							'value'   => '3:2',
-							'desc'    => __( 'Please select the ratio of the large (featured) image for this posts block (if the thumbnail post element is added above)',
-								'unyson' ),
-							'choices' => array(
-								'16:9' => '16:9',
-								'3:2' => '3:2',
-								'4:3' => '4:3',					
-								'1:1' => '1:1',
-								'3:4' => '3:4',
-								'2:3' => '2:3',
-								'9:16' => '9:16',
-							),
-						),
-						'opt_small_image_ratio'              => array(
-							'label'   => __( 'Featured Image Ratio', 'unyson' ),
-							'type'    => 'short-select',
-							'value'   => '4:3',
-							'desc'    => __( 'Please select the ratio of the small images for this posts block  (if the thumbnail post element is added above)',
-								'unyson' ),
-							'choices' => array(
-								'21:9' => '21:9',
-								'16:9' => '16:9',
-								'3:2' => '3:2',
-								'4:3' => '4:3',					
-								'1:1' => '1:1',
-								'3:4' => '3:4',
-								'2:3' => '2:3',
-								'9:16' => '9:16',
-							),
-						),
-					),
-					'Categories'  => array(
-						'opt_posts_block_number_categories'              => array(
-							'label'   => __( 'Number of Categories Shown', 'unyson' ),
-							'type'    => 'short-select',
-							'value'   => '2',
-							'desc'    => __( 'Please choose how many categories you wish to display',
-								'unyson' ),
-							'choices' => array(
-								'1' => '1',
-								'2' => '2',
-								'3' => '3',
-								'4' => '4',
-								'5' => '5',
-							),
-						),
-					),
-					'Tags'  => array(
-						'opt_posts_block_number_tags' => array(
-							'label'   => __( 'Number of Tags Shown', 'unyson' ),
-							'type'    => 'short-select',
-							'value'   => '2',
-							'desc'    => __( 'Please choose how many categories / tags you wish to display',
-								'unyson' ),
-							'choices' => array(
-								'1' => '1',
-								'2' => '2',
-								'3' => '3',
-								'4' => '4',
-								'5' => '5',
-							),
-						),
-					),
-					'Excerpt'  => array(
-						'opt_posts_block_excerpt_length'  => array(
-							'label' => __( 'Small Post Excerpt Length', 'unyson' ),
-							'type'  => 'text',
-							'value' => '11',
-							'desc'  => __( 'Enter the length of the thumbnail post automatic excerpts in words (if title+excerpt post element is added above)',
-								'unyson' ),
-							'help'       =>__( '', 'unyson'  ),
-						),
-						'opt_posts_block_large_excerpt_length'                      => array(
-							'label' => __( 'Featured Post Excerpt Length', 'unyson' ),
-							'type'  => 'text',
-							'value' => '180',
-							'desc'  => __( 'Enter the length of the featured post automatic excerpt in words (if title+excerpt post element is added above)',
-								'unyson' ),
-							'help'       =>__( 'Set a very large number if you do not want to trim this excerpt', 'unyson'  ),
-						),
-					),
-					'Read More'  => array(
-						'opt_posts_block_read_more_text'                      => array(
-							'label' => __( 'Read More Text', 'unyson' ),
-							'type'  => 'text',
-							'value' => 'Read More',
-							'desc'  => __( 'Enter the text to be used for the read more link  (if the read more post element is added above)',
-							'unyson' ),
-							'help'       =>__( '', 'unyson'  ),
-						),
-					),
-					
-				),
-			),
-		),
-	),*/
-
 $options = array(
-	
-	
+
+
 	'id'    => array( 'type' => 'unique' ),
 	'opt_posts_block_featured_placement'              => array(
 		'label'   => __( 'Featured Post Placement', 'unyson' ),
@@ -205,7 +68,7 @@ $options = array(
 					'Share Boxes' => 'Share Boxes',
 					'Divider' => 'Divider',
 				),
-				
+
 			),
 		),
 	),
@@ -239,7 +102,7 @@ $options = array(
 		'desc'  => __( 'Enter the length of the featured post automatic excerpt in words (if title+excerpt post element is added above)',
 			'unyson' ),
 		'help'       =>__( 'Set a very large number if you do not want to trim this excerpt', 'unyson'  ),
-	),	
+	),
 	'opt_large_image_ratio'              => array(
 		'label'   => __( 'Featured Image Ratio', 'unyson' ),
 		'type'    => 'short-select',
@@ -249,7 +112,7 @@ $options = array(
 		'choices' => array(
 			'16:9' => '16:9',
 			'3:2' => '3:2',
-			'4:3' => '4:3',					
+			'4:3' => '4:3',
 			'1:1' => '1:1',
 			'3:4' => '3:4',
 			'2:3' => '2:3',
@@ -266,7 +129,7 @@ $options = array(
 			'21:9' => '21:9',
 			'16:9' => '16:9',
 			'3:2' => '3:2',
-			'4:3' => '4:3',					
+			'4:3' => '4:3',
 			'1:1' => '1:1',
 			'3:4' => '3:4',
 			'2:3' => '2:3',
@@ -287,7 +150,7 @@ $options = array(
 			'label' => __('No', 'unyson'),
 		),
 	),
-	
+
 	'opt_image_hover_item_1'       => array(
 		'type'         => 'multi-picker',
 		'label'        => false,
@@ -310,7 +173,7 @@ $options = array(
 		'choices'      => array(
 			//Single column
 			'1'  => array(
-				'opt_image_hover_item_1_text'       =>array(
+				'opt_image_hover_item_text'       =>array(
 				    'type'  => 'text',
 				    'value' => 'N',
 				    'attr'  => array( 'class' => 'custom-class', 'data-foo' => 'bar' ),
@@ -321,7 +184,7 @@ $options = array(
 			),
 			//2 col content left choice
 			'2'  => array(
-					'opt_image_hover_item_1_icon'                =>array(
+					'opt_image_hover_item_icon'                =>array(
 					'type'  => 'icon',
 					'value' => 'fa-smile-o',
 					'attr'  => array( 'class' => 'custom-class', 'data-foo' => 'bar' ),
@@ -332,7 +195,7 @@ $options = array(
 			),
 			//2 col content right choice
 			'3'  => array(
-					'opt_image_hover_item_1_image'             => array(
+					'opt_image_hover_item_image'             => array(
 					'label' => __( '', 'unyson' ),
 					'desc'  => __( 'Please upload the image you wish to use',
 						'unyson' ),
@@ -341,8 +204,8 @@ $options = array(
 							'unyson' ),
 				),
 			),
-								
-			
+
+
 		),
 		'show_borders' => false,
 	),
@@ -368,7 +231,7 @@ $options = array(
 		'choices'      => array(
 			//Single column
 			'1'  => array(
-				'opt_image_hover_item_2_text'       =>array(
+				'opt_image_hover_item_text'       =>array(
 				    'type'  => 'text',
 				    'value' => 'N',
 				    'attr'  => array( 'class' => 'custom-class', 'data-foo' => 'bar' ),
@@ -379,7 +242,7 @@ $options = array(
 			),
 			//2 col content left choice
 			'2'  => array(
-					'opt_image_hover_item_2_icon'                =>array(
+					'opt_image_hover_item_icon'                =>array(
 					'type'  => 'icon',
 					'value' => 'fa-smile-o',
 					'attr'  => array( 'class' => 'custom-class', 'data-foo' => 'bar' ),
@@ -390,7 +253,7 @@ $options = array(
 			),
 			//2 col content right choice
 			'3'  => array(
-					'opt_image_hover_item_2_image'             => array(
+					'opt_image_hover_item_image'             => array(
 					'label' => __( '', 'unyson' ),
 					'desc'  => __( 'Please upload the image you wish to use',
 						'unyson' ),
@@ -399,8 +262,8 @@ $options = array(
 							'unyson' ),
 				),
 			),
-								
-			
+
+
 		),
 		'show_borders' => false,
 	),
@@ -415,7 +278,7 @@ $options = array(
 	'opt_divider_type'              => array(
 	    'type'  => 'image-picker',
 	    'value' => 'divider-dotted',
-	   
+
 	    'label' => __('Divider Type', 'unyson'),
 	    'desc'  => __('Please select the type of divider you wish to use. ', 'unyson'),
 	    'choices' => array(
