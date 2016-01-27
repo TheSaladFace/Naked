@@ -35,7 +35,6 @@ $divider_type=$divider_uri.'/static/img/'.$atts['opt_divider_type'];
 
 /** shortcode specific variables **/
 $y_button_offset=$atts['opt_posts_block_prev_next_position'];
-$max_posts=$atts['opt_posts_block_number_posts'];
 $number_slides=$atts['opt_posts_block_number_slides'];
 $show_posts_block_buttons=$atts['opt_posts_block_buttons'];
 if(!$show_posts_block_buttons){	$hide_string="hidden";}else{$hide_string="";}
@@ -46,7 +45,7 @@ $hover_bottom=thshpr_get_image_hover_string($atts['opt_image_hover_item_2']);
 
 /** image ratios **/
 $small_image_ratio=$atts['opt_small_image_ratio'];
-$width=702; //note, this is large even for small images because of  responsive sizes.
+$width=$atts['opt_small_image_max_width'];
 $small_height=thshpr_generate_aspect_height($small_image_ratio,$width);
 ?>
 
@@ -73,7 +72,6 @@ $small_height=thshpr_generate_aspect_height($small_image_ratio,$width);
 					<?php
 					$args = array(
 						'cat' => $post_categories,
-						'posts_per_page' => $max_posts,
 						'orderby' => $order_by);
 					/** WP Query **/
 					$the_query = new WP_Query( $args );

@@ -8,7 +8,7 @@ if (!defined('FW')) die('Forbidden');
 
 /** Paths **/
 $uri = fw_get_template_customizations_directory_uri('/extensions/shortcodes/shortcodes/posts-block-column');
-$shortcodes_shared_uri = fw_get_template_customizations_directory_uri('/extensions/shortcodes/shortcodes'); //the place for global shortcode templates + css
+$shortcodes_shared_uri = fw_get_template_customizations_directory_uri('/extensions/shortcodes'); //the place for global shortcode templates + css
 $divider_uri=fw_get_template_customizations_directory_uri('/extensions/shortcodes/shortcodes/divider');
 
 /** Style and JS Includes **/
@@ -38,13 +38,13 @@ $hover_bottom=thshpr_get_image_hover_string($atts['opt_image_hover_item_2']);
 
 /** shortcode specific variables **/
 $max_posts=$atts['opt_posts_block_number_posts'];
-$small_width=$atts['opt_posts_block_small_image_width'];
+$small_width=$atts['opt_small_image_max_width'];
 $large_post_top=$atts["opt_posts_block_large_top"];
 
 /** image ratios **/
 $large_image_ratio=$atts['opt_large_image_ratio'];
 $small_image_ratio=$atts['opt_small_image_ratio'];
-$width=700; //note, this is large even for small images because of responsive sizes.
+$width=$atts['opt_large_image_max_width'];
 $large_height= thshpr_generate_aspect_height($large_image_ratio,$width);
 $small_height= thshpr_generate_aspect_height($small_image_ratio,$small_width);
 

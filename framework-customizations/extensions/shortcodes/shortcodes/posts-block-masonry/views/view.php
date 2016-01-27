@@ -8,7 +8,7 @@ if (!defined('FW')) die('Forbidden');
 
 /** Paths **/
 $uri = fw_get_template_customizations_directory_uri('/extensions/shortcodes/shortcodes/posts-block-masonry');
-$shortcodes_shared_uri = fw_get_template_customizations_directory_uri('/extensions/shortcodes/shortcodes'); //the place for global shortcode templates + css
+$shortcodes_shared_uri = fw_get_template_customizations_directory_uri('/extensions/shortcodes'); //the place for global shortcode templates + css
 $divider_uri=fw_get_template_customizations_directory_uri('/extensions/shortcodes/shortcodes/divider');
 
 /** Style and JS Includes **/

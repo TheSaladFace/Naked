@@ -2,6 +2,98 @@
 
 $options = array(
 
+	/* options that all posts blocks + posts sliders use */
+	'general_options_box' => array(
+    	'type' => 'tab',
+		'title' => __('General', 'thshpr'),
+    	'options' => array(
+
+        	fw_ext('shortcodes')->get_options('general-shared-options'),
+
+	    ),
+	),
+
+	/* post-elements options */
+	'post_elements_options_box' => array(
+    	'type' => 'tab',
+		'title' => __('Post Element', 'thshpr'),
+    	'options' => array(
+
+			fw_ext('shortcodes')->get_options('post-elements-shared-options'),
+
+		),
+	),
+
+	/* images options */
+	'images_options_box' => array(
+    	'type' => 'tab',
+		'title' => __('Image', 'thshpr'),
+    	'options' => array(
+
+			fw_ext('shortcodes')->get_options('image-shared-options'),
+
+		),
+	),
+
+	/* pagination options */
+	'pagination_options_box' => array(
+    	'type' => 'tab',
+		'title' => __('Pagination', 'thshpr'),
+    	'options' => array(
+
+			fw_ext('shortcodes')->get_options('pagination-shared-options'),
+
+		),
+	),
+
+	/* options specific to this shortcode */
+	'other_options_box' => array(
+    	'type' => 'tab',
+		'title' => __('Other', 'thshpr'),
+    	'options' => array(
+
+			'opt_posts_block_right_cell_height' => array(
+				'label' => __( 'Right Cell Height', 'thshpr' ),
+				'type' => 'text',
+				'value' => '300',
+				'desc' => __( 'Enter the height in pixels of the right cell (containing text, meta info etc). This is needed for vertical centering.','thshpr' ),
+				'help' =>__( '', 'thshpr'  ),
+			),
+
+			'opt_posts_block_show_divider'=>array(
+				'type'  => 'switch',
+				'value' => 'Yes',
+				'label' => __('Show Divider', 'thshpr'),
+				'desc'  => __('Show the divider between posts', 'thshpr'),
+				'left-choice' => array(
+					'value' => 'Yes',
+					'label' => __('Yes', 'thshpr'),
+				),
+				'right-choice' => array(
+					'value' => 'No',
+					'label' => __('No', 'thshpr'),
+				),
+				'help' =>__( 'This is an optional divider between each post', 'thshpr'  ),
+			),
+
+		),
+	),
+
+);
+/*
+$options = array(
+
+	/* options that all posts blocks + posts sliders use *//*
+	'general_options_box' => array(
+    	'type' => 'tab',
+		'title' => __('General', 'thshpr'),
+    	'options' => array(
+
+        	fw_ext('shortcodes')->get_options('general-shared-options'),
+
+	    ),
+	),
+
 	'id'    => array( 'type' => 'unique' ),
 	'opt_posts_block_number_posts'              =>array(
 		'type'  => 'text',

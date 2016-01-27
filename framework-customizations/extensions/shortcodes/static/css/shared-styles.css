@@ -93,10 +93,6 @@
 	 /*dropcap (may be removed now) */
 	  .focus .dropcap{padding-right: 8px!important;font-family: Playfair Display;font-size: 80px!important;color:#222;font-style:normal;}
 
-
-
-
-
 	/*social media icons*/
 	.share-boxes{font-size: 14px; font-style: italic; color: #a6a6a6;}
 	.absolute-container{position:relative;display: inline-block;}
@@ -132,7 +128,8 @@
 	 .pinterest-inner:hover{background-color:#b51d23;}
 
 	/*pagination*/
-	.page-nav{    margin-top: 10px; margin-bottom: 50px;}
+	.page-nav{margin-top: 10px; margin-bottom: 50px;}
+	.page-nav-standard{margin-top:40px;}
 	.nav-links{position: relative;text-align:center;}
 	.page-numbers,.page-numbers-faded { padding: 10px 15px 10px 16px;  margin-left: 0px;  color: #888;font-size:15px;-webkit-transition: all .35s linear; -moz-transition:  all .35s linear;  -o-transition:  all .35s linear;  -ms-transition:  all .35s linear;  transition:  all .35s linear;}
 	.page-numbers-faded.prev{padding-right:14px;}

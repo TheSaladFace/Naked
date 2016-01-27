@@ -9,7 +9,7 @@ $style_string='background-image: url('.$divider_type.'.png); height:8px;';
 $item_string.='
 
 <div class="divider-container">
-    <div class="divider-border" style='.$style_string.'></div>
+    <div class="divider-border" style="'.$style_string.'"></div>
 </div>';
 
 ?>

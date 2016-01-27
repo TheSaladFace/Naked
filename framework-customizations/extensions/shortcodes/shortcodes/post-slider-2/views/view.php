@@ -33,8 +33,7 @@ $read_more=$atts['opt_posts_block_read_more_text'];
 $excerpt_length=$atts["opt_posts_block_excerpt_length"];
 
 /** shortcode specific variables **/
-$max_posts=$atts['opt_posts_block_number_posts'];
-$number_slides=$atts['opt_posts_slider_number_slides'];
+$number_slides=$atts['opt_posts_block_number_slides'];
 $components_elements_hover=$atts['opt_posts_block_functionality_hover'];
 $show_initial_slide_rows=$atts['opt_posts_block_initial'];
 $show_posts_block_buttons=$atts['opt_posts_block_buttons'];
@@ -73,7 +72,6 @@ $small_height=thshpr_generate_aspect_height($small_image_ratio,$width);
 
 	$args = array(
 		'cat' => $post_categories,
-		'posts_per_page' => $max_posts,
 		'orderby' => $order_by);
 		/** WP Query **/
 	$the_query = new WP_Query( $args );

@@ -33,13 +33,9 @@ $divider_type=$divider_uri.'/static/img/'.$atts['opt_divider_type'];
 $show_hover_effects="No";
 $cell_class="focus";
 
-/** shortcode specific variables **/
-$max_posts=$atts['opt_posts_block_number_posts'];
-$number_slides=$atts['opt_posts_block_number_slides'];
-
 /** image ratios **/
 $small_image_ratio=$atts['opt_small_image_ratio'];
-$width=1130; //note, this is large even for small images because of  responsive sizes.
+$width=$atts['opt_small_image_max_width'];
 $small_height=thshpr_generate_aspect_height($small_image_ratio,$width);
 ?>
 
@@ -51,7 +47,6 @@ $small_height=thshpr_generate_aspect_height($small_image_ratio,$width);
 			<?php
 			$args = array(
 				'cat' => $post_categories,
-				'posts_per_page' => $max_posts,
 				'orderby' => $order_by);
 
 			// The Query
