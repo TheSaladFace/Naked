@@ -48,6 +48,8 @@ $width=$atts['opt_large_image_max_width'];
 $large_height= thshpr_generate_aspect_height($large_image_ratio,$width);
 $small_height= thshpr_generate_aspect_height($small_image_ratio,$small_width);
 
+echo$atts['opt_small_image_ratio'];
+
 
 //unique id
 /*$unique_id='id-'.$atts['id'];

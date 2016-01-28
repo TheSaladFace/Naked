@@ -61,6 +61,15 @@ function thshpr_stripped_excerpt($limit)
 }
 function thshpr_generate_aspect_height($ratio,$width)
 {
+	$height=round($ratio*$width);
+	/*if($ratio=="3:1")
+	{
+		$height=round(1/3*$width);
+	}
+	if($ratio=="24:9")
+	{
+		$height=round(9/24*$width);
+	}
 	if($ratio=="21:9")
 	{
 		$height=round(9/21*$width);
@@ -92,7 +101,7 @@ function thshpr_generate_aspect_height($ratio,$width)
 	else if($ratio=="9:16")
 	{
 		$height=round(16/9*$width);
-	}
+	}*/
 
 	return $height;
 
