@@ -1,4 +1,10 @@
-<?php if (!defined('FW')) die('Forbidden');
+<?php
+/**
+ * Options for first posts slider shortcode. Grouped and reused options found in options
+ * folder in root shortcodes directory
+ */
+
+if (!defined('FW')) die('Forbidden');
 
 $options = array(
 
@@ -90,7 +96,6 @@ $options = array(
 
 		),
 	),
-
 );
 
 ?>

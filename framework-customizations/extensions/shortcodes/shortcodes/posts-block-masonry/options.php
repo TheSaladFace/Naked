@@ -1,4 +1,10 @@
-<?php if (!defined('FW')) die('Forbidden');
+<?php
+/**
+ * Options for posts block masonry shortcode. Grouped and reused options found in options
+ * folder in root shortcodes directory
+ */
+
+if (!defined('FW')) die('Forbidden');
 
 $options = array(
 

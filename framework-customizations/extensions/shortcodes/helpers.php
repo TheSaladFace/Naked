@@ -62,55 +62,12 @@ function thshpr_stripped_excerpt($limit)
 function thshpr_generate_aspect_height($ratio,$width)
 {
 	$height=round($ratio*$width);
-	/*if($ratio=="3:1")
-	{
-		$height=round(1/3*$width);
-	}
-	if($ratio=="24:9")
-	{
-		$height=round(9/24*$width);
-	}
-	if($ratio=="21:9")
-	{
-		$height=round(9/21*$width);
-	}
-	if($ratio=="16:9")
-	{
-		$height=round(9/16*$width);
-	}
-	else if($ratio=="3:2")
-	{
-		$height=round(2/3*$width);
-	}
-	else if($ratio=="4:3")
-	{
-		$height=round(3/4*$width);
-	}
-	else if($ratio=="1:1")
-	{
-		$height=round(1/1*$width);
-	}
-	else if($ratio=="3:4")
-	{
-		$height=round(4/3*$width);
-	}
-	else if($ratio=="2:3")
-	{
-		$height=round(3/2*$width);
-	}
-	else if($ratio=="9:16")
-	{
-		$height=round(16/9*$width);
-	}*/
-
 	return $height;
-
 }
 
 function thshpr_generate_categories()
 {
 	$categories = get_the_category();
-	//var_dump($categories);
 	$separator = ' ';
 	$output = '';
 	if($categories)
