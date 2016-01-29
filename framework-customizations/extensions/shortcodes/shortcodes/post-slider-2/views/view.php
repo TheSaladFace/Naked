@@ -11,13 +11,13 @@ $uri = fw_get_template_customizations_directory_uri('/extensions/shortcodes/shor
 $shortcodes_shared_uri = fw_get_template_customizations_directory_uri('/extensions/shortcodes'); //the place for global shortcode templates + css
 $divider_uri=fw_get_template_customizations_directory_uri('/extensions/shortcodes/shortcodes/divider');
 
-wp_enqueue_style('shared-shortcode-styles', $shortcodes_shared_uri . '/static/css/shared-styles.css',null, null,'screen');
-wp_enqueue_style('slick-css', $uri . '/static/css/slick.css');
-wp_enqueue_style('slick-2-css-theme', $uri . '/static/css/slick-2-theme.css');
-wp_enqueue_script('slick', $uri . '/static/js/slick.min.js',array('jquery'),'',true );
-wp_enqueue_script('matchheight', $uri . '/static/js/jquery.matchHeight-min.js',array('jquery','slick'),'',true );
-wp_enqueue_script('slider-2-theme-mods', $uri . '/static/js/slider-2-mods.js',array('jquery','slick','matchheight'),'',true );
-wp_enqueue_script('slider-2-init', $uri . '/static/js/slider-2-init.js',array('jquery','slick','slider-2-theme-mods'),'',true );
+wp_enqueue_style('thshpr-shared-shortcode-styles', $shortcodes_shared_uri . '/static/css/shared-styles.css',null, null,'screen');
+wp_enqueue_style('thshpr-slick-css', $uri . '/static/css/slick.css');
+wp_enqueue_style('thshpr-post-slider-2', $uri . '/static/css/style.css');
+wp_enqueue_script('thshpr-slick', $uri . '/static/js/slick.min.js',array('jquery'),'',true );
+wp_enqueue_script('thshpr-matchheight', $uri . '/static/js/jquery.matchHeight-min.js',array('jquery','thshpr-slick'),'',true );
+wp_enqueue_script('thshpr-slider-2-theme-mods', $uri . '/static/js/slider-2-mods.js',array('jquery','thshpr-slick','thshpr-matchheight'),'',true );
+wp_enqueue_script('thshpr-slider-2-init', $uri . '/static/js/slider-2-init.js',array('jquery','thshpr-slick','thshpr-slider-2-theme-mods'),'',true );
 
 /** Generate category id string **/
 $post_categories=$atts['opt_posts_block_categories'];

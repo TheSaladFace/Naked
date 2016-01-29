@@ -12,11 +12,11 @@ $shortcodes_shared_uri = fw_get_template_customizations_directory_uri('/extensio
 $divider_uri=fw_get_template_customizations_directory_uri('/extensions/shortcodes/shortcodes/divider');
 
 /** Style and JS Includes **/
-wp_enqueue_style('grid-css', $uri . '/static/css/style.css');
-wp_enqueue_script('pagination-adjust', $uri . '/static/js/pagination-adjust.js',array('jquery'),'',true );
-wp_enqueue_style('shared-shortcode-styles', $shortcodes_shared_uri . '/static/css/shared-styles.css',null, null,'screen');
-wp_enqueue_script('masonry', $uri . '/static/js/masonry.pkgd.min.js',array('jquery'),'',true );
-wp_enqueue_script('masonry-init', $uri . '/static/js/masonry-init.js',array('jquery','masonry'),'',true );
+wp_enqueue_style('thshpr-posts-block-masonry', $uri . '/static/css/style.css');
+wp_enqueue_script('thshpr-pagination-adjust', $uri . '/static/js/pagination-adjust.js',array('jquery'),'',true );
+wp_enqueue_style('thshpr-shared-shortcode-styles', $shortcodes_shared_uri . '/static/css/shared-styles.css',null, null,'screen');
+wp_enqueue_script('thshpr-masonry', $uri . '/static/js/masonry.pkgd.min.js',array('jquery'),'',true );
+wp_enqueue_script('thshpr-masonry-init', $uri . '/static/js/masonry-init.js',array('jquery','thshpr-masonry'),'',true );
 
 /** Generate category id string **/
 $post_categories=$atts["opt_posts_block_categories"];

@@ -12,14 +12,14 @@ $shortcodes_shared_uri = fw_get_template_customizations_directory_uri('/extensio
 $divider_uri=fw_get_template_customizations_directory_uri('/extensions/shortcodes/shortcodes/divider');
 
 /** Style and JS Includes **/
-wp_enqueue_style('standard-blog', $uri . '/static/css/style.css');
-wp_enqueue_style('shared-shortcode-styles', $shortcodes_shared_uri . '/static/css/shared-styles.css',null, null,'screen');
-wp_enqueue_script('match-height', $uri . '/static/js/jquery.matchHeight-min.js',array('jquery'),'',true );
-wp_enqueue_script('strap-point', $uri . '/static/js/strapPoint.min.js',array('jquery'),'',true );
+wp_enqueue_style('thshpr-posts-block-standard-blog', $uri . '/static/css/style.css');
+wp_enqueue_style('thshpr-shared-shortcode-styles', $shortcodes_shared_uri . '/static/css/shared-styles.css',null, null,'screen');
+wp_enqueue_script('thshpr-match-height', $uri . '/static/js/jquery.matchHeight-min.js',array('jquery'),'',true );
+wp_enqueue_script('thshpr-strap-point', $uri . '/static/js/strapPoint.min.js',array('jquery'),'',true );
 /** The equal heights is a little tricky. We must make the two columns equal heights to allow for vertical centering
 but we only want this to apply when the columns are parallel (not at tablet / mobile after bootstrap makes a single column).
 So we need to use match height and strap point this coding is contained in inits.js **/
-wp_enqueue_script('blog-inits', $uri . '/static/js/inits.js',array('jquery','match-height','strap-point'),'',true );
+wp_enqueue_script('blog-inits', $uri . '/static/js/inits.js',array('jquery','thshpr-match-height','thshpr-strap-point'),'',true );
 
 /** Generate category id string **/
 $post_categories=$atts["opt_posts_block_categories"];
@@ -56,12 +56,10 @@ $small_width=$atts['opt_small_image_max_width'];
 $large_width=$atts['opt_large_image_max_width'];//needs adding to options
 $large_height= thshpr_generate_aspect_height($large_image_ratio,$large_width);
 $small_height= thshpr_generate_aspect_height($small_image_ratio,$small_width);
-
 ?>
 
-
-
 <div class="featured-posts-grid grid-2-col blog-standard <?php echo $unique_id; ?>">
+
 <?php
 Global $wp_query;
 /** Define custom query parameters **/
