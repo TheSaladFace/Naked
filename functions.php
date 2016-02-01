@@ -5,110 +5,89 @@
  * @package naked
  */
 
-
-
-
+/**
+  * Generates hover string from the passed option array
+  * @requires $opt_image_hover_item - multidimensional array containing user choice for hover
+  */
+function thshpr_get_image_hover_string($opt_image_hover_item)
+{
+	$hover_string='';
+	if($opt_image_hover_item['template']=="1")//text
+	{
+		$hover_string=$opt_image_hover_item[1]['opt_image_hover_item_text'];
+	}
+	else if($opt_image_hover_item['template']=="2")//icon
+	{
+		$hover_string='<i class="'.$opt_image_hover_item[2]['opt_image_hover_item_icon'].'" data-value="'.$opt_image_hover_item['2']['opt_image_hover_item_icon'].'"></i>';
+	}
+	else if($opt_image_hover_item['template']=="3")//image
+	{
+		$hover_string='<img src="'.$opt_image_hover_item[3]['opt_image_hover_item_image']['url'].'">';
+	}
+	return $hover_string;
+}
 
 /**
- * Set the content width based on the theme's design and stylesheet.
+ * Converts array of category id's into a comma delimited variable. Used when outputting category meta
+ * @requires $post_categories - array containing category id's
  */
-if ( ! isset( $content_width ) )
-	$content_width = 880; /* pixels */
-
-
-function naked_template_generate_aspect_height($ratio,$width)
+function thshpr_get_category_ids_string($post_categories)
 {
-	if($ratio=="21:9")
+	$strcats="";
+	if(count($post_categories)>1)
 	{
-		$height=round(9/21*$width);
+		foreach($post_categories as $value)
+		{
+			$strcats.=$value.",";
+		}
 	}
-	if($ratio=="16:9")
+	else if(count($post_categories)==1)
 	{
-		$height=round(9/16*$width);
+		$strcats=$post_categories[0];
 	}
-	else if($ratio=="3:2")
+	else
 	{
-		$height=round(2/3*$width);
+		$strcats=1;
 	}
-	else if($ratio=="4:3")
-	{
-		$height=round(3/4*$width);
-	}
-	else if($ratio=="1:1")
-	{
-		$height=round(1/1*$width);
-	}
-	else if($ratio=="3:4")
-	{
-		$height=round(4/3*$width);
-	}
-	else if($ratio=="2:3")
-	{
-		$height=round(3/2*$width);
-	}
-	else if($ratio=="9:16")
-	{
-		$height=round(16/9*$width);
-	}
+	return $strcats;
+}
 
+/**
+ * Strips an excerpt to a desired length
+ * @requires $limit - number of words maximum for the excerpt
+ */
+function thshpr_stripped_excerpt($limit)
+{
+	$excerpt = get_the_excerpt();
+	$excerpt = strip_tags($excerpt);
+	$excerpt = explode(' ', $excerpt, $limit);
+
+	 if (count($excerpt)>=$limit) {
+	 array_pop($excerpt);
+	 $excerpt = implode(" ",$excerpt).'...';
+	 } else {
+	 $excerpt = implode(" ",$excerpt);
+	 }
+	 $excerpt = preg_replace('`[[^]]*]`','',$excerpt);
+	 return $excerpt;
+}
+
+/**
+ * Generates height given a width and aspect ratio
+ * @requires $ratio,$width
+ */
+function thshpr_generate_aspect_height($ratio,$width)
+{
+	$height=round($ratio*$width);
 	return $height;
-
 }
-function naked_template_generate_image_from_options_url_only($width,$height,$id) //less chinanigans here with id
-{
-	// Get upload directory info
-	$upload_info = wp_upload_dir();
-	$upload_dir  = $upload_info['basedir'];
-	$upload_url  = $upload_info['baseurl'];
 
-	// Get file path info
-	$path = get_attached_file( $id );
-	$path_info = pathinfo( $path );
-	$ext = $path_info['extension'];
-	$rel_path  = str_replace( array( $upload_dir, ".$ext" ), '', $path );
-
-	//large image
-	$suffix    = "{$width}x{$height}";
-	$dest_path = "{$upload_dir}{$rel_path}-{$suffix}.{$ext}";
-	$image_url  = "{$upload_url}{$rel_path}-{$suffix}.{$ext}";
-
-	if ( !file_exists( $dest_path ) )
-	{
-		// Generate thumbnail
-		image_make_intermediate_size( $path, $width, $height, true );
-	}
-
-	$item_string=$image_url;
-	return($item_string);
-}
-function naked_template_generate_image_from_options($width,$height,$id) //less chinanigans here with id
-{
-	// Get upload directory info
-	$upload_info = wp_upload_dir();
-	$upload_dir  = $upload_info['basedir'];
-	$upload_url  = $upload_info['baseurl'];
-
-	// Get file path info
-	$path = get_attached_file( $id );
-	$path_info = pathinfo( $path );
-	$ext = $path_info['extension'];
-	$rel_path  = str_replace( array( $upload_dir, ".$ext" ), '', $path );
-
-	//large image
-	$suffix    = "{$width}x{$height}";
-	$dest_path = "{$upload_dir}{$rel_path}-{$suffix}.{$ext}";
-	$image_url  = "{$upload_url}{$rel_path}-{$suffix}.{$ext}";
-
-	if ( !file_exists( $dest_path ) )
-	{
-		// Generate thumbnail
-		image_make_intermediate_size( $path, $width, $height, true );
-	}
-
-	$item_string='<img src="'.$image_url.'" width="'.$width.'" height="'.$height.'">';
-	return($item_string);
-}
-function naked_template_generate_image($width,$height,$id)
+/**
+ * Generates an image given width, height and image id. If image already exists a new one won't be created
+ * at those dimensions.
+ * @requires $width,$height,$id
+ */
+function thshpr_generate_image($width,$height,$id)
 {
 	// Get upload directory info
 	$upload_info = wp_upload_dir();
@@ -136,6 +115,16 @@ function naked_template_generate_image($width,$height,$id)
 	$item_string='<img src="'.$image_url.'" width="'.$width.'" height="'.$height.'">';
 	return($item_string);
 }
+
+
+/**
+ * Set the content width based on the theme's design and stylesheet.
+ */
+if ( ! isset( $content_width ) )
+	$content_width = 880; /* pixels */
+
+
+
 
 if ( ! function_exists( 'naked_setup' ) ) :
 /**
@@ -283,318 +272,6 @@ function naked_widgets_init() {
 
 }
 
-function nude_generate_image_height($ratio,$width)
-{
-	$height='';
-	if($ratio=="21:9")
-	{
-		$height=9/21*$width;
-	}
-	if($ratio=="16:9")
-	{
-		$height=9/16*$width;
-	}
-	else if($ratio=="3:2")
-	{
-		$height=2/3*$width;
-	}
-	else if($ratio=="4:3")
-	{
-		$height=3/4*$width;
-	}
-	else if($ratio=="1:1")
-	{
-		$height=1/1*$width;
-	}
-	else if($ratio=="3:4")
-	{
-		$height=4/3*$width;
-	}
-	else if($ratio=="2:3")
-	{
-		$height=3/2*$width;
-	}
-	else if($ratio=="9:16")
-	{
-		$height=16/9*$width;
-	}
-
-
-
-	return $height;
-}
-
-
-/*add_action( 'widgets_init', 'naked_widgets_init' );
-
-function generate_user_widgets($widget_components)
-{
-	foreach ($widget_components as $key=>$value)
-	{
-		switch($value['opt_header_element_type']['template'])
-		{
-			case 'Widget Row (Single Column)':
-
-				if(function_exists( 'fw_get_db_settings_option' )) //check for options framework
-				{
-					$layout="Single Column";
-					$first_widget_name=$value['opt_header_element_type']['Widget Row (Single Column)']["widget_first"];
-					$first_widget_id=str_replace(" ", "-", $first_widget_name);
-
-					register_sidebar( array(
-						'name'          =>$first_widget_name,
-						'id'            => $first_widget_id,
-						'before_widget' => '',
-						'after_widget'  => '',
-						'before_title'  => '',
-						'after_title'   => '',
-					) );
-
-				}
-				else
-				{
-
-				}
-
-			break;
-
-			case 'Widget Row (1/2-1/2)':
-
-				if(function_exists( 'fw_get_db_settings_option' )) //check for options framework
-				{
-					$layout="1/2-1/2";
-					$first_widget_name=$value['opt_header_element_type']['Widget Row (1/2-1/2)']["widget_first"];
-					$second_widget_name=$value['opt_header_element_type']['Widget Row (1/2-1/2)']["widget_second"];
-					$first_widget_id=str_replace(" ", "-", $first_widget_name);
-					$second_widget_id=str_replace(" ", "-", $second_widget_name);
-
-					register_sidebar( array(
-						'name'          =>$first_widget_name,
-						'id'            => $first_widget_id,
-						'before_widget' => '',
-						'after_widget'  => '',
-						'before_title'  => '',
-						'after_title'   => '',
-					) );
-
-					register_sidebar( array(
-						'name'          =>$second_widget_name,
-						'id'            => $second_widget_id,
-						'before_widget' => '',
-						'after_widget'  => '',
-						'before_title'  => '',
-						'after_title'   => '',
-					) );
-
-				}
-				else
-				{
-
-				}
-
-			break;
-
-			case 'Widget Row (1/3-1/3-1/3)':
-
-				if(function_exists( 'fw_get_db_settings_option' )) //check for options framework
-				{
-					$layout="1/3-1/3-1/3";
-					$first_widget_name=$value['opt_header_element_type']['Widget Row (1/3-1/3-1/3)']["widget_first"];
-					$second_widget_name=$value['opt_header_element_type']['Widget Row (1/3-1/3-1/3)']["widget_second"];
-					$third_widget_name=$value['opt_header_element_type']['Widget Row (1/3-1/3-1/3)']["widget_third"];
-					$first_widget_id=str_replace(" ", "-", $first_widget_name);
-					$second_widget_id=str_replace(" ", "-", $second_widget_name);
-					$third_widget_id=str_replace(" ", "-", $third_widget_name);
-
-					register_sidebar( array(
-						'name'          =>$first_widget_name,
-						'id'            => $first_widget_id,
-						'before_widget' => '',
-						'after_widget'  => '',
-						'before_title'  => '',
-						'after_title'   => '',
-					) );
-
-					register_sidebar( array(
-						'name'          =>$second_widget_name,
-						'id'            => $second_widget_id,
-						'before_widget' => '',
-						'after_widget'  => '',
-						'before_title'  => '',
-						'after_title'   => '',
-					) );
-
-					register_sidebar( array(
-						'name'          =>$third_widget_name,
-						'id'            => $third_widget_id,
-						'before_widget' => '',
-						'after_widget'  => '',
-						'before_title'  => '',
-						'after_title'   => '',
-					) );
-
-				}
-				else
-				{
-
-				}
-
-			break;
-
-			case 'Widget Row (1/4-1/4-1/2)':
-
-				if(function_exists( 'fw_get_db_settings_option' )) //check for options framework
-				{
-					$layout="1/4-1/4-1/2";
-					$first_widget_name=$value['opt_header_element_type']['Widget Row (1/4-1/4-1/2)']["widget_first"];
-					$second_widget_name=$value['opt_header_element_type']['Widget Row (1/4-1/4-1/2)']["widget_second"];
-					$third_widget_name=$value['opt_header_element_type']['Widget Row (1/4-1/4-1/2)']["widget_third"];
-					$first_widget_id=str_replace(" ", "-", $first_widget_name);
-					$second_widget_id=str_replace(" ", "-", $second_widget_name);
-					$third_widget_id=str_replace(" ", "-", $third_widget_name);
-
-					register_sidebar( array(
-						'name'          =>$first_widget_name,
-						'id'            => $first_widget_id,
-						'before_widget' => '',
-						'after_widget'  => '',
-						'before_title'  => '',
-						'after_title'   => '',
-					) );
-
-					register_sidebar( array(
-						'name'          =>$second_widget_name,
-						'id'            => $second_widget_id,
-						'before_widget' => '',
-						'after_widget'  => '',
-						'before_title'  => '',
-						'after_title'   => '',
-					) );
-
-					register_sidebar( array(
-						'name'          =>$third_widget_name,
-						'id'            => $third_widget_id,
-						'before_widget' => '',
-						'after_widget'  => '',
-						'before_title'  => '',
-						'after_title'   => '',
-					) );
-
-				}
-				else
-				{
-
-				}
-
-			break;
-
-			case 'Widget Row (1/2-1/2-1/4)':
-
-				if(function_exists( 'fw_get_db_settings_option' )) //check for options framework
-				{
-					$layout="1/2-1/2-1/4";
-					$first_widget_name=$value['opt_header_element_type']['Widget Row (1/2-1/2-1/4)']["widget_first"];
-					$second_widget_name=$value['opt_header_element_type']['Widget Row (1/2-1/2-1/4)']["widget_second"];
-					$third_widget_name=$value['opt_header_element_type']['Widget Row (1/2-1/2-1/4)']["widget_third"];
-					$first_widget_id=str_replace(" ", "-", $first_widget_name);
-					$second_widget_id=str_replace(" ", "-", $second_widget_name);
-					$third_widget_id=str_replace(" ", "-", $third_widget_name);
-
-					register_sidebar( array(
-						'name'          =>$first_widget_name,
-						'id'            => $first_widget_id,
-						'before_widget' => '',
-						'after_widget'  => '',
-						'before_title'  => '',
-						'after_title'   => '',
-					) );
-
-					register_sidebar( array(
-						'name'          =>$second_widget_name,
-						'id'            => $second_widget_id,
-						'before_widget' => '',
-						'after_widget'  => '',
-						'before_title'  => '',
-						'after_title'   => '',
-					) );
-
-					register_sidebar( array(
-						'name'          =>$third_widget_name,
-						'id'            => $third_widget_id,
-						'before_widget' => '',
-						'after_widget'  => '',
-						'before_title'  => '',
-						'after_title'   => '',
-					) );
-
-				}
-				else
-				{
-
-				}
-
-			break;
-
-			case 'Widget Row (1/4-1/4-1/4-1/4)':
-
-				if(function_exists( 'fw_get_db_settings_option' )) //check for options framework
-				{
-					$layout="1/4-1/4-1/4-1/4";
-					$first_widget_name=$value['opt_header_element_type']['Widget Row (1/4-1/4-1/4-1/4)']["widget_first"];
-					$second_widget_name=$value['opt_header_element_type']['Widget Row (1/4-1/4-1/4-1/4)']["widget_second"];
-					$third_widget_name=$value['opt_header_element_type']['Widget Row (1/4-1/4-1/4-1/4)']["widget_third"];
-					$fourth_widget_name=$value['opt_header_element_type']['Widget Row (1/4-1/4-1/4-1/4)']["widget_fourth"];
-					$first_widget_id=str_replace(" ", "-", $first_widget_name);
-					$second_widget_id=str_replace(" ", "-", $second_widget_name);
-					$third_widget_id=str_replace(" ", "-", $third_widget_name);
-					$fourth_widget_id=str_replace(" ", "-", $fourth_widget_name);
-
-					register_sidebar( array(
-						'name'          =>$first_widget_name,
-						'id'            => $first_widget_id,
-						'before_widget' => '',
-						'after_widget'  => '',
-						'before_title'  => '',
-						'after_title'   => '',
-					) );
-
-					register_sidebar( array(
-						'name'          =>$second_widget_name,
-						'id'            => $second_widget_id,
-						'before_widget' => '',
-						'after_widget'  => '',
-						'before_title'  => '',
-						'after_title'   => '',
-					) );
-
-					register_sidebar( array(
-						'name'          =>$third_widget_name,
-						'id'            => $third_widget_id,
-						'before_widget' => '',
-						'after_widget'  => '',
-						'before_title'  => '',
-						'after_title'   => '',
-					) );
-
-					register_sidebar( array(
-						'name'          =>$fourth_widget_name,
-						'id'            => $fourth_widget_id,
-						'before_widget' => '',
-						'after_widget'  => '',
-						'before_title'  => '',
-						'after_title'   => '',
-					) );
-
-				}
-				else
-				{
-
-				}
-
-			break;
-		}
-	}
-}*/
 /**
  * Enqueue scripts and styles
  */
@@ -615,35 +292,6 @@ function naked_scripts() {
 	wp_register_script( 'naked-stellar-init', get_template_directory_uri() . '/static/js/stellar-init.js', array('jquery','naked-stellar'),'',true );
 
 	wp_enqueue_script( 'naked-theme-js', get_template_directory_uri() . '/static/js/theme.js', array('jquery','naked-fittext-js','naked-ssm-breakpoints','naked-matchheights'),'',true );
-
-	/*
-	//localise option variables for use in the main javascript file
-	global $nude_options;
-
-	if($nude_options['opt_featured_thumbnail_slider_infinite'])				{$infinite='true';}
-	else																	{$infinite='false';}
-
-	if($nude_options['opt_featured_thumbnail_slider_scroll_visible_slides'])	{$scroll_visible='true';}
-	else																	{$scroll_visible='false';}
-
-	if($nude_options['opt_featured_thumbnail_slider_autoplay_speed']!=0)		{$autoplay='true';}
-	else																	{$autoplay='false';}
-
-	if($nude_options['opt_featured_thumbnail_slider_full_screen']!=0)			{$full_screen='true';}
-	else																	{$full_screen='false';}
-
-
-	$naked_php_to_javascript_variables = array(
-	'infinite'				=> 	$infinite,
-	//'slides_to_show'		=> $nude_options['opt_featured_thumbnail_slider_slides_to_show'],
-	'scroll_visible'		=> $scroll_visible,
-//	'center_mode'		=> $center_mode,
-	'autoplay'			=> $autoplay,
-	'full_screen'			=> $full_screen,
-	'autoplay_speed'		=> $nude_options['opt_featured_thumbnail_slider_autoplay_speed']
-	);
-	wp_localize_script( 'naked-theme-js', 'php_vars', $naked_php_to_javascript_variables );*/
-
 	wp_enqueue_script( 'naked-skip-link-focus-fix', get_template_directory_uri() . '/static/js/skip-link-focus-fix.js', array(), '20130115', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
@@ -653,18 +301,6 @@ function naked_scripts() {
 	if ( is_singular() && wp_attachment_is_image() ) {
 		wp_enqueue_script( 'naked-keyboard-image-navigation', get_template_directory_uri() . '/static/js/keyboard-image-navigation.js', array( 'jquery' ), '20120202' );
 	}
-
-	/**
-	* Add custom styles
-	*/
-
-	//adjusts margins for the custom boostrap container in the featured slider.
-	//using a custom container size. The slider calculates its width with margins, thus there is always padding both sides
-	//the solution I have used is to make a slightly larger bootstrap container.
-	//container is widened here by 2x margin, and the margin is also added here.
-
-
-
 }
 add_action( 'wp_enqueue_scripts', 'naked_scripts' );
 
@@ -673,7 +309,7 @@ function wpb_add_google_fonts() {
 
 
 	wp_register_style('wpb-googleFonts', 'http://fonts.googleapis.com/css?family=Playfair+Display:400,700,400italic,700italic|Droid+Serif:400,700,400italic,700italic|Roboto|Lato|Lora|PT+Sans|Ubuntu|Bitter|PT+Serif|Monda|Rokkitt|Libre+Baskerville|Maven+Pro');
-        wp_enqueue_style( 'wpb-googleFonts');
+    wp_enqueue_style( 'wpb-googleFonts');
 }
 add_action('wp_print_styles', 'wpb_add_google_fonts');
 
