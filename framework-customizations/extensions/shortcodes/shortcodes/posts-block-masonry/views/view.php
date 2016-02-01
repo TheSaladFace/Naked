@@ -47,6 +47,7 @@ else if($number_columns==3){$boostrap_column_string="fw-col-sm-4";}
 else if($number_columns==4){$boostrap_column_string="fw-col-sm-3";}
 $next_text=$atts["opt_posts_block_next_post_text"];
 $prev_text=$atts["opt_posts_block_prev_post_text"];
+$image_size=$atts["opt_posts_block_image_size"];
 ?>
 
 <div class="masonry-container">

@@ -60,16 +60,27 @@ $options = array(
     	'options' => array(
 
 			'opt_posts_block_columns' => array(
-			'label'   => __( 'Number of Columns', 'thshpr' ),
-			'type'    => 'short-select',
-			'value'   => '3',
-			'desc'    => __( 'Please select how many columns for this posts block','thshpr' ),
-			'choices' => array(
-				'2' => '2',
-				'3' => '3',
-				'4' => '4',
+				'label'   => __( 'Number of Columns', 'thshpr' ),
+				'type'    => 'short-select',
+				'value'   => '3',
+				'desc'    => __( 'Please select how many columns for this posts block','thshpr' ),
+				'choices' => array(
+					'2' => '2',
+					'3' => '3',
+					'4' => '4',
+				),
 			),
-		),
+			'opt_posts_block_image_size' => array(
+				'label'   => __( 'Image Size', 'thshpr' ),
+				'type'    => 'short-select',
+				'value'   => 'large',
+				'help' => __( 'This size can be adjusted in settings -> media ', 'thshpr'  ),
+				'desc'    => __( 'Please select which WordPress image size you wish to use for the images in this posts block','thshpr' ),
+				'choices' => array(
+					'medium' => 'medium',
+					'large' => 'large',
+				),
+			),
 
 		),
 	),
