@@ -12,7 +12,6 @@ $shortcodes_shared_uri = fw_get_template_customizations_directory_uri('/extensio
 $divider_uri=fw_get_template_customizations_directory_uri('/extensions/shortcodes/shortcodes/divider');
 
 /** Style and JS Includes **/
-wp_enqueue_style('thshpr-shared-shortcode-styles', $shortcodes_shared_uri . '/static/css/shared-styles.css',null, null,'screen');
 wp_enqueue_style('thshpr-posts-block-column', $uri . '/static/css/style.css',null, null, 'screen');
 
 /** Generate category id string **/

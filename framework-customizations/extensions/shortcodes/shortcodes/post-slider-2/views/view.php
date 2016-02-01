@@ -11,7 +11,6 @@ $uri = fw_get_template_customizations_directory_uri('/extensions/shortcodes/shor
 $shortcodes_shared_uri = fw_get_template_customizations_directory_uri('/extensions/shortcodes'); //the place for global shortcode templates + css
 $divider_uri=fw_get_template_customizations_directory_uri('/extensions/shortcodes/shortcodes/divider');
 
-wp_enqueue_style('thshpr-shared-shortcode-styles', $shortcodes_shared_uri . '/static/css/shared-styles.css',null, null,'screen');
 wp_enqueue_style('thshpr-slick-css', $uri . '/static/css/slick.css');
 wp_enqueue_style('thshpr-post-slider-2', $uri . '/static/css/style.css');
 wp_enqueue_script('thshpr-slick', $uri . '/static/js/slick.min.js',array('jquery'),'',true );

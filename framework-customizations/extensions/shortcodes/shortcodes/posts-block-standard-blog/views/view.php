@@ -13,7 +13,6 @@ $divider_uri=fw_get_template_customizations_directory_uri('/extensions/shortcode
 
 /** Style and JS Includes **/
 wp_enqueue_style('thshpr-posts-block-standard-blog', $uri . '/static/css/style.css');
-wp_enqueue_style('thshpr-shared-shortcode-styles', $shortcodes_shared_uri . '/static/css/shared-styles.css',null, null,'screen');
 wp_enqueue_script('thshpr-match-height', $uri . '/static/js/jquery.matchHeight-min.js',array('jquery'),'',true );
 wp_enqueue_script('thshpr-strap-point', $uri . '/static/js/strapPoint.min.js',array('jquery'),'',true );
 /** The equal heights is a little tricky. We must make the two columns equal heights to allow for vertical centering
