@@ -10,7 +10,7 @@ $post_categories=array_values($post_categories);
 $post_categories=thshpr_get_category_ids_string($post_categories);
 
 /** check for customisation options **/
-if(function_exists( 'fw_get_db_settings_option' )) //check for options framework
+if(function_exists( 'fw_get_db_customizer_option' ))
 {
 	$components_elements=fw_get_db_customizer_option('opt_posts_block_functionality');
 	$category_tag_number=fw_get_db_customizer_option('opt_posts_block_number_categories');
@@ -146,19 +146,18 @@ if (!empty( $prev_post )||!empty( $next_post ) )
 							?>
 
 							<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-							<?php //echo $image_string;
-							?>
-
 								<div class="entry-meta">
 
-										<?php
-										$item_string="";
-										include(locate_template('single-templates/single-meta-string.php'));
-										echo $item_string;
-										?>
+								<?php
+								if(function_exists( 'fw_get_db_customizer_option' )) //requires unyson plugin / options, if not enabled, don't display meta
+								{
+									$item_string="";
+									include(locate_template('single-templates/single-meta-string.php')); //generates meta string from customzed options
+									echo $item_string;
+								}
+								?>
 
 								</div><!-- .entry-meta -->
-
 								<div class="entry-content">
 									<?php
 										/* translators: %s: Name of current post */
