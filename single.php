@@ -4,6 +4,20 @@
  *
  * @package naked
  */
+
+$post_categories=wp_get_post_categories(get_the_ID());
+$post_categories=array_values($post_categories);
+$post_categories=thshpr_get_category_ids_string($post_categories);
+
+/** check for customisation options **/
+if(function_exists( 'fw_get_db_settings_option' )) //check for options framework
+{
+	$divider_uri=fw_get_template_customizations_directory_uri('/extensions/shortcodes/shortcodes/divider');
+	$components_elements=fw_get_db_customizer_option('opt_posts_block_functionality');
+	$category_tag_number=fw_get_db_customizer_option('opt_posts_block_number_categories');
+	$divider_type=$divider_uri.'/static/img/'.fw_get_db_customizer_option('opt_divider_type');
+}
+
 if(function_exists( 'fw_get_db_settings_option' )) //check for options framework
 {
 	//header image
@@ -13,18 +27,21 @@ if(function_exists( 'fw_get_db_settings_option' )) //check for options framework
 	$header_image_ratio=fw_get_db_post_option(get_the_ID(),'opt_post_header_image_ratio');
 
 	$header_image_width=1190;
-	$header_image_height=naked_template_generate_aspect_height($header_image_ratio,$header_image_width);
-	$header_image_final=naked_template_generate_image_from_options_url_only($header_image_width,$header_image_height,$header_image_id);
+	//$header_image_height=thshpr_template_generate_aspect_height($header_image_ratio,$header_image_width);
+	//$header_image_final=naked_template_generate_image_from_options_url_only($header_image_width,$header_image_height,$header_image_id);
 
-	$header_height=fw_get_db_post_option(get_the_ID(),'opt_post_header_height');
+	//$header_height=fw_get_db_post_option(get_the_ID(),'opt_post_header_height');
 
 
 	//featured image
-	$featured_ratio=fw_get_db_post_option(get_the_ID(),'opt_post_featured_image_ratio');
-	$featured_width=fw_get_db_post_option(get_the_ID(),'opt_post_featured_image_width');
+	//$featured_ratio=fw_get_db_post_option(get_the_ID(),'opt_post_featured_image_ratio');
+	//$featured_width=fw_get_db_post_option(get_the_ID(),'opt_post_featured_image_width');
 
 
 	//naked_template_generate_image
+
+	/** meta variables from options **/
+
 
 
 
@@ -109,7 +126,7 @@ if (!empty( $prev_post )||!empty( $next_post ) )
 
 
 
-echo'<div class="parallax-bg post-header" data-stellar-background-ratio="0.5" style="background-image: url('.$header_image_final.'); height:'.$header_height.'px;"></div>';
+//echo'<div class="parallax-bg post-header" data-stellar-background-ratio="0.5" style="background-image: url('.$header_image_final.'); height:'.$header_height.'px;"></div>';
 ?>
 <section class="fw-main-row ">
 	<div class="fw-container ">
@@ -136,7 +153,9 @@ echo'<div class="parallax-bg post-header" data-stellar-background-ratio="0.5" st
 								<div class="entry-meta">
 
 										<?php
-										include(locate_template('single-templates/single-meta.php'));
+										$item_string="";
+										include(locate_template('single-templates/single-meta-string.php'));
+										echo $item_string;
 										?>
 
 								</div><!-- .entry-meta -->
