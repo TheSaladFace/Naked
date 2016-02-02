@@ -9,7 +9,6 @@ if (!defined('FW')) die('Forbidden');
 /** Paths **/
 $uri = fw_get_template_customizations_directory_uri('/extensions/shortcodes/shortcodes/posts-block-standard-blog');
 $shortcodes_shared_uri = fw_get_template_customizations_directory_uri('/extensions/shortcodes'); //the place for global shortcode templates + css
-$divider_uri=fw_get_template_customizations_directory_uri('/extensions/shortcodes/shortcodes/divider');
 
 /** Style and JS Includes **/
 wp_enqueue_style('thshpr-posts-block-standard-blog', $uri . '/static/css/style.css');
@@ -35,7 +34,7 @@ $large_excerpt_length=$atts["opt_posts_block_large_excerpt_length"];
 $components_elements=$atts["opt_posts_block_functionality"];
 $read_more=$atts['opt_posts_block_read_more_text'];
 $max_posts=$atts['opt_posts_block_number_posts'];
-$divider_type=$divider_uri.'/static/img/'.$atts['opt_divider_type'];
+$divider_type=fw_locate_theme_path_uri('/static/img/').$atts['opt_divider_type'];
 
 /** Specific shortcode variables **/
 $show_divider=$atts["opt_posts_block_show_divider"];

@@ -12,10 +12,9 @@ $post_categories=thshpr_get_category_ids_string($post_categories);
 /** check for customisation options **/
 if(function_exists( 'fw_get_db_settings_option' )) //check for options framework
 {
-	$divider_uri=fw_get_template_customizations_directory_uri('/extensions/shortcodes/shortcodes/divider');
 	$components_elements=fw_get_db_customizer_option('opt_posts_block_functionality');
 	$category_tag_number=fw_get_db_customizer_option('opt_posts_block_number_categories');
-	$divider_type=$divider_uri.'/static/img/'.fw_get_db_customizer_option('opt_divider_type');
+	$divider_type=fw_locate_theme_path_uri('/static/img/').fw_get_db_customizer_option('opt_divider_type');
 }
 
 if(function_exists( 'fw_get_db_settings_option' )) //check for options framework

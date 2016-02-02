@@ -9,7 +9,6 @@ if (!defined('FW')) die('Forbidden');
 /** Paths **/
 $uri = fw_get_template_customizations_directory_uri('/extensions/shortcodes/shortcodes/5-posts-featured');
 $shortcodes_shared_uri = fw_get_template_customizations_directory_uri('/extensions/shortcodes'); //the place for global shortcode templates + css
-$divider_uri=fw_get_template_customizations_directory_uri('/extensions/shortcodes/shortcodes/divider');
 
 /** Style and JS Includes **/
 wp_enqueue_style('thshpr-5-posts-featured', $uri . '/static/css/style.css',null, null, 'screen');
@@ -30,7 +29,7 @@ $featured_placement=$atts["opt_posts_block_featured_placement"];
 $components_elements=$atts["opt_posts_block_functionality"];
 $read_more=$atts['opt_posts_block_read_more_text'];
 $max_posts=5;
-$divider_type=$divider_uri.'/static/img/'.$atts['opt_divider_type'];
+$divider_type=fw_locate_theme_path_uri('/static/img/').$atts['opt_divider_type'];
 
 /** hover items **/
 $hover_top=thshpr_get_image_hover_string($atts['opt_image_hover_item_1']);

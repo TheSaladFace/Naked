@@ -9,7 +9,6 @@
 /** Paths **/
 $uri = fw_get_template_customizations_directory_uri('/extensions/shortcodes/shortcodes/post-slider-3');
 $shortcodes_shared_uri = fw_get_template_customizations_directory_uri('/extensions/shortcodes'); //the place for global shortcode templates + css
-$divider_uri=fw_get_template_customizations_directory_uri('/extensions/shortcodes/shortcodes/divider');
 
 wp_enqueue_style('thshpr-slick-css', $uri . '/static/css/slick.css');
 wp_enqueue_style('thshpr-post-slider-3', $uri . '/static/css/style.css');
@@ -28,7 +27,7 @@ $category_tag_number=$atts['opt_posts_block_number_categories'];
 $components_elements=$atts['opt_posts_block_functionality'];
 $read_more=$atts['opt_posts_block_read_more_text'];
 $large_excerpt_length=$atts["opt_posts_block_large_excerpt_length"];
-$divider_type=$divider_uri.'/static/img/'.$atts['opt_divider_type'];
+$divider_type=fw_locate_theme_path_uri('/static/img/').$atts['opt_divider_type'];
 $show_hover_effects="No";
 $cell_class="focus";
 

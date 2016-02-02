@@ -55,14 +55,15 @@ $options = array(
 	    'type'  => 'image-picker',
 	    'value' => 'divider-dotted',
 	    'label' => __('Divider Type', 'thshpr'),
+	    'desc'  => __('Please select the type of divider you wish to use', 'thshpr'),
 	    'choices' => array(
-		'divider-stripes' => fw_get_template_customizations_directory_uri('/extensions/shortcodes/shortcodes/divider') .'/static/img/divider-stripes.png',
-		'divider-thin-light' =>fw_get_template_customizations_directory_uri('/extensions/shortcodes/shortcodes/divider') .'/static/img/divider-thin-light.png',
-		'divider-thin-dark' => fw_get_template_customizations_directory_uri('/extensions/shortcodes/shortcodes/divider') .'/static/img/divider-thin-dark.png',
-		'divider-thick-dark' => fw_get_template_customizations_directory_uri('/extensions/shortcodes/shortcodes/divider') .'/static/img/divider-thick-dark.png',
-		'divider-dotted' => fw_get_template_customizations_directory_uri('/extensions/shortcodes/shortcodes/divider') .'/static/img/divider-dotted.png',
+		'divider-stripes' => fw_locate_theme_path_uri('/static/img/divider-stripes.png'),
+		'divider-thin-light' =>fw_locate_theme_path_uri('/static/img/divider-thin-light.png'),
+		'divider-thin-dark' => fw_locate_theme_path_uri('/static/img/divider-thin-dark.png'),
+		'divider-thick-dark' => fw_locate_theme_path_uri('/static/img/divider-thick-dark.png'),
+		'divider-dotted' => fw_locate_theme_path_uri('/static/img/divider-dotted.png'),
 	    ),
-		'help' => __( 'Please select the type of divider you wish to use. Only needed if the divider meta elements is selected above', 'thshpr'  ),
+		'help' => __( 'Only needed if the divider element is selected above', 'thshpr'  ),
 	    'blank' => false, // (optional) if true, images can be deselected
 	),
 
