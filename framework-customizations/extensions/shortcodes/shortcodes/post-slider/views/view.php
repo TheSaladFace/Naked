@@ -30,6 +30,7 @@ $components_elements=$atts['opt_posts_block_functionality'];
 $read_more=$atts['opt_posts_block_read_more_text'];
 $excerpt_length=$atts["opt_posts_block_excerpt_length"];
 $divider_type=fw_locate_theme_path_uri('/static/img/').$atts['opt_divider_type'];
+$show_author_image=$atts['opt_posts_block_show_author_image'];
 
 /** shortcode specific variables **/
 $y_button_offset=$atts['opt_posts_block_prev_next_position'];

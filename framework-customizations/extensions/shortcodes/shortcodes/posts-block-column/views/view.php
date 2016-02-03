@@ -29,6 +29,7 @@ $components_elements=$atts["opt_posts_block_functionality"];
 $read_more=$atts['opt_posts_block_read_more_text'];
 $atts['opt_posts_block_number_posts'];
 $divider_type=fw_locate_theme_path_uri('/static/img/').$atts['opt_divider_type'];
+$show_author_image=$atts['opt_posts_block_show_author_image'];
 
 /** hover items **/
 $hover_top=thshpr_get_image_hover_string($atts['opt_image_hover_item_1']);

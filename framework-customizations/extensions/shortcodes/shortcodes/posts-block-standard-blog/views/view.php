@@ -35,6 +35,7 @@ $components_elements=$atts["opt_posts_block_functionality"];
 $read_more=$atts['opt_posts_block_read_more_text'];
 $max_posts=$atts['opt_posts_block_number_posts'];
 $divider_type=fw_locate_theme_path_uri('/static/img/').$atts['opt_divider_type'];
+$show_author_image=$atts['opt_posts_block_show_author_image'];
 
 /** Specific shortcode variables **/
 $show_divider=$atts["opt_posts_block_show_divider"];

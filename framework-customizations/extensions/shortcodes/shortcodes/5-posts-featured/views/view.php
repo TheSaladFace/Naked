@@ -28,6 +28,9 @@ $large_excerpt_length=$atts["opt_posts_block_large_excerpt_length"];
 $featured_placement=$atts["opt_posts_block_featured_placement"];
 $components_elements=$atts["opt_posts_block_functionality"];
 $read_more=$atts['opt_posts_block_read_more_text'];
+$show_author_image=$atts['opt_posts_block_show_author_image'];
+
+
 $max_posts=5;
 $divider_type=fw_locate_theme_path_uri('/static/img/').$atts['opt_divider_type'];
 

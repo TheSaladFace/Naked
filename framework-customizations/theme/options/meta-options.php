@@ -51,11 +51,25 @@ $options = array(
 		),
 	),
 
+	'opt_posts_block_show_author_image' =>array(
+		'type'  => 'switch',
+		'value' => 'Show',
+		'label' => __('Show Image for Author', 'thshpr'),
+		'help' => __( 'This only applies if the author element is selected above', 'thshpr'  ),
+		'left-choice' => array(
+			'value' => '1',
+			'label' => __('Show', 'thshpr'),
+		),
+		'right-choice' => array(
+			'value' => '0',
+			'label' => __('Hide', 'thshpr'),
+		),
+	),
+
 	'opt_divider_type' => array(
 	    'type'  => 'image-picker',
 	    'value' => 'divider-dotted',
 	    'label' => __('Divider Type', 'thshpr'),
-	    'desc'  => __('Please select the type of divider you wish to use', 'thshpr'),
 	    'choices' => array(
 		'divider-stripes' => fw_locate_theme_path_uri('/static/img/divider-stripes.png'),
 		'divider-thin-light' =>fw_locate_theme_path_uri('/static/img/divider-thin-light.png'),

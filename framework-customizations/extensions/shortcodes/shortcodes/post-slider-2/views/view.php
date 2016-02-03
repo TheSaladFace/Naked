@@ -30,6 +30,7 @@ $category_tag_number=$atts['opt_posts_block_number_categories'];
 $components_elements=$atts['opt_posts_block_functionality'];
 $read_more=$atts['opt_posts_block_read_more_text'];
 $excerpt_length=$atts["opt_posts_block_excerpt_length"];
+$show_author_image=$atts['opt_posts_block_show_author_image'];
 
 /** shortcode specific variables **/
 $number_slides=$atts['opt_posts_block_number_slides'];

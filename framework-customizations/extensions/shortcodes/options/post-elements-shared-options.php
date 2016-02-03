@@ -81,6 +81,22 @@ $options = array(
 		'help' => __( 'Unicode arrow codes can be used (e.g. http://character-code.com/arrows-html-codes.php), only needed if the read more element is selected above', 'thshpr'  ),
 	),
 
+	'opt_posts_block_show_author_image' =>array(
+		'type'  => 'switch',
+		'value' => 'Show',
+		'label' => __('Show Image for Author', 'thshpr'),
+		'desc'  => __('Show the gravatar image for the author.', 'thshpr'),
+		'help' => __( 'This only applies if the author element is selected above', 'thshpr'  ),
+		'left-choice' => array(
+			'value' => '1',
+			'label' => __('Show', 'thshpr'),
+		),
+		'right-choice' => array(
+			'value' => '0',
+			'label' => __('Hide', 'thshpr'),
+		),
+	),
+
 	'opt_divider_type' => array(
 	    'type'  => 'image-picker',
 	    'value' => 'divider-dotted',

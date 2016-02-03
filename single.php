@@ -14,6 +14,7 @@ if(function_exists( 'fw_get_db_customizer_option' ))
 {
 	$components_elements=fw_get_db_customizer_option('opt_posts_block_functionality');
 	$category_tag_number=fw_get_db_customizer_option('opt_posts_block_number_categories');
+	$show_author_image=fw_get_db_customizer_option('opt_posts_block_show_author_image');
 	$divider_type=fw_locate_theme_path_uri('/static/img/').fw_get_db_customizer_option('opt_divider_type');
 }
 

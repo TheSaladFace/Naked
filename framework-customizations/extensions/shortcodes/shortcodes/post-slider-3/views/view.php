@@ -30,6 +30,7 @@ $large_excerpt_length=$atts["opt_posts_block_large_excerpt_length"];
 $divider_type=fw_locate_theme_path_uri('/static/img/').$atts['opt_divider_type'];
 $show_hover_effects="No";
 $cell_class="focus";
+$show_author_image=$atts['opt_posts_block_show_author_image'];
 
 /** image ratios **/
 $small_image_ratio=$atts['opt_small_image_ratio'];
