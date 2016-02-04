@@ -14,7 +14,7 @@ $options = array(
 		'title' => __('General', 'thshpr'),
     	'options' => array(
 
-        	fw_ext('shortcodes')->get_options('general-shared-options'),
+        	fw()->theme->get_options('general-shared-options'),
 
 	    ),
 	),
@@ -25,7 +25,7 @@ $options = array(
 		'title' => __('Post Element', 'thshpr'),
     	'options' => array(
 
-			fw_ext('shortcodes')->get_options('post-elements-shared-options'),
+			fw()->theme->get_options('post-elements-shared-options'),
 
 		),
 	),
@@ -36,7 +36,7 @@ $options = array(
 		'title' => __('Image', 'thshpr'),
     	'options' => array(
 
-			fw_ext('shortcodes')->get_options('image-shared-options'),
+			fw()->theme->get_options('image-shared-options'),
 
 		),
 	),
@@ -47,7 +47,7 @@ $options = array(
 		'title' => __('Pagination', 'thshpr'),
     	'options' => array(
 
-			fw_ext('shortcodes')->get_options('pagination-shared-options'),
+			fw()->theme->get_options('pagination-shared-options'),
 
 		),
 	),

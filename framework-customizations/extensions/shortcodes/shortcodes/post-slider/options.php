@@ -22,7 +22,7 @@ $options = array(
 		'title' => __('General', 'thshpr'),
     	'options' => array(
 
-        	fw_ext('shortcodes')->get_options('general-shared-options'),
+        	fw()->theme->get_options('general-shared-options'),
 
 	    ),
 	),
@@ -33,7 +33,7 @@ $options = array(
 		'title' => __('Post Element', 'thshpr'),
     	'options' => array(
 
-			fw_ext('shortcodes')->get_options('slider-post-elements-shared-options'), //uses a different file than regular post types because of the joined title+excerpt
+			fw()->theme->get_options('slider-post-elements-shared-options'), //uses a different file than regular post types because of the joined title+excerpt
 
 		),
 	),
@@ -44,7 +44,7 @@ $options = array(
 		'title' => __('Image', 'thshpr'),
     	'options' => array(
 
-			fw_ext('shortcodes')->get_options('image-shared-options'),
+			fw()->theme->get_options('image-shared-options'),
 
 		),
 	),

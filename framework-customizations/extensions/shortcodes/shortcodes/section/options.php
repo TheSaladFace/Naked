@@ -64,7 +64,7 @@ $options = array(
 		),
 	),
 
-	fw_ext('shortcodes')->get_options('background-shared-options'),
+	fw()->theme->get_options('background-shared-options'),
 
 	'video' => array(
 		'label' => __('Background Video', 'thshpr'),

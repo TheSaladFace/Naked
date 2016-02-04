@@ -72,8 +72,8 @@ if ( ! empty( $atts['margin_bottom'] ))
 $bg_attachment='';
 $section_parallax_string='';
 if ( ! empty( $atts['background_parallax_ratio'] ) ) {
-	wp_enqueue_script('thshpr-stellar', $uri . '/static/js/jquery.stellar.min.js',array('jquery'),'',true ); //will enqueue from the default theme location but will load from here if theme is changed
-	wp_enqueue_script('thshpr-stellar-init', $uri . '/static/js/stellar-init.js',array('jquery','thshpr-stellar'),'',true );
+	wp_enqueue_script('thshpr-stellar'); //will enqueue from the default theme location but will load from here if theme is changed
+	wp_enqueue_script('thshpr-stellar-init');
 	$section_parallax_string='data-stellar-background-ratio="'.$atts['background_parallax_ratio'].'"';
 	$bg_attachment= 'background-attachment: fixed;'; //set this to fixed for stellar
 }

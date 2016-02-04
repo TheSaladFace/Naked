@@ -307,7 +307,7 @@ object
 
 	/** author **/
 	.author-gravatar{ display: inline-block; float: left; margin-right: 8px;}
-	.author-gravatar img{ border-radius: 25px;}
+	.author-gravatar img{ /*border-radius: 25px;*/}
 	.author-thumbnail-visible{margin-top: 11px;height: 30px;}
 
 	/** hover animations **/

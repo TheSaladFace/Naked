@@ -288,8 +288,8 @@ function naked_scripts() {
 
 	wp_enqueue_script( 'naked-ssm-breakpoints', get_template_directory_uri() . '/static/js/ssm.js', array('jquery'),'',true );
 	wp_enqueue_script( 'naked-matchheights', get_template_directory_uri() . '/static/js/jquery.matchHeight-min.js', array('jquery'),'',true );
-	wp_register_script( 'naked-stellar', get_template_directory_uri() . '/static/js/jquery.stellar.min.js', array('jquery'),'',true );
-	wp_register_script( 'naked-stellar-init', get_template_directory_uri() . '/static/js/stellar-init.js', array('jquery','naked-stellar'),'',true );
+	wp_register_script( 'thshpr-stellar', get_template_directory_uri() . '/static/js/jquery.stellar.min.js', array('jquery'),'',true );
+	wp_register_script( 'thshpr-stellar-init', get_template_directory_uri() . '/static/js/stellar-init.js', array('jquery','naked-stellar'),'',true );
 
 	wp_enqueue_script( 'naked-theme-js', get_template_directory_uri() . '/static/js/theme.js', array('jquery','naked-fittext-js','naked-ssm-breakpoints','naked-matchheights'),'',true );
 	wp_enqueue_script( 'naked-skip-link-focus-fix', get_template_directory_uri() . '/static/js/skip-link-focus-fix.js', array(), '20130115', true );
