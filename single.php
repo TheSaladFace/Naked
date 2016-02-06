@@ -18,29 +18,30 @@ if(function_exists( 'fw_get_db_customizer_option' ))
 	$divider_type=fw_locate_theme_path_uri('/static/img/').fw_get_db_customizer_option('opt_divider_type');
 }
 
-if(function_exists( 'fw_get_db_settings_option' )) //check for options framework
+if(function_exists( 'fw_get_db_post_option' )) //check for post options
 {
-	//header image
-	$header_image_array=fw_get_db_post_option(get_the_ID(),'opt_image_header_upload');
-
-	$header_image_id=$header_image_array['attachment_id'];
-	$header_image_ratio=fw_get_db_post_option(get_the_ID(),'opt_post_header_image_ratio');
-
-	$header_image_width=1190;
-	//$header_image_height=thshpr_template_generate_aspect_height($header_image_ratio,$header_image_width);
-	//$header_image_final=naked_template_generate_image_from_options_url_only($header_image_width,$header_image_height,$header_image_id);
-
-	//$header_height=fw_get_db_post_option(get_the_ID(),'opt_post_header_height');
-
-
-	//featured image
-	//$featured_ratio=fw_get_db_post_option(get_the_ID(),'opt_post_featured_image_ratio');
-	//$featured_width=fw_get_db_post_option(get_the_ID(),'opt_post_featured_image_width');
+	/** get the user selected post template **/
+	$post_options=fw_get_db_post_option(get_the_ID(),'opt_post_template_picker');
+	$post_template=$post_options["template"];
+	if(	$post_template=="1")
+	{
+		/** fullscreen header image options **/
+		$header_image_width=1190;//hard set because scaling is used
+		$header_image_height=$post_options["1"]["opt_header_image_height"];
+		$background_position=$post_options["1"]["background_position"];
+		$background_color=$post_options["1"]["background_color"];
+		$background_image=$post_options["1"]["background_image"]['data']['icon'];
+		$background_repeat=$post_options["1"]["background_repeat"];
+		$background_size=$post_options["1"]["background_size"];
+		$background_parallax_ratio=$post_options["1"]["background_parallax_ratio"];
 
 
-	//naked_template_generate_image
 
-	/** meta variables from options **/
+
+
+	}
+
+
 
 
 
@@ -126,7 +127,16 @@ if (!empty( $prev_post )||!empty( $next_post ) )
 
 
 
-//echo'<div class="parallax-bg post-header" data-stellar-background-ratio="0.5" style="background-image: url('.$header_image_final.'); height:'.$header_height.'px;"></div>';
+
+if(function_exists( 'fw_get_db_post_option' )) //requires unyson plugin / options, if not enabled, don't display meta
+{
+	$item_string="";
+	include(locate_template('single-templates/parallax-section-string.php')); //generates meta string from customzed options
+	echo $item_string;
+}
+
+
+
 ?>
 <section class="fw-main-row ">
 	<div class="fw-container ">
@@ -198,4 +208,5 @@ if (!empty( $prev_post )||!empty( $next_post ) )
 	</div><!-- close .container -->
 </section><!-- close .main-content -->
 <?php //get_footer();
+get_footer();
 ?>
