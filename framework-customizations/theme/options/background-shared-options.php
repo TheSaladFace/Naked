@@ -24,8 +24,8 @@ $options = array(
 		'label' => __( 'Background Image Position', 'thshpr' ),
 		'type' => 'select',
 		'value' => 'left top',
-		'desc' => __( 'Please select the background image position',
-			'thshpr' ),
+		'desc' => __( 'Please select the background image position','thshpr' ),
+		'help' =>__( 'See http://www.w3schools.com/cssref/pr_background-position.asp for an explanation of these choices', 'thshpr'  ),
 		'choices' => array(
 			'left top' => 'left top',
 			'left center' => 'left center',
@@ -42,8 +42,8 @@ $options = array(
 		'label'   => __( 'Background Image Repeat', 'thshpr' ),
 		'type'    => 'select',
 		'value'   => 'no-repeat',
-		'desc'    => __( 'Please select the background image repeat',
-			'thshpr' ),
+		'desc'    => __( 'Please select the background image repeat','thshpr' ),
+		'help' =>__( 'See http://www.w3schools.com/cssref/pr_background-repeat.asp for an explanation of these choices', 'thshpr'  ),
 		'choices' => array(
 			'repeat' => 'repeat',
 			'repeat-x' => 'repeat-x',
@@ -55,8 +55,8 @@ $options = array(
 		'label'   => __( 'Background Size', 'thshpr' ),
 		'type'    => 'select',
 		'value'   => 'cover',
-		'desc'    => __( 'Please select the background image repeat, note this may effectively override the above two options',
-			'thshpr' ),
+		'desc'    => __( 'Please select the background image repeat, note this may effectively override the above two options','thshpr' ),
+		'help' =>__( 'See http://www.w3schools.com/cssref/css3_pr_background-size.asp for an explanation of these choices', 'thshpr'  ),
 		'choices' => array(
 			'auto' => 'auto',
 			'length' => 'length',
