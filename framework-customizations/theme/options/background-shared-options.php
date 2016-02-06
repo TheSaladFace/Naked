@@ -8,19 +8,19 @@ if (!defined('FW')) die('Forbidden');
 
 $options = array(
 
-	'background_color' => array(
+	'opt_background_color' => array(
 		'label' => __('Background Color', 'thshpr'),
 		'desc' => __('Please select the background color', 'thshpr'),
 		'type' => 'color-picker',
 	),
-	'background_image' => array(
+	'opt_background_image' => array(
 		'label' => __('Background Image', 'thshpr'),
 		'desc' => __('Please select the background image', 'thshpr'),
 		'type' => 'background-image',
 		'choices' => array(//	in future may will set predefined images
 		)
 	),
-	'background_position' => array(
+	'opt_background_position' => array(
 		'label' => __( 'Background Image Position', 'thshpr' ),
 		'type' => 'select',
 		'value' => 'left top',
@@ -38,7 +38,7 @@ $options = array(
 			'center bottom' => 'center bottom',
 		),
 	),
-	'background_repeat'=> array(
+	'opt_background_repeat'=> array(
 		'label'   => __( 'Background Image Repeat', 'thshpr' ),
 		'type'    => 'select',
 		'value'   => 'no-repeat',
@@ -51,7 +51,7 @@ $options = array(
 			'no-repeat' => 'no-repeat',
 		),
 	),
-	'background_size' => array(
+	'opt_background_size' => array(
 		'label'   => __( 'Background Size', 'thshpr' ),
 		'type'    => 'select',
 		'value'   => 'cover',
@@ -65,7 +65,7 @@ $options = array(
 			'contain' => 'contain',
 		),
 	),
-	'background_parallax_ratio' =>array(
+	'opt_background_parallax_ratio' =>array(
 		'type'  => 'text',
 		'value' => '',
 		'label' => __('Background Parallax Ratio', 'thshpr'),

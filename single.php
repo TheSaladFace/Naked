@@ -28,12 +28,12 @@ if(function_exists( 'fw_get_db_post_option' )) //check for post options
 		/** fullscreen header image options **/
 		$header_image_width=1190;//hard set because scaling is used
 		$header_image_height=$post_options["1"]["opt_header_image_height"];
-		$background_position=$post_options["1"]["background_position"];
-		$background_color=$post_options["1"]["background_color"];
-		$background_image=$post_options["1"]["background_image"]['data']['icon'];
-		$background_repeat=$post_options["1"]["background_repeat"];
-		$background_size=$post_options["1"]["background_size"];
-		$background_parallax_ratio=$post_options["1"]["background_parallax_ratio"];
+		$background_position=$post_options["1"]["opt_background_position"];
+		$background_color=$post_options["1"]["opt_background_color"];
+		$background_image=$post_options["1"]["opt_background_image"]['data']['icon'];
+		$background_repeat=$post_options["1"]["opt_background_repeat"];
+		$background_size=$post_options["1"]["opt_background_size"];
+		$background_parallax_ratio=$post_options["1"]["opt_background_parallax_ratio"];
 
 
 
