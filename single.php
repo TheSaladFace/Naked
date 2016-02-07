@@ -27,6 +27,7 @@ if(function_exists( 'fw_get_db_post_option' )) //check for post options
 	{
 		/** fullscreen header image options **/
 		$header_image_width=1190;//hard set because scaling is used
+		$header_show_image=$post_options["1"]["opt_header_show_image"];
 		$header_image_height=$post_options["1"]["opt_header_image_height"];
 		$background_position=$post_options["1"]["opt_background_position"];
 		$background_color=$post_options["1"]["opt_background_color"];
@@ -34,11 +35,7 @@ if(function_exists( 'fw_get_db_post_option' )) //check for post options
 		$background_repeat=$post_options["1"]["opt_background_repeat"];
 		$background_size=$post_options["1"]["opt_background_size"];
 		$background_parallax_ratio=$post_options["1"]["opt_background_parallax_ratio"];
-
-
-
-
-
+		//echo $header_show_image;
 	}
 
 
@@ -128,7 +125,7 @@ if (!empty( $prev_post )||!empty( $next_post ) )
 
 
 
-if(function_exists( 'fw_get_db_post_option' )) //requires unyson plugin / options, if not enabled, don't display meta
+if(function_exists( 'fw_get_db_post_option' )&&$header_show_image) //requires unyson plugin / options, if not enabled, don't display meta
 {
 	$item_string="";
 	include(locate_template('single-templates/parallax-section-string.php')); //generates meta string from customzed options

@@ -14,7 +14,7 @@ if (!empty($background_size)){ $background_size_string=' background-size:'.$back
 if (!empty($header_image_height)){$header_image_height_string=' height:'.$header_image_height.'px;'; } else{ $header_image_height_string=' height:400px;';}
 
 /** generate parallax string **/
-$background_attachment_string=''; $section_parallax_string='';
+$background_attachment_string=''; $section_parallax_string=''; $parallax_string='';
 if (!empty($background_parallax_ratio))
 {
     $parallax_string='data-stellar-background-ratio="'.$background_parallax_ratio.'"';

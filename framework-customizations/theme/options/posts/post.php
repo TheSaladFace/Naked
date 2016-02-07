@@ -35,12 +35,25 @@ $options = array(
 					    	'type' => 'tab',
 							'title' => __('Full Width Header Image', 'thshpr'),
 					    	'options' => array(
-
+								'opt_header_show_image' =>array(
+									'type'  => 'switch',
+									'value' => 'Hide',
+									'label' => __('Show Full Width Header Image', 'thshpr'),
+									'desc'  => __('Show the full width header image', 'thshpr'),
+									'left-choice' => array(
+										'value' => '1',
+										'label' => __('Show', 'thshpr'),
+									),
+									'right-choice' => array(
+										'value' => '0',
+										'label' => __('Hide', 'thshpr'),
+									),
+								),
 					        	fw()->theme->get_options('background-shared-options'),
 								'opt_header_image_height' => array(
 									'label' => __( 'Header Image Area Height', 'thshpr' ),
 									'type'  => 'text',
-									'value' => '400',
+									'value' => '200',
 									'desc'  => __( 'Enter the height of the header image area height in pixels', 'thshpr' ),
 									'help' =>__( 'This needs to be smaller than the image height. Because this is applied as a background image scaling will be used.', 'thshpr'  ),
 								),
