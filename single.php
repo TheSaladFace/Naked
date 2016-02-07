@@ -12,10 +12,17 @@ $post_categories=thshpr_get_category_ids_string($post_categories);
 /** check for customisation options **/
 if(function_exists( 'fw_get_db_customizer_option' ))
 {
-	$components_elements=fw_get_db_customizer_option('opt_posts_block_functionality');
-	$category_tag_number=fw_get_db_customizer_option('opt_posts_block_number_categories');
-	$show_author_image=fw_get_db_customizer_option('opt_posts_block_show_author_image');
-	$divider_type=fw_locate_theme_path_uri('/static/img/').fw_get_db_customizer_option('opt_divider_type');
+	/** side meta options **/
+	$meta_components_elements=fw_get_db_customizer_option('opt_single_meta_functionality');
+	$meta_category_tag_number=fw_get_db_customizer_option('opt_single_meta_number_categories');
+	$meta_show_author_image=fw_get_db_customizer_option('opt_single_meta_show_author_image');
+	$meta_divider_type=fw_locate_theme_path_uri('/static/img/').fw_get_db_customizer_option('opt_single_meta_divider_type');
+
+	/** title options **/
+	$title_components_elements=fw_get_db_customizer_option('opt_single_title_functionality');
+	$title_category_tag_number=fw_get_db_customizer_option('opt_single_title_functionality_number_categories');
+	$title_show_author_image=fw_get_db_customizer_option('opt_single_title_functionality_show_author_image');
+	$title_divider_type=fw_locate_theme_path_uri('/static/img/').fw_get_db_customizer_option('opt_single_title_divider_type');
 }
 
 if(function_exists( 'fw_get_db_post_option' )) //check for post options
@@ -146,6 +153,14 @@ if(function_exists( 'fw_get_db_post_option' )&&$header_show_image) //requires un
 					<main id="main" class="site-main" role="main">
 
 					<?php
+
+					if(function_exists( 'fw_get_db_customizer_option' )) //requires unyson plugin / options, if not enabled, don't display meta
+					{
+						$item_string="";
+						include(locate_template('single-templates/title-string.php')); //generates title string from customzed options
+						echo $item_string;
+					}
+
 					if ( have_posts() )
 					{
 						while ( have_posts() )
@@ -160,7 +175,7 @@ if(function_exists( 'fw_get_db_post_option' )&&$header_show_image) //requires un
 								if(function_exists( 'fw_get_db_customizer_option' )) //requires unyson plugin / options, if not enabled, don't display meta
 								{
 									$item_string="";
-									include(locate_template('single-templates/single-meta-string.php')); //generates meta string from customzed options
+									include(locate_template('single-templates/meta-string.php')); //generates meta string from customzed options
 									echo $item_string;
 								}
 								?>
