@@ -8,16 +8,16 @@ if (!defined('FW')) die('Forbidden');
 
 $options = array(
 
-	'opt_posts_block_functionality'=> array(
+	'opt_single_meta_functionality'=> array(
 		'type' =>'addable-box',
 		'label' => __('Add Meta Elements', 'thshpr'),
-		'template' => '{{- opt_header_featuredposts_rows }}',
+		'template' => '{{- opt_single_meta_rows }}',
 		'popup-title' => null,
 		'help' => __( 'Add and order (drag and drop) the meta elements to be displayed for single posts.', 'thshpr'  ),
 		'size' =>'small', // small, medium, large
 		'limit' => 0, // limit the number of popup`s that can be added
 		'box-options' => array(
-			'opt_header_featuredposts_rows' => array(
+			'opt_single_meta_rows' => array(
 				'label' => __( 'Row Type', 'thshpr' ),
 				'type' => 'select',
 				'choices' => array(
@@ -37,7 +37,7 @@ $options = array(
 		),
 	),
 
-	'opt_posts_block_number_categories' => array(
+	'opt_single_meta_number_categories' => array(
 		'label' => __( 'Number of Categories / Tags', 'thshpr' ),
 		'type' => 'short-select',
 		'value' => '2',
@@ -51,7 +51,7 @@ $options = array(
 		),
 	),
 
-	'opt_posts_block_show_author_image' =>array(
+	'opt_single_meta_show_author_image' =>array(
 		'type'  => 'switch',
 		'value' => 'Show',
 		'label' => __('Show Image for Author', 'thshpr'),
@@ -66,7 +66,7 @@ $options = array(
 		),
 	),
 
-	'opt_divider_type' => array(
+	'opt_single_meta_divider_type' => array(
 	    'type'  => 'image-picker',
 	    'value' => 'divider-dotted',
 	    'label' => __('Divider Type', 'thshpr'),

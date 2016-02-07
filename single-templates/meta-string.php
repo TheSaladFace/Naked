@@ -4,11 +4,18 @@
  * @requires $post_categories, $divider_uri, $components_elements, $category_tag_number,
  * $divider_type=$divider_uri **/
 
+/** set variables to defaults for templates **/
+$components_elements=$meta_components_elements;
+$category_tag_number=$meta_category_tag_number;
+$show_author_image=$meta_show_author_image;
+$divider_type=$meta_divider_type;
+$components_elements=$meta_components_elements;
+
 if ($components_elements): foreach ($components_elements as $key=>$value)
 {
 	/** Runs through user selected drag and drop component elements from shortcode options **/
 	/** Include templates rather than functions due to WordPress loop variable scope **/
-	switch($value['opt_header_featuredposts_rows'])
+	switch($value['opt_single_meta_rows'])
 	{
 		case 'Categories':
 			include locate_template('post-component-elements/categories-string.php');
