@@ -12,6 +12,10 @@ if($cell_class=="focus")
 {
      $item_string.='<div class="component-element meta-title"><h3 class="large-h3"><a href="'.get_permalink().'">'.get_the_title().'</a></h3></div>';
 }
+else if($cell_class=="single")
+{
+     $item_string.='<div class="component-element meta-title"><h1 class="post-title"><a href="'.get_permalink().'">'.get_the_title().'</a></h1></div>';
+}
 else
 {
      $item_string.='<div class="component-element meta-title"><h4><a href="'.get_permalink().'">'.get_the_title().'</a></h4></div>';

@@ -157,6 +157,7 @@ if(function_exists( 'fw_get_db_post_option' )&&$header_show_image) //requires un
 					if(function_exists( 'fw_get_db_customizer_option' )) //requires unyson plugin / options, if not enabled, don't display meta
 					{
 						$item_string="";
+						$cell_class="single";//sets for the large header
 						include(locate_template('single-templates/title-string.php')); //generates title string from customzed options
 						echo $item_string;
 					}
