@@ -62,15 +62,29 @@ get_header();
 $prev_post = get_adjacent_post( true, '', true, 'category' );
 $next_post = get_adjacent_post( true, '', false, 'category' );
 
-//enqueue stellar
-	wp_enqueue_script("naked-stellar");
-	wp_enqueue_script("naked-stellar-init");
-
+/*
+<div class="nav-doubleflip thumb-doubleflip full-featured-buttons ">
+		<a class="prev featured-post-slider-prev" href="#nothing" id="full-prev" style="margin-top:20px;">
+			<span class="icon-wrap icon-wrap-left">❮</span>
+			<div class="prev-preview-container" style="width: 100px;">
+				<div class="title-container"><span class="title"><span class="hidden-desc prev-desc-clone"><b>Controversial Magazine</b> Endorses Eating Food <i>Only When Hungry</i></span></span></div>
+			<img src="http://localhost:82/wordpress/wp-content/uploads/2015/02/kaboompics.com_Vintage-jeans-100x100.jpg" width="100" height="100" class="prev-img-clone"></div>
+		</a>
+		<a class="next featured-post-slider-next" href="#nothing" id="full-next" style="margin-top:20px;">
+			<span class="icon-wrap icon-wrap-right">❯</span>
+			<div class="next-preview-container" style="width: 100px;">
+				<div class="title-container"><span class="title"><span class="hidden-desc next-desc-clone"><b>Leader of Pilgrim Society</b> Denounces Pilgrims Choice <i>Cheddar</i></span></span></div>
+			<img src="http://localhost:82/wordpress/wp-content/uploads/2015/05/DeathtoStock_NotStock9-100x100.jpg" width="100" height="100" class="next-img-clone"></div>
+		</a>
+	</div>
+*/
+$prev_post = get_previous_post();
+$next_post = get_next_post();
 if (!empty( $prev_post )||!empty( $next_post ) )
 {
 	?>
-
-	<nav class="nav-doubleflip page-nav">
+<div class="post-navigation">
+	<div class="nav-doubleflip page-nav">
 
 	<?php
 	if (!empty( $prev_post ) )
@@ -124,7 +138,8 @@ if (!empty( $prev_post )||!empty( $next_post ) )
 	}
 	?>
 
-	</nav>
+</div>
+</div>
 
 	<?php
 }
@@ -132,7 +147,7 @@ if (!empty( $prev_post )||!empty( $next_post ) )
 
 
 
-if(function_exists( 'fw_get_db_post_option' )&&$header_show_image) //requires unyson plugin / options, if not enabled, don't display meta
+if(function_exists( 'fw_get_db_post_option' ) && $header_show_image)
 {
 	$item_string="";
 	include(locate_template('single-templates/parallax-section-string.php')); //generates meta string from customzed options

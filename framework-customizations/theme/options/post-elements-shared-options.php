@@ -108,6 +108,8 @@ $options = array(
 		'divider-thin-dark' => fw_locate_theme_path_uri('/static/img/divider-thin-dark.png'),
 		'divider-thick-dark' => fw_locate_theme_path_uri('/static/img/divider-thick-dark.png'),
 		'divider-dotted' => fw_locate_theme_path_uri('/static/img/divider-dotted.png'),
+		'divider-thick-dark-dotted' => fw_locate_theme_path_uri('/static/img/divider-thick-dark-dotted.png'),
+		'divider-thick-dark-thin-light' => fw_locate_theme_path_uri('/static/img/divider-thick-dark-thin-light.png'),
 	    ),
 		'help' => __( 'Only needed if the divider element is selected above', 'thshpr'  ),
 	    'blank' => false, // (optional) if true, images can be deselected
