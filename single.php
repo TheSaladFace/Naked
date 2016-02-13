@@ -59,90 +59,11 @@ else
 }
 get_header();
 
-$prev_post = get_adjacent_post( true, '', true, 'category' );
-$next_post = get_adjacent_post( true, '', false, 'category' );
 
-/*
-<div class="nav-doubleflip thumb-doubleflip full-featured-buttons ">
-		<a class="prev featured-post-slider-prev" href="#nothing" id="full-prev" style="margin-top:20px;">
-			<span class="icon-wrap icon-wrap-left">❮</span>
-			<div class="prev-preview-container" style="width: 100px;">
-				<div class="title-container"><span class="title"><span class="hidden-desc prev-desc-clone"><b>Controversial Magazine</b> Endorses Eating Food <i>Only When Hungry</i></span></span></div>
-			<img src="http://localhost:82/wordpress/wp-content/uploads/2015/02/kaboompics.com_Vintage-jeans-100x100.jpg" width="100" height="100" class="prev-img-clone"></div>
-		</a>
-		<a class="next featured-post-slider-next" href="#nothing" id="full-next" style="margin-top:20px;">
-			<span class="icon-wrap icon-wrap-right">❯</span>
-			<div class="next-preview-container" style="width: 100px;">
-				<div class="title-container"><span class="title"><span class="hidden-desc next-desc-clone"><b>Leader of Pilgrim Society</b> Denounces Pilgrims Choice <i>Cheddar</i></span></span></div>
-			<img src="http://localhost:82/wordpress/wp-content/uploads/2015/05/DeathtoStock_NotStock9-100x100.jpg" width="100" height="100" class="next-img-clone"></div>
-		</a>
-	</div>
-*/
-$prev_post = get_previous_post();
-$next_post = get_next_post();
-if (!empty( $prev_post )||!empty( $next_post ) )
-{
-	?>
-<div class="post-navigation">
-	<div class="nav-doubleflip page-nav">
+include(locate_template('single-templates/page-navigation.php'));
 
-	<?php
-	if (!empty( $prev_post ) )
-	{
-		$prev_post_id=$prev_post->ID;
-		$prev_post_title=$prev_post->post_title;
-		$prev_post_url=$prev_post->guid;
-		$prev_hide_thumb_string="no-image";
-		$prev_thumb="";
-		if ( has_post_thumbnail($prev_post_id) )
-		{
-			$prev_thumb=get_the_post_thumbnail($prev_post_id,'prevnext' );
-			$prev_hide_thumb_string="image";
-		}
 
-		?>
 
-			<a class="prev" href="<?php echo $prev_post_url; ?>">
-				<span class="icon-wrap icon-wrap-left"><i class="icon-left-open-big"></i></span>
-				<div class="<?php echo $prev_hide_thumb_string; ?>">
-					<?php echo $prev_thumb; ?>
-					<div class="title-container"><span class="title"><?php echo $prev_post_title; ?><br/>&#8594;</span></div>
-				</div>
-			</a>
-
-		<?php
-	}
-	if (!empty( $next_post ) )
-	{
-		$next_post_id=$next_post->ID;
-		$next_post_title=$next_post->post_title;
-		$next_post_url=$next_post->guid;
-		$next_hide_thumb_string="no-image";
-		$next_thumb="";
-		if ( has_post_thumbnail($next_post_id) )
-		{
-			$next_thumb=get_the_post_thumbnail($next_post_id,'prevnext' );
-			$next_hide_thumb_string="image";
-		}
-		?>
-
-		<a class="next" href="<?php echo $next_post_url; ?>">
-			<span class="icon-wrap icon-wrap-left"><i class="icon-right-open-big"></i></span>
-			<div class="<?php echo $next_hide_thumb_string; ?>">
-				<?php echo $next_thumb; ?>
-				<div class="title-container"><span class="title"><?php echo $next_post_title; ?><br/>&#8594;</span></div>
-			</div>
-		</a>
-
-		<?php
-	}
-	?>
-
-</div>
-</div>
-
-	<?php
-}
 
 
 
@@ -157,6 +78,7 @@ if(function_exists( 'fw_get_db_post_option' ) && $header_show_image)
 
 
 ?>
+
 <section class="fw-main-row ">
 	<div class="fw-container ">
 		<div class="fw-row">
