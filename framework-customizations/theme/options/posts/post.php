@@ -31,6 +31,21 @@ $options = array(
 
 			    'choices' => array(
 			        '1' => array(
+
+						'general_options_box' => array(
+					    	'type' => 'tab',
+							'title' => __('General Options', 'thshpr'),
+					    	'options' => array(
+								'opt_subtitle' => array(
+									'label' => __( 'Sub Title', 'thshpr' ),
+									'type'  => 'textarea',
+									'value' => '',
+									'desc'  => __( 'An optional field that can be displayed providing more information about the post', 'thshpr' ),
+									'help' =>__( 'Leave empty to not display. Will only be displayed if this is added in Appearance->Customize->Posts->Post Title Options->Add Title Elements', 'thshpr'  ),
+								),
+							),
+						),
+						
 						'fullscreen_header_image_box' => array(
 					    	'type' => 'tab',
 							'title' => __('Full Width Header Image', 'thshpr'),
@@ -59,6 +74,7 @@ $options = array(
 								),
 							),
 						),
+
 			        ),
 			        '2' => array(
 			            'price' => array(

@@ -42,7 +42,7 @@ if(function_exists( 'fw_get_db_post_option' )) //check for post options
 		$background_repeat=$post_options["1"]["opt_background_repeat"];
 		$background_size=$post_options["1"]["opt_background_size"];
 		$background_parallax_ratio=$post_options["1"]["opt_background_parallax_ratio"];
-		//echo $header_show_image;
+		$subtitle=$post_options["1"]["opt_subtitle"];
 	}
 
 

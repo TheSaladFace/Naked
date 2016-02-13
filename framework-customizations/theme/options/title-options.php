@@ -22,6 +22,7 @@ $options = array(
 				'type' => 'select',
 				'choices' => array(
 					'Title' => 'Title',
+					'Subtitle' => 'Subtitle',
 					'Categories' => 'Categories',
 					'Tags' => 'Tags',
 					'Date' => 'Date',

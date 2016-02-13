@@ -234,7 +234,7 @@ a:link {text-decoration: none;}
 
 	/* Double flip */
 	.hidden-desc{font-size:14px; line-height:18px;}
-	.post-navigation{position:fixed; top: 50%;width:100%;margin-top:-50px;}
+	.post-navigation{position:fixed; top: 50%;width:100%;margin-top:-50px;z-index: 10001;}
 	.post-navigation .hidden-thumb, .hidden-desc{	display:none;}
 	.post-navigation .prev-desc-clone{display:block;}
 	.post-navigation .next-desc-clone{display:block;}
