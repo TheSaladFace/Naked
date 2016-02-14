@@ -23,6 +23,7 @@ if(function_exists( 'fw_get_db_customizer_option' ))
 	$title_category_tag_number=fw_get_db_customizer_option('opt_single_title_functionality_number_categories');
 	$title_show_author_image=fw_get_db_customizer_option('opt_single_title_functionality_show_author_image');
 	$title_divider_type=fw_locate_theme_path_uri('/static/img/').fw_get_db_customizer_option('opt_single_title_divider_type');
+	$show_author_bio=fw_get_db_customizer_option('opt_show_author_bio');
 }
 
 if(function_exists( 'fw_get_db_post_option' )) //check for post options
@@ -44,6 +45,7 @@ if(function_exists( 'fw_get_db_post_option' )) //check for post options
 		$background_parallax_ratio=$post_options["1"]["opt_background_parallax_ratio"];
 		$subtitle=$post_options["1"]["opt_subtitle"];
 		$show_progress_indicator=$post_options["1"]["opt_show_progress_indicator"];
+
 	}
 
 
@@ -126,18 +128,17 @@ if(function_exists( 'fw_get_db_post_option' ) && $header_show_image)
 								<div class="entry-content">
 									<?php
 										/* translators: %s: Name of current post */
-										the_content( sprintf(
-											__( 'Continue reading %s <span class="meta-nav">&rarr;</span>', 'twentyfourteen' ),
-											the_title( '<span class="screen-reader-text">', '</span>', false )
-										) );
+										the_content();
 
-										wp_link_pages( array(
-											'before'      => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'twentyfourteen' ) . '</span>',
-											'after'       => '</div>',
-											'link_before' => '<span>',
-											'link_after'  => '</span>',
-										) );
+										if($show_author_bio)
+										{
+											include(locate_template('single-templates/author-bio.php'));
+										}
+
 									?>
+
+
+
 								</div><!-- .entry-content -->
 
 							</article><!-- #post-## -->

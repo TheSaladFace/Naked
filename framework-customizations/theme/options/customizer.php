@@ -7,6 +7,26 @@ $options = array(
         'title' => __('Posts', 'thshpr'),
         'options' => array(
 
+			'general_options' => array(
+                'title' => __('General Options', 'thshpr'),
+				'options' => array(
+					'opt_show_author_bio' =>array(
+						'type'  => 'switch',
+						'value' => 'Show',
+						'label' => __('Show Author Bio Information', 'thshpr'),
+						'help' => __( 'This will display the author bio information and link to their posts', 'thshpr'  ),
+						'left-choice' => array(
+							'value' => '1',
+							'label' => __('Show', 'thshpr'),
+						),
+						'right-choice' => array(
+							'value' => '0',
+							'label' => __('Hide', 'thshpr'),
+						),
+					),
+				),
+            ),
+
 			'title_options' => array(
                 'title' => __('Post Title Options', 'thshpr'),
 				'options' => array(
