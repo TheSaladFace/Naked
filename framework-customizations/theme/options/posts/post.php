@@ -43,9 +43,23 @@ $options = array(
 									'desc'  => __( 'An optional field that can be displayed providing more information about the post', 'thshpr' ),
 									'help' =>__( 'Leave empty to not display. Will only be displayed if this is added in Appearance->Customize->Posts->Post Title Options->Add Title Elements', 'thshpr'  ),
 								),
+								'opt_show_progress_indicator' =>array(
+									'type'  => 'switch',
+									'value' => 'Show',
+									'label' => __('Show Article Progress Indicator', 'thshpr'),
+									'help' => __( 'This will display a thin bar which reveals the progress of the article being read by the user', 'thshpr'  ),
+									'left-choice' => array(
+										'value' => '1',
+										'label' => __('Show', 'thshpr'),
+									),
+									'right-choice' => array(
+										'value' => '0',
+										'label' => __('Hide', 'thshpr'),
+									),
+								),
 							),
 						),
-						
+
 						'fullscreen_header_image_box' => array(
 					    	'type' => 'tab',
 							'title' => __('Full Width Header Image', 'thshpr'),

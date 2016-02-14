@@ -290,6 +290,7 @@ function thshpr_scripts() {
 	wp_enqueue_script( 'naked-matchheights', get_template_directory_uri() . '/static/js/jquery.matchHeight-min.js', array('jquery'),'',true );
 	wp_register_script( 'thshpr-stellar', get_template_directory_uri() . '/static/js/jquery.stellar.min.js', array('jquery'),'',true );
 	wp_register_script( 'thshpr-stellar-init', get_template_directory_uri() . '/static/js/stellar-init.js', array('jquery','thshpr-stellar'),'',true );
+	wp_register_script( 'thshpr-article-progress', get_template_directory_uri() . '/static/js/article-progress.js', array('jquery'),'',true );
 
 	wp_enqueue_script( 'naked-theme-js', get_template_directory_uri() . '/static/js/theme.js', array('jquery','naked-fittext-js','naked-ssm-breakpoints','naked-matchheights'),'',true );
 	wp_enqueue_script( 'naked-skip-link-focus-fix', get_template_directory_uri() . '/static/js/skip-link-focus-fix.js', array(), '20130115', true );
@@ -297,6 +298,7 @@ function thshpr_scripts() {
 	{
 		wp_enqueue_script('thshpr-stellar');
 		wp_enqueue_script('thshpr-stellar-init');
+		wp_enqueue_script('thshpr-article-progress');
 	}
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );

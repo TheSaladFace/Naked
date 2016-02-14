@@ -43,6 +43,7 @@ if(function_exists( 'fw_get_db_post_option' )) //check for post options
 		$background_size=$post_options["1"]["opt_background_size"];
 		$background_parallax_ratio=$post_options["1"]["opt_background_parallax_ratio"];
 		$subtitle=$post_options["1"]["opt_subtitle"];
+		$show_progress_indicator=$post_options["1"]["opt_show_progress_indicator"];
 	}
 
 
@@ -59,7 +60,10 @@ else
 }
 get_header();
 
-
+if($show_progress_indicator)
+{
+	echo'<progress value="0"></progress>';
+}
 include(locate_template('single-templates/page-navigation.php'));
 
 
