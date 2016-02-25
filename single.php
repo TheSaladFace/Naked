@@ -135,6 +135,10 @@ if(function_exists( 'fw_get_db_post_option' ) && $header_show_image)
 											include(locate_template('single-templates/author-bio.php'));
 										}
 
+										// If comments are open or we have at least one comment, load up the comment template.
+										if ( comments_open() || get_comments_number() ) :
+											comments_template();
+										endif;
 									?>
 
 
