@@ -5,6 +5,84 @@
  * @package naked
  */
 
+
+
+/**
+  * Generates and outputs google fonts string
+  */
+function thshpr_load_fonts()
+{
+	$include_from_google = array();
+	$google_fonts = fw_get_google_fonts();
+
+	$h1 = fw_get_db_customizer_option('opt_h1');
+	$h2 = fw_get_db_customizer_option('opt_h2');
+	$h3 = fw_get_db_customizer_option('opt_h3');
+	$h4 = fw_get_db_customizer_option('opt_h4');
+	$h5 = fw_get_db_customizer_option('opt_h5');
+	$h6 = fw_get_db_customizer_option('opt_h6');
+	$body = fw_get_db_customizer_option('opt_body');
+	$categories_tags = fw_get_db_customizer_option('opt_category_tag');
+	$large_description = fw_get_db_customizer_option('opt_large_description');
+	$other_meta = fw_get_db_customizer_option('opt_other_meta');
+
+	/* gets google fonts and adds to the array */
+	if( isset($google_fonts[$h1['family']]) ){
+		$include_from_google[$h1['family']] = $google_fonts[$h1['family']];
+	}
+	if( isset($google_fonts[$h2['family']]) ){
+		$include_from_google[$h2['family']] = $google_fonts[$h2['family']];
+	}
+	if( isset($google_fonts[$h3['family']]) ){
+		$include_from_google[$h3['family']] = $google_fonts[$h3['family']];
+	}
+	if( isset($google_fonts[$h4['family']]) ){
+		$include_from_google[$h4['family']] = $google_fonts[$h4['family']];
+	}
+	if( isset($google_fonts[$h5['family']]) ){
+		$include_from_google[$h5['family']] = $google_fonts[$h5['family']];
+	}
+	if( isset($google_fonts[$h6['family']]) ){
+		$include_from_google[$h6['family']] = $google_fonts[$h6['family']];
+	}
+	if( isset($google_fonts[$body['family']]) ){
+		$include_from_google[$body['family']] = $google_fonts[$body['family']];
+	}
+	if( isset($google_fonts[$categories_tags['family']]) ){
+		$include_from_google[$categories_tags['family']] = $google_fonts[$categories_tags['family']];
+	}
+	if( isset($google_fonts[$large_description['family']]) ){
+		$include_from_google[$large_description['family']] = $google_fonts[$large_description['family']];
+	}
+	if( isset($google_fonts[$other_meta['family']]) ){
+		$include_from_google[$other_meta['family']] = $google_fonts[$other_meta['family']];
+	}
+	if ( ! sizeof( $include_from_google ) ) {
+		return '';
+	}
+
+	$font_string='http://fonts.googleapis.com/css?family=';
+	foreach ( $include_from_google as $font => $styles )
+	{
+		$font_string .= str_replace( ' ', '+', $font ) . ':' . implode( ',', $styles['variants'] ) . '|';
+	}
+
+	$font_string = substr( $font_string, 0, - 1 );
+	wp_register_style('thshpr-google-fonts',  esc_url( $font_string ));
+	wp_enqueue_style( 'thshpr-google-fonts');
+}
+
+if (defined('FW'))
+{
+	add_action('wp_print_styles', 'thshpr_load_fonts');
+}
+
+
+
+
+
+
+
 /**
   * Generates hover string from the passed option array
   * @requires $opt_image_hover_item - multidimensional array containing user choice for hover
@@ -311,13 +389,6 @@ function thshpr_scripts() {
 add_action( 'wp_enqueue_scripts', 'thshpr_scripts' );
 
 
-function wpb_add_google_fonts() {
-
-
-	wp_register_style('wpb-googleFonts', 'http://fonts.googleapis.com/css?family=Playfair+Display:400,700,400italic,700italic|Droid+Serif:400,700,400italic,700italic|Roboto|Lato|Lora|PT+Sans|Ubuntu|Bitter|PT+Serif|Monda|Rokkitt|Libre+Baskerville|Maven+Pro');
-    wp_enqueue_style( 'wpb-googleFonts');
-}
-add_action('wp_print_styles', 'wpb_add_google_fonts');
 
 /**
  * Implement the Custom Header feature.
