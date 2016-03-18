@@ -42,4 +42,15 @@ $options = array(
             ),
         ),
     ),
+	'panel_2' => array(
+        'title' => __('Typography', 'thshpr'),
+        'options' => array(
+
+
+			fw()->theme->get_options('typography-options'),
+
+
+
+        ),
+    ),
 );
