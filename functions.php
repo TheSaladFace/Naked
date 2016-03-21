@@ -77,6 +77,74 @@ if (defined('FW'))
 	add_action('wp_print_styles', 'thshpr_load_fonts');
 }
 
+/**
+  * Separates Google fonts font-style and font-weight
+  */
+function thshpr_google_font_style_weight_split($field) {
+
+    $output = '';
+
+    if ( isset($field) ) {
+
+        $pattern = '/(\d+)|(regular|italic)/i';
+
+        preg_match_all($pattern, $field, $matches);
+
+        foreach ($matches[0] as $value) {
+            if ( $value == 'italic' ) {
+                $output .= 'font-style: ' . $value . ';';
+            } else if ( $value == 'regular' ) {
+                $output .= 'font-style: normal;';
+            } else {
+                $output .= 'font-weight: ' . $value . ';';
+            }
+        }
+
+    }
+
+    if ( isset($field['family']) ) {
+        $output .= 'font-family: ' . $field['family'] . ';';
+    }
+
+    return $output;
+
+}
+
+/**
+  * Generates and outputs google fonts string
+  */
+function thshpr_print_styles()
+{
+	$h1 = fw_get_db_customizer_option('opt_h1');
+	$h2 = fw_get_db_customizer_option('opt_h2');
+	$h3 = fw_get_db_customizer_option('opt_h3');
+	$h4 = fw_get_db_customizer_option('opt_h4');
+	$h5 = fw_get_db_customizer_option('opt_h5');
+	$h6 = fw_get_db_customizer_option('opt_h6');
+	$body = fw_get_db_customizer_option('opt_body');
+	$categories_tags = fw_get_db_customizer_option('opt_category_tag');
+	$categories_tags_font_hover_color = fw_get_db_customizer_option('opt_category_tag_font_color_hover');
+	$categories_tags_background = fw_get_db_customizer_option('opt_category_tag_background');
+	$categories_tags_background_hover = fw_get_db_customizer_option('opt_category_tag_background_hover');
+	$large_description = fw_get_db_customizer_option('opt_large_description');
+	$other_meta = fw_get_db_customizer_option('opt_other_meta');
+
+	var_dump($h1);
+
+	echo thshpr_prefix_typography_css($h1['variation']);
+
+	echo '<style type="text/css">'
+         . 'h1 { '
+         . 'font-family:'.esc_html($h1['family']).';'. thshpr_google_font_style_weight_split($h1['variation']) . 'font-size:'.esc_html($h1['size']).'px;'. 'line-height:'.esc_html($h1['line-height']).'px;'
+         . '}'
+         . '</style>';
+}
+
+if (defined('FW'))
+{
+	add_action('wp_print_styles', 'thshpr_print_styles');
+}
+
 
 
 
