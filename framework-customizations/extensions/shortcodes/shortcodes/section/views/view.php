@@ -4,6 +4,7 @@
  */
 
 /** Dont run without Unyson plugin **/
+
 if (!defined('FW')) die('Forbidden');
 
 $uri = fw_get_template_customizations_directory_uri('/extensions/shortcodes/shortcodes/section');
@@ -93,7 +94,7 @@ if ( ! empty( $atts['opt_background_parallax_ratio'] ) ) {
 }
 
 $section_style   = ( $bg_color || $bg_image || $bg_position || $bg_size ) ? 'style="' . esc_attr($bg_color . $bg_image . $bg_position . $bg_repeat . $bg_size . $bg_attachment) . '"' : '';
-$container_class = ( isset( $atts['opt_is_fullwidth'] ) && $atts['opt_is_fullwidth'] ) ? 'fw-container-fluid' : 'fw-container';
+$container_class = ( isset( $atts['is_fullwidth'] ) && $atts['is_fullwidth'] ) ? 'fw-container-fluid' : 'fw-container';
 $container_class.=$padding_top.$padding_bottom.$margin_top.$margin_bottom;
 
 ?>
