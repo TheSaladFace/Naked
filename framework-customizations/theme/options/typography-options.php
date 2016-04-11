@@ -28,7 +28,7 @@ $options = array(
 			        'size'           => true,
 			        'line-height'    => true,
 			        'letter-spacing' => true,
-			        'color'          => true
+			        'color'          => true,
 			    ),
 			    'label' => __('H1', 'thshpr'),
 			    'desc'  => __('Choose the typography for all H1 header elements', 'thshpr'),
@@ -46,7 +46,7 @@ $options = array(
 					'family' => 'Playfair Display',
 					'style' => 'regular',
         			'weight' => 400,
-			        'size' => 38,
+			        'size' => 40,
 			        'line-height' => 42,
 			        'letter-spacing' => 0,
 			        'color' => '#111111'
@@ -74,7 +74,7 @@ $options = array(
 			        'family' => 'Playfair Display',
 					'style' => 'regular',
         			'weight' => 400,
-			        'size' => 32,
+			        'size' => 33,
 			        'line-height' => 36,
 			        'letter-spacing' => 0,
 			        'color' => '#111111'
@@ -103,7 +103,7 @@ $options = array(
 					'style' => 'regular',
         			'weight' => 400,
 			        'size' => 16,
-			        'line-height' => 23,
+			        'line-height' => 22,
 			        'letter-spacing' => 0,
 			        'color' => '#111111'
 			    ),
@@ -131,7 +131,7 @@ $options = array(
 					'style' => 'regular',
         			'weight' => 400,
 			        'size' => 15,
-			        'line-height' => 20,
+			        'line-height' => 24,
 			        'letter-spacing' => 0,
 			        'color' => '#111111'
 			    ),
@@ -159,7 +159,7 @@ $options = array(
 					'style' => 'regular',
         			'weight' => 400,
 			        'size' => 14,
-			        'line-height' => 18,
+			        'line-height' => 26,
 			        'letter-spacing' => 0,
 			        'color' => '#222222'
 			    ),
@@ -187,9 +187,9 @@ $options = array(
 					'style' => 'regular',
         			'weight' => 400,
 			        'size' => 15,
-			        'line-height' => 18,
+			        'line-height' => 20,
 			        'letter-spacing' => 0,
-			        'color' => '#333333'
+			        'color' => '#444444'
 			    ),
 			    'components' => array(
 			        'family'         => true,
@@ -214,10 +214,10 @@ $options = array(
 					'family' => 'Droid Serif',
 					'style' => 'italic',
         			'weight' => 400,
-			        'size' => 14,
-			        'line-height' => 22,
-			        'letter-spacing' => 0,
-			        'color' => '#a6a6a6'
+			        'size' => 11,
+			        'line-height' => 11,
+			        'letter-spacing' => 1,
+			        'color' => '#ffffff'
 			    ),
 			    'components' => array(
 			        'family'         => true,
@@ -280,14 +280,14 @@ $options = array(
 				'help' => __( 'Used for the larger excerpt in some post blocks', 'thshpr' ),
 			),
 
-			'opt_other_meta' =>array(
+			'opt_small_description' =>array(
 			    'type' => 'typography-v2',
 			    'value' => array(
-					'family' => 'Droid Serif',
+			        'family' => 'Droid Serif',
 					'style' => 'italic',
         			'weight' => 400,
-			        'size' => 14,
-			        'line-height' => 22,
+			        'size' => 15,
+			        'line-height' => 20,
 			        'letter-spacing' => 0,
 			        'color' => '#a6a6a6'
 			    ),
@@ -298,8 +298,39 @@ $options = array(
 			        'letter-spacing' => true,
 			        'color'          => true
 			    ),
-			    'label' => __('Categories / Tags', 'thshpr'),
+			    'label' => __('Normal Excerpt', 'thshpr'),
+			    'desc'  => __('Choose the typography for the normal excerpt component', 'thshpr'),
+				'help' => __( 'Used for the excerpt in post blocks', 'thshpr' ),
+			),
+
+			'opt_other_meta' =>array(
+			    'type' => 'typography-v2',
+			    'value' => array(
+					'family' => 'Droid Serif',
+					'style' => 'italic',
+        			'weight' => 400,
+			        'size' => 14,
+			        'line-height' => 14,
+			        'letter-spacing' => 0,
+			        'color' => '#a6a6a6'
+			    ),
+			    'components' => array(
+			        'family'         => true,
+			        'size'           => true,
+			        'line-height'    => true,
+			        'letter-spacing' => true,
+			        'color'          => true
+			    ),
+			    'label' => __('Other Meta', 'thshpr'),
 			    'desc'  => __('Choose the typography for the other meta elements', 'thshpr'),
+			),
+			'opt_other_meta_hover' =>array(
+			    'type'  => 'rgba-color-picker',
+			    'value' => 'rgba(0,0,0,1)',
+			    // palette colors array
+			    'palettes' => array( '#000000' ),
+			    'label' => __('Category / Tag font color hover', 'thshpr'),
+			    'desc'  => __('Choose the font color on mouse hover for this component', 'thshpr'),
 			),
 
 		),

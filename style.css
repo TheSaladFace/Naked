@@ -343,19 +343,21 @@ a:link {text-decoration: none;}
  * Shortcode shared styles. These apply across all posts block shortcodes.
  * These are also used elsewhere (for example where meta information is displayed)
  */
-
+ /** hover animations **/
+ .tags a{-webkit-transition: background-color .35s linear; -moz-transition: background-color .35s linear;  -o-transition: background-color .35s linear;  -ms-transition: background-color .35s linear;  transition: background-color .35s linear;  }
+ .tags a:hover { background-color: #111;color:#fff}
 /** Custom, iPhone Retina **/
 @media only screen and (min-width : 320px)
 {
 	/** basic styles. These will be overwritten by the options, but are here in case user switches themes **/
-	h1,h2,h3{font-family: Playfair Display; }
+	/*h1,h2,h3{font-family: Playfair Display; }
 	h2{font-size:36px;}
 	h3{font-size:32px;}
 	a:link {text-decoration: none;}
 	body{ background-color:#fff!important; margin:0px;font-family: Droid Serif;}
 	p{margin-bottom:36px;}
 	a{color:#000;}
-	a:hover{text-decoration:none;}
+	a:hover{text-decoration:none;}*/
 
 	/** component element padding **/
 	.component-element{padding:8px 0px 8px 0px;}
@@ -431,9 +433,7 @@ a:link {text-decoration: none;}
 	.author-gravatar img{ /*border-radius: 25px;*/}
 	.author-thumbnail-visible{margin-top: 11px;height: 30px;}
 
-	/** hover animations **/
-	.tags a{-webkit-transition: background-color .35s linear; -moz-transition: background-color .35s linear;  -o-transition: background-color .35s linear;  -ms-transition: background-color .35s linear;  transition: background-color .35s linear;  }
-	.tags a:hover { background-color: #111;color:#fff}
+
 
 	/** dropcap (may be removed now) **/
 	.focus .dropcap{padding-right: 8px!important;font-family: Playfair Display;font-size: 80px!important;color:#222;font-style:normal;}

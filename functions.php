@@ -92,18 +92,18 @@ function thshpr_google_font_style_weight_split($field) {
 
         foreach ($matches[0] as $value) {
             if ( $value == 'italic' ) {
-                $output .= 'font-style: ' . $value . ';';
+                $output .= 'font-style:' . $value . ';';
             } else if ( $value == 'regular' ) {
-                $output .= 'font-style: normal;';
+                $output .= 'font-style:normal;';
             } else {
-                $output .= 'font-weight: ' . $value . ';';
+                $output .= 'font-weight:' . $value . ';';
             }
         }
 
     }
 
     if ( isset($field['family']) ) {
-        $output .= 'font-family: ' . $field['family'] . ';';
+        $output .= 'font-family:' . $field['family'] . ';';
     }
 
     return $output;
@@ -115,6 +115,8 @@ function thshpr_google_font_style_weight_split($field) {
   */
 function thshpr_print_styles()
 {
+	wp_enqueue_style( 'naked-style', get_stylesheet_uri() );
+	if (!defined('FW')) return;
 	$h1 = fw_get_db_customizer_option('opt_h1');
 	$h2 = fw_get_db_customizer_option('opt_h2');
 	$h3 = fw_get_db_customizer_option('opt_h3');
@@ -127,23 +129,39 @@ function thshpr_print_styles()
 	$categories_tags_background = fw_get_db_customizer_option('opt_category_tag_background');
 	$categories_tags_background_hover = fw_get_db_customizer_option('opt_category_tag_background_hover');
 	$large_description = fw_get_db_customizer_option('opt_large_description');
+	$small_description = fw_get_db_customizer_option('opt_small_description');
 	$other_meta = fw_get_db_customizer_option('opt_other_meta');
+	$other_meta_hover = fw_get_db_customizer_option('opt_other_meta_hover');
 
-	var_dump($h1);
+	var_dump($categories_tags_background_hover);
 
-	echo thshpr_prefix_typography_css($h1['variation']);
+	$option_styles =
+	'h1{ font-family:'.esc_html($h1['family']).';'. thshpr_google_font_style_weight_split($h1['variation']) . 'font-size:'.esc_html($h1['size']).'px;'. 'color:'.esc_html($h1['color']).';'. 'letter-spacing:'.esc_html($h1['letter-spacing']).'px;'. 'line-height:'.esc_html($h1['line-height']).'px; }'
+	.'h2{ font-family:'.esc_html($h2['family']).';'. thshpr_google_font_style_weight_split($h2['variation']) . 'font-size:'.esc_html($h2['size']).'px;'. 'color:'.esc_html($h2['color']).';'. 'letter-spacing:'.esc_html($h2['letter-spacing']).'px;'. 'line-height:'.esc_html($h2['line-height']).'px; }'
+	.'h3, .component-element h3{ font-family:'.esc_html($h3['family']).';'. thshpr_google_font_style_weight_split($h3['variation']) . 'font-size:'.esc_html($h3['size']).'px;'. 'color:'.esc_html($h3['color']).';'. 'letter-spacing:'.esc_html($h3['letter-spacing']).'px;'. 'line-height:'.esc_html($h3['line-height']).'px; }'
+	.'h4, .component-element h4{ font-family:'.esc_html($h4['family']).';'. thshpr_google_font_style_weight_split($h4['variation']) . 'font-size:'.esc_html($h4['size']).'px;'. 'color:'.esc_html($h4['color']).';'. 'letter-spacing:'.esc_html($h4['letter-spacing']).'px;'. 'line-height:'.esc_html($h4['line-height']).'px; }'
+	.'h5{ font-family:'.esc_html($h5['family']).';'. thshpr_google_font_style_weight_split($h5['variation']) . 'font-size:'.esc_html($h5['size']).'px;'. 'color:'.esc_html($h5['color']).';'. 'letter-spacing:'.esc_html($h5['letter-spacing']).'px;'. 'line-height:'.esc_html($h5['line-height']).'px; }'
+	.'h6{ font-family:'.esc_html($h6['family']).';'. thshpr_google_font_style_weight_split($h6['variation']) . 'font-size:'.esc_html($h6['size']).'px;'. 'color:'.esc_html($h6['color']).';'. 'letter-spacing:'.esc_html($h6['letter-spacing']).'px;'. 'line-height:'.esc_html($h6['line-height']).'px; }'
+	.'body{ font-family:'.esc_html($body['family']).';'. thshpr_google_font_style_weight_split($body['variation']) . 'font-size:'.esc_html($body['size']).'px;'. 'color:'.esc_html($body['color']).';'. 'letter-spacing:'.esc_html($body['letter-spacing']).'px;'. 'line-height:'.esc_html($body['line-height']).'px; }'
+	.'.tags a{ font-family:'.esc_html($categories_tags['family']).';'. thshpr_google_font_style_weight_split($categories_tags['variation']) . 'font-size:'.esc_html($categories_tags['size']).'px;'. 'color:'.esc_html($categories_tags['color']).';'. 'letter-spacing:'.esc_html($categories_tags['letter-spacing']).'px;'. 'line-height:'.esc_html($categories_tags['line-height']).'px; }'
+	.'.tags a{ background-color:'.esc_html($categories_tags_background).';}'
+	.'.tags a:hover{ background-color:'.esc_html($categories_tags_font_hover_color).';}'
+	.'.tags a:hover{ background-color:'.esc_html($categories_tags_background_hover).';}'
+	.'.meta-excerpt, .meta-excerpt a{ font-family:'.esc_html($small_description['family']).';'. thshpr_google_font_style_weight_split($small_description['variation']) . 'font-size:'.esc_html($small_description['size']).'px;'. 'color:'.esc_html($small_description['color']).';'. 'letter-spacing:'.esc_html($small_description['letter-spacing']).'px;'. 'line-height:'.esc_html($small_description['line-height']).'px; }'
+	.'.focus .meta-excerpt,.focus .meta-excerpt a{ font-family:'.esc_html($large_description['family']).';'. thshpr_google_font_style_weight_split($large_description['variation']) . 'font-size:'.esc_html($large_description['size']).'px;'. 'color:'.esc_html($large_description['color']).';'. 'letter-spacing:'.esc_html($large_description['letter-spacing']).'px;'. 'line-height:'.esc_html($large_description['line-height']).'px; }'
+	.'.general-meta, .general-meta a{ font-family:'.esc_html($other_meta['family']).';'. thshpr_google_font_style_weight_split($other_meta['variation']) . 'font-size:'.esc_html($other_meta['size']).'px;'. 'color:'.esc_html($other_meta['color']).';'. 'letter-spacing:'.esc_html($other_meta['letter-spacing']).'px;'. 'line-height:'.esc_html($other_meta['line-height']).'px; }'
+	.'.general-meta a:hover{ font-family:'.esc_html($other_meta_hover).';'. thshpr_google_font_style_weight_split($other_meta_hover) . 'font-size:'.esc_html($other_meta_hover).'px;'. 'color:'.esc_html($other_meta_hover).';'. 'letter-spacing:'.esc_html($other_meta_hover).'px;'. 'line-height:'.esc_html($other_meta_hover).'px; }';
+	remove_theme_mod('fw_options');
 
-	echo '<style type="text/css">'
-         . 'h1 { '
-         . 'font-family:'.esc_html($h1['family']).';'. thshpr_google_font_style_weight_split($h1['variation']) . 'font-size:'.esc_html($h1['size']).'px;'. 'line-height:'.esc_html($h1['line-height']).'px;'
-         . '}'
-         . '</style>';
+	wp_enqueue_style(
+		'option-styles',
+		get_template_directory_uri() . 'style.css'
+	);
+	wp_add_inline_style( 'option-styles', esc_html($option_styles) );
 }
+add_action('wp_enqueue_scripts', 'thshpr_print_styles');
 
-if (defined('FW'))
-{
-	add_action('wp_print_styles', 'thshpr_print_styles');
-}
+
 
 
 
@@ -425,7 +443,7 @@ function thshpr_scripts() {
 
 
 	// load theme styles
-	wp_enqueue_style( 'naked-style', get_stylesheet_uri() );
+
 
 
 	wp_enqueue_script( 'naked-fittext-js', get_template_directory_uri() . '/static/js/jquery.fittext.js', array('jquery'),'',true );
@@ -454,7 +472,7 @@ function thshpr_scripts() {
 		wp_enqueue_script( 'naked-keyboard-image-navigation', get_template_directory_uri() . '/static/js/keyboard-image-navigation.js', array( 'jquery' ), '20120202' );
 	}
 }
-add_action( 'wp_enqueue_scripts', 'thshpr_scripts' );
+add_action( 'wp_enqueue_scripts', 'thshpr_scripts');
 
 
 
