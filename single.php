@@ -23,7 +23,8 @@ if(function_exists( 'fw_get_db_customizer_option' ))
 	$title_category_tag_number=fw_get_db_customizer_option('opt_single_title_functionality_number_categories');
 	$title_show_author_image=fw_get_db_customizer_option('opt_single_title_functionality_show_author_image');
 	$title_divider_type=fw_locate_theme_path_uri('/static/img/').fw_get_db_customizer_option('opt_single_title_divider_type');
-	$show_author_bio=fw_get_db_customizer_option('opt_show_author_bio');
+	$show_side_meta=fw_get_db_customizer_option('opt_show_side_meta');
+
 }
 
 if(function_exists( 'fw_get_db_post_option' )) //check for post options
@@ -118,9 +119,11 @@ if(function_exists( 'fw_get_db_post_option' ) && $header_show_image)
 								<?php
 								if(function_exists( 'fw_get_db_customizer_option' )) //requires unyson plugin / options, if not enabled, don't display meta
 								{
-									$item_string="";
-									include(locate_template('single-templates/meta-string.php')); //generates meta string from customzed options
-									echo $item_string;
+									if($show_side_meta==1)
+									{
+										include(locate_template('single-templates/meta-string.php')); //generates meta string from customzed options
+										echo $item_string;
+									}
 								}
 								?>
 
