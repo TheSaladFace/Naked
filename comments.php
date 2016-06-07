@@ -23,22 +23,34 @@ if ( post_password_required() ) {
 <div id="comments" class="comments-area">
 
 	<?php if ( have_comments() ) : ?>
-		<h2 class="comments-title">
+		<h3 class="comments-title">
 			<?php
-				printf( _nx( 'One thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', get_comments_number(), 'comments title', 'thshpr' ),
-					number_format_i18n( get_comments_number() ), get_the_title() );
+				if(get_comments_number()>1)
+				{
+					echo get_comments_number().'&nbsp;';
+					_e('Comments', 'thshpr' );
+				}
+				else
+				{
+					_e( '1 Comment', 'thshpr' );
+				}
 			?>
-		</h2>
+		</h3>
+		<div class="comments-box">
 
-		<ol class="comment-list">
-			<?php
-				wp_list_comments( array(
-					'style'       => 'ol',
-					'short_ping'  => true,
-					'avatar_size' => 56,
-				) );
-			?>
-		</ol><!-- .comment-list -->
+			<div id="comments-contents">
+				<ol class="comment-list">
+					<?php
+						wp_list_comments( array(
+							'style'       => 'ol',
+							'short_ping'  => true,
+							'avatar_size' => 56,
+						) );
+					?>
+				</ol><!-- .comment-list -->
+			</div>
+		</div>
+
 
 	<?php endif; // have_comments() ?>
 
@@ -47,6 +59,7 @@ if ( post_password_required() ) {
 		if ( ! comments_open() && get_comments_number() && post_type_supports( get_post_type(), 'comments' ) ) :
 	?>
 		<p class="no-comments"><?php _e( 'Comments are closed.', 'thshpr' ); ?></p>
+
 	<?php endif; ?>
 
 	<?php comment_form(); ?>

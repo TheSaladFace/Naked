@@ -5,7 +5,50 @@
  * @package naked
  */
 
+/**
+  * Add placeholders to WordPress comment info fields
+  */
+function thshpr_update_fields($fields)
+{
+	$commenter = wp_get_current_commenter();
+	$req = get_option('require_name_email');
+	$aria_req = ($req ? " aria-required='true'" : '');
 
+	$fields['author'] =
+	'<p class="comment-form-author">
+	<input required minlength="3" maxlength="30" placeholder="' . __("Name*", "thshpr") . '" id="author" name="author" type="text" value="' . esc_attr($commenter['comment_author']) .
+	'" size="30"' . $aria_req . ' />
+	</p>';
+
+	$fields['email'] =
+	'<p class="comment-form-email">
+	<input required placeholder="' . __("Email*", "thshpr") . '" id="email" name="email" type="email" value="' . esc_attr($commenter['comment_author_email']) .
+	'" size="30"' . $aria_req . ' />
+	</p>';
+
+	$fields['url'] =
+	'<p class="comment-form-url">
+	<input placeholder="' . __("Website", "thshpr") . '" id="url" name="url" type="url" value="' . esc_attr($commenter['comment_author_url']) .
+	'" size="30" />
+	</p>';
+
+	return $fields;
+}
+add_filter('comment_form_default_fields', 'thshpr_update_fields');
+
+/**
+  * Add placeholders to WordPress comment field
+  */
+function thshpr_comment_field($comment_field)
+{
+	$comment_field =
+	'<p class="comment-form-comment">
+	<textarea required placeholder="Enter Your Comment…" id="comment" name="comment" aria-required="true"></textarea>
+	</p>';
+
+	return $comment_field;
+}
+add_filter('comment_form_field_comment', 'thshpr_comment_field');
 
 /**
   * Generates and outputs google fonts string
@@ -111,11 +154,13 @@ function thshpr_google_font_style_weight_split($field) {
 }
 
 /**
-  * Generates and outputs google fonts string
+  * Generates and outputs google fonts string, enqueues styles
   */
 function thshpr_print_styles()
 {
-	wp_enqueue_style( 'naked-style', get_stylesheet_uri() );
+	// load theme styles
+	wp_enqueue_style( 'normalize', get_template_directory_uri() . 'static/css/normalize.css','', '', 'all');
+	wp_enqueue_style( 'naked-style', get_stylesheet_uri(), array('normalize'), '', 'all');
 	if (!defined('FW')) return;
 	$h1 = fw_get_db_customizer_option('opt_h1');
 	$h2 = fw_get_db_customizer_option('opt_h2');
@@ -133,8 +178,6 @@ function thshpr_print_styles()
 	$other_meta = fw_get_db_customizer_option('opt_other_meta');
 	$other_meta_hover = fw_get_db_customizer_option('opt_other_meta_hover');
 
-	var_dump($categories_tags_background_hover);
-
 	$option_styles =
 	'h1{ font-family:'.esc_html($h1['family']).';'. thshpr_google_font_style_weight_split($h1['variation']) . 'font-size:'.esc_html($h1['size']).'px;'. 'color:'.esc_html($h1['color']).';'. 'letter-spacing:'.esc_html($h1['letter-spacing']).'px;'. 'line-height:'.esc_html($h1['line-height']).'px; }'
 	.'h2{ font-family:'.esc_html($h2['family']).';'. thshpr_google_font_style_weight_split($h2['variation']) . 'font-size:'.esc_html($h2['size']).'px;'. 'color:'.esc_html($h2['color']).';'. 'letter-spacing:'.esc_html($h2['letter-spacing']).'px;'. 'line-height:'.esc_html($h2['line-height']).'px; }'
@@ -142,7 +185,7 @@ function thshpr_print_styles()
 	.'h4, .component-element h4{ font-family:'.esc_html($h4['family']).';'. thshpr_google_font_style_weight_split($h4['variation']) . 'font-size:'.esc_html($h4['size']).'px;'. 'color:'.esc_html($h4['color']).';'. 'letter-spacing:'.esc_html($h4['letter-spacing']).'px;'. 'line-height:'.esc_html($h4['line-height']).'px; }'
 	.'h5{ font-family:'.esc_html($h5['family']).';'. thshpr_google_font_style_weight_split($h5['variation']) . 'font-size:'.esc_html($h5['size']).'px;'. 'color:'.esc_html($h5['color']).';'. 'letter-spacing:'.esc_html($h5['letter-spacing']).'px;'. 'line-height:'.esc_html($h5['line-height']).'px; }'
 	.'h6{ font-family:'.esc_html($h6['family']).';'. thshpr_google_font_style_weight_split($h6['variation']) . 'font-size:'.esc_html($h6['size']).'px;'. 'color:'.esc_html($h6['color']).';'. 'letter-spacing:'.esc_html($h6['letter-spacing']).'px;'. 'line-height:'.esc_html($h6['line-height']).'px; }'
-	.'body{ font-family:'.esc_html($body['family']).';'. thshpr_google_font_style_weight_split($body['variation']) . 'font-size:'.esc_html($body['size']).'px;'. 'color:'.esc_html($body['color']).';'. 'letter-spacing:'.esc_html($body['letter-spacing']).'px;'. 'line-height:'.esc_html($body['line-height']).'px; }'
+	.'body,input,textarea{ font-family:'.esc_html($body['family']).';'. thshpr_google_font_style_weight_split($body['variation']) . 'font-size:'.esc_html($body['size']).'px;'. 'color:'.esc_html($body['color']).';'. 'letter-spacing:'.esc_html($body['letter-spacing']).'px;'. 'line-height:'.esc_html($body['line-height']).'px; }'
 	.'.tags a{ font-family:'.esc_html($categories_tags['family']).';'. thshpr_google_font_style_weight_split($categories_tags['variation']) . 'font-size:'.esc_html($categories_tags['size']).'px;'. 'color:'.esc_html($categories_tags['color']).';'. 'letter-spacing:'.esc_html($categories_tags['letter-spacing']).'px;'. 'line-height:'.esc_html($categories_tags['line-height']).'px; }'
 	.'.tags a{ background-color:'.esc_html($categories_tags_background).';}'
 	.'.tags a:hover{ background-color:'.esc_html($categories_tags_font_hover_color).';}'
@@ -437,13 +480,9 @@ function naked_widgets_init() {
 }
 
 /**
- * Enqueue scripts and styles
+ * Enqueue scripts
  */
 function thshpr_scripts() {
-
-
-	// load theme styles
-
 
 
 	wp_enqueue_script( 'naked-fittext-js', get_template_directory_uri() . '/static/js/jquery.fittext.js', array('jquery'),'',true );
@@ -455,9 +494,9 @@ function thshpr_scripts() {
 	wp_register_script( 'thshpr-stellar', get_template_directory_uri() . '/static/js/jquery.stellar.min.js', array('jquery'),'',true );
 	wp_register_script( 'thshpr-stellar-init', get_template_directory_uri() . '/static/js/stellar-init.js', array('jquery','thshpr-stellar'),'',true );
 	wp_register_script( 'thshpr-article-progress', get_template_directory_uri() . '/static/js/article-progress.js', array('jquery'),'',true );
-
-	wp_enqueue_script( 'naked-theme-js', get_template_directory_uri() . '/static/js/theme.js', array('jquery','naked-fittext-js','naked-ssm-breakpoints','naked-matchheights'),'',true );
-	wp_enqueue_script( 'naked-skip-link-focus-fix', get_template_directory_uri() . '/static/js/skip-link-focus-fix.js', array(), '20130115', true );
+	wp_enqueue_script( 'thshpr-comment-columns', get_template_directory_uri() . '/static/js/comment-columns.js', array('jquery'),'',true );
+	//wp_enqueue_script( 'naked-theme-js', get_template_directory_uri() . '/static/js/theme.js', array('jquery','naked-fittext-js','naked-ssm-breakpoints','naked-matchheights'),'',true );
+	//wp_enqueue_script( 'naked-skip-link-focus-fix', get_template_directory_uri() . '/static/js/skip-link-focus-fix.js', array(), '20130115', true );
 	if (is_singular())
 	{
 		wp_enqueue_script('thshpr-stellar');
