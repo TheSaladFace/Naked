@@ -14,7 +14,7 @@ $options = array(
 						'type'  => 'switch',
 						'value' => 'Show',
 						'label' => __('Show Author Bio Information', 'thshpr'),
-						'help' => __( 'This will display the author bio information and link to their posts', 'thshpr'  ),
+						'help' => __( 'This will display the author bio panel on the left hand side of the post. Populate this from the Author Bio Options', 'thshpr'  ),
 						'left-choice' => array(
 							'value' => '1',
 							'label' => __('Show', 'thshpr'),
@@ -35,9 +35,9 @@ $options = array(
             ),
 
             'side_meta_options' => array(
-                'title' => __('Side Meta Options', 'thshpr'),
+                'title' => __('Author Bio Options', 'thshpr'),
 				'options' => array(
-					fw()->theme->get_options('meta-options'),
+					fw()->theme->get_options('author-bio-options'),
 				),
             ),
         ),

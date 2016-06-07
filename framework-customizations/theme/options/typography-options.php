@@ -74,8 +74,8 @@ $options = array(
 			        'family' => 'Playfair Display',
 					'style' => 'regular',
         			'weight' => 400,
-			        'size' => 33,
-			        'line-height' => 36,
+			        'size' => 24,
+			        'line-height' => 30,
 			        'letter-spacing' => 0,
 			        'color' => '#111111'
 			    ),
