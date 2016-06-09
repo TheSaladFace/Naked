@@ -555,13 +555,14 @@ a:link {text-decoration: none;}
 	.share-boxes{font-size: 14px; font-style: italic; color: #a6a6a6;}
 	.absolute-container{position:relative;display: inline-block;}
 	.fa-share-alt{cursor: pointer;z-index:1000;border: 1px solid #ddd; background-color: #fff; width:30px;height:30px;padding-top: 6px; padding-left: 8px; margin: 0px; position: relative; top: 0px; float: left;}
+	.fa-at{cursor: pointer;z-index:1000;border: 1px solid #ddd; background-color: #fff; width:30px;height:30px;padding-top: 7px; padding-left: 8px; margin: 0px; position: relative; top: 0px; float: left;}
 	.social-box{  opacity:0;position: absolute; display: inline-block;  text-align: center;   border: 0px solid #eaeaea; left:0px;}
 	.social-box .icon{margin:0px;padding:0px;font-size: 14px;  color:#fff; display: inline-block; text-align: center; padding: 5px 6px 4px 5px;  margin-right: 0px; margin-left: 0px; }
-	.social-box.facebook{left:0px;transition:  all .35s ease; -moz-transition:  all .35s ease;  -o-transition:  all .35s ease;  -ms-transition:  all .35s ease;  transition:  all .35s ease; -webkit-transition-delay: 0s;  transition-delay: 0s;z-index:5;}
-	.social-box.twitter{left:0px;transition:  all .35s ease; -moz-transition:  all .35s ease;  -o-transition:  all .35s ease;  -ms-transition:  all .35s ease;  transition:  all .35s ease; -webkit-transition-delay: 0.15s;  transition-delay: 0.15s;z-index:4;}
-	.social-box.google-plus{left:0px;transition:  all .35s ease; -moz-transition:  all .35s ease;  -o-transition:  all .35s ease;  -ms-transition:  all .35s ease;  transition:  all .35s ease; -webkit-transition-delay: 0.3s;  transition-delay: 0.3s;z-index:3;}
-	.social-box.linked-in{left:0px;transition:  all .35s ease; -moz-transition:  all .35s ease;  -o-transition:  all .35s ease;  -ms-transition:  all .35s ease;  transition:  all .35s ease; -webkit-transition-delay: 0.45s;  transition-delay: 0.45s;z-index:2; }
-	.social-box.pinterest{left:0px;transition:  all .35s ease; -moz-transition:  all .35s ease;  -o-transition:  all .35s ease;  -ms-transition:  all .35s ease;  transition:  all .35s ease; -webkit-transition-delay: 0.6s;  transition-delay: 0.6s;z-index:1;}
+	.social-box:nth-child(3){left:0px;transition:  all .35s ease; -moz-transition:  all .35s ease;  -o-transition:  all .35s ease;  -ms-transition:  all .35s ease;  transition:  all .35s ease; -webkit-transition-delay: 0s;  transition-delay: 0s;z-index:5;}
+	.social-box:nth-child(4){left:0px;transition:  all .35s ease; -moz-transition:  all .35s ease;  -o-transition:  all .35s ease;  -ms-transition:  all .35s ease;  transition:  all .35s ease; -webkit-transition-delay: 0.15s;  transition-delay: 0.15s;z-index:4;}
+	.social-box:nth-child(5){left:0px;transition:  all .35s ease; -moz-transition:  all .35s ease;  -o-transition:  all .35s ease;  -ms-transition:  all .35s ease;  transition:  all .35s ease; -webkit-transition-delay: 0.3s;  transition-delay: 0.3s;z-index:3;}
+	.social-box:nth-child(6){left:0px;transition:  all .35s ease; -moz-transition:  all .35s ease;  -o-transition:  all .35s ease;  -ms-transition:  all .35s ease;  transition:  all .35s ease; -webkit-transition-delay: 0.45s;  transition-delay: 0.45s;z-index:2; }
+	.social-box:nth-child(7){left:0px;transition:  all .35s ease; -moz-transition:  all .35s ease;  -o-transition:  all .35s ease;  -ms-transition:  all .35s ease;  transition:  all .35s ease; -webkit-transition-delay: 0.6s;  transition-delay: 0.6s;z-index:1;}
 	.inner{width:30px;height:30px;padding-top: 3px;}
 	.share-label{display:inline-block; padding:6px 0px 0px 8px; height:30px;}
 	.inner{display: inline-block; text-align: center; margin-right: 0px; margin-left: 0px; }
@@ -572,11 +573,11 @@ a:link {text-decoration: none;}
 	.pinterest-inner{background-color:#d0363c; }
 
 	/** social media hover animations- box appears **/
-	.share-boxes:hover .facebook {left:30px; opacity:100;}
-	.share-boxes:hover .twitter {left:60px; opacity:100;}
-	.share-boxes:hover .google-plus {left:90px; opacity:100;}
-	.share-boxes:hover .linked-in {left:120px; opacity:100;}
-	.share-boxes:hover .pinterest {left:150px; opacity:100;}
+	.share-boxes:hover .social-box:nth-child(3) {left:30px; opacity:100;}
+	.share-boxes:hover .social-box:nth-child(4) {left:60px; opacity:100;}
+	.share-boxes:hover .social-box:nth-child(5) {left:90px; opacity:100;}
+	.share-boxes:hover .social-box:nth-child(6) {left:120px; opacity:100;}
+	.share-boxes:hover .social-box:nth-child(7) {left:150px; opacity:100;}
 
 	/** social media hover animations- box colors **/
 	.facebook-inner:hover{background-color:#2d4373;}
