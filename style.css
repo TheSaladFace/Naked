@@ -555,22 +555,25 @@ a:link {text-decoration: none;}
 	.share-boxes{font-size: 14px; font-style: italic; color: #a6a6a6;}
 	.absolute-container{position:relative;display: inline-block;}
 	.fa-share-alt{cursor: pointer;z-index:1000;border: 1px solid #ddd; background-color: #fff; width:30px;height:30px;padding-top: 6px; padding-left: 8px; margin: 0px; position: relative; top: 0px; float: left;}
-	.fa-at{cursor: pointer;z-index:1000;border: 1px solid #ddd; background-color: #fff; width:30px;height:30px;padding-top: 7px; padding-left: 8px; margin: 0px; position: relative; top: 0px; float: left;}
+	.link-outer{cursor: pointer;z-index:1000;border: 1px solid #ddd; background-color: #fff; width:30px;height:30px;padding-top: 7px; padding-left: 8px; margin: 0px; position: relative; top: 0px; float: left;}
 	.social-box{  opacity:0;position: absolute; display: inline-block;  text-align: center;   border: 0px solid #eaeaea; left:0px;}
 	.social-box .icon{margin:0px;padding:0px;font-size: 14px;  color:#fff; display: inline-block; text-align: center; padding: 5px 6px 4px 5px;  margin-right: 0px; margin-left: 0px; }
-	.social-box:nth-child(3){left:0px;transition:  all .35s ease; -moz-transition:  all .35s ease;  -o-transition:  all .35s ease;  -ms-transition:  all .35s ease;  transition:  all .35s ease; -webkit-transition-delay: 0s;  transition-delay: 0s;z-index:5;}
-	.social-box:nth-child(4){left:0px;transition:  all .35s ease; -moz-transition:  all .35s ease;  -o-transition:  all .35s ease;  -ms-transition:  all .35s ease;  transition:  all .35s ease; -webkit-transition-delay: 0.15s;  transition-delay: 0.15s;z-index:4;}
-	.social-box:nth-child(5){left:0px;transition:  all .35s ease; -moz-transition:  all .35s ease;  -o-transition:  all .35s ease;  -ms-transition:  all .35s ease;  transition:  all .35s ease; -webkit-transition-delay: 0.3s;  transition-delay: 0.3s;z-index:3;}
-	.social-box:nth-child(6){left:0px;transition:  all .35s ease; -moz-transition:  all .35s ease;  -o-transition:  all .35s ease;  -ms-transition:  all .35s ease;  transition:  all .35s ease; -webkit-transition-delay: 0.45s;  transition-delay: 0.45s;z-index:2; }
-	.social-box:nth-child(7){left:0px;transition:  all .35s ease; -moz-transition:  all .35s ease;  -o-transition:  all .35s ease;  -ms-transition:  all .35s ease;  transition:  all .35s ease; -webkit-transition-delay: 0.6s;  transition-delay: 0.6s;z-index:1;}
+	.social-box .icon.fa-link{font-size: 13px;}
+	.social-box:nth-child(3){left:0px;transition:  all .35s ease; -moz-transition:  all .35s ease;  -o-transition:  all .35s ease;  -ms-transition:  all .35s ease;  transition:  all .35s ease; -webkit-transition-delay: 0s;  transition-delay: 0s;z-index:6;}
+	.social-box:nth-child(4){left:0px;transition:  all .35s ease; -moz-transition:  all .35s ease;  -o-transition:  all .35s ease;  -ms-transition:  all .35s ease;  transition:  all .35s ease; -webkit-transition-delay: 0.15s;  transition-delay: 0.15s;z-index:5;}
+	.social-box:nth-child(5){left:0px;transition:  all .35s ease; -moz-transition:  all .35s ease;  -o-transition:  all .35s ease;  -ms-transition:  all .35s ease;  transition:  all .35s ease; -webkit-transition-delay: 0.3s;  transition-delay: 0.3s;z-index:4;}
+	.social-box:nth-child(6){left:0px;transition:  all .35s ease; -moz-transition:  all .35s ease;  -o-transition:  all .35s ease;  -ms-transition:  all .35s ease;  transition:  all .35s ease; -webkit-transition-delay: 0.45s;  transition-delay: 0.45s;z-index:3; }
+	.social-box:nth-child(7){left:0px;transition:  all .35s ease; -moz-transition:  all .35s ease;  -o-transition:  all .35s ease;  -ms-transition:  all .35s ease;  transition:  all .35s ease; -webkit-transition-delay: 0.6s;  transition-delay: 0.6s;z-index:2;}
+	.social-box:nth-child(8){left:0px;transition:  all .35s ease; -moz-transition:  all .35s ease;  -o-transition:  all .35s ease;  -ms-transition:  all .35s ease;  transition:  all .35s ease; -webkit-transition-delay: 0.75s;  transition-delay: 0.75s;z-index:1;}
 	.inner{width:30px;height:30px;padding-top: 3px;}
 	.share-label{display:inline-block; padding:6px 0px 0px 8px; height:30px;}
 	.inner{display: inline-block; text-align: center; margin-right: 0px; margin-left: 0px; }
-	.facebook-inner{background-color: #4e69a2;}
-	.twitter-inner{background-color: #19b4ef;}
-	.google-plus-inner{background-color: #e05d4c;}
-	.linked-in-inner{background-color:#1984bc;}
-	.pinterest-inner{background-color:#d0363c; }
+	.facebook-inner{background-color: #4e69a2;transition:  all .35s ease; -moz-transition:  all .35s ease;  -o-transition:  all .35s ease;  -ms-transition:  all .35s ease;  transition:  all .35s ease;}
+	.twitter-inner{background-color: #19b4ef;transition:  all .35s ease; -moz-transition:  all .35s ease;  -o-transition:  all .35s ease;  -ms-transition:  all .35s ease;  transition:  all .35s ease;}
+	.google-plus-inner{background-color: #e05d4c;transition:  all .35s ease; -moz-transition:  all .35s ease;  -o-transition:  all .35s ease;  -ms-transition:  all .35s ease;  transition:  all .35s ease;}
+	.linked-in-inner{background-color:#1984bc;transition:  all .35s ease; -moz-transition:  all .35s ease;  -o-transition:  all .35s ease;  -ms-transition:  all .35s ease;  transition:  all .35s ease;}
+	.pinterest-inner{background-color:#d0363c; transition:  all .35s ease; -moz-transition:  all .35s ease;  -o-transition:  all .35s ease;  -ms-transition:  all .35s ease;  transition:  all .35s ease;}
+	.website-inner{background-color:#272727; transition:  all .35s ease; -moz-transition:  all .35s ease;  -o-transition:  all .35s ease;  -ms-transition:  all .35s ease;  transition:  all .35s ease;}
 
 	/** social media hover animations- box appears **/
 	.share-boxes:hover .social-box:nth-child(3) {left:30px; opacity:100;}
@@ -578,6 +581,7 @@ a:link {text-decoration: none;}
 	.share-boxes:hover .social-box:nth-child(5) {left:90px; opacity:100;}
 	.share-boxes:hover .social-box:nth-child(6) {left:120px; opacity:100;}
 	.share-boxes:hover .social-box:nth-child(7) {left:150px; opacity:100;}
+	.share-boxes:hover .social-box:nth-child(8) {left:180px; opacity:100;}
 
 	/** social media hover animations- box colors **/
 	.facebook-inner:hover{background-color:#2d4373;}
@@ -585,6 +589,7 @@ a:link {text-decoration: none;}
 	.google-plus-inner:hover{background-color:#d73925;}
 	.linked-in-inner:hover{background-color:#0077B5;}
 	.pinterest-inner:hover{background-color:#b51d23;}
+	.website-inner:hover{background-color:#111111; }
 
 	/** pagination **/
 	.page-nav{margin-top: 10px; margin-bottom: 50px;}

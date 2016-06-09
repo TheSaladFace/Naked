@@ -6,6 +6,81 @@
  */
 
 /**
+  * Add extra form info for users
+  */
+function thshpr_show_extra_profile_fields( $user )
+{
+	?>
+	<h3>Theme Special Information</h3>
+	<table class="form-table">
+		<tr>
+			<th><label for="extrainfo">Extra Info</label></th>
+			<td>
+				<input type="text" name="extrainfo" id="extrainfo" value="<?php echo esc_attr( get_the_author_meta( 'extrainfo', $user->ID ) ); ?>" class="regular-text" /><br />
+				<span class="description">Please enter extra info (this goes below the user name).</span>
+			</td>
+		</tr>
+		<tr>
+			<th><label for="twitter">Twitter URL</label></th>
+			<td>
+				<input type="text" name="twitter" id="twitter" value="<?php echo esc_attr( get_the_author_meta( 'twitter', $user->ID ) ); ?>" class="regular-text" /><br />
+				<span class="description">Please enter your Twitter URL (enter entire URL).</span>
+			</td>
+		</tr>
+		<tr>
+			<th><label for="facebook">Facebook</label></th>
+			<td>
+				<input type="text" name="facebook" id="facebook" value="<?php echo esc_attr( get_the_author_meta( 'facebook', $user->ID ) ); ?>" class="regular-text" /><br />
+				<span class="description">Please enter your Facebook URL (enter entire URL).</span>
+			</td>
+		</tr>
+		<tr>
+			<th><label for="googleplus">Google Plus</label></th>
+			<td>
+				<input type="text" name="googleplus" id="googleplus" value="<?php echo esc_attr( get_the_author_meta( 'googleplus', $user->ID ) ); ?>" class="regular-text" /><br />
+				<span class="description">Please enter your Google Plus URL (enter entire URL).</span>
+			</td>
+		</tr>
+		<tr>
+			<th><label for="linkedin">Linked In</label></th>
+			<td>
+				<input type="text" name="linkedin" id="linkedin" value="<?php echo esc_attr( get_the_author_meta( 'linkedin', $user->ID ) ); ?>" class="regular-text" /><br />
+				<span class="description">Please enter your Linked In URL (enter entire URL).</span>
+			</td>
+		</tr>
+		<tr>
+			<th><label for="pinterest">Pinterest</label></th>
+			<td>
+				<input type="text" name="pinterest" id="pinterest" value="<?php echo esc_attr( get_the_author_meta( 'pinterest', $user->ID ) ); ?>" class="regular-text" /><br />
+				<span class="description">Please enter your Pinterest URL (enter entire URL).</span>
+			</td>
+		</tr>
+
+	</table>
+	<?php
+}
+add_action( 'show_user_profile', 'thshpr_show_extra_profile_fields' );
+add_action( 'edit_user_profile', 'thshpr_show_extra_profile_fields' );
+
+/**
+  * Save extra form info for users
+  */
+function thshpr_save_extra_profile_fields( $user_id )
+{
+	if ( !current_user_can( 'edit_user', $user_id ) )
+	return false;
+	update_usermeta( $user_id, 'twitter', $_POST['twitter'] );
+	update_usermeta( $user_id, 'facebook', $_POST['facebook'] );
+	update_usermeta( $user_id, 'googleplus', $_POST['googleplus'] );
+	update_usermeta( $user_id, 'linkedin', $_POST['linkedin'] );
+	update_usermeta( $user_id, 'pinterest', $_POST['pinterest'] );
+	update_usermeta( $user_id, 'extrainfo', $_POST['extrainfo'] );
+
+}
+add_action( 'personal_options_update', 'thshpr_save_extra_profile_fields' );
+add_action( 'edit_user_profile_update', 'thshpr_save_extra_profile_fields' );
+
+/**
   * Add placeholders to WordPress comment info fields
   */
 function thshpr_update_fields($fields)
