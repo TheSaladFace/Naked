@@ -20,12 +20,13 @@ Tags: responsive-layout, one-column, two-columns, three-columns, left-sidebar, r
 */
 
 /**
- * Basic Typography Styles
+ * Basic Styles
  *
  */
 @media only screen and (min-width : 320px)
 {
 	h1,h2,h3,h4,h5,h6{margin: 0px;	padding:0px; -webkit-margin-before:0em; -webkit-margin-after:0em;}
+	body{margin:0px;}
 }
 /* Extra Small Devices, Phones */
 @media only screen and (min-width : 480px)
@@ -388,7 +389,7 @@ a:link {text-decoration: none;}
 	.post-navigation .nav-doubleflip a.prev {-webkit-perspective-origin: 100% 50%;perspective-origin: 100% 50%;}
 	.post-navigation .nav-doubleflip a.next {-webkit-perspective-origin: 0% 50%;perspective-origin: 0% 50%;}
 	.post-navigation .nav-doubleflip .icon-wrap	{display: block;	width: 40px;height: 100px;background-color: #000;transition: background-color 0.3s;color: #fff;padding-top: 40px; padding-left: 16px; font-size: 14px;}
-	.post-navigation .nav-doubleflip .icon-wrap-left	{padding-left:14px;}
+	.post-navigation .nav-doubleflip .icon-wrap-left	{padding-left:14px;box-sizing: border-box;}
 	.post-navigation .nav-doubleflip svg.icon {position: relative;top: 50%;-webkit-transition: fill 0.3s 0.3s;transition: fill 0.3s 0.3s;-webkit-transform: translateY(-50%);transform: translateY(-50%);	fill: #fff;	}
 	.post-navigation .nav-doubleflip div {position: absolute;top: 0;width: 100px;height: 100%;-webkit-transition: -webkit-transform 0.3s 0.3s;transition: transform 0.3s 0.3s;	-webkit-transform-style: preserve-3d;transform-style: preserve-3d;}
 	.post-navigation .nav-doubleflip div.no-image{width:0px;} /*hides the image if the post has none*/
@@ -396,7 +397,7 @@ a:link {text-decoration: none;}
 	.post-navigation .nav-doubleflip a.next div,.nav-doubleflip a.next .title-container {right: 100%;	-webkit-transform: rotateY(-90deg);transform: rotateY(-90deg);-webkit-transform-origin: 100% 50%;transform-origin: 100% 50%;}
 	.post-navigation .nav-doubleflip img,.nav-doubleflip .title-container {	position: absolute;	top: 0;	width: 100%;height: 100%;-webkit-backface-visibility: hidden;backface-visibility: hidden;}
 	.post-navigation .nav-doubleflip .title-container {margin: 0;	background-color: #111;-webkit-transition: -webkit-transform 0.3s;transition: transform 0.3s;width:200px;}
-	.post-navigation .nav-doubleflip .title{ display:block;position: absolute;top: 50%;transform: translateY(-50%);  width: 100%;  padding: 20px;}
+	.post-navigation .nav-doubleflip .title{ box-sizing: border-box; display:block;position: absolute;top: 50%;transform: translateY(-50%);  width: 100%;  padding: 20px;}
 	.post-navigation .nav-doubleflip a:hover .icon-wrap {background-color: #333; -webkit-transition-delay: 0s; transition-delay: 0s;	}
 	.post-navigation .nav-doubleflip a:hover svg.icon {	fill: #47c9af;-webkit-transition-delay: 0s;	transition-delay: 0s;}
 	.post-navigation .nav-doubleflip a:hover div,.nav-doubleflip a:hover .title-container {	-webkit-transform: rotateY(0deg);	transform: rotateY(0deg);	}
