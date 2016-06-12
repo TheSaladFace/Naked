@@ -25,6 +25,13 @@ if(function_exists( 'fw_get_db_customizer_option' ))
 	$title_divider_type=fw_locate_theme_path_uri('/static/img/').fw_get_db_customizer_option('opt_single_title_divider_type');
 	$show_side_meta=fw_get_db_customizer_option('opt_show_side_meta');
 
+	if($show_side_meta==1)
+	{
+		$entry_content_class="side-meta";
+	}
+
+	/** author info options **/
+	$show_author_info=fw_get_db_customizer_option('opt_show_author_info');
 }
 
 if(function_exists( 'fw_get_db_post_option' )) //check for post options
@@ -114,7 +121,7 @@ if(function_exists( 'fw_get_db_post_option' ) && $header_show_image)
 							?>
 
 							<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-								<div class="entry-meta">
+								<div class="entry-meta <?php echo $entry_content_class; ?>">
 
 								<?php
 								if(function_exists( 'fw_get_db_customizer_option' )) //requires unyson plugin / options, if not enabled, don't display meta
@@ -133,7 +140,11 @@ if(function_exists( 'fw_get_db_post_option' ) && $header_show_image)
 										/* translators: %s: Name of current post */
 										the_content();
 
-										if($show_author_bio)
+										echo'<div class="meta-categories tags featured-posts-grid-paragraph component-element" id="post-tags"><span class="tags-label">'.__("Post Tags: ", "thshpr").'</span>';
+										the_tags('','','');
+										echo'</div>';
+
+										if($show_author_info)
 										{
 											include(locate_template('single-templates/author-bio.php'));
 										}

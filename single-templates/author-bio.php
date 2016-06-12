@@ -6,46 +6,25 @@
  * @subpackage Twenty_Fifteen
  * @since Twenty Fifteen 1.0
  */
-?>
 
-<div class="author-info">
-	<h2 class="author-heading"><?php _e( 'Published by', 'thshpr' ); ?></h2>
-	<div class="author-avatar">
-		<?php
-		/**
-		 * Filter the author bio avatar size.
-		 *
-		 * @since Twenty Fifteen 1.0
-		 *
-		 * @param int $size The avatar height and width size in pixels.
-		 */
-
-		echo get_avatar( get_the_author_meta( 'user_email' ), 100 );
-		?>
-	</div><!-- .author-avatar -->
-
-	<div class="author-description">
-		<h3 class="author-title"><?php echo get_the_author(); ?></h3>
-
-		<p class="author-bio">
-			<?php the_author_meta( 'description' ); ?>
-			<a class="author-link" href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>" rel="author">
-				<?php printf( __( 'View all posts by %s', 'thshpr' ), get_the_author() ); ?>
-			</a>
-		</p><!-- .author-bio -->
-
-	</div><!-- .author-description -->
-</div><!-- .author-info -->
-
-<?php
 $twitter_url=get_the_author_meta( 'twitter' );
 $facebook_url=get_the_author_meta( 'facebook' );
 $googleplus_url=get_the_author_meta( 'googleplus' );
 $linkedin_url=get_the_author_meta( 'linkedin' );
 $pinterest_url=get_the_author_meta( 'pinterest' );
-$extrainfo_url=get_the_author_meta( 'extrainfo' );
 $website_url=get_the_author_meta( 'url' );
+$background_image_url=$divider_type=get_template_directory_uri ().'/static/img/divider-stripes-large.png';
 
+
+//$background_image_style_string='style="background: url('.$background_image_url.') top left repeat;"';
+$background_image_style_string='style="border-style: solid;
+border-width: 9px;
+-moz-border-image: url('.$background_image_url.') 9 round;
+-webkit-border-image: url('.$background_image_url.') 9 round;
+-o-border-image: url('.$background_image_url.') 9 round;
+border-image: url('.$background_image_url.') 9 round;"';
+
+//generate user social link contraptoid
 $item_string.='
 <div class="share-boxes featured-posts-grid-paragraph component-element">
     <div class="absolute-container">
@@ -80,6 +59,18 @@ $item_string.='
 $item_string.='
     </div>
 </div>';
-echo $item_string;
-
 ?>
+
+<div class="author-info" <?php echo $background_image_style_string; ?>>
+	<div class="author-avatar">
+		<?php echo get_avatar( get_the_author_meta( 'user_email' ), 114 ); ?>
+	</div><!-- .author-avatar -->
+	<div class="author-content">
+		<h4 class="author-title"><a class="author-link" href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>" rel="author"><?php echo get_the_author(); ?></a></h4>
+		<div class="author-extra-info meta-excerpt component-element"><?php echo get_the_author_meta( 'extrainfo' ); ?></div>
+		<p class="author-bio">
+			<?php the_author_meta( 'description' ); ?>
+		</p>
+		<?php echo $item_string;?>
+	</div><!-- .author-description -->
+</div><!-- .author-info -->
