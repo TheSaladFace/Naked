@@ -11,7 +11,7 @@ $options = array(
 		'label' => __('Full Width', 'thshpr'),
 		'type' => 'switch',
 	),
-	'padding_top' => array(
+	'opt_padding_top' => array(
 		'label' => __('Padding Top', 'thshpr'),
 		'value' => 'No',
 		'type' => 'switch',
@@ -24,7 +24,7 @@ $options = array(
 			'label' => __('No', 'thshpr'),
 		),
 	),
-	'padding_bottom' => array(
+	'opt_padding_bottom' => array(
 		'label' => __('Padding Bottom', 'thshpr'),
 		'value' => 'Yes',
 		'type' => 'switch',
@@ -37,7 +37,7 @@ $options = array(
 			'label' => __('No', 'thshpr'),
 		),
 	),
-	'margin_top' => array(
+	'opt_margin_top' => array(
 		'label' => __('Margin Top', 'thshpr'),
 		'type' => 'switch',
 		'value' => 'No',
@@ -50,7 +50,7 @@ $options = array(
 			'label' => __('No', 'thshpr'),
 		),
 	),
-	'margin_bottom' => array(
+	'opt_margin_bottom' => array(
 		'label' => __('Margin Bottom', 'thshpr'),
 		'type' => 'switch',
 		'value' => 'No',

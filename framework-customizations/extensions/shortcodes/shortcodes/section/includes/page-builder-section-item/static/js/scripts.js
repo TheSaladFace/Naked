@@ -1,24 +1,88 @@
 (function (fwe, _, itemData) {
 	fwe.on('fw-builder:' + 'page-builder' + ':register-items', function (builder) {
 		var PageBuilderSectionItem,
-			PageBuilderSectionItemView;
+			PageBuilderSectionItemView,
+			triggerEvent = function(itemModel, event, eventData) {
+				event = 'fw:builder-type:{builder-type}:item-type:{item-type}:'
+					.replace('{builder-type}', builder.get('type'))
+					.replace('{item-type}', itemModel.get('type'))
+					+ event;
+
+				var data = {
+					modal: itemModel.view ? itemModel.view.modal : null,
+					item: itemModel,
+					itemView: itemModel.view,
+					shortcode: itemModel.get('shortcode'),
+					builder: builder
+				};
+
+				fwEvents.trigger(event, eventData
+					? _.extend(eventData, data)
+					: data
+				);
+			},
+			getEventName = function(itemModel, event) {
+				return 'fw:builder-type:{builder-type}:item-type:{item-type}:'
+					.replace('{builder-type}', builder.get('type'))
+					.replace('{item-type}', itemModel.get('type'))
+					+ event;
+			};
 
 		PageBuilderSectionItemView = builder.classes.ItemView.extend({
 			initialize: function (options) {
 				this.defaultInitialize();
 
 				this.templateData = options.templateData;
+
 				if (options.modalOptions) {
+					var eventData = {modalSettings: {buttons: []}};
+
+					/**
+					 * eventData.modalSettings can be changed by reference
+					 */
+					triggerEvent(this.model, 'options-modal:settings', eventData);
+
 					this.modal = new fw.OptionsModal({
 						title: 'Section',
 						options: options.modalOptions,
 						values: this.model.get('atts'),
 						size: options.modalSize,
 						headerElements: itemData.header_elements
-					});
+					}, eventData.modalSettings);
 
 					this.listenTo(this.modal, 'change:values', function (modal, values) {
 						this.model.set('atts', values);
+					});
+
+					this.listenTo(this.modal, {
+						'open': function(){
+							fwEvents.trigger(getEventName(this.model, 'options-modal:open'), {
+								modal: this.modal,
+								item: this.model,
+								itemView: this
+							});
+						},
+						'render': function(){
+							fwEvents.trigger(getEventName(this.model, 'options-modal:render'), {
+								modal: this.modal,
+								item: this.model,
+								itemView: this
+							});
+						},
+						'close': function(){
+							fwEvents.trigger(getEventName(this.model, 'options-modal:close'), {
+								modal: this.modal,
+								item: this.model,
+								itemView: this
+							});
+						},
+						'change:values': function(){
+							fwEvents.trigger(getEventName(this.model, 'options-modal:change:values'), {
+								modal: this.modal,
+								item: this.model,
+								itemView: this
+							});
+						}
 					});
 				}
 			},
@@ -52,23 +116,23 @@
 						try {
 							title = _.template(
 								jQuery.trim(titleTemplate),
-								{
-									o: this.model.get('atts'),
-									title: title
-								},
+								undefined,
 								{
 									evaluate: /\{\{([\s\S]+?)\}\}/g,
 									interpolate: /\{\{=([\s\S]+?)\}\}/g,
 									escape: /\{\{-([\s\S]+?)\}\}/g
 								}
-							);
+							)({
+								o: this.model.get('atts'),
+								title: title
+							});
 						} catch (e) {
 							console.error('$cfg["page_builder"]["title_template"]', e.message);
 
-							title = _.template('<%- title %>', {title: title});
+							title = _.template('<%= title %>')({title: title});
 						}
 					} else {
-						title = _.template('<%- title %>', {title: title});
+						title = _.template('<%= title %>')({title: title});
 					}
 				}
 
@@ -97,7 +161,25 @@
 				if (!this.modal) {
 					return;
 				}
-				this.modal.open();
+
+				var flow = {cancelModalOpening: false};
+
+				/**
+				 * Trigger before-open model just like we do this for
+				 * item-simple shortcodes.
+				 *
+				 * http://bit.ly/1KY6tpP
+				 */
+				fwEvents.trigger('fw:page-builder:shortcode:section:modal:before-open', {
+					modal: this.modal,
+					model: this.model,
+					builder: builder,
+					flow: flow
+				});
+
+				if (! flow.cancelModalOpening) {
+					this.modal.open();
+				}
 			},
 			cloneItem: function (e) {
 				e.stopPropagation();
