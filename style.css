@@ -299,9 +299,12 @@ a:link {text-decoration: none;}
 	 * Comments Styles
 	 */
 	.comment-respond{ padding:20px; }
-	h3.comments-title{margin:0px 0px 10px 0px;}
+	.divider-background{background-repeat:repeat-x; background-position: left center;}
+	.divider-h2{margin:0px;padding:0px;display: inline-block;  padding-right: 20px;background-color:#fff;font-size: 36px;font-weight: bold;color: #000;transform: translateY(-50%);}
+	.divider-container{transform: translateY(25%);}
 	h3.comment-reply-title{ margin:0px; }
-	.comment-form-comment #comment{ width:100%; }
+	.comment-form-comment #comment{ width:100%;}
+	.comments-title{ display: inline-block; padding-top: 10px; border-top: 1px solid #111; font-size: 30px; margin-bottom: 35px; margin-top: 40px;}
 
 	.comment-row {margin-left: -10px!important; margin-right: -10px!important; }
 	.comment-left, .comment-right {padding-left: 10px!important;padding-right: 10px!important; }
@@ -345,7 +348,7 @@ a:link {text-decoration: none;}
 	.comment-respond .form-submit input { margin: 0; }
 	.comment-respond .row { margin-left: -5px; margin-right: -5px; }
 	.comment-respond .row .columns { padding: 0 5px; }
-	.comments-box { border: 1px solid #f2f2f2; margin-bottom:30px; }
+	.comments-box { border-top: 1px solid #f2f2f2; margin-bottom:30px;  }
 	.comment-respond textarea { width: 100%; min-height: 162px; resize: none; overflow: auto; border: 1px solid #f2f2f2; font-size: 14px; font-style: italic; vertical-align: top; }
 	input[type="text"]:focus,
 	input[type="password"]:focus,

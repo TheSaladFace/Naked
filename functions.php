@@ -269,7 +269,7 @@ function thshpr_print_styles()
 	.'.focus .meta-excerpt,.focus .meta-excerpt a{ font-family:'.esc_html($large_description['family']).';'. thshpr_google_font_style_weight_split($large_description['variation']) . 'font-size:'.esc_html($large_description['size']).'px;'. 'color:'.esc_html($large_description['color']).';'. 'letter-spacing:'.esc_html($large_description['letter-spacing']).'px;'. 'line-height:'.esc_html($large_description['line-height']).'px; }'
 	.'.general-meta, .general-meta a{ font-family:'.esc_html($other_meta['family']).';'. thshpr_google_font_style_weight_split($other_meta['variation']) . 'font-size:'.esc_html($other_meta['size']).'px;'. 'color:'.esc_html($other_meta['color']).';'. 'letter-spacing:'.esc_html($other_meta['letter-spacing']).'px;'. 'line-height:'.esc_html($other_meta['line-height']).'px; }'
 	.'.general-meta a:hover{ font-family:'.esc_html($other_meta_hover).';'. thshpr_google_font_style_weight_split($other_meta_hover) . 'font-size:'.esc_html($other_meta_hover).'px;'. 'color:'.esc_html($other_meta_hover).';'. 'letter-spacing:'.esc_html($other_meta_hover).'px;'. 'line-height:'.esc_html($other_meta_hover).'px; }';
-	remove_theme_mod('fw_options');
+	//remove_theme_mod('fw_options');
 
 	wp_enqueue_style(
 		'option-styles',

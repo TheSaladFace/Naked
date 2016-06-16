@@ -55,14 +55,6 @@ if(function_exists( 'fw_get_db_post_option' )) //check for post options
 		$show_progress_indicator=$post_options["1"]["opt_show_progress_indicator"];
 
 	}
-
-
-
-
-
-
-
-
 }
 else
 {
