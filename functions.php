@@ -234,7 +234,7 @@ function thshpr_google_font_style_weight_split($field) {
 function thshpr_print_styles()
 {
 	// load theme styles
-	wp_enqueue_style( 'normalize', get_template_directory_uri() . 'static/css/normalize.css','', '', 'all');
+	wp_enqueue_style( 'normalize', get_template_directory_uri() . '/static/css/normalize.css','', '', 'all');
 	wp_enqueue_style( 'naked-style', get_stylesheet_uri(), array('normalize'), '', 'all');
 	if (!defined('FW')) return;
 	$h1 = fw_get_db_customizer_option('opt_h1');
