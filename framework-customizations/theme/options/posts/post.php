@@ -78,6 +78,20 @@ $options = array(
 										'label' => __('Hide', 'thshpr'),
 									),
 								),
+								'opt_header_shift_title' =>array(
+									'type'  => 'switch',
+									'value' => 'Offset',
+									'label' => __('Offset the title upwards', 'thshpr'),
+									'desc'  => __('Offsets the title upwards to slightly overlay the full width header image', 'thshpr'),
+									'left-choice' => array(
+										'value' => '1',
+										'label' => __('Offset', 'thshpr'),
+									),
+									'right-choice' => array(
+										'value' => '0',
+										'label' => __('Normal', 'thshpr'),
+									),
+								),
 					        	fw()->theme->get_options('background-shared-options'),
 								'opt_header_image_height' => array(
 									'label' => __( 'Header Image Area Height', 'thshpr' ),

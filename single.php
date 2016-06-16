@@ -53,12 +53,22 @@ if(function_exists( 'fw_get_db_post_option' )) //check for post options
 		$background_parallax_ratio=$post_options["1"]["opt_background_parallax_ratio"];
 		$subtitle=$post_options["1"]["opt_subtitle"];
 		$show_progress_indicator=$post_options["1"]["opt_show_progress_indicator"];
+		$header_shift_title=$post_options["1"]["opt_header_shift_title"];
+
+		if($header_shift_title==1)
+		{
+			$offset_class="offset-title";
+		}
+		else
+		{
+			$offset_class="";
+		}
 
 	}
 }
 else
 {
-
+	$offset_class="";
 }
 get_header();
 
@@ -94,17 +104,21 @@ if(function_exists( 'fw_get_db_post_option' ) && $header_show_image)
 			<div class="fw-col-sm-8">
 				<div id="primary" class="content-area">
 					<main id="main" class="site-main" role="main">
+					<div class="title-holder <?php echo $offset_class; ?>">
+						<?php
+
+						if(function_exists( 'fw_get_db_customizer_option' )) //requires unyson plugin / options, if not enabled, don't display meta
+						{
+							$item_string="";
+							$cell_class="single";//sets for the large header
+							include(locate_template('single-templates/title-string.php')); //generates title string from customzed options
+							echo $item_string;
+						}
+
+						?>
+					</div>
 
 					<?php
-
-					if(function_exists( 'fw_get_db_customizer_option' )) //requires unyson plugin / options, if not enabled, don't display meta
-					{
-						$item_string="";
-						$cell_class="single";//sets for the large header
-						include(locate_template('single-templates/title-string.php')); //generates title string from customzed options
-						echo $item_string;
-					}
-
 					if ( have_posts() )
 					{
 						while ( have_posts() )
