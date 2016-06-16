@@ -40,13 +40,6 @@ $options = array(
 					fw()->theme->get_options('side-meta-options'),
 				),
             ),
-
-			'post_author_options' => array(
-                'title' => __('Post Author Options', 'thshpr'),
-				'options' => array(
-					fw()->theme->get_options('post-author-options'),
-				),
-            ),
         ),
     ),
 	'panel_2' => array(
