@@ -269,7 +269,16 @@ a:link {text-decoration: none;}
 	/**
 	 * Title area
 	 */
-	.offset-title{margin-left:-40px;padding:40px;background-color:#fff;margin-top:-60px;}
+	.offset-title{margin-left:-40px;padding:40px;background-color:#fff;margin-top:-80px;}
+	.component-element h4.sub-title-header{font-style:italic;font-size:22px;color:#777;}
+	.spacer-1px{margin-top:1px;}
+	.spacer-2px{margin-top:2px;}
+	.spacer-5px{margin-top:5px;}
+	.spacer-10px{margin-top:10px;}
+	.spacer-20px{margin-top:20px;}
+	.spacer-30px{margin-top:30px;}
+	.spacer-40px{margin-top:40px;}
+	.spacer-50px{margin-top:50px;}
 	/**
 	 * Scroll Progress Indicator
 	 */
