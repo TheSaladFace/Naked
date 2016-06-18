@@ -20,8 +20,8 @@ if(function_exists( 'fw_get_db_customizer_option' ))
 
 	/** title options **/
 	$title_components_elements=fw_get_db_customizer_option('opt_single_title_functionality');
-	$title_category_tag_number=fw_get_db_customizer_option('opt_single_title_functionality_number_categories');
-	$title_show_author_image=fw_get_db_customizer_option('opt_single_title_functionality_show_author_image');
+	$title_category_tag_number=fw_get_db_customizer_option('opt_single_title_number_categories');
+	$title_show_author_image=fw_get_db_customizer_option('opt_single_title_show_author_image');
 	$title_divider_type=fw_locate_theme_path_uri('/static/img/').fw_get_db_customizer_option('opt_single_title_divider_type');
 	$show_side_meta=fw_get_db_customizer_option('opt_show_side_meta');
 
