@@ -104,19 +104,7 @@ if(function_exists( 'fw_get_db_post_option' ) && $header_show_image)
 			<div class="fw-col-sm-8">
 				<div id="primary" class="content-area">
 					<main id="main" class="site-main" role="main">
-					<div class="title-holder <?php echo $offset_class; ?>">
-						<?php
 
-						if(function_exists( 'fw_get_db_customizer_option' )) //requires unyson plugin / options, if not enabled, don't display meta
-						{
-							$item_string="";
-							$cell_class="single";//sets for the large header
-							include(locate_template('single-templates/title-string.php')); //generates title string from customzed options
-							echo $item_string;
-						}
-
-						?>
-					</div>
 
 					<?php
 					if ( have_posts() )
@@ -125,11 +113,25 @@ if(function_exists( 'fw_get_db_post_option' ) && $header_show_image)
 						{
 							the_post();
 							?>
+							<div class="title-holder <?php echo $offset_class; ?>">
+								<?php
+
+								if(function_exists( 'fw_get_db_customizer_option' )) //requires unyson plugin / options, if not enabled, don't display meta
+								{
+									$item_string="";
+									$cell_class="single";//sets for the large header
+									include(locate_template('single-templates/title-string.php')); //generates title string from customzed options
+									echo $item_string;
+								}
+
+								?>
+							</div>
 
 							<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 								<div class="entry-meta <?php echo $entry_content_class; ?>">
 
 								<?php
+
 								if(function_exists( 'fw_get_db_customizer_option' )) //requires unyson plugin / options, if not enabled, don't display meta
 								{
 									if($show_side_meta==1)
@@ -153,6 +155,7 @@ if(function_exists( 'fw_get_db_post_option' ) && $header_show_image)
 										if($show_author_info)
 										{
 											include(locate_template('single-templates/author-bio.php'));
+
 										}
 
 										// If comments are open or we have at least one comment, load up the comment template.
