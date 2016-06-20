@@ -26,6 +26,10 @@ if (!empty($background_parallax_ratio))
 {
     $parallax_class .= ' parallax-bg';
 }
+if($header_fade_image_scroll==1)
+{
+    $parallax_class .= ' parallax-fade';
+}
 
 $item_string.='<section class="fw-main-row '.$parallax_class.'" '.$style_string.$parallax_string.'><br><br><br><br><br><br></section>';
 

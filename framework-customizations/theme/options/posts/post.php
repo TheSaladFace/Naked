@@ -274,6 +274,20 @@ $options = array(
 										'label' => __('Normal', 'thshpr'),
 									),
 								),
+								'opt_header_fade_image_scroll' =>array(
+									'type'  => 'switch',
+									'value' => 'Hide',
+									'label' => __('Fade Header Image on Scroll', 'thshpr'),
+									'desc'  => __('Fade the header image out when the user scrolls down, and fade it back in when they scroll up', 'thshpr'),
+									'left-choice' => array(
+										'value' => '1',
+										'label' => __('Fade', 'thshpr'),
+									),
+									'right-choice' => array(
+										'value' => '0',
+										'label' => __('Dont Fade', 'thshpr'),
+									),
+								),
 					        	fw()->theme->get_options('background-shared-options'),
 								'opt_header_image_height' => array(
 									'label' => __( 'Header Image Area Height', 'thshpr' ),

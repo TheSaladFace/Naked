@@ -53,6 +53,8 @@ if(function_exists( 'fw_get_db_post_option' )) //check for post options
 		$background_parallax_ratio=$post_options["1"]["opt_background_parallax_ratio"];
 		$subtitle=$post_options["1"]["opt_subtitle"];
 		$show_progress_indicator=$post_options["1"]["opt_show_progress_indicator"];
+		$header_fade_image_scroll=$post_options["1"]["opt_header_fade_image_scroll"];
+
 		/** hover items **/
 		$show_hover_effects=$post_options["1"]["opt_featured_image_hover_effects"];
 		$hover_top=thshpr_get_image_hover_string($post_options["1"]['opt_featured_image_hover_item_1']);
