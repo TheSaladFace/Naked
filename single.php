@@ -167,29 +167,32 @@ if(function_exists( 'fw_get_db_post_option' ) && $header_show_image)
 									<?php
 									if ( has_post_thumbnail() )
 									{
-										$item_string="";
-										if($show_hover_effects=="No")
-						                {
-											$item_string.='<div class="'.$image_offset_class.'">';
-						                    $image_string=thshpr_generate_image($width,$large_height,get_the_ID());
-						                    $item_string.=$image_string.'</div>';
-						                }
-						                else
-						                {
-											$item_string.='<div class="effect-1 '.$image_offset_class.'">';
-						                        $image_string=thshpr_generate_image($width,$large_height,get_the_ID());
-						                        $item_string.=$image_string;
-						                        $item_string.='
+										if(function_exists( 'fw_get_db_customizer_option' )) //requires unyson plugin / options, if not enabled, don't display meta
+										{
+											$item_string="";
+											if($show_hover_effects=="No")
+							                {
+												$item_string.='<div class="'.$image_offset_class.'">';
+							                    $image_string=thshpr_generate_image($width,$large_height,get_the_ID());
+							                    $item_string.=$image_string.'</div>';
+							                }
+							                else
+							                {
+												$item_string.='<div class="effect-1 '.$image_offset_class.'">';
+							                        $image_string=thshpr_generate_image($width,$large_height,get_the_ID());
+							                        $item_string.=$image_string;
+							                        $item_string.='
 
-						                        <div class="item-1">
-						                            <p><span class="centered">'.$hover_top.'</span></p>
-						                        </div>
-						                        <div class="item-2">
-						                            <p><span class="centered">'.$hover_bottom.'</span></p>
-						                        </div>
-						                    </div>';
+							                        <div class="item-1">
+							                            <p><span class="centered">'.$hover_top.'</span></p>
+							                        </div>
+							                        <div class="item-2">
+							                            <p><span class="centered">'.$hover_bottom.'</span></p>
+							                        </div>
+							                    </div>';
+											}
+											echo($item_string);
 										}
-										echo($item_string);
 									}
 
 
