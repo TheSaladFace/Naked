@@ -53,6 +53,16 @@ if(function_exists( 'fw_get_db_post_option' )) //check for post options
 		$background_parallax_ratio=$post_options["1"]["opt_background_parallax_ratio"];
 		$subtitle=$post_options["1"]["opt_subtitle"];
 		$show_progress_indicator=$post_options["1"]["opt_show_progress_indicator"];
+		/** hover items **/
+		$show_hover_effects=$post_options["1"]["opt_featured_image_hover_effects"];
+		$hover_top=thshpr_get_image_hover_string($post_options["1"]['opt_featured_image_hover_item_1']);
+		$hover_bottom=thshpr_get_image_hover_string($post_options["1"]['opt_featured_image_hover_item_2']);
+		/** image ratios **/
+		$large_image_ratio=$post_options["1"]['opt_featured_image_ratio'];
+		$width=$post_options["1"]['opt_featured_image_max_width'];
+		$large_height= thshpr_generate_aspect_height($large_image_ratio,$width);
+		$offset_featured_image=$post_options["1"]["opt_featured_image_offset_image"];
+
 		$header_shift_title=$post_options["1"]["opt_header_shift_title"];
 
 		if($header_shift_title==1)
@@ -64,11 +74,21 @@ if(function_exists( 'fw_get_db_post_option' )) //check for post options
 			$offset_class="";
 		}
 
+		if($offset_featured_image==1)
+		{
+			$image_offset_class="offset-featured-image";
+		}
+		else
+		{
+			$image_offset_class="";
+		}
+
 	}
 }
 else
 {
 	$offset_class="";
+	$image_offset_class="";
 }
 get_header();
 
@@ -145,6 +165,34 @@ if(function_exists( 'fw_get_db_post_option' ) && $header_show_image)
 								</div><!-- .entry-meta -->
 								<div class="entry-content">
 									<?php
+									if ( has_post_thumbnail() )
+									{
+										$item_string="";
+										if($show_hover_effects=="No")
+						                {
+											$item_string.='<div class="'.$image_offset_class.'">';
+						                    $image_string=thshpr_generate_image($width,$large_height,get_the_ID());
+						                    $item_string.=$image_string.'</div>';
+						                }
+						                else
+						                {
+											$item_string.='<div class="effect-1 '.$image_offset_class.'">';
+						                        $image_string=thshpr_generate_image($width,$large_height,get_the_ID());
+						                        $item_string.=$image_string;
+						                        $item_string.='
+
+						                        <div class="item-1">
+						                            <p><span class="centered">'.$hover_top.'</span></p>
+						                        </div>
+						                        <div class="item-2">
+						                            <p><span class="centered">'.$hover_bottom.'</span></p>
+						                        </div>
+						                    </div>';
+										}
+										echo($item_string);
+									}
+
+
 										/* translators: %s: Name of current post */
 										the_content();
 

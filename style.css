@@ -267,6 +267,10 @@ a:link {text-decoration: none;}
 @media only screen and (min-width : 320px)
 {
 	/**
+	 * Featured Image
+	 */
+	.offset-featured-image {margin-left:-80px;}
+	/**
 	 * Title area
 	 */
 	.offset-title{margin-left:-40px;padding:40px;background-color:#fff;margin-top:-80px;}
