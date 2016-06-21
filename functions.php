@@ -300,6 +300,7 @@ function thshpr_print_styles()
 	$h5 = fw_get_db_customizer_option('opt_h5');
 	$h6 = fw_get_db_customizer_option('opt_h6');
 	$body = fw_get_db_customizer_option('opt_body');
+	$dropcap = fw_get_db_customizer_option('opt_dropcap');
 	$categories_tags = fw_get_db_customizer_option('opt_category_tag');
 	$categories_tags_font_hover_color = fw_get_db_customizer_option('opt_category_tag_font_color_hover');
 	$categories_tags_background = fw_get_db_customizer_option('opt_category_tag_background');
@@ -311,6 +312,7 @@ function thshpr_print_styles()
 
 	$option_styles =
 	'h1{ font-family:'.esc_html($h1['family']).';'. thshpr_google_font_style_weight_split($h1['variation']) . 'font-size:'.esc_html($h1['size']).'px;'. 'color:'.esc_html($h1['color']).';'. 'letter-spacing:'.esc_html($h1['letter-spacing']).'px;'. 'line-height:'.esc_html($h1['line-height']).'px; }'
+	.'.dropcap{ color:'.esc_html($h1['color']).';}'
 	.'h2{ font-family:'.esc_html($h2['family']).';'. thshpr_google_font_style_weight_split($h2['variation']) . 'font-size:'.esc_html($h2['size']).'px;'. 'color:'.esc_html($h2['color']).';'. 'letter-spacing:'.esc_html($h2['letter-spacing']).'px;'. 'line-height:'.esc_html($h2['line-height']).'px; }'
 	.'h3, .component-element h3{ font-family:'.esc_html($h3['family']).';'. thshpr_google_font_style_weight_split($h3['variation']) . 'font-size:'.esc_html($h3['size']).'px;'. 'color:'.esc_html($h3['color']).';'. 'letter-spacing:'.esc_html($h3['letter-spacing']).'px;'. 'line-height:'.esc_html($h3['line-height']).'px; }'
 	.'h4, .component-element h4{ font-family:'.esc_html($h4['family']).';'. thshpr_google_font_style_weight_split($h4['variation']) . 'font-size:'.esc_html($h4['size']).'px;'. 'color:'.esc_html($h4['color']).';'. 'letter-spacing:'.esc_html($h4['letter-spacing']).'px;'. 'line-height:'.esc_html($h4['line-height']).'px; }'

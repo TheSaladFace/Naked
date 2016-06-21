@@ -277,7 +277,7 @@ a:link {text-decoration: none;}
 	  line-height: 24px;
 	  font-style: italic;
 	}
-	.dropcap{color: #333; padding-right: 4px;font-family: Playfair Display; }
+	.dropcap{margin-right: 6px;}
 
 	/**
 	 * Featured Image

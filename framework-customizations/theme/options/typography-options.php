@@ -204,7 +204,7 @@ $options = array(
 		),
 	),
 
-	'meta_options' => array(
+		'meta_options' => array(
 		'title' => __('Meta Options', 'thshpr'),
 		'options' => array(
 
