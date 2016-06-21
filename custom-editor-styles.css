@@ -1,0 +1,12 @@
+/**
+ * Post Editor Styles Dropdown
+ */
+.post-lead {
+  color: #777;
+  display: block;
+  margin-bottom: 36px;
+  font-size: 17px;
+  line-height: 24px;
+  font-style: italic;
+}
+.dropcap{color: #333;font-size: 40px; }

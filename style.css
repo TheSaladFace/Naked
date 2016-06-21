@@ -267,6 +267,19 @@ a:link {text-decoration: none;}
 @media only screen and (min-width : 320px)
 {
 	/**
+	 * Post Editor Styles Dropdown
+	 */
+	.post-lead {
+	  color: #777;
+	  display: block;
+	  margin-bottom: 36px;
+	  font-size: 17px;
+	  line-height: 24px;
+	  font-style: italic;
+	}
+	.dropcap{color: #333; padding-right: 4px;font-family: Playfair Display; }
+
+	/**
 	 * Featured Image
 	 */
 	.offset-featured-image {margin-left:-80px;}

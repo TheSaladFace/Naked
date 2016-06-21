@@ -5,6 +5,62 @@
  * @package naked
  */
 
+ /*
+ Plugin Name: Naked Theme Helper Plugin
+ */
+
+
+/**
+  * Adds styles for the editor
+  */
+function thshpr_add_editor_styles()
+{
+    add_editor_style( 'custom-editor-styles.css' );
+}
+add_action( 'init', 'thshpr_add_editor_styles' );
+
+/**
+  * Special Styles in Posts
+  */
+function thshpr_mce_buttons_2($buttons) {
+	array_unshift($buttons, 'styleselect');
+	return $buttons;
+}
+add_filter('mce_buttons_2', 'thshpr_mce_buttons_2');
+
+/**
+  * Callback function to filter the MCE settings
+  */
+function thshpr_before_init_insert_formats( $init_array )
+{
+	// Define the style_formats array
+	$style_formats = array(
+		// Each array child is a format with it's own settings
+		array(
+			'title' => 'Post Lead',
+			'inline' => 'span',
+			'classes' => 'post-lead',
+			'wrapper' => true,
+		),
+		array(
+			'title' => 'Drop Cap',
+			'inline' => 'span',
+			'classes' => 'dropcap',
+			'wrapper' => true,
+		),
+
+	);
+	// Insert the array, JSON ENCODED, into 'style_formats'
+	$init_array['style_formats'] = json_encode( $style_formats );
+	return $init_array;
+
+}
+// Attach callback to 'tiny_mce_before_init'
+add_filter( 'tiny_mce_before_init', 'thshpr_before_init_insert_formats' );
+
+
+
+
 /**
   * Add extra form info for users
   */
@@ -572,11 +628,17 @@ function thshpr_scripts() {
 	wp_enqueue_script( 'thshpr-comment-columns', get_template_directory_uri() . '/static/js/comment-columns.js', array('jquery'),'',true );
 	//wp_enqueue_script( 'naked-theme-js', get_template_directory_uri() . '/static/js/theme.js', array('jquery','naked-fittext-js','naked-ssm-breakpoints','naked-matchheights'),'',true );
 	//wp_enqueue_script( 'naked-skip-link-focus-fix', get_template_directory_uri() . '/static/js/skip-link-focus-fix.js', array(), '20130115', true );
+
+
+
 	if (is_singular())
 	{
 		wp_enqueue_script('thshpr-stellar');
 		wp_enqueue_script('thshpr-stellar-init');
 		wp_enqueue_script('thshpr-article-progress');
+		//dropcaps on single
+		wp_enqueue_script( 'thshpr-dropcaps', get_template_directory_uri() . '/static/js/dropcap.min.js', array('jquery'),'',true );
+		wp_enqueue_script( 'thshpr-dropcaps-init', get_template_directory_uri() . '/static/js/plugin.js', array('jquery','thshpr-dropcaps'),'',true );
 	}
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
