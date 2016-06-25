@@ -8,6 +8,7 @@
 $categories = get_the_category();
 $separator = ' ';
 $output = '';
+
 if($categories)
 {
     $output.='<div class="meta-categories tags featured-posts-grid-paragraph component-element">';

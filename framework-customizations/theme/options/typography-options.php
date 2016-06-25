@@ -186,10 +186,10 @@ $options = array(
 					'family' => 'Droid Serif',
 					'style' => 'regular',
         			'weight' => 400,
-			        'size' => 15,
-			        'line-height' => 20,
+			        'size' => 16,
+			        'line-height' => 26,
 			        'letter-spacing' => 0,
-			        'color' => '#444444'
+			        'color' => '#535353'
 			    ),
 			    'components' => array(
 			        'family'         => true,

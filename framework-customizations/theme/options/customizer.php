@@ -24,6 +24,20 @@ $options = array(
 							'label' => __('Hide', 'thshpr'),
 						),
 					),
+					'opt_show_author_info' =>array(
+						'type'  => 'switch',
+						'value' => 'Show',
+						'label' => __('Show Author Information Box', 'thshpr'),
+						'help' => __( 'This will display the author info box at the bottom of the post.', 'thshpr'  ),
+						'left-choice' => array(
+							'value' => '1',
+							'label' => __('Show', 'thshpr'),
+						),
+						'right-choice' => array(
+							'value' => '0',
+							'label' => __('Hide', 'thshpr'),
+						),
+					),
 				),
             ),
 

@@ -174,13 +174,13 @@ if(function_exists( 'fw_get_db_post_option' ) && $header_show_image)
 											$item_string="";
 											if($show_hover_effects=="No")
 							                {
-												$item_string.='<div class="'.$image_offset_class.'">';
+												$item_string.='<div class="'.$image_offset_class.' featured-image">';
 							                    $image_string=thshpr_generate_image($width,$large_height,get_the_ID());
 							                    $item_string.=$image_string.'</div>';
 							                }
 							                else
 							                {
-												$item_string.='<div class="effect-1 '.$image_offset_class.'">';
+												$item_string.='<div class="effect-1 '.$image_offset_class.' featured-image">';
 							                        $image_string=thshpr_generate_image($width,$large_height,get_the_ID());
 							                        $item_string.=$image_string;
 							                        $item_string.='

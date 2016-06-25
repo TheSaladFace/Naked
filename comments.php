@@ -23,17 +23,10 @@ if ( post_password_required() ) {
 <div id="comments" class="comments-area">
 
 	<?php if ( have_comments() ) : ?>
+
 		<h3 class="comments-title">
 			<?php
-				if(get_comments_number()>1)
-				{
-					echo get_comments_number().'&nbsp;';
-					_e('Comments', 'thshpr' );
-				}
-				else
-				{
-					_e( '1 Comment', 'thshpr' );
-				}
+				_e('Comments', 'thshpr' );				
 			?>
 		</h3>
 		<div class="comments-box">

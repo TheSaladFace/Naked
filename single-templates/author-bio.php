@@ -25,7 +25,7 @@ border-width: 9px;
 border-image: url('.$background_image_url.') 9 round;"';
 
 //generate user social link contraptoid
-$item_string.='
+$item_string='
 <div class="share-boxes featured-posts-grid-paragraph component-element">
     <div class="absolute-container">
         <i class="fa fa-link icon link-outer"></i><span class="share-label">'.__( 'Author Links ', 'thshpr' ).'</span><!--';
