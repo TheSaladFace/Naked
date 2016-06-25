@@ -313,6 +313,7 @@ function thshpr_print_styles()
 	$option_styles =
 	'h1{ font-family:'.esc_html($h1['family']).';'. thshpr_google_font_style_weight_split($h1['variation']) . 'font-size:'.esc_html($h1['size']).'px;'. 'color:'.esc_html($h1['color']).';'. 'letter-spacing:'.esc_html($h1['letter-spacing']).'px;'. 'line-height:'.esc_html($h1['line-height']).'px; }'
 	.'.dropcap{ color:'.esc_html($h1['color']).';}'
+    .'blockquote{ font-family:'.esc_html($h1['family']).';}'
 	.'h2{ font-family:'.esc_html($h2['family']).';'. thshpr_google_font_style_weight_split($h2['variation']) . 'font-size:'.esc_html($h2['size']).'px;'. 'color:'.esc_html($h2['color']).';'. 'letter-spacing:'.esc_html($h2['letter-spacing']).'px;'. 'line-height:'.esc_html($h2['line-height']).'px; }'
 	.'h3, .component-element h3{ font-family:'.esc_html($h3['family']).';'. thshpr_google_font_style_weight_split($h3['variation']) . 'font-size:'.esc_html($h3['size']).'px;'. 'color:'.esc_html($h3['color']).';'. 'letter-spacing:'.esc_html($h3['letter-spacing']).'px;'. 'line-height:'.esc_html($h3['line-height']).'px; }'
 	.'h4, .component-element h4{ font-family:'.esc_html($h4['family']).';'. thshpr_google_font_style_weight_split($h4['variation']) . 'font-size:'.esc_html($h4['size']).'px;'. 'color:'.esc_html($h4['color']).';'. 'letter-spacing:'.esc_html($h4['letter-spacing']).'px;'. 'line-height:'.esc_html($h4['line-height']).'px; }'
@@ -640,7 +641,7 @@ function thshpr_scripts() {
 		wp_enqueue_script('thshpr-article-progress');
 		//dropcaps on single
 		wp_enqueue_script( 'thshpr-dropcaps', get_template_directory_uri() . '/static/js/dropcap.min.js', array('jquery'),'',true );
-		wp_enqueue_script( 'thshpr-dropcaps-init', get_template_directory_uri() . '/static/js/plugin.js', array('jquery','thshpr-dropcaps'),'',true );
+		wp_enqueue_script( 'thshpr-post-scripts', get_template_directory_uri() . '/static/js/post-scripts.js', array('jquery','thshpr-dropcaps'),'',true );
 	}
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
