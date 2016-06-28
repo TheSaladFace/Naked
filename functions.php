@@ -530,7 +530,7 @@ function naked_setup() {
   add_theme_support( 'post-thumbnails' );
 
 
-
+add_theme_support( 'custom-logo' );
 
 
 
@@ -629,8 +629,13 @@ function thshpr_scripts() {
 	wp_register_script( 'thshpr-stellar-init', get_template_directory_uri() . '/static/js/stellar-init.js', array('jquery','thshpr-stellar'),'',true );
 	wp_register_script( 'thshpr-article-progress', get_template_directory_uri() . '/static/js/article-progress.js', array('jquery'),'',true );
 	wp_enqueue_script( 'thshpr-comment-columns', get_template_directory_uri() . '/static/js/comment-columns.js', array('jquery'),'',true );
-	//wp_enqueue_script( 'naked-theme-js', get_template_directory_uri() . '/static/js/theme.js', array('jquery','naked-fittext-js','naked-ssm-breakpoints','naked-matchheights'),'',true );
-	//wp_enqueue_script( 'naked-skip-link-focus-fix', get_template_directory_uri() . '/static/js/skip-link-focus-fix.js', array(), '20130115', true );
+    wp_enqueue_script( 'thshpr-transit', get_template_directory_uri() . '/static/js/jquery.transit.js', array('jquery'),'',true );
+
+
+    wp_enqueue_script ( 'thshpr-sidr' , get_template_directory_uri() . '/static/js/jquery.sidr.min.js', array( 'jquery' ), '1', true );
+wp_enqueue_script( 'thshpr-scripts', get_template_directory_uri() . '/static/js/scripts.js', array('jquery','thshpr-sidr',),'',true );
+	wp_enqueue_style ( 'sidrcss-dark' , get_template_directory_uri() . '/static/css/jquery.sidr.dark.css', '', '1', 'all' );
+	//wp_enqueue_style ( 'sidrcss-light' , get_stylesheet_directory_uri() . '/css/jquery.sidr.light.css', '', '1', 'all' );
 
 
 
