@@ -29,14 +29,5 @@ if ( ! function_exists( '_wp_render_title_tag' ) ) {
 <body <?php body_class(); ?>>
 	<?php do_action( 'before' ); ?>
 <?php
- get_template_part( 'templates/header', 'compact-logo-nav' );
-
-
+include(locate_template('global-templates/header-nav.php'));
 ?>
-<div id="search" class="full-height">
-				<form class="morphsearch-form">
-					<input type="search" class="morphsearch-input" placeholder="Search ..." value="" name="s" title="Search for:">
-					<div class="morphsearch-label">Type your keywords above and press enter to search. Press Esc to cancel.</div>
-				</form>
-				<div class="close-button"><i class="icon-cancel"></i></div>
-</div>

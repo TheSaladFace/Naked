@@ -14,7 +14,9 @@
      });
  });*/
 
+
  jQuery(document).ready(function($) {
+
    $('#nav-toggle').sidr({
    	name: 'sidr-left',
      side: 'left',
@@ -25,8 +27,10 @@
 jQuery(function(){
   jQuery('.logo').data('size','big');
 });
+
 var logoHeight=jQuery(".logo").height();
 jQuery(window).scroll(function(){
+
   if(jQuery(document).scrollTop() > 0)
 {
     if(jQuery('.logo').data('size') == 'big')
