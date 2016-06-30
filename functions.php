@@ -196,6 +196,7 @@ function thshpr_load_fonts()
 	$h5 = fw_get_db_customizer_option('opt_h5');
 	$h6 = fw_get_db_customizer_option('opt_h6');
 	$body = fw_get_db_customizer_option('opt_body');
+    $site_description = fw_get_db_customizer_option('opt_site_description');
 	$categories_tags = fw_get_db_customizer_option('opt_category_tag');
 	$large_description = fw_get_db_customizer_option('opt_large_description');
 	$other_meta = fw_get_db_customizer_option('opt_other_meta');
@@ -221,6 +222,9 @@ function thshpr_load_fonts()
 	}
 	if( isset($google_fonts[$body['family']]) ){
 		$include_from_google[$body['family']] = $google_fonts[$body['family']];
+	}
+    if( isset($google_fonts[$site_description['family']]) ){
+		$include_from_google[$site_description['family']] = $google_fonts[$site_description['family']];
 	}
 	if( isset($google_fonts[$categories_tags['family']]) ){
 		$include_from_google[$categories_tags['family']] = $google_fonts[$categories_tags['family']];
@@ -300,6 +304,7 @@ function thshpr_print_styles()
 	$h5 = fw_get_db_customizer_option('opt_h5');
 	$h6 = fw_get_db_customizer_option('opt_h6');
 	$body = fw_get_db_customizer_option('opt_body');
+    $site_description = fw_get_db_customizer_option('opt_site_description');
 	$dropcap = fw_get_db_customizer_option('opt_dropcap');
 	$categories_tags = fw_get_db_customizer_option('opt_category_tag');
 	$categories_tags_font_hover_color = fw_get_db_customizer_option('opt_category_tag_font_color_hover');
@@ -320,6 +325,7 @@ function thshpr_print_styles()
 	.'h5{ font-family:'.esc_html($h5['family']).';'. thshpr_google_font_style_weight_split($h5['variation']) . 'font-size:'.esc_html($h5['size']).'px;'. 'color:'.esc_html($h5['color']).';'. 'letter-spacing:'.esc_html($h5['letter-spacing']).'px;'. 'line-height:'.esc_html($h5['line-height']).'px; }'
 	.'h6{ font-family:'.esc_html($h6['family']).';'. thshpr_google_font_style_weight_split($h6['variation']) . 'font-size:'.esc_html($h6['size']).'px;'. 'color:'.esc_html($h6['color']).';'. 'letter-spacing:'.esc_html($h6['letter-spacing']).'px;'. 'line-height:'.esc_html($h6['line-height']).'px; }'
 	.'body,input,textarea{ font-family:'.esc_html($body['family']).';'. thshpr_google_font_style_weight_split($body['variation']) . 'font-size:'.esc_html($body['size']).'px;'. 'color:'.esc_html($body['color']).';'. 'letter-spacing:'.esc_html($body['letter-spacing']).'px;'. 'line-height:'.esc_html($body['line-height']).'px; }'
+    .'.site-description{ font-family:'.esc_html($site_description['family']).';'. thshpr_google_font_style_weight_split($site_description['variation']) . 'font-size:'.esc_html($site_description['size']).'px;'. 'color:'.esc_html($site_description['color']).';'. 'letter-spacing:'.esc_html($site_description['letter-spacing']).'px;'. 'line-height:'.esc_html($site_description['line-height']).'px; }'
 	.'.tags a{ font-family:'.esc_html($categories_tags['family']).';'. thshpr_google_font_style_weight_split($categories_tags['variation']) . 'font-size:'.esc_html($categories_tags['size']).'px;'. 'color:'.esc_html($categories_tags['color']).';'. 'letter-spacing:'.esc_html($categories_tags['letter-spacing']).'px;'. 'line-height:'.esc_html($categories_tags['line-height']).'px; }'
 	.'.tags a{ background-color:'.esc_html($categories_tags_background).';}'
 	.'.tags a:hover{ background-color:'.esc_html($categories_tags_font_hover_color).';}'
@@ -624,7 +630,6 @@ function thshpr_scripts() {
 	// load theme js
 
 	wp_enqueue_script( 'naked-ssm-breakpoints', get_template_directory_uri() . '/static/js/ssm.js', array('jquery'),'',true );
-	wp_enqueue_script( 'naked-matchheights', get_template_directory_uri() . '/static/js/jquery.matchHeight-min.js', array('jquery'),'',true );
 	wp_register_script( 'thshpr-stellar', get_template_directory_uri() . '/static/js/jquery.stellar.min.js', array('jquery'),'',true );
 	wp_register_script( 'thshpr-stellar-init', get_template_directory_uri() . '/static/js/stellar-init.js', array('jquery','thshpr-stellar'),'',true );
 	wp_register_script( 'thshpr-article-progress', get_template_directory_uri() . '/static/js/article-progress.js', array('jquery'),'',true );

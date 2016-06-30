@@ -29,6 +29,7 @@ jQuery(function(){
 });
 
 var logoHeight=jQuery(".logo").height();
+var titleHeight=jQuery(".site-title").height();
 jQuery(window).scroll(function(){
 
   if(jQuery(document).scrollTop() > 0)
@@ -37,8 +38,13 @@ jQuery(window).scroll(function(){
     {
         jQuery('.logo').data('size','small');
         jQuery('.logo').stop().animate({
-            height:'40px'
+            height:'50px'
         },600);
+        jQuery('header').stop().animate({
+            paddingTop:5,paddingBottom:5
+        },600);
+        jQuery("header").css("border-bottom", "1px solid #e3e3e3");
+        jQuery( ".site-description" ).hide(600);
     }
 }
 else
@@ -49,6 +55,11 @@ else
         jQuery('.logo').stop().animate({
             height:logoHeight
         },600);
+        jQuery('header').stop().animate({
+            paddingTop:20,paddingBottom:20
+        },600);
+        jQuery("header").css("border-bottom", "0px solid #fff");
+        jQuery( ".site-description" ).show(600);
       }
   }
 });

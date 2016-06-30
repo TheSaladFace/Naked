@@ -203,6 +203,33 @@ $options = array(
 			),
 		),
 	),
+	'site_description_options' => array(
+		'title' => __('Site Description', 'thshpr'),
+		'options' => array(
+
+			'opt_site_description' =>array(
+				'type' => 'typography-v2',
+				'value' => array(
+					'family' => 'Droid Serif',
+					'style' => 'italic',
+        			'weight' => 400,
+			        'size' => 14,
+			        'line-height' => 14,
+			        'letter-spacing' => 0,
+			        'color' => '#a6a6a6'
+			    ),
+			    'components' => array(
+			        'family'         => true,
+			        'size'           => true,
+			        'line-height'    => true,
+			        'letter-spacing' => true,
+			        'color'          => true
+			    ),
+				'label' => __('Site Title', 'thshpr'),
+				'desc'  => __('Choose the typography for the site title (if displayed)', 'thshpr'),
+			),
+		),
+	),
 
 		'meta_options' => array(
 		'title' => __('Meta Options', 'thshpr'),

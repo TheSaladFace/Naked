@@ -28,6 +28,3 @@ if ( ! function_exists( '_wp_render_title_tag' ) ) {
 
 <body <?php body_class(); ?>>
 	<?php do_action( 'before' ); ?>
-<?php
-include(locate_template('global-templates/header-nav.php'));
-?>

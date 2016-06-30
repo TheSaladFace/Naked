@@ -93,11 +93,8 @@ else
 	$image_offset_class="";
 }
 get_header();
+include(locate_template('global-templates/header-nav.php'));
 
-if($show_progress_indicator)
-{
-	echo'<progress value="0"></progress>';
-}
 include(locate_template('single-templates/page-navigation.php'));
 
 
