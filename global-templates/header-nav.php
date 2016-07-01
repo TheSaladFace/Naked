@@ -10,7 +10,14 @@
 
 
 //$search=$nude_options['opt_header_show_search'];
-
+if($show_search==1)
+{
+	$left_column_width=3;
+}
+else
+{
+	$left_column_width=4;
+}
 ?>
 
 <header>
@@ -21,7 +28,7 @@
 	<section class="fw-main-row ">
 		<div class="fw-container menu-nav">
 			<div class="fw-row">
-				<div class="fw-col-lg-4 vcenter-topbar">
+				<div class="fw-col-lg-<?php echo $left_column_width; ?> vcenter-topbar">
 						<?php
 						$custom_logo_id = get_theme_mod( 'custom_logo' );
 						$image = wp_get_attachment_image_src( $custom_logo_id , 'full' );
@@ -40,10 +47,25 @@
 						?>
 				</div><!--
 	    --><div class="fw-col-lg-8 vcenter-topbar">
-				<nav id="primary-navigation" class="site-navigation primary-navigation " role="navigation">
-					<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_class' => 'nav-menu' ) ); ?>
-				</nav>
-			</div>
+				<div class="nav-container">
+					<nav id="primary-navigation" class="site-navigation primary-navigation " role="navigation">
+						<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_class' => 'nav-menu' ) ); ?>
+					</nav>
+
+				</div>
+			</div><!--
+	--><?php if($show_search==1)
+	{
+		echo('<div class="fw-col-lg-1 vcenter-topbar">
+				<div class="search-container">
+					<form class="searchbox">
+						<input type="search" placeholder="'.__('Type then press enter to search...', 'thshpr' ).'" name="search" class="searchbox-input" onkeyup="buttonUp();" required>
+						<span class="searchbox-icon"></span>
+					</form>
+				</div>
+			</div>');
+	}
+	?>
 		</div>
 	</div><!-- .container -->
 </section>

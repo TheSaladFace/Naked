@@ -3,7 +3,18 @@
 }
 
 $options = array(
-    'panel_1' => array(
+	'panel_1' => array(
+        'title' => __('Header', 'thshpr'),
+        'options' => array(
+
+
+			fw()->theme->get_options('header-options'),
+
+
+
+        ),
+    ),
+    'panel_2' => array(
         'title' => __('Posts', 'thshpr'),
         'options' => array(
 
@@ -56,7 +67,7 @@ $options = array(
             ),
         ),
     ),
-	'panel_2' => array(
+	'panel_3' => array(
         'title' => __('Typography', 'thshpr'),
         'options' => array(
 

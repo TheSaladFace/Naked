@@ -25,6 +25,9 @@ if(function_exists( 'fw_get_db_customizer_option' ))
 	$title_divider_type=fw_locate_theme_path_uri('/static/img/').fw_get_db_customizer_option('opt_single_title_divider_type');
 	$show_side_meta=fw_get_db_customizer_option('opt_show_side_meta');
 
+	/*header options*/
+	$show_search=fw_get_db_customizer_option('opt_header_show_search');
+
 	if($show_side_meta==1)
 	{
 		$entry_content_class="side-meta";
