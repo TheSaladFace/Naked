@@ -13,8 +13,9 @@
 
 
 get_header();
+include(locate_template('global-templates/header-nav.php'));
 ?>
-
+<div class="body-main-content">
 <?php get_template_part( 'content', 'page' ); ?>
-
+</div>
 <?php get_footer(); ?>

@@ -99,7 +99,7 @@ $options = array(
 			'opt_h4' =>array(
 			    'type' => 'typography-v2',
 			    'value' => array(
-					'family' => 'Droid Serif',
+					'family' => 'PT Serif',
 					'style' => 'regular',
         			'weight' => 400,
 			        'size' => 16,
@@ -127,7 +127,7 @@ $options = array(
 			'opt_h5' =>array(
 			    'type' => 'typography-v2',
 			    'value' => array(
-					'family' => 'Droid Serif',
+					'family' => 'PT Serif',
 					'style' => 'regular',
         			'weight' => 400,
 			        'size' => 15,
@@ -155,7 +155,7 @@ $options = array(
 			'opt_h6' =>array(
 			    'type' => 'typography-v2',
 			    'value' => array(
-					'family' => 'Droid Serif',
+					'family' => 'PT Serif',
 					'style' => 'regular',
         			'weight' => 400,
 			        'size' => 14,
@@ -183,13 +183,13 @@ $options = array(
 			'opt_body' =>array(
 			    'type' => 'typography-v2',
 			    'value' => array(
-					'family' => 'Droid Serif',
+					'family' => 'PT Serif',
 					'style' => 'regular',
         			'weight' => 400,
 			        'size' => 16,
 			        'line-height' => 26,
 			        'letter-spacing' => 0,
-			        'color' => '#535353'
+			        'color' => '#696969'
 			    ),
 			    'components' => array(
 			        'family'         => true,
@@ -203,35 +203,9 @@ $options = array(
 			),
 		),
 	),
-	'site_description_options' => array(
-		'title' => __('Site Description', 'thshpr'),
-		'options' => array(
 
-			'opt_site_description' =>array(
-				'type' => 'typography-v2',
-				'value' => array(
-					'family' => 'Droid Serif',
-					'style' => 'italic',
-        			'weight' => 400,
-			        'size' => 14,
-			        'line-height' => 14,
-			        'letter-spacing' => 0,
-			        'color' => '#a6a6a6'
-			    ),
-			    'components' => array(
-			        'family'         => true,
-			        'size'           => true,
-			        'line-height'    => true,
-			        'letter-spacing' => true,
-			        'color'          => true
-			    ),
-				'label' => __('Site Title', 'thshpr'),
-				'desc'  => __('Choose the typography for the site title (if displayed)', 'thshpr'),
-			),
-		),
-	),
 
-		'meta_options' => array(
+	/*	'meta_options' => array(
 		'title' => __('Meta Options', 'thshpr'),
 		'options' => array(
 
@@ -361,7 +335,7 @@ $options = array(
 			),
 
 		),
-	),
+	),*/
 
 
 

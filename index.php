@@ -10,6 +10,7 @@
  * @package Nude Theme
  */
 
+
 get_header();
 ?>
 <div class="main-content">

@@ -25,9 +25,6 @@ if(function_exists( 'fw_get_db_customizer_option' ))
 	$title_divider_type=fw_locate_theme_path_uri('/static/img/').fw_get_db_customizer_option('opt_single_title_divider_type');
 	$show_side_meta=fw_get_db_customizer_option('opt_show_side_meta');
 
-	/*header options*/
-	$show_search=fw_get_db_customizer_option('opt_header_show_search');
-
 	if($show_side_meta==1)
 	{
 		$entry_content_class="side-meta";
@@ -97,151 +94,149 @@ else
 }
 get_header();
 include(locate_template('global-templates/header-nav.php'));
-
 include(locate_template('single-templates/page-navigation.php'));
-
-
-
-
-
-
-
-if(function_exists( 'fw_get_db_post_option' ) && $header_show_image)
-{
-	$item_string="";
-	include(locate_template('single-templates/parallax-section-string.php')); //generates meta string from customzed options
-	echo $item_string;
-}
-
-
-
 ?>
 
-<section class="fw-main-row ">
-	<div class="fw-container ">
-		<div class="fw-row">
+<div class="body-main-content">
+
+<?php
+	if(function_exists( 'fw_get_db_post_option' ) && $header_show_image)
+	{
+		$item_string="";
+		include(locate_template('single-templates/parallax-section-string.php')); //generates meta string from customzed options
+		echo $item_string;
+	}
+?>
 
 
 
-			<div class="fw-col-sm-8">
-				<div id="primary" class="content-area">
-					<main id="main" class="site-main" role="main">
 
-
-					<?php
-					if ( have_posts() )
-					{
-						while ( have_posts() )
-						{
-							the_post();
-							?>
-							<div class="title-holder <?php echo $offset_class; ?>">
-								<?php
-
-								if(function_exists( 'fw_get_db_customizer_option' )) //requires unyson plugin / options, if not enabled, don't display meta
-								{
-									$item_string="";
-									$cell_class="single";//sets for the large header
-									include(locate_template('single-templates/title-string.php')); //generates title string from customzed options
-									echo $item_string;
-								}
-
-								?>
-							</div>
-
-							<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-								<div class="entry-meta <?php echo $entry_content_class; ?>">
-
-								<?php
-
-								if(function_exists( 'fw_get_db_customizer_option' )) //requires unyson plugin / options, if not enabled, don't display meta
-								{
-									if($show_side_meta==1)
-									{
-										include(locate_template('single-templates/meta-string.php')); //generates meta string from customzed options
-										echo $item_string;
-									}
-								}
-								?>
-
-								</div><!-- .entry-meta -->
-								<div class="entry-content">
-									<?php
-									if ( has_post_thumbnail() )
-									{
-										if(function_exists( 'fw_get_db_customizer_option' )) //requires unyson plugin / options, if not enabled, don't display meta
-										{
-											$item_string="";
-											if($show_hover_effects=="No")
-							                {
-												$item_string.='<div class="'.$image_offset_class.' featured-image">';
-							                    $image_string=thshpr_generate_image($width,$large_height,get_the_ID());
-							                    $item_string.=$image_string.'</div>';
-							                }
-							                else
-							                {
-												$item_string.='<div class="effect-1 '.$image_offset_class.' featured-image">';
-							                        $image_string=thshpr_generate_image($width,$large_height,get_the_ID());
-							                        $item_string.=$image_string;
-							                        $item_string.='
-
-							                        <div class="item-1">
-							                            <p><span class="centered">'.$hover_top.'</span></p>
-							                        </div>
-							                        <div class="item-2">
-							                            <p><span class="centered">'.$hover_bottom.'</span></p>
-							                        </div>
-							                    </div>';
-											}
-											echo($item_string);
-										}
-									}
-
-
-										/* translators: %s: Name of current post */
-										the_content();
-
-										echo'<div class="meta-categories tags featured-posts-grid-paragraph component-element" id="post-tags"><span class="tags-label">'.__("Post Tags: ", "thshpr").'</span>';
-										the_tags('','','');
-										echo'</div>';
-
-										if($show_author_info)
-										{
-											include(locate_template('single-templates/author-bio.php'));
-
-										}
-
-										// If comments are open or we have at least one comment, load up the comment template.
-										if ( comments_open() || get_comments_number() ) :
-											comments_template();
-										endif;
-									?>
+	<section class="fw-main-row ">
+		<div class="fw-container ">
+			<div class="fw-row">
 
 
 
-								</div><!-- .entry-content -->
+				<div class="fw-col-sm-8">
+					<div id="primary" class="content-area">
+						<main id="main" class="site-main" role="main">
 
-							</article><!-- #post-## -->
 
 						<?php
+						if ( have_posts() )
+						{
+							while ( have_posts() )
+							{
+								the_post();
+								?>
+								<div class="title-holder <?php echo $offset_class; ?>">
+									<?php
+
+									if(function_exists( 'fw_get_db_customizer_option' )) //requires unyson plugin / options, if not enabled, don't display meta
+									{
+										$item_string="";
+										$cell_class="single";//sets for the large header
+										include(locate_template('single-templates/title-string.php')); //generates title string from customzed options
+										echo $item_string;
+									}
+
+									?>
+								</div>
+
+								<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+									<div class="entry-meta <?php echo $entry_content_class; ?>">
+
+									<?php
+
+									if(function_exists( 'fw_get_db_customizer_option' )) //requires unyson plugin / options, if not enabled, don't display meta
+									{
+										if($show_side_meta==1)
+										{
+											include(locate_template('single-templates/meta-string.php')); //generates meta string from customzed options
+											echo $item_string;
+										}
+									}
+									?>
+
+									</div><!-- .entry-meta -->
+									<div class="entry-content">
+										<?php
+										if ( has_post_thumbnail() )
+										{
+											if(function_exists( 'fw_get_db_customizer_option' )) //requires unyson plugin / options, if not enabled, don't display meta
+											{
+												$item_string="";
+												if($show_hover_effects=="No")
+								                {
+													$item_string.='<div class="'.$image_offset_class.' featured-image">';
+								                    $image_string=thshpr_generate_image($width,$large_height,get_the_ID());
+								                    $item_string.=$image_string.'</div>';
+								                }
+								                else
+								                {
+													$item_string.='<div class="effect-1 '.$image_offset_class.' featured-image">';
+								                        $image_string=thshpr_generate_image($width,$large_height,get_the_ID());
+								                        $item_string.=$image_string;
+								                        $item_string.='
+
+								                        <div class="item-1">
+								                            <p><span class="centered">'.$hover_top.'</span></p>
+								                        </div>
+								                        <div class="item-2">
+								                            <p><span class="centered">'.$hover_bottom.'</span></p>
+								                        </div>
+								                    </div>';
+												}
+												echo($item_string);
+											}
+										}
+
+
+											/* translators: %s: Name of current post */
+											the_content();
+
+											echo'<div class="meta-categories tags featured-posts-grid-paragraph component-element" id="post-tags"><span class="tags-label">'.__("Post Tags: ", "thshpr").'</span>';
+											the_tags('','','');
+											echo'</div>';
+
+											if($show_author_info)
+											{
+												include(locate_template('single-templates/author-bio.php'));
+
+											}
+
+											// If comments are open or we have at least one comment, load up the comment template.
+											if ( comments_open() || get_comments_number() ) :
+												comments_template();
+											endif;
+										?>
+
+
+
+									</div><!-- .entry-content -->
+
+								</article><!-- #post-## -->
+
+							<?php
+							}
 						}
-					}
-					?>
+						?>
 
-					</main><!-- #main -->
-				</div><!-- #primary -->
-			</div><!-- close .main-content-inner -->
+						</main><!-- #main -->
+					</div><!-- #primary -->
+				</div><!-- close .main-content-inner -->
 
-			<div class="sidebar fw-col-sm-4">
-				<?php get_sidebar(); ?>
-			</div><!-- close sidebar -->
-
+				<div class="sidebar fw-col-sm-4">
+					<?php get_sidebar(); ?>
+				</div><!-- close sidebar -->
 
 
-			</div><!-- close .*-inner (main-content or sidebar, depending if sidebar is used) -->
-		</div><!-- close .row -->
-	</div><!-- close .container -->
-</section><!-- close .main-content -->
+
+				</div><!-- close .*-inner (main-content or sidebar, depending if sidebar is used) -->
+			</div><!-- close .row -->
+		</div><!-- close .container -->
+	</section><!-- close .main-content -->
+</div><!-- close .main-content -->
 <?php //get_footer();
 get_footer();
 ?>

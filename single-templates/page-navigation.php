@@ -32,7 +32,7 @@ if (!empty( $prev_post )||!empty( $next_post ) )
 		?>
 
 			<a class="prev featured-post-slider-prev" href="<?php echo $prev_post_url; ?>" id="full-prev">
-				<span class="icon-wrap icon-wrap-left">❮</span>
+				<span class="icon-wrap icon-wrap-left background-dark">❮</span>
 				<div class="prev-preview-container <?php echo $prev_hide_thumb_string; ?>">
 					<?php echo $prev_thumb; ?>
 					<div class="title-container"><span class="title hidden-desc"><?php echo $prev_post_title; ?><br/>&#8594;</span></div>
@@ -56,7 +56,7 @@ if (!empty( $prev_post )||!empty( $next_post ) )
 		?>
 
 		<a class="next featured-post-slider-next" href="<?php echo $next_post_url; ?>" id="full-next">
-			<span class="icon-wrap icon-wrap-left">❯</span>
+			<span class="icon-wrap icon-wrap-left background-dark">❯</span>
 			<div class="next-preview-container <?php echo $next_hide_thumb_string; ?>">
 				<?php echo $next_thumb; ?>
 				<div class="title-container"><span class="title hidden-desc"><?php echo $next_post_title; ?><br/>&#8594;</span></div>

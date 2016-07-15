@@ -44,6 +44,7 @@ $options = array(
 							'label' => __('Hide', 'thshpr'),
 						),
 					),
+
 				),
             ),
 
@@ -69,6 +70,27 @@ $options = array(
         ),
     ),
 	'panel_4' => array(
+        'title' => __('Colors', 'thshpr'),
+        'options' => array(
+			
+			'opt_accent_color' =>array(
+				'type'  => 'color-picker',
+				'value' => '#ffeb00',
+				'palettes' => array( '#ffeb00', '#0ce9ed', '#941940' ),
+				'label' => __('Theme Accent Color', 'thshpr'),
+				'desc'  => __('Choose an accent color for the theme', 'thshpr'),
+			),
+			'opt_accent_contents_color' =>array(
+				'type'  => 'color-picker',
+				'value' => '#111',
+				'palettes' => array( '#111', '#0ce9ed', '#941940' ),
+				'label' => __('Theme Accent Contents Color', 'thshpr'),
+				'desc'  => __('The color that is used for the contents when the accent is applied to a background', 'thshpr'),
+				'help'  => __( 'This color needs to stand out from the accent color', 'thshpr'  ),
+			),
+        ),
+    ),
+	'panel_5' => array(
         'title' => __('Social', 'thshpr'),
         'options' => array(
 			'opt_social_twitter' => array(
