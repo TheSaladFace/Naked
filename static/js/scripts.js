@@ -15,9 +15,9 @@
  });*/
 
 
-jQuery(document).ready(function($) {
+jQuery(document).ready(function(jQuery) {
 
-   $('#nav-toggle').sidr({
+   jQuery('#nav-toggle').sidr({
    	name: 'sidr-left',
      side: 'left',
      source: '.logo-holder,#menu-main',
@@ -25,6 +25,7 @@ jQuery(document).ready(function($) {
      onOpen: function() {
          jQuery('#nav-toggle').find('.fa').removeClass('fa-bars');
          jQuery('#nav-toggle').find('.fa').addClass('fa-minus');
+         jQuery('#nav-toggle').css("margin-left",-20);
      },
      onClose: function() {
          jQuery('#nav-toggle').find('.fa').addClass('fa-bars');
@@ -32,7 +33,7 @@ jQuery(document).ready(function($) {
      },
  	});
 
-    var fullScreenSearch = $("#nav-search").animatedModal({
+    var fullScreenSearch = jQuery("#nav-search").animatedModal({
         animatedIn:'fadeInRight',
         animatedOut:'fadeOutLeft',
         color:'rgba(255, 255, 255, 1)',
@@ -64,6 +65,47 @@ var extraYPosn=(menuLogoHeight/2)-(headerExtraHeight/2);
 var logoSmallHeight=50;
 
 jQuery(document).ready(function() {
+var firstLevel;
+var windowWidth;
+var thisItemMaxEdge
+    //offscreen dropdown menu fixe
+    jQuery("#menu-main>li").mouseenter(function() {
+        firstLevel=jQuery(this);
+        //determine number of levels
+        var numLevels=1;
+        if ( jQuery(this).find( "li li" ).length ) {
+            numLevels=2;
+        }
+
+
+        var off = jQuery(this).offset();
+        var topItemLeftX = off.left;
+        var subItemWidth=jQuery(this).find("li").width();
+        var firstLevelWidth=firstLevel.width();
+
+        //multiplied by number of subs, max 3
+        var safeWidth=subItemWidth*numLevels;
+        thisItemMaxEdge=topItemLeftX+safeWidth;
+        windowWidth = jQuery(window).width();
+
+
+
+        if(thisItemMaxEdge>windowWidth)
+        {
+            var distanceToShiftFirstSub=firstLevelWidth-subItemWidth;
+            jQuery(firstLevel).addClass('edge');
+            jQuery(firstLevel).find('ul').first().css("left",distanceToShiftFirstSub+7);
+        }
+        else
+        {
+            jQuery(firstLevel).removeClass('edge');
+            jQuery(firstLevel).find('ul').first().css("left",6);
+        }
+
+    }).mouseleave(function() {
+            jQuery(firstLevel).removeClass('edge');
+            jQuery(firstLevel).find('ul').first().css("left","-999em");
+    });
 
 
     //set extra header initial position in the middle vertically

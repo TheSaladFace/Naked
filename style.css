@@ -1218,8 +1218,45 @@ transition-delay: 0s;
 	/*default styles, will be overwritten by  options*/
 	.primary-navigation .main-menu-container{text-align: right;}
 	.primary-navigation ul>li>a { padding-left: 16px;padding-right:16px; font-weight:bold; font-size: 14px;text-transform:uppercase; color:#333;} /*first level menu*/
-	.menu-item-has-children>ul:before{border: 8px solid transparent; border-bottom-color: #000; top: -14px; content: ""; left: 5px; margin-left: 0; opacity: 1;position: absolute;}
-	.menu-item-has-children>ul>li>ul:before{border: 0px solid transparent; border-bottom-color: #000; top: -14px; content: ""; left: 5px; margin-left: 0; opacity: 1;position: absolute;}
+	.menu-item-has-children>ul:before{
+		content: "\f0d8";
+	    font-family: FontAwesome;
+	    font-style: normal;
+	    font-weight: normal;
+	    text-decoration: inherit;
+	    position: absolute;
+	    left: 8px;
+	    top: -27px;
+	    width: 0;
+	    height: 0;
+	    font-size: 18px;
+		color:#111;
+		opacity:1;
+		z-index:1;
+
+
+
+	}
+	.menu-item-has-children>ul ul:before{
+		content: "";
+	    font-family: FontAwesome;
+	    font-style: normal;
+	    font-weight: normal;
+	    text-decoration: inherit;
+	    position: absolute;
+	    left: 8px;
+	    top: -27px;
+	    width: 0;
+	    height: 0;
+	    font-size: 18px;
+		color:#111;
+		opacity:1;
+		z-index:0;
+
+
+
+	}
+
 	.primary-navigation ul li ul li a{ color:#fff;font-weight: normal;font-size:15px; font-style:italic; text-transform:Capitalize;background-color:#111;     transition: all .35s ease;
     -moz-transition: all .35s ease;
     -o-transition: all .35s ease;
@@ -1232,7 +1269,7 @@ transition-delay: 0s;
 	.primary-navigation.toggled-on{border-bottom:0;margin:0;padding:0;}
 	.primary-navigation .nav-menu{border-bottom:0;display:block;margin:0px;}
 	.primary-navigation a:before{position:relative;font-size:16px;line-height:0;margin-right:9px;top:2px;font-weight:100;}
-	.primary-navigation ul ul a{white-space:normal;width:186px;display:block;padding:14px 10px 14px 17px;}
+	.primary-navigation ul ul a{white-space:normal;width:186px;display:block;padding:14px 17px 14px 17px;}
 	.primary-navigation .menu-item-has-children > a:after{
 	content: "\f0d7";
     font-family: FontAwesome;
@@ -1261,10 +1298,34 @@ transition-delay: 0s;
 	.primary-navigation li .menu-item-has-children > a,.primary-navigation li .page_item_has_children > a{width:186px;}
 	.primary-navigation li{border:0;display:inline-block;height:48px;line-height:48px;position:relative;margin-left:10px;}
 	.primary-navigation li li{border:0;display:block;height:auto;line-height:1.0909090909;margin-left:0;text-align:left;}
-	.primary-navigation ul li:hover > ul,.primary-navigation ul li.focus > ul{left:6px;}
-	.primary-navigation ul ul li:hover > ul,.primary-navigation ul ul li.focus > ul{left:100%;}
+	/*.primary-navigation ul li:hover > ul,.primary-navigation ul li.focus > ul{left:6px;}*/
+	.primary-navigation ul li ul li:hover > ul, .primary-navigation ul li ul li.focus > ul {
+    left: 100%;
+	}
+	/*when second level sub goes over edge, reverse sides (edge class added with js)*/
+	.primary-navigation ul li.edge ul li:hover > ul, .primary-navigation ul li.edge ul li.focus > ul {
+    left: -100%;
+	}
+	.primary-navigation li.edge li {
+    text-align: right;
+	}
+	.primary-navigation .menu-item-has-children.edge>ul>li.menu-item-has-children>a:after {
+	    content: "\f0d9";
+	    left: 18px;
+	    top: 15px;
+	}
+	.menu-item-has-children.edge>ul:before {
+
+		right: 18px;
+	    left: auto;
+
+}
+
+
+
 	.primary-navigation ul ul{float:left;position:absolute;top:47px;left:-999em;z-index:99999;margin:0;}
 	.primary-navigation ul ul ul{left:-999em;top:0;}
+
 
 
 	/*.primary-navigation .menu-item-has-children:hover > a{background-color:#000;color:#fff;}
