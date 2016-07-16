@@ -13,6 +13,7 @@
 
 
 get_header();
+include(locate_template('global-templates/page-borders.php')); 
 include(locate_template('global-templates/header-nav.php'));
 ?>
 <div class="body-main-content">

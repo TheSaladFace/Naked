@@ -33,6 +33,41 @@ Tags: responsive-layout, one-column, two-columns, three-columns, left-sidebar, r
 	.background-dark{color:#fff;background-color:#111;transition:  all .35s ease; -moz-transition:  all .35s ease;  -o-transition:  all .35s ease;  -ms-transition:  all .35s ease;  transition:  all .35s ease; -webkit-transition-delay: 0s;  transition-delay: 0s;}
 	.background-accent{transition:  all .35s ease; -moz-transition:  all .35s ease;  -o-transition:  all .35s ease;  -ms-transition:  all .35s ease;  transition:  all .35s ease; -webkit-transition-delay: 0s;  transition-delay: 0s;}
 
+	/*All Borders*/
+
+	.top-border {
+	    position: fixed;
+	    width: 100%;
+	    top: 0;
+	    left: 0;
+	    z-index: 9999;
+	}
+
+
+	.bottom-border {
+	    position: fixed;
+	    width: 100%;
+	    bottom: 0;
+	    left: 0;
+	    z-index: 9999;
+	}
+
+	.left-border {
+	    position: fixed;
+	    left: 0;
+	    height: 100%;
+	    z-index: 9999;
+		transition: left 0.2s ease;
+	}
+
+	.right-border {
+	    position: fixed;
+	    right: 0;
+	    height: 100%;
+	    z-index: 9999;
+
+	}
+
 	/*forms*/
 	/*input[type="text"]:focus,
 	input[type="password"]:focus,
@@ -441,7 +476,7 @@ a:link {text-decoration: none;}
 	 * Post Navigation
 	 */
 	.hidden-desc{font-size:14px; line-height:18px;}
-	.post-navigation{position:fixed; top: 50%;width:100%;margin-top:-50px;z-index: 9998;}
+	.post-navigation{position:fixed; top: -50%;width:100%;margin-top:-50px;z-index: 9998;}
 	.post-navigation .hidden-thumb, .hidden-desc{	display:none;}
 	.post-navigation .prev-desc-clone{display:block;}
 	.post-navigation .next-desc-clone{display:block;}
@@ -873,8 +908,7 @@ a:link {text-decoration: none;}
 	     font-size: 15px;
 	      background: #fff;
 	      color: #fff;
-	border-right: 1px solid #111;
- 		}
+		}
 
 
 .sidr>div:first-of-type {

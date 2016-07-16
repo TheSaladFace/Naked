@@ -15,6 +15,22 @@
  });*/
 
 
+
+
+
+jQuery(function(){
+  jQuery('.logo').data('size','big'); //sets initial size to big
+});
+
+//set initial global variables
+var menuLogoHeight=jQuery(".menu-logo").height();
+var headerExtraHeight=36;
+var logoHeight=jQuery(".logo").height();
+var titleHeight=jQuery(".site-title").height();
+var logoSmallHeight=50;
+var dataSpacing=parseInt(jQuery('body').attr('data-spacing'));
+var extraYPosn=((menuLogoHeight/2)-(headerExtraHeight/2))+dataSpacing;//dataspacing added cos of top padding on body
+
 jQuery(document).ready(function(jQuery) {
 
    jQuery('#nav-toggle').sidr({
@@ -25,11 +41,17 @@ jQuery(document).ready(function(jQuery) {
      onOpen: function() {
          jQuery('#nav-toggle').find('.fa').removeClass('fa-bars');
          jQuery('#nav-toggle').find('.fa').addClass('fa-minus');
-         jQuery('#nav-toggle').css("margin-left",-20);
+         //var sideWidth=jQuery('.sidr-left').width();
+         //jQuery( "body").css("padding-left", 0);
+         jQuery('.left-border').css('left','260px');
+         jQuery( ".post-navigation" ).fadeOut("300ms");
      },
      onClose: function() {
          jQuery('#nav-toggle').find('.fa').addClass('fa-bars');
          jQuery('#nav-toggle').find('.fa').removeClass('fa-minus');
+         jQuery('.left-border').css('left',0);
+         //jQuery( "body").css("padding-left", dataSpacing);
+        jQuery( ".post-navigation" ).fadeIn("300ms");
      },
  	});
 
@@ -50,19 +72,6 @@ jQuery(document).ready(function(jQuery) {
       });
 
  });
-
-
-jQuery(function(){
-  jQuery('.logo').data('size','big'); //sets initial size to big
-});
-
-//set initial global variables
-var menuLogoHeight=jQuery(".menu-logo").height();
-var headerExtraHeight=36;
-var logoHeight=jQuery(".logo").height();
-var titleHeight=jQuery(".site-title").height();
-var extraYPosn=(menuLogoHeight/2)-(headerExtraHeight/2);
-var logoSmallHeight=50;
 
 jQuery(document).ready(function() {
 var firstLevel;
@@ -109,7 +118,13 @@ var thisItemMaxEdge
 
 
     //set extra header initial position in the middle vertically
-    jQuery( ".header-extra" ).offset({ top: extraYPosn, left: 0 });
+    jQuery( ".header-extra" ).offset({ top: extraYPosn, left: "auto" });
+
+    //set extra header margins in accordance with body border (if set)
+    //jQuery( ".header-extra" ).css({marginLeft: dataSpacing+"px", marginRight: dataSpacing+"px" });
+    jQuery( ".abs-container,.post-navigation,header" ).width(jQuery('body').width());
+    jQuery( ".post-navigation" ).css("top","50%");
+
     jQuery( ".progress-indicator" ).fadeOut();
 
     //set the height of the header equal to the height of the logo container
@@ -157,6 +172,13 @@ var thisItemMaxEdge
 
 
 });
+
+//resize absolute elements due to borders
+jQuery( window ).resize(function() {
+    jQuery( ".abs-container,.post-navigation,header" ).width(jQuery('body').width());
+});
+
+
 
 jQuery(window).scroll(function(){
 

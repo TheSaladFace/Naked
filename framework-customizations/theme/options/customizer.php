@@ -4,12 +4,46 @@
 
 $options = array(
 	'panel_1' => array(
+        'title' => __('General Options', 'thshpr'),
+        'options' => array(
+
+			'opt_show_site_borders' =>array(
+				'type'  => 'switch',
+				'value' => 'Show',
+				'label' => __('Show Site Borders', 'thshpr'),
+				'help' => __( 'This will display the site borders', 'thshpr'  ),
+				'left-choice' => array(
+					'value' => '1',
+					'label' => __('Show', 'thshpr'),
+				),
+				'right-choice' => array(
+					'value' => '0',
+					'label' => __('Hide', 'thshpr'),
+				),
+			),
+			'opt_site_borders_color' =>array(
+				'type'  => 'color-picker',
+				'value' => '#111',
+				'palettes' => array( '#111', '#0ce9ed', '#941940' ),
+				'label' => __('Site Borders Color', 'thshpr'),
+				'desc'  => __('The color that is used for the site borders', 'thshpr'),
+			),
+			'opt_site_borders_size' => array(
+				'label' => __( 'Site Borders Size (pixels)', 'thshpr' ),
+				'type'  => 'text',
+				'value' => '20',
+				'desc'  => __( 'Please enter the size of the site borders (dont add the px)','thshpr' ),
+				'help'  => __( 'Leave blank to remove', 'thshpr'  ),
+			),
+        ),
+    ),
+	'panel_2' => array(
         'title' => __('Header', 'thshpr'),
         'options' => array(
 			fw()->theme->get_options('header-options'),
         ),
     ),
-	'panel_2' => array(
+	'panel_3' => array(
         'title' => __('Posts', 'thshpr'),
         'options' => array(
 
@@ -63,16 +97,16 @@ $options = array(
             ),
         ),
     ),
-	'panel_3' => array(
+	'panel_4' => array(
         'title' => __('Typography', 'thshpr'),
         'options' => array(
 			fw()->theme->get_options('typography-options'),
         ),
     ),
-	'panel_4' => array(
+	'panel_5' => array(
         'title' => __('Colors', 'thshpr'),
         'options' => array(
-			
+
 			'opt_accent_color' =>array(
 				'type'  => 'color-picker',
 				'value' => '#ffeb00',
@@ -90,7 +124,7 @@ $options = array(
 			),
         ),
     ),
-	'panel_5' => array(
+	'panel_6' => array(
         'title' => __('Social', 'thshpr'),
         'options' => array(
 			'opt_social_twitter' => array(
