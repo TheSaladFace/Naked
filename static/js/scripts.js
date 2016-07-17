@@ -77,6 +77,8 @@ jQuery(document).ready(function() {
 var firstLevel;
 var windowWidth;
 var thisItemMaxEdge
+
+jQuery("#menu-main>li").find("ul").first().stop().fadeOut();
     //offscreen dropdown menu fixe
     jQuery("#menu-main>li").mouseenter(function() {
         firstLevel=jQuery(this);
@@ -104,16 +106,21 @@ var thisItemMaxEdge
             var distanceToShiftFirstSub=firstLevelWidth-subItemWidth;
             jQuery(firstLevel).addClass('edge');
             jQuery(firstLevel).find('ul').first().css("left",distanceToShiftFirstSub+7);
+            jQuery(firstLevel).find('ul').first().stop().fadeIn(400);
         }
         else
         {
             jQuery(firstLevel).removeClass('edge');
             jQuery(firstLevel).find('ul').first().css("left",6);
+            jQuery(firstLevel).find('ul').first().stop().fadeIn(400);
         }
 
     }).mouseleave(function() {
             jQuery(firstLevel).removeClass('edge');
-            jQuery(firstLevel).find('ul').first().css("left","-999em");
+
+            jQuery(firstLevel).find('ul').first().stop().fadeOut(150, function() {
+                jQuery(this).css("left","-999em");
+            });
     });
 
 
