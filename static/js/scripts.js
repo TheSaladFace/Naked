@@ -15,6 +15,10 @@ var titleHeight=jQuery(".site-title").height();
 var logoSmallHeight=50;
 var dataSpacing=parseInt(jQuery('body').attr('data-spacing'));
 var extraYPosn=((menuLogoHeight/2)-(headerExtraHeight/2))+dataSpacing; //dataspacing added cos of top padding on body
+var firstLevel;
+var windowWidth;
+var thisItemMaxEdge
+
 jQuery('.logo').data('size','big');
 
 jQuery(document).ready(function(jQuery) {
@@ -105,9 +109,6 @@ jQuery(document).ready(function(jQuery) {
      * Adds animation fadeout and in on menu
      */
     /* Global variables, needed because of hover out and in */
-    var firstLevel;
-    var windowWidth;
-    var thisItemMaxEdge
     jQuery("#menu-main>li").find("ul").first().stop().fadeOut(); //set initial fadeout of first level ul elements so they can be faded back in
 
     jQuery("#menu-main>li").mouseenter(function() { //all the rest happens on hover over top level meny items
@@ -116,26 +117,29 @@ jQuery(document).ready(function(jQuery) {
         firstLevel=jQuery(this);
         var off = jQuery(this).offset();
         var topItemLeftX = off.left;
-        var subItemWidth=jQuery(this).find("li").width();
-        var firstLevelWidth=firstLevel.width();
+        var subItemWidth=jQuery(".primary-navigation li .menu-item-has-children > a").width();
+        var topItemLeftPadding=jQuery(firstLevel).find("a").first().css("paddingLeft").replace("px", "");
+        var firstLevelWidth=jQuery(firstLevel).width();
         windowWidth = jQuery(window).width();
 
         /* determine number of levels */
         var numLevels=1;
-        if ( jQuery(this).find( "li li" ).length ) {
+        if ( jQuery(firstLevel).find( "li li" ).length ) {
             numLevels=2;
         }
 
         /* obtain far right edge of the items deepest hover */
         var safeWidth=subItemWidth*numLevels;
-        thisItemMaxEdge=topItemLeftX+safeWidth;
+        thisItemMaxEdge=topItemLeftX+firstLevelWidth+safeWidth;
+        console.log("paddingleft"+topItemLeftPadding);
 
         /* check for overlap */
         if(thisItemMaxEdge>windowWidth)
         {
-            var distanceToShiftFirstSub=firstLevelWidth-subItemWidth; //where to place the first level hover if its out of bounds
+
+            var distanceToShiftFirstSub=(firstLevelWidth-(topItemLeftPadding*2))-subItemWidth; //where to place the first level hover if its out of bounds
             jQuery(firstLevel).addClass('edge'); //adds class, 3rd level items dealt with in CSS with - width
-            jQuery(firstLevel).find('ul').first().css("left",distanceToShiftFirstSub+7); //set adjusted backwards first level position
+            jQuery(firstLevel).find('ul').first().css("left",distanceToShiftFirstSub+6); //set adjusted backwards first level position
             jQuery(firstLevel).find('ul').first().stop().fadeIn(400); //fadein the first level for good measure (might as well as we are now reliant on js)
         }
         else
