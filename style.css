@@ -1130,7 +1130,7 @@ transition-delay: 0s;
 	 * header extra bar
 	 */
 
-	.right-extras{width:73px;margin-right:-20px;}
+	.right-extras{width:36px;margin-right:-20px;}
 	.header-extra{pointer-events: none;top:-500px;}
 	#nav-toggle{pointer-events: auto; display: inline-block; padding: 5px 13px 4px 11px; font-size: 14px; margin-left: -20px;}
 	#nav-search{pointer-events: auto; display: inline-block; padding: 5px 12px; font-size: 13px; float:right;}
@@ -1438,8 +1438,9 @@ transition-delay: 0s;
 }
 
 /* Giant Screens */
-@media (min-width: 1308px)
+@media only screen and (min-width: 1350px)
 {
+	.right-extras{width:73px;margin-right:-20px;}
 }
 
 
