@@ -339,6 +339,7 @@ function thshpr_print_styles()
     .'.primary-navigation ul li ul li a:hover{ background-color:'.esc_html($accent_color).'; color:'.esc_html($accent_contents_color).';  }'
     .'.background-accent{ background-color:'.esc_html($accent_color).'; color:'.esc_html($accent_contents_color).'; }'
     .'.sidr a:hover{ background-color:'.esc_html($accent_color).'; color:'.esc_html($accent_contents_color).'; }'
+    .'.sidr-toggle:hover{ background-color:'.esc_html($accent_color).'; color:'.esc_html($accent_contents_color).';border-color:'.esc_html($accent_color).'!important; }'
     .'progress{ color:'.esc_html($accent_color).'; }'
     .'progress::-webkit-progress-value{ background-color:'.esc_html($accent_color).'; }'
     .'progress::-moz-progress-bar{ background-color:'.esc_html($accent_color).'; }'

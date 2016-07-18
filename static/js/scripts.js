@@ -43,12 +43,38 @@ jQuery(document).ready(function(jQuery) {
         },
     });
 
-    //set the padding of the sidr logo area to the height of the starting logo area
+    /*set the padding of the sidr logo area to the height of the starting logo area*/
     jQuery( ".sidr-class-logo" ).parent().css("padding-top",jQuery( ".logo-holder" ).css("padding-top"));
     jQuery( ".sidr-class-logo" ).parent().css("padding-bottom",jQuery( ".logo-holder" ).css("padding-bottom"));
 
-    //remove the bottom border on the sidr items
+    /*remove the bottom border on the last sidr items*/
     jQuery( ".sidr a" ).last().css( "border-bottom", "0px" );
+
+    /**
+     * sidr collapsible sub items
+     */
+    /*inject the collapsible button*/
+    jQuery( "<span class='sidr-toggle'><i class='fa fa-angle-down'></i></span>" ).insertAfter( ".sidr-class-menu-item-has-children>a" );
+    /*set initial conditions for hidden sub menus*/
+    jQuery(".sidr-class-sub-menu").hide();
+    jQuery('.sidr-toggle').data('clickState', 0);
+    jQuery(".sidr-toggle").on('click',function (e) {
+
+        if(jQuery(this).data('clickState')==0)
+        {
+            jQuery(this).next().find(".sidr-toggle").fadeOut(0);
+            jQuery(this).addClass("sidr-toggle-on").next().slideToggle("slow","swing", function(){
+                jQuery(this).find(".sidr-toggle").fadeIn(300); //only show the toggles of each level until the slidetoggle has completed (the are absolutely positioned so will appear in an ugly fashion over the top)
+            });
+            jQuery(this).data('clickState', 1);
+        }
+        else
+        {
+            jQuery(this).removeClass("sidr-toggle-on").next().slideToggle(300).find(".sidr-toggle").fadeOut(50);
+            jQuery(this).data('clickState', 0);
+        }
+
+    });
 
 
 

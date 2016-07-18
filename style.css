@@ -910,7 +910,51 @@ a:link {text-decoration: none;}
 	      color: #fff;
 		}
 
+.sidr-toggle{position: absolute;
+    right: 15px;
+    margin-top: -33px;
+    font-size: 12px;
+    padding: 4px 6px 3px 6px;
+    line-height: 12px;border:1px solid #222;
+	cursor: pointer; cursor: hand;
 
+}
+.sidr li li a{
+	background-color:#333;
+	border-bottom: 1px solid #3a3a3a;
+}
+.sidr li li li a{
+	background-color:#555;
+	border-bottom: 1px solid #5c5c5c;
+}
+
+.sidr li li .sidr-toggle{
+	border:1px solid #3f3f3f;
+}
+.sidr-class-menu-item-has-children>a:hover{
+background-color:#111!important;
+color:#fff!important;
+}
+li li.sidr-class-menu-item-has-children>a:hover{
+background-color:#333!important;
+}
+li li li.sidr-class-menu-item-has-children>a:hover{
+background-color:#555!important;
+}
+.sidr-toggle{
+	moz-transition: all 0.3s linear;
+	    -o-transition: all 0.3s linear;
+	    -webkit-transition: all 0.3s linear;
+	    transition: all 0.3s linear;
+}
+
+
+.sidr-toggle-on{
+	transform: rotate(180deg);
+	-webkit-transform: rotate(180deg);
+	-moz-transform: rotate(180deg);
+	-o-transform: rotate(180deg);
+}
 .sidr>div:first-of-type {
     background-color:#fff;
 	text-align:center;
@@ -997,16 +1041,7 @@ transition-delay: 0s;
 	 font-size: 15px;
 	 font-style:italic;
  }
- .sidr ul li a:before{
-		content: "\f0da";
-	    font-family: FontAwesome;
-	    font-style: normal;
-	    font-weight: normal;
-	    text-decoration: inherit;
-		left: -9px;
-    font-size: 13px;
-	position:relative;
-	}
+
 
  .sidr ul li a{
 	 padding-left:25px;
