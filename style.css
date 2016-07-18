@@ -1163,7 +1163,7 @@ transition-delay: 0s;
 
 	 /** social media icons **/
 	 .search-social-container{height: 36px; position: relative; width: 100%;}
-	 .header-share-boxes{pointer-events: auto;float:left;font-size: 14px; font-style: italic; color: #a6a6a6;display:inline-block;line-height: 10px; margin-bottom: 0px; padding-bottom: 0px;padding-top: 0px;}
+	 .header-share-boxes{pointer-events: auto;float:right;font-size: 14px; font-style: italic; color: #a6a6a6;display:inline-block;line-height: 10px; margin-bottom: 0px; padding-bottom: 0px;padding-top: 0px;}
 	 .header-share-boxes .absolute-container{position:relative;display: inline-block;}
 	 .social-box
 	 {
