@@ -338,6 +338,7 @@ function thshpr_print_styles()
 	.'.general-meta a:hover{ font-family:'.esc_html($other_meta_hover).';'. thshpr_google_font_style_weight_split($other_meta_hover) . 'font-size:'.esc_html($other_meta_hover).'px;'. 'color:'.esc_html($other_meta_hover).';'. 'letter-spacing:'.esc_html($other_meta_hover).'px;'. 'line-height:'.esc_html($other_meta_hover).'px; }'
     .'.primary-navigation ul li ul li a:hover{ background-color:'.esc_html($accent_color).'; color:'.esc_html($accent_contents_color).';  }'
     .'.background-accent{ background-color:'.esc_html($accent_color).'; color:'.esc_html($accent_contents_color).'; }'
+    .'.offset-title{ border-top:5px solid '.esc_html($accent_color).'; }'
     .'.sidr a:hover{ background-color:'.esc_html($accent_color).'; color:'.esc_html($accent_contents_color).'; }'
     .'.sidr-toggle:hover{ background-color:'.esc_html($accent_color).'; color:'.esc_html($accent_contents_color).';border-color:'.esc_html($accent_color).'!important; }'
     .'progress{ color:'.esc_html($accent_color).'; }'
@@ -345,6 +346,7 @@ function thshpr_print_styles()
     .'progress::-moz-progress-bar{ background-color:'.esc_html($accent_color).'; }'
     .'.background-dark:hover{ background-color:'.esc_html($accent_color).'; color:'.esc_html($accent_contents_color).';}';
 	//remove_theme_mod('fw_options');
+    //border-top: 10px solid #ffeb00;
 
 
 
