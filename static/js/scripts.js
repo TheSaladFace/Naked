@@ -242,7 +242,7 @@ jQuery(window).scroll(function(){
                 },300);
                 var currentLogoHeight=jQuery(".menu-logo").height(); //set the height of the header equal to the height of the logo container
                 jQuery("header").height(currentLogoHeight);
-                jQuery("header").css("border-bottom", "1px solid #e3e3e3"); //add a border to the bottom of the header when scrolling
+                jQuery("header").addClass("shadow"); //add a shadow class to the bottom of the header when scrolling
                 jQuery( ".progress-indicator" ).css("top",0); //set the position of the progress indicator
                 jQuery( ".progress-indicator" ).fadeIn(900); // fade in progress indicator after scroll
 
