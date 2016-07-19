@@ -76,7 +76,7 @@ if(function_exists( 'fw_get_db_customizer_option' ))
 		<section class="fw-main-row ">
 			<div class="fw-container menu-nav">
 				<div class="fw-row">
-					<div class="fw-col-lg-3 vcenter-topbar logo-holder">
+					<div class="fw-col-lg-3 fw-col-md-12 vcenter-topbar logo-holder">
 						<?php
 						$custom_logo_id = get_theme_mod( 'custom_logo' );
 						$image = wp_get_attachment_image_src( $custom_logo_id , 'full' );
@@ -89,7 +89,7 @@ if(function_exists( 'fw_get_db_customizer_option' ))
 						}
 						?>
 					</div><!--
-		    --><div class="fw-col-lg-9 vcenter-topbar">
+		    --><div class="fw-col-lg-9 fw-col-md-12 vcenter-topbar nav-outer">
 					<div class="nav-container">
 						<nav id="primary-navigation" class="site-navigation primary-navigation " role="navigation">
 							<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_class' => 'nav-menu' ) ); ?>
@@ -107,12 +107,20 @@ if(function_exists( 'fw_get_db_customizer_option' ))
 <div class="abs-container header-extra">
 	<section class="fw-main-row">
 		<div class="fw-container-fluid menu-nav">
-			<div class="fw-col-lg-6 pull-left">
+			<div class="fw-col-xs-6 pull-left">
 				<div class="pull-left">
-					<a id="nav-toggle" class="background-dark" href="#sidr"><i class="fa fa-bars" aria-hidden="true"></i></a>
+					<a id="nav-toggle" href="#sidr">
+
+						<div class="hamburger hamburger--emphatic">
+						  <div class="hamburger-box">
+						    <div class="hamburger-inner"></div>
+						  </div>
+						</div>
+
+					</a>
 				</div>
 			</div><!--
-	--><div class="fw-col-lg-6 pull-right">
+	--><div class="fw-col-xs-6 pull-right">
 			<div class="pull-right right-extras">
 				<?php
 				if($show_search==1)
