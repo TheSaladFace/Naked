@@ -131,7 +131,6 @@ jQuery(document).ready(function(jQuery) {
         /* obtain far right edge of the items deepest hover */
         var safeWidth=subItemWidth*numLevels;
         thisItemMaxEdge=topItemLeftX+firstLevelWidth+safeWidth;
-        console.log("paddingleft"+topItemLeftPadding);
 
         /* check for overlap */
         if(thisItemMaxEdge>windowWidth)
@@ -200,8 +199,8 @@ jQuery(document).ready(function(jQuery) {
     jQuery( ".post-navigation" ).css("top","50%");  //force post navigation to 50% up the page
     jQuery( "header").height(menuLogoHeight); //set the height of the header equal to the height of the logo container
     jQuery( ".body-main-content").css("padding-top", menuLogoHeight);//set the body main content offset due to sticky header
-
-    jQuery( ".progress-indicator" ).fadeOut(); //fadeout progress indicator so it can be faded in later
+    jQuery( ".body-main-content").css("padding-top", menuLogoHeight);//set the body main content offset due to sticky header
+    jQuery( ".primary-navigation li" ).first().css("margin-left","0px"); //remove margin from first main menu item
 
 });
 
@@ -244,7 +243,7 @@ jQuery(window).scroll(function(){
                 var currentLogoHeight=jQuery(".menu-logo").height(); //set the height of the header equal to the height of the logo container
                 jQuery("header").height(currentLogoHeight);
                 jQuery("header").css("border-bottom", "1px solid #e3e3e3"); //add a border to the bottom of the header when scrolling
-                jQuery( ".progress-indicator" ).css("top",currentLogoHeight); //set the position of the progress indicator
+                jQuery( ".progress-indicator" ).css("top",0); //set the position of the progress indicator
                 jQuery( ".progress-indicator" ).fadeIn(900); // fade in progress indicator after scroll
 
             });
