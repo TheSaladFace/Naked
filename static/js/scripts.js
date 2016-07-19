@@ -33,21 +33,40 @@ jQuery(document).ready(function(jQuery) {
         side: 'left',
         source: '.logo-holder,#menu-main',
         displace: true,
+
         onOpen: function() {
+            jQuery('.left-border').css('left','260px'); //shift the left border to the width of the sidr
+
+        },
+        onClose: function() {
+            jQuery('.left-border').css('left',0); //shift the left border back
+        },
+        onOpenEnd: function() {
             jQuery('#nav-toggle').find('.fa').removeClass('fa-bars');
             jQuery('#nav-toggle').find('.fa').addClass('fa-minus');
-            jQuery('.left-border').css('left','260px'); //shift the left border to the width of the sidr
+            //jQuery('.left-border').css('left','260px'); //shift the left border to the width of the sidr
             jQuery( ".post-navigation" ).fadeOut("300ms");
             jQuery( ".hamburger" ).addClass("is-active");
 
         },
-        onClose: function() {
+        onCloseEnd: function() {
             jQuery('#nav-toggle').find('.fa').addClass('fa-bars');
             jQuery('#nav-toggle').find('.fa').removeClass('fa-minus');
-            jQuery('.left-border').css('left',0); //shift the left border back
+            //jQuery('.left-border').css('left',0); //shift the left border back
             jQuery( ".post-navigation" ).fadeIn("300ms");
             jQuery( ".hamburger" ).removeClass("is-active");
         },
+    });
+
+    /*fix the hover color problem due to non hoverout in css, bruteforce the hover with jquery*/
+    jQuery("#nav-toggle").on('mouseover',function (e) {
+        jQuery(this).removeClass("dark-button-color").addClass("accent-button-color");
+    });
+    jQuery("#nav-toggle").on('mouseout',function (e) {
+        jQuery(this).removeClass("accent-button-color").addClass("dark-button-color");
+    });
+    jQuery("#nav-toggle").on('click',function (e) {
+        jQuery(this).removeClass("accent-button-color").addClass("dark-button-color");
     });
 
     /*set the padding of the sidr logo area to the height of the starting logo area*/

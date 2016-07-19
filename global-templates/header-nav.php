@@ -29,6 +29,15 @@ if(function_exists( 'fw_get_db_customizer_option' ))
 	$social_flickr=fw_get_db_customizer_option('opt_social_flickr');
 	$social_email=fw_get_db_customizer_option('opt_social_email');
 
+	if ($horizontal_center)
+	{
+		$horizontal_center_class='class="horizontal-center";';
+	}
+	else
+	{
+		$horizontal_center_class='';
+	}
+
 
 }
 
@@ -70,7 +79,7 @@ if(function_exists( 'fw_get_db_customizer_option' ))
 
     </div>
 
-<header>
+<header <?php echo $horizontal_center_class; ?>>
 
 	<div class="abs-container menu-logo">
 		<section class="fw-main-row ">
@@ -109,9 +118,9 @@ if(function_exists( 'fw_get_db_customizer_option' ))
 		<div class="fw-container-fluid menu-nav">
 			<div class="fw-col-xs-6 pull-left">
 				<div class="pull-left">
-					<a id="nav-toggle" href="#sidr">
+					<a id="nav-toggle" href="#sidr" class="dark-button-color">
 
-						<div class="hamburger hamburger--emphatic">
+						<div class="hamburger hamburger--elastic">
 						  <div class="hamburger-box">
 						    <div class="hamburger-inner"></div>
 						  </div>
