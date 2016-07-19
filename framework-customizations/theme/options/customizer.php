@@ -122,6 +122,21 @@ $options = array(
 				'desc'  => __('The color that is used for the contents when the accent is applied to a background', 'thshpr'),
 				'help'  => __( 'This color needs to stand out from the accent color', 'thshpr'  ),
 			),
+			'opt_dark_color' =>array(
+				'type'  => 'color-picker',
+				'value' => '#111111',
+				'palettes' => array( '#ffeb00', '#0ce9ed', '#941940' ),
+				'label' => __('Theme Dark Color', 'thshpr'),
+				'desc'  => __('Choose a dark color for the theme (buttons etc)', 'thshpr'),
+			),
+			'opt_dark_contents_color' =>array(
+				'type'  => 'color-picker',
+				'value' => '#ffffff',
+				'palettes' => array( '#111', '#0ce9ed', '#941940' ),
+				'label' => __('Theme Accent Contents Color', 'thshpr'),
+				'desc'  => __('The color that is used for the contents when the dark color is applied to a background', 'thshpr'),
+				'help'  => __( 'This color needs to stand out from the dark color', 'thshpr'  ),
+			),
         ),
     ),
 	'panel_6' => array(
