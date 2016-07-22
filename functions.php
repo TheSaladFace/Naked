@@ -340,7 +340,8 @@ function thshpr_print_styles()
 	.'.general-meta a:hover{ font-family:'.esc_html($other_meta_hover).';'. thshpr_google_font_style_weight_split($other_meta_hover) . 'font-size:'.esc_html($other_meta_hover).'px;'. 'color:'.esc_html($other_meta_hover).';'. 'letter-spacing:'.esc_html($other_meta_hover).'px;'. 'line-height:'.esc_html($other_meta_hover).'px; }'
     .'.primary-navigation ul li ul li a:hover{ background-color:'.esc_html($accent_color).'; color:'.esc_html($accent_contents_color).';  }'
     .'.background-accent{ background-color:'.esc_html($accent_color).'; color:'.esc_html($accent_contents_color).'; }'
-    .'.offset-title{ border-top:5px solid '.esc_html($accent_color).'; }'
+    .'.background-accent-hover{ background-color:'.esc_html($dark_color).'; color:'.esc_html($dark_contents_color).'; }'
+    .'.offset-title{ border-top:5px solid '.esc_html($dark_color).'; }'
     .'.sidr a:hover{ background-color:'.esc_html($accent_color).'; color:'.esc_html($accent_contents_color).'; }'
     .'.sidr-toggle:hover{ background-color:'.esc_html($accent_color).'; color:'.esc_html($accent_contents_color).';border-color:'.esc_html($accent_color).'!important; }'
     .'.dark-button-color{ background-color:'.esc_html($dark_color).'; color:'.esc_html($dark_contents_color).';}'
@@ -350,7 +351,7 @@ function thshpr_print_styles()
     .'progress{ color:'.esc_html($accent_color).'; }'
     .'progress::-webkit-progress-value{ background-color:'.esc_html($accent_color).'; }'
     .'progress::-moz-progress-bar{ background-color:'.esc_html($accent_color).'; }'
-    .'.background-dark:hover{ background-color:'.esc_html($accent_color).'; color:'.esc_html($accent_contents_color).';}';
+    .'.background-dark-hover:hover{ background-color:'.esc_html($accent_color).'; color:'.esc_html($accent_contents_color).';}';
 	//remove_theme_mod('fw_options');
     //border-top: 10px solid #ffeb00;
 
@@ -588,26 +589,26 @@ add_action( 'after_setup_theme', 'naked_setup' );
 /**
  * Register widgetized area and update sidebar with default widgets
  */
-function naked_widgets_init() {
+function thshpr_widgets_init() {
 
 	register_sidebar( array(
 		'name'          => __( 'Sidebar', 'naked' ),
 		'id'            => 'right-sidebar',
-		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</aside>',
+		'before_widget' => '<div id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</div>',
 		'before_title'  => '<h3 class="widget-title">',
 		'after_title'   => '</h3>',
 	) );
 	register_sidebar( array(
 		'name'          => __( 'Left Sidebar', 'naked' ),
 		'id'            => 'left-sidebar',
-		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</aside>',
+		'before_widget' => '<div id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</div>',
 		'before_title'  => '<h3 class="widget-title">',
 		'after_title'   => '</h3>',
 	) );
 	register_sidebar( array(
-		'name'          => __( 'Above Content', 'naked' ),
+		'name'          => __( 'Above Content', 'thshpr' ),
 		'id'            => 'above-content-sidebar',
 		'before_widget' => '',
 		'after_widget'  => '',
@@ -615,30 +616,33 @@ function naked_widgets_init() {
 		'after_title'   => '',
 	) );
 	register_sidebar( array(
-		'name'          => __( 'Below Content Sidebar', 'naked' ),
+		'name'          => __( 'Below Content Sidebar', 'thshpr' ),
 		'id'            => 'below-content-sidebar',
 		'before_widget' => '',
 		'after_widget'  => '',
 		'before_title'  => '',
 		'after_title'   => '',
 	) );
-
-	//register sidebar widgets if they have been activated from the options.
-
-	if(function_exists( 'fw_get_db_settings_option' )) //check for options framework
-	{
-		//homepage
-		$widget_components=fw_get_db_settings_option('opt_header_rows_frontpage');
-		generate_user_widgets($widget_components);
-
-	}
-	else
-	{
-		//$sidebars=array("Single(1st)","1/2s","Single(2nd)");
-	}
+    register_sidebar( array(
+		'name'          => __( 'Extra Top Bar Left', 'thshpr' ),
+		'id'            => 'extra-top-bar-left',
+		'before_widget' => '<span id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</span>',
+		'before_title'  => '<h3 class="top-widget-title">',
+		'after_title'   => '</h3>',
+	) );
+    register_sidebar( array(
+		'name'          => __( 'Extra Top Bar Right', 'thshpr' ),
+		'id'            => 'extra-top-bar-right',
+		'before_widget' => '<span id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</span>',
+		'before_title'  => '<h3 class="top-widget-title">',
+		'after_title'   => '</h3>',
+	) );
 
 }
 
+add_action( 'widgets_init', 'thshpr_widgets_init' );
 /**
  * Enqueue scripts
  */
