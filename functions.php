@@ -640,6 +640,23 @@ function thshpr_widgets_init() {
 		'after_title'   => '</h3>',
 	) );
 
+    register_sidebar( array(
+		'name'          => __( 'Extra Nav Bar Left (below)', 'thshpr' ),
+		'id'            => 'extra-top-bar-left-below',
+		'before_widget' => '<span id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</span>',
+		'before_title'  => '<h3 class="top-widget-title">',
+		'after_title'   => '</h3>',
+	) );
+    register_sidebar( array(
+		'name'          => __( 'Extra Nav Bar Right (below)', 'thshpr' ),
+		'id'            => 'extra-top-bar-right-below',
+		'before_widget' => '<span id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</span>',
+		'before_title'  => '<h3 class="top-widget-title">',
+		'after_title'   => '</h3>',
+	) );
+
 }
 
 add_action( 'widgets_init', 'thshpr_widgets_init' );

@@ -11,6 +11,7 @@ if(function_exists( 'fw_get_db_customizer_option' ))
 {
 
 	/*header options*/
+	$sticky_header=fw_get_db_customizer_option('opt_header_sticky');
 	$show_search=fw_get_db_customizer_option('opt_header_show_search');
 	$show_social=fw_get_db_customizer_option('opt_header_show_social');
 	$horizontal_center=fw_get_db_customizer_option('opt_header_horizontal_center');
@@ -31,11 +32,21 @@ if(function_exists( 'fw_get_db_customizer_option' ))
 
 	if ($horizontal_center)
 	{
-		$horizontal_center_class='class="horizontal-center";';
+		$horizontal_center_class='horizontal-center';
 	}
 	else
 	{
 		$horizontal_center_class='';
+	}
+
+	if ($sticky_header)
+	{
+
+		$sticky_header_class='sticky-header';
+	}
+	else
+	{
+		$sticky_header_class='normal-header';
 	}
 
 
@@ -48,8 +59,9 @@ if(function_exists( 'fw_get_db_customizer_option' ))
 
 ?>
     <div id="animatedModal">
-		<div class="close-icon background-dark close-animatedModal">
-        	<i class="fa fa-times close-inner" aria-hidden="true"></i>
+
+		<div class="close-icon background-dark background-dark-hover close-animatedModal">
+        	<i class="fa fa-times-thin close-inner" aria-hidden="true"></i>
 		</div>
 
 
@@ -62,11 +74,15 @@ if(function_exists( 'fw_get_db_customizer_option' ))
 
 							<form class="fullscreen-form">
 								<div class="fw-col-sm-9 ">
-									<input class="fullscreen-input" type="search" placeholder="Search...">
-									<span>Type above and press the search icon to search. Press Esc to cancel.</span>
+									<div class="fullscreen-input-container">
+										<input class="fullscreen-input" type="search" placeholder="Search...">
+										<div><?php _e( 'Type above and press the search icon or enter to search. Press Esc to cancel.', 'thshpr' ); ?></div>
+									</div>
 								</div>
 								<div class="fw-col-sm-3">
-									<button class="fullscreen-submit pull-right" type="submit"></button>
+									<div class="fullscreen-submit-container">
+										<button class="fullscreen-submit" type="submit"></button>
+									</div>
 								</div>
 							</form>
 
@@ -79,7 +95,59 @@ if(function_exists( 'fw_get_db_customizer_option' ))
 
     </div>
 
-<header <?php echo $horizontal_center_class; ?>>
+<header class="<?php echo $horizontal_center_class; ?> <?php echo $sticky_header_class; ?>">
+
+	<?php
+	if($extra_top_bar_widget)
+	{
+
+		if ( is_active_sidebar( 'extra-top-bar-left' )||is_active_sidebar( 'extra-top-bar-right' ) )
+		{
+			if ( !is_active_sidebar( 'extra-top-bar-right' )  )
+			{
+				$column_left=12;
+				$solumn_right=0;
+				$pull_left="center";
+				$pull_right="";
+			}
+			else
+			{
+				$column_left=6;
+				$solumn_right=6;
+				$pull_left="pull-left";
+				$pull_right="pull-right";
+			}
+		?>
+			<div class="extra-topbar">
+				<div class="fw-container-fluid">
+					<section class="fw-main-row">
+						<div class="fw-col-md-<?php echo $column_left; ?> logo-holder widget-area" id="extra-top-bar-left">
+							<div class="widget-container <?php echo $pull_left; ?>">
+								<?php
+								if ( is_active_sidebar( 'extra-top-bar-left' ))
+								{
+									dynamic_sidebar( 'extra-top-bar-left' );
+								}
+								?>
+							</div>
+						</div>
+						<div class="fw-col-md-<?php echo $column_right; ?> logo-holder widget-area pull-right" id="extra-top-bar-right">
+							<div class="widget-container <?php echo $pull_right; ?>">
+							<?php
+								if ( is_active_sidebar( 'extra-top-bar-right' ))
+								{
+									dynamic_sidebar( 'extra-top-bar-right' );
+								}
+								?>
+							</div>
+						</div>
+					</section>
+				</div>
+			</div>
+		<?php
+		}
+	}
+	?>
 
 	<div class="abs-container menu-logo">
 		<section class="fw-main-row ">
@@ -135,7 +203,7 @@ if(function_exists( 'fw_get_db_customizer_option' ))
 				if($show_search==1)
 				{
 					echo'
-					<a id="nav-search" class="background-dark" href="#animatedModal"><i class="fa fa-search" aria-hidden="true"></i></a>
+					<a id="nav-search" class="background-dark background-dark-hover" href="#animatedModal"><i class="fa fa-search" aria-hidden="true"></i></a>
 					';
 				}
 				if($show_social==1)

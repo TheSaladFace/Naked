@@ -8,6 +8,21 @@ if (!defined('FW')) die('Forbidden');
 
 $options = array(
 
+	'opt_header_sticky' =>array(
+		'type'  => 'switch',
+		'value' => '1',
+		'label' => __('Make Header Sticky on Scroll', 'thshpr'),
+		'help' => __( 'This will make the header minimise but stick to the top of the page on scroll', 'thshpr'  ),
+		'left-choice' => array(
+			'value' => '1',
+			'label' => __('Sticky', 'thshpr'),
+		),
+		'right-choice' => array(
+			'value' => '0',
+			'label' => __('Normal', 'thshpr'),
+		),
+	),
+
 	'opt_header_show_search' =>array(
 		'type'  => 'switch',
 		'value' => '1',
@@ -57,7 +72,7 @@ $options = array(
 		'type'  => 'switch',
 		'value' => '0',
 		'label' => __('Show Extra Top Bar Widgets', 'thshpr'),
-		'help' => __( 'This will display the extra top bar above the header. It will consist of 2 50% width widget areas', 'thshpr'  ),
+		'help' => __( 'This will display the extra top bar above the header. It will consist of 2 50% width widget areas. If only the left widget is filled it will become a center aligned 100% width area.', 'thshpr'  ),
 		'left-choice' => array(
 			'value' => '1',
 			'label' => __('Show', 'thshpr'),
@@ -67,8 +82,5 @@ $options = array(
 			'label' => __('Hide', 'thshpr'),
 		),
 	),
-
-
-
 
 );
