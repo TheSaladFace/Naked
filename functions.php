@@ -680,7 +680,8 @@ function thshpr_scripts() {
 
 
     wp_enqueue_script ( 'thshpr-sidr' , get_template_directory_uri() . '/static/js/jquery.sidr.min.js', array( 'jquery' ), '1', true );
-    wp_enqueue_script( 'thshpr-scripts', get_template_directory_uri() . '/static/js/scripts.js', array('jquery','thshpr-sidr','thshpr-animate-modal'),'',true );
+    wp_enqueue_script ( 'thshpr-sticky' , get_template_directory_uri() . '/static/js/jquery.sticky.js', array( 'jquery' ), '1', true );
+    wp_enqueue_script( 'thshpr-scripts', get_template_directory_uri() . '/static/js/scripts.js', array('jquery','thshpr-sidr','thshpr-animate-modal','thshpr-sticky'),'',true );
 	//wp_enqueue_style ( 'sidrcss-dark' , get_template_directory_uri() . '/static/css/jquery.sidr.dark.css', '', '1', 'all' );
 	//wp_enqueue_style ( 'sidrcss-light' , get_stylesheet_directory_uri() . '/css/jquery.sidr.light.css', '', '1', 'all' );
 
@@ -705,8 +706,11 @@ function thshpr_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'thshpr_scripts');
 
-
-
+require get_template_directory() . '/widgets/image-upload.php';
+/**
+ * Load ad 125
+ */
+require get_template_directory() . '/widgets/ads.php';
 /**
  * Implement the Custom Header feature.
  */

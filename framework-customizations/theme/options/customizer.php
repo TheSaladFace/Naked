@@ -7,6 +7,21 @@ $options = array(
         'title' => __('General Options', 'thshpr'),
         'options' => array(
 
+			'opt_sticky_sidebar' =>array(
+				'type'  => 'switch',
+				'value' => '1',
+				'label' => __('Make Sidebar Sticky', 'thshpr'),
+				'help' => __( 'This will make the sidebars sticky on scrolling', 'thshpr'  ),
+				'left-choice' => array(
+					'value' => '1',
+					'label' => __('Sticky', 'thshpr'),
+				),
+				'right-choice' => array(
+					'value' => '0',
+					'label' => __('Normal', 'thshpr'),
+				),
+			),
+
 			'opt_show_site_borders' =>array(
 				'type'  => 'switch',
 				'value' => 'Show',

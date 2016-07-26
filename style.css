@@ -1588,6 +1588,9 @@ header.shadow{webkit-box-shadow: 0 0 7px rgba(0, 0, 0, 0.13) !important;
 /* Custom, iPhone Retina */
 @media only screen and (min-width : 320px)
 {
+	.sidebar{padding:20px;}
+
+	.advie-ul li{list-style: none;}
 	.widget-paragraph {font-size:16px; line-height: 25px;margin-bottom:18px;}
 	.widget-title{margin-bottom:9px;  color: #333;}
 	.sidebar h3{margin-top:0px; margin-bottom:30px;}
@@ -1624,7 +1627,6 @@ header.shadow{webkit-box-shadow: 0 0 7px rgba(0, 0, 0, 0.13) !important;
 /* Small Devices, Tablets */
 @media only screen and (min-width : 768px)
 {
-	.sidebar-padder {  padding-left: 70px;  padding-top: 55px;  margin-left: 40px;  border-left: 1px solid #ddd;}
 
 
 }

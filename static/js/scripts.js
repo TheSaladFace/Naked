@@ -316,6 +316,7 @@ jQuery(window).scroll(function(){
                     jQuery( ".progress-indicator" ).css("top",0); //set the position of the progress indicator
                     jQuery( ".progress-indicator" ).fadeIn(900); // fade in progress indicator after scroll
 
+
                 });
 
                 jQuery( ".site-description" ).hide(300);//hide can be done immediately no need to wait for logo to finish animating
@@ -347,6 +348,7 @@ jQuery(window).scroll(function(){
                     jQuery( "header").height(headerHeight);//set header height to the height of the menu-logo div (its absolutely positioned)
                     //jQuery( ".body-main-content").css("padding-top", headerHeight);//set the body main content offset due to sticky header
 
+
                     //set the position of the progress indicator
                     jQuery("header").removeClass("shadow"); //add a shadow class to the bottom of the header when scrolling
                     jQuery( ".progress-indicator" ).css("top","-100px");
@@ -357,7 +359,8 @@ jQuery(window).scroll(function(){
                 jQuery( ".site-description" ).show(300);
             }
         }
+
     }
-
-
+    var stickyHeight=jQuery(".menu-logo").outerHeight();
+    jQuery(".sticky-element").sticky({topSpacing:stickyHeight});
 });
