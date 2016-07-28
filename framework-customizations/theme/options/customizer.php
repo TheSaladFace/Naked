@@ -22,6 +22,13 @@ $options = array(
 				),
 			),
 
+			'opt_sticky_position' => array(
+				'label' => __( 'Sticky Sidebar Position (pixels)', 'thshpr' ),
+				'type'  => 'text',
+				'value' => '150',
+				'desc'  => __( 'Please enter vertical coordinates of the sticky sidebar if enabled above','thshpr' ),
+			),
+
 			'opt_show_site_borders' =>array(
 				'type'  => 'switch',
 				'value' => 'Show',
