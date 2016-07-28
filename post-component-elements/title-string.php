@@ -14,7 +14,7 @@ if($cell_class=="focus")
 }
 else if($cell_class=="single")
 {
-     $item_string.='<div class="component-element meta-title"><h1 class="post-title"'.get_the_title().'</h1></div>';
+     $item_string.='<div class="component-element meta-title"><h1 class="post-title">'.get_the_title().'</h1></div>';
 }
 else
 {
