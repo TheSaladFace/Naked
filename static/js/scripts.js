@@ -34,7 +34,6 @@ var extraTopbarHeight;
 var titleHeight;
 var logoSmallHeight=50;
 var dataSpacing=parseInt(jQuery('body').attr('data-spacing'));
-var stickyPosn=parseInt(jQuery('body').attr('data-stickyposn'));
 var extraYPosn=((menuLogoHeight/2)-(headerExtraHeight/2))+dataSpacing; //dataspacing added cos of top padding on body
 var firstLevel;
 var windowWidth;
@@ -257,8 +256,6 @@ jQuery(document).ready(function(jQuery) {
     jQuery('.header-extra').stop().animate({ //reposition header extra vertical position
         top:topBarPosition
     },300);
-
-    jQuery(".sticky-element").sticky({topSpacing:stickyPosn});
 });
 
 //resize absolute elements due to borders
@@ -364,5 +361,6 @@ jQuery(window).scroll(function(){
         }
 
     }
-
+    var stickyHeight=jQuery(".menu-logo").outerHeight();
+    jQuery(".sticky-element").sticky({topSpacing:stickyHeight});
 });
