@@ -341,7 +341,7 @@ function thshpr_print_styles()
     .'.primary-navigation ul li ul li a:hover{ background-color:'.esc_html($accent_color).'; color:'.esc_html($accent_contents_color).';  }'
     .'.background-accent{ background-color:'.esc_html($accent_color).'; color:'.esc_html($accent_contents_color).'; }'
     .'.background-accent-hover{ background-color:'.esc_html($dark_color).'; color:'.esc_html($dark_contents_color).'; }'
-    .'.offset-title{ border-top:5px solid '.esc_html($dark_color).'; }'
+    .'.offset-title{ border-top:10px solid '.esc_html($dark_color).'; }'
     .'.sidr a:hover{ background-color:'.esc_html($accent_color).'; color:'.esc_html($accent_contents_color).'; }'
     .'.sidr-toggle:hover{ background-color:'.esc_html($accent_color).'; color:'.esc_html($accent_contents_color).';border-color:'.esc_html($accent_color).'!important; }'
     .'.dark-button-color{ background-color:'.esc_html($dark_color).'; color:'.esc_html($dark_contents_color).';}'
