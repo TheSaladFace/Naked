@@ -34,6 +34,7 @@ var extraTopbarHeight;
 var titleHeight;
 var logoSmallHeight=50;
 var dataSpacing=parseInt(jQuery('body').attr('data-spacing'));
+var dataStickyPosn=parseInt(jQuery('body').attr('data-stickyposn'));
 var extraYPosn=((menuLogoHeight/2)-(headerExtraHeight/2))+dataSpacing; //dataspacing added cos of top padding on body
 var firstLevel;
 var windowWidth;
@@ -256,6 +257,24 @@ jQuery(document).ready(function(jQuery) {
     jQuery('.header-extra').stop().animate({ //reposition header extra vertical position
         top:topBarPosition
     },300);
+
+    /**
+     * Sticky Sidebar
+     */
+    jQuery(".sticky-element").sticky({topSpacing:dataStickyPosn});
+
+    /**
+     * Magnific Popup
+     */
+    jQuery('img[class*="wp-image"]').closest('a').magnificPopup({
+        type: 'image',
+        removalDelay: 300,
+
+         // Class that is added to popup wrapper and background
+         // make it unique to apply your CSS animations just to this exact popup
+         mainClass: 'mfp-fade'
+        // other options
+    });
 });
 
 //resize absolute elements due to borders
@@ -361,6 +380,5 @@ jQuery(window).scroll(function(){
         }
 
     }
-    var stickyHeight=jQuery(".menu-logo").outerHeight();
-    jQuery(".sticky-element").sticky({topSpacing:stickyHeight});
+
 });
