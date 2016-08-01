@@ -111,129 +111,22 @@ $options = array(
 									'help' => __('This only applies to blocks with a featured (larger) image', 'thshpr'),
 								),
 
-								'opt_featured_image_hover_effects' => array(
+								'opt_featured_image_link_to_full' => array(
 									'type'  => 'switch',
-									'value' => 'Yes',
-									'label' => __('Show Hover Effects', 'thshpr'),
-									'desc'  => __('Shows the hover effects on images (if the thumbnail element is added above)', 'thshpr'),
+									'value' => '1',
+									'label' => __('Link to Fullsize Featured Image', 'thshpr'),
+									'desc'  => __('Link to the fullsize featured image via a lightbox', 'thshpr'),
 									'left-choice' => array(
-										'value' => 'Yes',
+										'value' => '1',
 										'label' => __('Yes', 'thshpr'),
 									),
 									'right-choice' => array(
-										'value' => 'No',
+										'value' => '0',
 										'label' => __('No', 'thshpr'),
 									),
 								),
 
-								'opt_featured_image_hover_item_1' => array(
-									'type' => 'multi-picker',
-									'label' => false,
-									'desc' => false,
-									'picker' => array(
-										'template' => array(
-											'label' => __( 'Small Image Hover Upper Item', 'thshpr' ),
-											'type' => 'select',
-											'choices' => array(
-												'0' => __('None', 'thshpr'),
-												'1' => __('Text', 'thshpr'),
-												'2' => __('Icon', 'thshpr'),
-												'3' => __('Image Upload', 'thshpr'),
-											),
-											'desc' => __( 'Choose an option for the upper hover item  (if the thumbnail post element is added above)','thshpr'
-											),
-										)
-									),
-									'choices' => array(
-										//Single column
-										'1'  => array(
-											'opt_image_hover_item_text' =>array(
-											    'type' => 'text',
-											    'value' => 'N',
-											    'attr' => array( 'class' => 'custom-class', 'data-foo' => 'bar' ),
-											    'label' => __('', 'thshpr'),
-											    'desc' => __('Enter the text you wish to use for this hover', 'thshpr'),
-											    'help' => __('', 'thshpr'),
-											)
-										),
-										//2 col content left choice
-										'2' => array(
-												'opt_image_hover_item_icon'                =>array(
-												'type' => 'icon',
-												'value' => 'fa-smile-o',
-												'attr' => array( 'class' => 'custom-class', 'data-foo' => 'bar' ),
-												'label' => __('Image Hover Icon', 'thshpr'),
-												'desc' => __('Choose an icon for the image hover effect', 'thshpr'),
-												'help' => __('', 'thshpr'),
-											),
-										),
-										//2 col content right choice
-										'3' => array(
-												'opt_image_hover_item_image'             => array(
-												'label' => __( '', 'thshpr' ),
-												'desc' => __( 'Please upload the image you wish to use','thshpr' ),
-												'type' => 'upload',
-												'help' => __( 'Upload an image either in the .png .jpg or .gif file formats','thshpr' ),
-											),
-										),
-									),
-									'show_borders' => false,
-								),
 
-								'opt_featured_image_hover_item_2' => array(
-									'type' => 'multi-picker',
-									'label' => false,
-									'desc' => false,
-									'picker' => array(
-										'template' => array(
-											'label' => __( 'Small Image Hover Lower Item', 'thshpr' ),
-											'type' => 'select',
-											'choices' => array(
-												'0' => __('None', 'thshpr'),
-												'1' => __('Text', 'thshpr'),
-												'2' => __('Icon', 'thshpr'),
-												'3' => __('Image Upload', 'thshpr'),
-											),
-											'desc' => __( 'Choose an option for the lower hover item (if the thumbnail post element is added above)','thshpr'
-											),
-										)
-									),
-									'choices' => array(
-										//Single column
-										'1' => array(
-											'opt_image_hover_item_text' =>array(
-											    'type' => 'text',
-											    'value' => 'N',
-											    'attr' => array( 'class' => 'custom-class', 'data-foo' => 'bar' ),
-											    'label' => __('', 'thshpr'),
-											    'desc' => __('Enter the text you wish to use for this hover', 'thshpr'),
-											    'help' => __('', 'thshpr'),
-											)
-										),
-										//2 col content left choice
-										'2' => array(
-												'opt_image_hover_item_icon'                =>array(
-												'type' => 'icon',
-												'value' => 'fa-smile-o',
-												'attr' => array( 'class' => 'custom-class', 'data-foo' => 'bar' ),
-												'label' => __('', 'thshpr'),
-												'desc' => __('Choose an icon for the image hover effect', 'thshpr'),
-												'help' => __('', 'thshpr'),
-											),
-										),
-										//2 col content right choice
-										'3' => array(
-												'opt_image_hover_item_image'             => array(
-												'label' => __( '', 'thshpr' ),
-												'desc'  => __( 'Please upload the image you wish to use',
-													'thshpr' ),
-												'type'  => 'upload',
-												'help'  => __( 'Upload an image either in the .png .jpg or .gif file formats','thshpr' ),
-											),
-										),
-									),
-									'show_borders' => false,
-								),
 
 							),
 						),

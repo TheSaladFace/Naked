@@ -55,16 +55,12 @@ if(function_exists( 'fw_get_db_post_option' )) //check for post options
 		$show_progress_indicator=$post_options["1"]["opt_show_progress_indicator"];
 		$header_fade_image_scroll=$post_options["1"]["opt_header_fade_image_scroll"];
 
-		/** hover items **/
-		$show_hover_effects=$post_options["1"]["opt_featured_image_hover_effects"];
-		$hover_top=thshpr_get_image_hover_string($post_options["1"]['opt_featured_image_hover_item_1']);
-		$hover_bottom=thshpr_get_image_hover_string($post_options["1"]['opt_featured_image_hover_item_2']);
 		/** image ratios **/
 		$large_image_ratio=$post_options["1"]['opt_featured_image_ratio'];
 		$width=$post_options["1"]['opt_featured_image_max_width'];
 		$large_height= thshpr_generate_aspect_height($large_image_ratio,$width);
 		$offset_featured_image=$post_options["1"]["opt_featured_image_offset_image"];
-
+		$featured_image_link_to_full=$post_options["1"]["opt_featured_image_link_to_full"];
 		$header_shift_title=$post_options["1"]["opt_header_shift_title"];
 
 		if($header_shift_title==1)
@@ -93,7 +89,7 @@ else
 	$image_offset_class="";
 }
 get_header();
-include(locate_template('global-templates/page-borders.php')); 
+include(locate_template('global-templates/page-borders.php'));
 include(locate_template('global-templates/header-nav.php'));
 include(locate_template('single-templates/page-navigation.php'));
 ?>
@@ -156,40 +152,52 @@ include(locate_template('single-templates/page-navigation.php'));
 											include(locate_template('single-templates/meta-string.php')); //generates meta string from customzed options
 											echo $item_string;
 										}
+										$item_string='';
 									}
 									?>
 
-									</div><!-- .entry-meta -->
-									<div class="entry-content">
+								</div><!-- featured image -->
+									<div class="featured-image-holder">
 										<?php
+
+
 										if ( has_post_thumbnail() )
 										{
-											if(function_exists( 'fw_get_db_customizer_option' )) //requires unyson plugin / options, if not enabled, don't display meta
+											if($featured_image_link_to_full) //requires unyson plugin / options, if not enabled, don't display meta
 											{
-												$item_string="";
-												if($show_hover_effects=="No")
-								                {
-													$item_string.='<div class="'.$image_offset_class.' featured-image">';
-								                    $image_string=thshpr_generate_image($width,$large_height,get_the_ID());
-								                    $item_string.=$image_string.'</div>';
-								                }
-								                else
-								                {
-													$item_string.='<div class="effect-1 '.$image_offset_class.' featured-image">';
-								                        $image_string=thshpr_generate_image($width,$large_height,get_the_ID());
-								                        $item_string.=$image_string;
-								                        $item_string.='
 
-								                        <div class="item-1">
-								                            <p><span class="centered">'.$hover_top.'</span></p>
-								                        </div>
-								                        <div class="item-2">
-								                            <p><span class="centered">'.$hover_bottom.'</span></p>
-								                        </div>
-								                    </div>';
-												}
-												echo($item_string);
+
+												$path = thshpr_get_full_image( $attachment_id );
+
+												$item_string.='
+												<div class=" '.$image_offset_class.' featured-image">
+												<a href="'.$path.'" style="position: relative; display: inline-block;">
+												';
+
+												$image_string=thshpr_generate_wp_image($width,$large_height,get_the_ID());
+								                $item_string.=$image_string;
+								                $item_string.='
+
+												</a>
+								                </div>';
+
 											}
+											else
+											{
+
+												$item_string.='
+												<div class=" '.$image_offset_class.' featured-image">';
+
+												$image_string=thshpr_generate_image($width,$large_height,get_the_ID());
+								                $item_string.=$image_string;
+								                $item_string.='
+
+								                </div>';
+
+											}
+
+											echo($item_string);
+
 										}
 
 

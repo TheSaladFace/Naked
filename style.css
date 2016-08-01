@@ -68,6 +68,14 @@ Tags: responsive-layout, one-column, two-columns, three-columns, left-sidebar, r
 
 	}
 
+	a:active,a:visited,a:active,a:focus
+	{
+    	outline: none;border:0;
+	}
+	img {
+    border: 0;
+}
+
 	/*forms*/
 	/*input[type="text"]:focus,
 	input[type="password"]:focus,
