@@ -268,13 +268,30 @@ jQuery(document).ready(function(jQuery) {
      */
     jQuery('img[class*="wp-image"]').closest('a').magnificPopup({
         type: 'image',
-        removalDelay: 300,
+		closeOnContentClick: true,
+		closeBtnInside: false,
+        showCloseBtn:false,
+		fixedContentPos: true,
+        
 
-         // Class that is added to popup wrapper and background
-         // make it unique to apply your CSS animations just to this exact popup
-         mainClass: 'mfp-fade'
-        // other options
     });
+
+    /**
+     * Magnific Popup icon
+     */
+
+    jQuery('img[class*="wp-image"]').closest('a').css({ "position": "relative", "display": "inline-block" });
+    jQuery( '<i class="fa fa-expand icon thumb-enlarge dark-button-color"></i>' ).insertBefore( jQuery('img[class*="wp-image"]'));
+    jQuery('img[class*="wp-image"]').closest('a').on('mouseover',function (e) {
+        jQuery(this).find('.thumb-enlarge').removeClass("dark-button-color").addClass("accent-button-color");
+    });
+    jQuery('img[class*="wp-image"]').closest('a').on('mouseout',function (e) {
+        jQuery(this).find('.thumb-enlarge').removeClass("accent-button-color").addClass("dark-button-color");
+    });
+
+    //jQuery( '.alignnone' ).closest('a').wrap('<div class="align-none-fix"></div>');
+
+
 });
 
 //resize absolute elements due to borders
