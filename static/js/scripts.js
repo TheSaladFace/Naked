@@ -269,18 +269,30 @@ jQuery(document).ready(function(jQuery) {
     jQuery('img[class*="wp-image"]').closest('a').magnificPopup({
         type: 'image',
 		closeOnContentClick: true,
-		closeBtnInside: false,
-        showCloseBtn:false,
+		closeBtnInside: true,
+        showCloseBtn:true,
 		fixedContentPos: true,
-        
+        removalDelay: 400,
+        callbacks: {
+        open: function() {
+            jQuery('.mfp-close').fadeIn();
+            jQuery('.close-icon.background-dark.background-dark-hover.mfp-close').remove();
+            jQuery( '.mfp-close' ).replaceWith( '<div class="close-icon background-dark background-dark-hover mfp-close"><i class="fa fa-times-thin close-inner" aria-hidden="true"></i></div>' );
 
+        },
+
+
+      }
     });
+
+
+
+
 
     /**
      * Magnific Popup icon
      */
-
-    jQuery('img[class*="wp-image"]').closest('a').css({ "position": "relative", "display": "inline-block" });
+    jQuery('img[class*="wp-image"]').closest('a').css({ "position": "relative", "display": "inline-block" }).attr('data-effect', 'zoomInUp');;
     jQuery( '<i class="fa fa-expand icon thumb-enlarge dark-button-color"></i>' ).insertBefore( jQuery('img[class*="wp-image"]'));
     jQuery('img[class*="wp-image"]').closest('a').on('mouseover',function (e) {
         jQuery(this).find('.thumb-enlarge').removeClass("dark-button-color").addClass("accent-button-color");
