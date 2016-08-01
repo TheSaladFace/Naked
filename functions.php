@@ -484,6 +484,29 @@ function thshpr_generate_image($width,$height,$id)
 	return($item_string);
 }
 
+/**
+ * Gets the full image.
+ * @requires $id
+ */
+function thshpr_get_full_image($id)
+{
+	// Get upload directory info
+	$upload_info = wp_upload_dir();
+	$upload_dir  = $upload_info['basedir'];
+	$upload_url  = $upload_info['baseurl'];
+
+	// Get file path info
+	$attachment_id = get_post_thumbnail_id($id);
+	$path = get_attached_file( $attachment_id );
+	$path_info = pathinfo( $path );
+	$ext = $path_info['extension'];
+	$rel_path  = str_replace( array( $upload_dir, ".$ext" ), '', $path );
+
+	//large image
+	$image_url  = "{$upload_url}{$rel_path}.{$ext}";
+	return($image_url);
+}
+
 
 /**
  * Set the content width based on the theme's design and stylesheet.
