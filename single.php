@@ -25,6 +25,17 @@ if(function_exists( 'fw_get_db_customizer_option' ))
 	$title_divider_type=fw_locate_theme_path_uri('/static/img/').fw_get_db_customizer_option('opt_single_title_divider_type');
 	$show_side_meta=fw_get_db_customizer_option('opt_show_side_meta');
 
+	/** image options **/
+	$offset_embedded_images=fw_get_db_customizer_option("offset_embedded_images");
+	if($offset_embedded_images==1)
+	{
+		$image_offset_class="offset-featured-image";
+	}
+	else
+	{
+		$image_offset_class="";
+	}
+
 	if($show_side_meta==1)
 	{
 		$entry_content_class="side-meta";
@@ -59,7 +70,6 @@ if(function_exists( 'fw_get_db_post_option' )) //check for post options
 		$large_image_ratio=$post_options["1"]['opt_featured_image_ratio'];
 		$width=$post_options["1"]['opt_featured_image_max_width'];
 		$large_height= thshpr_generate_aspect_height($large_image_ratio,$width);
-		$offset_featured_image=$post_options["1"]["opt_featured_image_offset_image"];
 		$featured_image_link_to_full=$post_options["1"]["opt_featured_image_link_to_full"];
 		$header_shift_title=$post_options["1"]["opt_header_shift_title"];
 
@@ -72,14 +82,7 @@ if(function_exists( 'fw_get_db_post_option' )) //check for post options
 			$offset_class="";
 		}
 
-		if($offset_featured_image==1)
-		{
-			$image_offset_class="offset-featured-image";
-		}
-		else
-		{
-			$image_offset_class="";
-		}
+
 
 	}
 }
@@ -115,7 +118,7 @@ include(locate_template('single-templates/page-navigation.php'));
 
 
 				<div class="fw-col-sm-8">
-					<div id="primary" class="content-area">
+					<div id="primary" class="content-area <?php echo $image_offset_class; ?>">
 						<main id="main" class="site-main" role="main">
 
 
@@ -126,7 +129,7 @@ include(locate_template('single-templates/page-navigation.php'));
 							{
 								the_post();
 								?>
-								<div class="title-holder <?php echo $offset_class; ?>">
+								<div class="title-holder">
 									<?php
 
 									if(function_exists( 'fw_get_db_customizer_option' )) //requires unyson plugin / options, if not enabled, don't display meta
@@ -156,7 +159,7 @@ include(locate_template('single-templates/page-navigation.php'));
 									}
 									?>
 
-								</div><!-- featured image -->
+									</div>
 									<div class="featured-image-holder">
 										<?php
 
@@ -170,7 +173,7 @@ include(locate_template('single-templates/page-navigation.php'));
 												$path = thshpr_get_full_image( $attachment_id );
 
 												$item_string.='
-												<div class=" '.$image_offset_class.' featured-image">
+												<div class="featured-image">
 												<a href="'.$path.'" style="position: relative; display: inline-block;">
 												';
 
@@ -199,8 +202,11 @@ include(locate_template('single-templates/page-navigation.php'));
 											echo($item_string);
 
 										}
+										?>
+									</div>
+									<div>
 
-
+									<?php
 											/* translators: %s: Name of current post */
 											the_content();
 

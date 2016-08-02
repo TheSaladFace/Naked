@@ -74,7 +74,7 @@ $options = array(
 				'options' => array(
 					'opt_show_side_meta' =>array(
 						'type'  => 'switch',
-						'value' => 'Show',
+						'value' => '1',
 						'label' => __('Show Side Meta Information', 'thshpr'),
 						'help' => __( 'This will display the side meta panel on the left hand side of the post. Populate this from the Author Bio Options', 'thshpr'  ),
 						'left-choice' => array(
@@ -88,9 +88,23 @@ $options = array(
 					),
 					'opt_show_author_info' =>array(
 						'type'  => 'switch',
-						'value' => 'Show',
+						'value' => '1',
 						'label' => __('Show Author Information Box', 'thshpr'),
 						'help' => __( 'This will display the author info box at the bottom of the post.', 'thshpr'  ),
+						'left-choice' => array(
+							'value' => '1',
+							'label' => __('Show', 'thshpr'),
+						),
+						'right-choice' => array(
+							'value' => '0',
+							'label' => __('Hide', 'thshpr'),
+						),
+					),
+					'offset_embedded_images' =>array(
+						'type'  => 'switch',
+						'value' => '1',
+						'label' => __('Offset Embedded Images', 'thshpr'),
+						'help' => __( 'This will offset the embedded images slightly outside the flow of text (left aligned, right aligned and featured images)', 'thshpr'  ),
 						'left-choice' => array(
 							'value' => '1',
 							'label' => __('Show', 'thshpr'),
