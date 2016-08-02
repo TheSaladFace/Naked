@@ -48,6 +48,8 @@ jQuery(document).ready(function(jQuery) {
     logoHeight=jQuery(".logo").outerHeight();
     extraTopbarHeight=jQuery(".extra-topbar").outerHeight();
     titleHeight=jQuery(".site-title").outerHeight();
+    headerImageHeight=jQuery(".header-image").outerHeight();
+
 
     /**
      * SIDR
@@ -210,28 +212,56 @@ jQuery(document).ready(function(jQuery) {
     /**
      * Social icon expanding effect
      */
-    jQuery(".start-icon").data('clickState', 0);
-    jQuery(".start-icon").on("click", function(){
+    jQuery(".start-icon.share").data('clickState', 0);
+    jQuery(".start-icon.share").on("click", function(){
+        var startIcon=jQuery(this);
 
-        if(jQuery(".start-icon").data('clickState')==0)
+        if(jQuery(startIcon).data('clickState')==0)
         {
-            jQuery(this).closest(".header-share-boxes" ).addClass("social-hover");
-            jQuery(".start-icon").data('clickState', 1).removeClass("background-accent").addClass("background-dark").removeClass("fa-plus").addClass("fa-minus");
+            jQuery(this).closest(".share-boxes" ).addClass("social-hover");
+            jQuery(startIcon).data('clickState', 1).removeClass("background-accent").addClass("background-dark").removeClass("fa-share-alt").addClass("fa-minus");
         }
         else
         {
-            jQuery(this).closest( ".header-share-boxes" ).removeClass( "social-hover");
-            jQuery(".start-icon").data('clickState', 0).removeClass("background-dark").addClass("background-accent").removeClass("fa-minus").addClass("fa-plus");
+            jQuery(this).closest( ".share-boxes" ).removeClass( "social-hover");
+            jQuery(startIcon).data('clickState', 0).removeClass("background-dark").addClass("background-accent").removeClass("fa-minus").addClass("fa-share-alt");
+        }
+
+    });
+    /**
+     * Social icon expanding effect
+     */
+    jQuery(".start-icon.header").data('clickState', 0);
+    jQuery(".start-icon.header").on("click", function(){
+        var startIcon=jQuery(this);
+
+        if(jQuery(startIcon).data('clickState')==0)
+        {
+            jQuery(this).closest(".share-boxes" ).addClass("social-hover");
+            jQuery(startIcon).data('clickState', 1).removeClass("background-accent").addClass("background-dark").removeClass("fa-plus").addClass("fa-minus");
+        }
+        else
+        {
+            jQuery(this).closest( ".share-boxes" ).removeClass( "social-hover");
+            jQuery(startIcon).data('clickState', 0).removeClass("background-dark").addClass("background-accent").removeClass("fa-minus").addClass("fa-plus");
         }
 
     });
     /* click outside hides the opened social icons */
     jQuery(document).on('click',function (e) {
-        footerUl = jQuery('.start-icon');
+        footerUl = jQuery('.start-icon.share');
         if (!footerUl.is(e.target)
         && footerUl.has(e.target).length === 0){
-            jQuery( ".header-share-boxes" ).removeClass( "social-hover");
-            jQuery(".start-icon").data('clickState', 0).removeClass("background-dark").addClass("background-accent").removeClass("fa-minus").addClass("fa-plus");
+            jQuery(".start-icon.share").closest( ".share-boxes" ).removeClass( "social-hover");
+            jQuery(".start-icon.share").data('clickState', 0).removeClass("background-dark").addClass("background-accent").removeClass("fa-minus").addClass("fa-share-alt");
+
+        }
+
+        footerUl2 = jQuery('.start-icon.header');
+        if (!footerUl2.is(e.target)
+        && footerUl2.has(e.target).length === 0){
+            jQuery(".start-icon.header").closest( ".share-boxes" ).removeClass( "social-hover");
+            jQuery(".start-icon.header").data('clickState', 0).removeClass("background-dark").addClass("background-accent").removeClass("fa-minus").addClass("fa-plus");
 
         }
     });
@@ -285,8 +315,10 @@ jQuery(document).ready(function(jQuery) {
       }
     });
 
-
-
+    /**
+     * Stellar
+     */
+    jQuery.stellar({ horizontalScrolling: false, verticalOffset: 40});
 
 
     /**
@@ -325,6 +357,16 @@ jQuery( window ).resize(function() {
  * User scroll header adjustments
  */
 jQuery(window).scroll(function(){
+
+    //image header fadeout
+    var scrollVar = (jQuery(document).scrollTop()); //distance from top
+    var distanceToBottomHeader=headerImageHeight-scrollVar
+    var distanceToBottomHeaderPercentage=(Math.round((distanceToBottomHeader/headerImageHeight)*10)/10);//round to 1 dp, maybe not necessary
+    console.log(distanceToBottomHeaderPercentage);
+    if(distanceToBottomHeaderPercentage>=0)
+    {
+        jQuery('.parallax-fade').css({'opacity':distanceToBottomHeaderPercentage});
+    }
 
     if(jQuery( "header" ).hasClass( "sticky-header" ))
     {

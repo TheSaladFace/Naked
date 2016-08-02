@@ -729,7 +729,6 @@ function thshpr_scripts() {
 
 	wp_enqueue_script( 'naked-ssm-breakpoints', get_template_directory_uri() . '/static/js/ssm.js', array('jquery'),'',true );
 	wp_register_script( 'thshpr-stellar', get_template_directory_uri() . '/static/js/jquery.stellar.min.js', array('jquery'),'',true );
-	wp_register_script( 'thshpr-stellar-init', get_template_directory_uri() . '/static/js/stellar-init.js', array('jquery','thshpr-stellar'),'',true );
 	wp_register_script( 'thshpr-article-progress', get_template_directory_uri() . '/static/js/article-progress.js', array('jquery'),'',true );
 	wp_enqueue_script( 'thshpr-comment-columns', get_template_directory_uri() . '/static/js/comment-columns.js', array('jquery'),'',true );
     wp_enqueue_script( 'thshpr-animate-modal', get_template_directory_uri() . '/static/js/animatedModal.min.js', array('jquery'),'',true );
@@ -747,7 +746,6 @@ function thshpr_scripts() {
 	if (is_singular())
 	{
 		wp_enqueue_script('thshpr-stellar');
-		wp_enqueue_script('thshpr-stellar-init');
 		wp_enqueue_script('thshpr-article-progress');
 		//dropcaps on single
 		wp_enqueue_script( 'thshpr-dropcaps', get_template_directory_uri() . '/static/js/dropcap.min.js', array('jquery'),'',true );

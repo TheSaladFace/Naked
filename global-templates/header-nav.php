@@ -209,9 +209,9 @@ if(function_exists( 'fw_get_db_customizer_option' ))
 				if($show_social==1)
 				{
 					echo'
-					<div class="header-share-boxes featured-posts-grid-paragraph component-element">
+					<div class="header-share-boxes share-boxes featured-posts-grid-paragraph component-element">
 						<div class="absolute-container">
-							<i class="fa fa-plus icon start-icon background-accent"></i><!--';
+							<i class="fa fa-plus icon start-icon background-accent header"></i><!--';
 							if(isset($social_facebook))
 							{
 								echo'--><span class="social-box facebook"><a class="inner facebook-inner" href="'.urlencode($social_facebook).'"><i class="fa fa-facebook icon"></i></a></span><!--';

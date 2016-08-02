@@ -15,9 +15,9 @@ if(!isset($excerpt_length)){$excerpt_length=11;} //might not be set when large e
 $attachment_id=get_post_thumbnail_id( get_the_ID() );
 $image_path=get_attached_file( $attachment_id );
 $item_string.='
-<div class="share-boxes featured-posts-grid-paragraph component-element">
+<div class="social-share-boxes share-boxes featured-posts-grid-paragraph component-element">
     <div class="absolute-container">
-        <i class="fa fa-share-alt icon"></i><span class="share-label">'.__( 'Share This ', 'thshpr' ).'</span><!--
+        <i class="fa fa-share-alt start-icon background-accent share"></i><span class="share-label">'.__( 'Share This ', 'thshpr' ).'</span><!--
          --><span class="social-box facebook"><a class="inner facebook-inner" href="https://www.facebook.com/sharer/sharer.php?u='.urlencode(get_permalink()).'"><i class="fa fa-facebook icon"></i></a></span><!--
          --><span class="social-box twitter"><a class="inner twitter-inner" href="https://twitter.com/home?status='.urlencode(get_permalink()).'"><i class="fa fa-twitter icon"></i></a></span><!--
          --><span class="social-box google-plus"><a class="inner google-plus-inner" href="https://plus.google.com/share?url='.urlencode(get_permalink()).'"><i class="fa fa-google-plus icon"></i></a></span><!--

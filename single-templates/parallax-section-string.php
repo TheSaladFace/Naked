@@ -31,6 +31,6 @@ if($header_fade_image_scroll==1)
     $parallax_class .= ' parallax-fade';
 }
 
-$item_string.='<section class="fw-main-row '.$parallax_class.'" '.$style_string.$parallax_string.'></section>';
+$item_string.='<section class="fw-main-row header-image '.$parallax_class.'" '.$style_string.$parallax_string.'></section>';
 
 ?>
