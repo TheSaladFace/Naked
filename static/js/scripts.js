@@ -39,7 +39,6 @@ var extraYPosn=((menuLogoHeight/2)-(headerExtraHeight/2))+dataSpacing; //dataspa
 var firstLevel;
 var windowWidth;
 var thisItemMaxEdge
-
 jQuery('.logo').data('size','big');
 
 jQuery(document).ready(function(jQuery) {
@@ -49,6 +48,12 @@ jQuery(document).ready(function(jQuery) {
     extraTopbarHeight=jQuery(".extra-topbar").outerHeight();
     titleHeight=jQuery(".site-title").outerHeight();
     headerImageHeight=jQuery(".header-image").outerHeight();
+
+    /**
+     * Replace slicky class
+     */
+    //jQuery( ".body-main-content").css("padding-top", calcHeaderHeight());
+    //jQuery('.sticky-h').addClass('sticky-header');
 
 
     /**
@@ -210,7 +215,7 @@ jQuery(document).ready(function(jQuery) {
 
 
     /**
-     * Social icon expanding effect
+     * Social icon expanding effect normal share
      */
     jQuery(".start-icon.share").data('clickState', 0);
     jQuery(".start-icon.share").on("click", function(){
@@ -229,7 +234,7 @@ jQuery(document).ready(function(jQuery) {
 
     });
     /**
-     * Social icon expanding effect
+     * Social icon expanding effect header
      */
     jQuery(".start-icon.header").data('clickState', 0);
     jQuery(".start-icon.header").on("click", function(){
@@ -248,7 +253,7 @@ jQuery(document).ready(function(jQuery) {
 
     });
     /* click outside hides the opened social icons */
-    jQuery(document).on('click',function (e) {
+    jQuery(document).on('click',function (e) { //normal
         footerUl = jQuery('.start-icon.share');
         if (!footerUl.is(e.target)
         && footerUl.has(e.target).length === 0){
@@ -257,7 +262,7 @@ jQuery(document).ready(function(jQuery) {
 
         }
 
-        footerUl2 = jQuery('.start-icon.header');
+        footerUl2 = jQuery('.start-icon.header'); //header
         if (!footerUl2.is(e.target)
         && footerUl2.has(e.target).length === 0){
             jQuery(".start-icon.header").closest( ".share-boxes" ).removeClass( "social-hover");
@@ -281,7 +286,7 @@ jQuery(document).ready(function(jQuery) {
 
     var headerHeight=calcHeaderHeight();
     jQuery( "header").height(headerHeight);//set header height to the height of the menu-logo div (its absolutely positioned)
-    jQuery( ".body-main-content").css("padding-top", headerHeight);//set the body main content offset due to sticky header
+
 
     var topBarPosition=calcTopBarPosition();
     jQuery('.header-extra').stop().animate({ //reposition header extra vertical position
@@ -318,7 +323,7 @@ jQuery(document).ready(function(jQuery) {
     /**
      * Stellar
      */
-    jQuery.stellar({ horizontalScrolling: false, verticalOffset: 40});
+    jQuery.stellar({ horizontalScrolling: false, verticalOffset: 0});
 
 
     /**

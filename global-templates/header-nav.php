@@ -153,7 +153,7 @@ if(function_exists( 'fw_get_db_customizer_option' ))
 		<section class="fw-main-row ">
 			<div class="fw-container menu-nav">
 				<div class="fw-row">
-					<div class="fw-col-lg-3 fw-col-md-12 vcenter-topbar logo-holder">
+					<div class="fw-col-lg-3 fw-col-md-12 vcenter-topbar logo-holder" id="logo-holder">
 						<?php
 						$custom_logo_id = get_theme_mod( 'custom_logo' );
 						$image = wp_get_attachment_image_src( $custom_logo_id , 'full' );

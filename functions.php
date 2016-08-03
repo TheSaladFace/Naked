@@ -530,8 +530,9 @@ function thshpr_get_full_image($id)
 	$upload_url  = $upload_info['baseurl'];
 
 	// Get file path info
-	$attachment_id = get_post_thumbnail_id($id);
-	$path = get_attached_file( $attachment_id );
+	//$attachment_id = get_post_thumbnail_id($id);
+    //var_dump($attachment_id);
+	$path = get_attached_file( $id );
 	$path_info = pathinfo( $path );
 	$ext = $path_info['extension'];
 	$rel_path  = str_replace( array( $upload_dir, ".$ext" ), '', $path );
@@ -733,6 +734,7 @@ function thshpr_scripts() {
 	wp_enqueue_script( 'thshpr-comment-columns', get_template_directory_uri() . '/static/js/comment-columns.js', array('jquery'),'',true );
     wp_enqueue_script( 'thshpr-animate-modal', get_template_directory_uri() . '/static/js/animatedModal.min.js', array('jquery'),'',true );
 
+    //wp_register_script('body-padding-fix', get_stylesheet_directory_uri() . '/js/modernizr.custom.js', array('jquery'), false, false);
 
     wp_enqueue_script( 'thshpr-magnific-popup', get_template_directory_uri() . '/static/js/magnific.popup.min.js', array('jquery'),'',true );
     wp_enqueue_script ( 'thshpr-sidr' , get_template_directory_uri() . '/static/js/jquery.sidr.min.js', array( 'jquery' ), '1', true );

@@ -829,6 +829,7 @@ a:link {text-decoration: none;}
 	.focus .dropcap{padding-right: 8px!important;font-family: Playfair Display;font-size: 80px!important;color:#222;font-style:normal;}
 
 	/** social media icons **/
+	.share-outer{height:46px;}
    .search-social-container{height: 36px; position: relative; width: 100%;}
    .social-share-boxes{pointer-events: auto;float:left;font-size: 14px; font-style: italic; color: #a6a6a6;display:inline-block;line-height: 10px; margin-bottom: 0px; padding-bottom: 0px;padding-top: 0px;}
    .social-share-boxes .absolute-container{position:relative;display: inline-block;}

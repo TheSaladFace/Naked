@@ -25,6 +25,8 @@ if(function_exists( 'fw_get_db_customizer_option' ))
 	$title_divider_type=fw_locate_theme_path_uri('/static/img/').fw_get_db_customizer_option('opt_single_title_divider_type');
 	$show_side_meta=fw_get_db_customizer_option('opt_show_side_meta');
 
+	$header_height_adjustment=fw_get_db_customizer_option('opt_header_height_adjustment');
+
 	/** image options **/
 	$offset_embedded_images=fw_get_db_customizer_option("offset_embedded_images");
 	if($offset_embedded_images==1)
@@ -81,9 +83,6 @@ if(function_exists( 'fw_get_db_post_option' )) //check for post options
 		{
 			$offset_class="";
 		}
-
-
-
 	}
 }
 else
@@ -97,7 +96,7 @@ include(locate_template('global-templates/header-nav.php'));
 include(locate_template('single-templates/page-navigation.php'));
 ?>
 
-<div class="body-main-content">
+<div class="body-main-content" id="body-main-content" style="padding-top:<?php echo $header_height_adjustment; ?>px;">
 
 <?php
 	if(function_exists( 'fw_get_db_post_option' ) && $header_show_image)
@@ -144,7 +143,7 @@ include(locate_template('single-templates/page-navigation.php'));
 								</div>
 
 								<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-									<div class="entry-meta <?php echo $entry_content_class; ?>">
+									<div class="entry-meta">
 
 									<?php
 
@@ -168,7 +167,6 @@ include(locate_template('single-templates/page-navigation.php'));
 										{
 											if($featured_image_link_to_full) //requires unyson plugin / options, if not enabled, don't display meta
 											{
-
 
 												$path = thshpr_get_full_image( $attachment_id );
 
