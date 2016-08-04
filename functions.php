@@ -724,7 +724,7 @@ add_action( 'widgets_init', 'thshpr_widgets_init' );
 function thshpr_scripts() {
 
 
-	wp_enqueue_script( 'naked-fittext-js', get_template_directory_uri() . '/static/js/jquery.fittext.js', array('jquery'),'',true );
+	//wp_enqueue_script( 'naked-fittext-js', get_template_directory_uri() . '/static/js/jquery.fittext.js', array('jquery'),'',true );
 
 	// load theme js
 
@@ -734,7 +734,7 @@ function thshpr_scripts() {
 	wp_enqueue_script( 'thshpr-comment-columns', get_template_directory_uri() . '/static/js/comment-columns.js', array('jquery'),'',true );
     wp_enqueue_script( 'thshpr-animate-modal', get_template_directory_uri() . '/static/js/animatedModal.min.js', array('jquery'),'',true );
 
-    //wp_register_script('body-padding-fix', get_stylesheet_directory_uri() . '/js/modernizr.custom.js', array('jquery'), false, false);
+
 
     wp_enqueue_script( 'thshpr-magnific-popup', get_template_directory_uri() . '/static/js/magnific.popup.min.js', array('jquery'),'',true );
     wp_enqueue_script ( 'thshpr-sidr' , get_template_directory_uri() . '/static/js/jquery.sidr.min.js', array( 'jquery' ), '1', true );

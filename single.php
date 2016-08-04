@@ -96,7 +96,7 @@ include(locate_template('global-templates/header-nav.php'));
 include(locate_template('single-templates/page-navigation.php'));
 ?>
 
-<div class="body-main-content" id="body-main-content" style="padding-top:<?php echo $header_height_adjustment; ?>px;">
+<div class="body-main-content" id="body-main-content">
 
 <?php
 	if(function_exists( 'fw_get_db_post_option' ) && $header_show_image)

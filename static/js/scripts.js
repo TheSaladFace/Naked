@@ -4,7 +4,7 @@
  */
 
 function calcHeaderHeight(){
-    var currentLogoHeight=jQuery(".vcenter-topbar.logo-holder").outerHeight();
+    var currentLogoHeight=jQuery(".menu-logo").outerHeight();
     var extraTopBarHeight=jQuery(".extra-topbar").outerHeight();
     var totalHeight=currentLogoHeight+extraTopBarHeight;
     return (totalHeight);
@@ -49,10 +49,11 @@ jQuery(document).ready(function(jQuery) {
     titleHeight=jQuery(".site-title").outerHeight();
     headerImageHeight=jQuery(".header-image").outerHeight();
 
+    jQuery('.header-container').height(menuLogoHeight);
+
     /**
      * Replace slicky class
      */
-    //jQuery( ".body-main-content").css("padding-top", calcHeaderHeight());
     //jQuery('.sticky-h').addClass('sticky-header');
 
 
@@ -323,7 +324,7 @@ jQuery(document).ready(function(jQuery) {
     /**
      * Stellar
      */
-    jQuery.stellar({ horizontalScrolling: false, verticalOffset: 0});
+    jQuery.stellar({ horizontalScrolling: false, verticalOffset: -150});
 
 
     /**
@@ -348,8 +349,7 @@ jQuery( window ).resize(function() {
     jQuery( ".abs-container,.post-navigation,header" ).width(jQuery('body').width()); //recalculate row width 100% when resized
     var headerHeight=calcHeaderHeight();
     jQuery( "header").height(headerHeight);//set header height to the height of the menu-logo div (its absolutely positioned)
-    jQuery( ".body-main-content").css("padding-top", headerHeight);//set the body main content offset due to sticky header
-
+    jQuery('.header-container').height(headerHeight);
     var topBarPosition=calcTopBarPosition();
     jQuery('.header-extra').stop().animate({ //reposition header extra vertical position
         top:topBarPosition
@@ -367,7 +367,7 @@ jQuery(window).scroll(function(){
     var scrollVar = (jQuery(document).scrollTop()); //distance from top
     var distanceToBottomHeader=headerImageHeight-scrollVar
     var distanceToBottomHeaderPercentage=(Math.round((distanceToBottomHeader/headerImageHeight)*10)/10);//round to 1 dp, maybe not necessary
-    console.log(distanceToBottomHeaderPercentage);
+
     if(distanceToBottomHeaderPercentage>=0)
     {
         jQuery('.parallax-fade').css({'opacity':distanceToBottomHeaderPercentage});
@@ -375,6 +375,7 @@ jQuery(window).scroll(function(){
 
     if(jQuery( "header" ).hasClass( "sticky-header" ))
     {
+        var barHeight;
         if(jQuery(document).scrollTop() > 100)
         {
             if(jQuery('.logo').data('size') == 'big')
@@ -384,36 +385,20 @@ jQuery(window).scroll(function(){
                 jQuery('.vcenter-topbar.logo-holder').stop().animate({paddingTop: "5px",paddingBottom: "5px"},300);
                 jQuery('.extra-topbar').stop().animate({height: "0px"},300);
 
-                /* logo animates to small size */
-                jQuery('.logo').stop().animate({
-                    height:logoSmallHeight
-                },300,function() {
-
-                    /* the overlaying bar containing the slide in menu and search
-                    * has to calculate the mid point position *after* the logo height
-                    * has been animated (the final menu logo bar height). Items are then
-                    * animated into their new mid bar positions
-                    */
-                    var topBarPosition=calcTopBarPosition();
-
-                    jQuery('.header-extra').stop().animate({ //reposition header extra vertical position
-                        top:topBarPosition
-                    },300);
-
-                    var headerHeight=calcHeaderHeight();
-                    jQuery( "header").height(headerHeight);//set header height to the height of the menu-logo div (its absolutely positioned)
-                    //jQuery('.body-main-content').stop().animate({ //reposition header extra vertical position
-                    //    paddingTop: 0,
-                    //},300);
-                    //jQuery( ".body-main-content").css("padding-top", headerHeight);//set the body main content offset due to sticky header
-
-                    jQuery("header").addClass("shadow"); //add a shadow class to the bottom of the header when scrolling
-                    jQuery( ".progress-indicator" ).css("top",0); //set the position of the progress indicator
-                    jQuery( ".progress-indicator" ).fadeIn(900); // fade in progress indicator after scroll
-
-
+                jQuery( ".logo" ).stop().animate({
+                  height:logoSmallHeight
+                }, {
+                  step: function( now, fx ) {
+                    headerHeight=calcHeaderHeight();
+                    topBarPosition=calcTopBarPosition();
+                    jQuery('.header-extra').css({ top:topBarPosition });
+                    jQuery( "header").height(headerHeight);
+                    jQuery('.header-container').height(headerHeight);
+                  }
                 });
 
+                jQuery( ".progress-indicator" ).css("top",0); //set the position of the progress indicator
+                jQuery( ".progress-indicator" ).fadeIn(900);
                 jQuery( ".site-description" ).hide(300);//hide can be done immediately no need to wait for logo to finish animating
 
             }
@@ -422,39 +407,28 @@ jQuery(window).scroll(function(){
         {
             if(jQuery('.logo').data('size') == 'small')
             {
-
                 jQuery('.logo').data('size','big');
                 jQuery('.vcenter-topbar.logo-holder').stop().animate({paddingTop: "20px",paddingBottom: "20px"},300);
                 jQuery('.extra-topbar').stop().animate({height: extraTopbarHeight},300);
-                jQuery('.logo').stop().animate({
-                    height:logoHeight
-                },300,function() {
 
-                    var topBarPosition=calcTopBarPosition();
-                    jQuery('.header-extra').stop().animate({ //reposition header extra vertical position
-                        top:topBarPosition
-                    },300);
+                jQuery( ".logo" ).stop().animate({
+                  height:logoHeight
+                }, {
+                  step: function( now, fx ) {
+                    headerHeight=calcHeaderHeight();
+                    topBarPosition=calcTopBarPosition();
+                    jQuery('.header-extra').css({ top:topBarPosition });
+                    jQuery( "header").height(headerHeight);
+                    jQuery('.header-container').height(headerHeight);
 
-                    //jQuery('.body-main-content').stop().animate({ //reposition header extra vertical position
-                    //    paddingTop: topBarPosition,
-                    //},300);
-
-                    var headerHeight=calcHeaderHeight();
-                    jQuery( "header").height(headerHeight);//set header height to the height of the menu-logo div (its absolutely positioned)
-                    //jQuery( ".body-main-content").css("padding-top", headerHeight);//set the body main content offset due to sticky header
-
-
-                    //set the position of the progress indicator
-                    jQuery("header").removeClass("shadow"); //add a shadow class to the bottom of the header when scrolling
-                    jQuery( ".progress-indicator" ).css("top","-100px");
-                    jQuery( ".progress-indicator" ).fadeOut();
-
+                }
                 });
 
+                jQuery( ".progress-indicator" ).css("top","-100px");
+                jQuery( ".progress-indicator" ).fadeOut();
                 jQuery( ".site-description" ).show(300);
             }
         }
-
     }
 
 });
