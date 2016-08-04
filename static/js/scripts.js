@@ -52,9 +52,17 @@ jQuery(document).ready(function(jQuery) {
     jQuery('.header-container').height(menuLogoHeight);
 
     /**
-     * Replace slicky class
+     * IMPROVE COMMENT stuff
+     * - no idea knows why WP decided to format the reply button differently for logged in vs non logged in users
      */
-    //jQuery('.sticky-h').addClass('sticky-header');
+    jQuery('#cancel-comment-reply-link').addClass('background-dark background-dark-hover').html('<i class="fa fa-times-thin close-inner" aria-hidden="true"></i>');
+    jQuery('.submit').addClass('background-dark background-dark-hover');
+    jQuery('.comment-reply-link').addClass('background-dark background-dark-hover').html('<i class="fa fa-reply" aria-hidden="true"></i>');
+
+
+    /*move the cancel button for logged in users*/
+    var cancelButton = jQuery( "#cancel-comment-reply-link" ).detach();
+    jQuery(cancelButton).insertAfter( "#reply-title" );
 
 
     /**

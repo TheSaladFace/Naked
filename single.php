@@ -208,9 +208,9 @@ include(locate_template('single-templates/page-navigation.php'));
 											/* translators: %s: Name of current post */
 											the_content();
 
-											echo'<div class="meta-categories tags featured-posts-grid-paragraph component-element" id="post-tags"><span class="tags-label">'.__("Post Tags: ", "thshpr").'</span>';
+											/*echo'<div class="meta-categories tags featured-posts-grid-paragraph component-element" id="post-tags"><span class="tags-label">'.__("Post Tags: ", "thshpr").'</span>';
 											the_tags('','','');
-											echo'</div>';
+											echo'</div>';*/
 
 											if($show_author_info)
 											{

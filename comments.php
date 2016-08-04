@@ -26,7 +26,7 @@ if ( post_password_required() ) {
 
 		<h3 class="comments-title">
 			<?php
-				_e('Comments', 'thshpr' );				
+				_e('Comments', 'thshpr' );
 			?>
 		</h3>
 		<div class="comments-box">
