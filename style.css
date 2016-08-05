@@ -559,7 +559,8 @@ a:link {text-decoration: none;}
 	 * Author Bio
 	 */
 
-	.about-the-author-title{ font-style: italic;
+	.about-the-author-title{
+	font-style: italic;
      padding-top: 0px;
      font-size: 46px;
      margin-bottom: 35px;
@@ -866,6 +867,27 @@ border: 3px solid #444;
 	p{margin-bottom:36px;}
 	a{color:#000;}
 	a:hover{text-decoration:none;}*/
+	/** header style 1 **/
+	.header-variation-1-h2{
+	font-style: italic;
+     padding-top: 0px;
+     font-size: 46px;
+     margin-bottom: 35px;
+     margin-top: 40px;
+	 border-bottom: 1px solid #f3f3f3;
+    padding-bottom: 35px;}
+ 	.header-variation-1-h2:before {
+ 		content: "";
+ 	    display: inline-block;
+ 	    vertical-align: top;
+ 	    height: 10px;
+ 	    width: 80px;
+ 	    margin-right: 6px;
+ 	    background: #212121;
+ 	    top: -20px;
+ 	    position: relative;
+ 	    display: block;
+ 	}
 
 	/** component element padding **/
 	.component-element{padding:8px 0px 8px 0px;}
@@ -889,10 +911,10 @@ border: 3px solid #444;
 	.item-1 > a {	position: absolute;	top: 0;left: 0;width: 100%;height: 100%;z-index: 1000;text-indent: 200%;white-space: nowrap;font-size: 0;opacity: 0;}
 	.item-1{color: #fff;font-size: 26px;-webkit-backface-visibility: hidden;backface-visibility: hidden;padding: 0px;	position: absolute;	top: 0;left: 0;width: 100%;height: 100%;}
 	.item-2{color: #fff;text-transform: uppercase;font-size: 26px;-webkit-backface-visibility: hidden;backface-visibility: hidden;padding: 0px;position: absolute;top: 0;left: 0;width: 100%;height: 100%;}
-	.item-1 p{letter-spacing: 1px;height: 100%;position: relative;opacity: 0;-webkit-transition: opacity 0.35s, -webkit-transform 0.35s;transition: opacity 0.35s, transform 0.35s;transition-delay: 0.15s;margin: 0 auto;max-width: 1500px;-ms-transform: rotate(0deg) scale(0.2); /* IE 9 */ -webkit-transform: rotate(0deg) scale(0.2); /* Chrome, Safari, Opera */ transform: rotate(0deg) scale(0.2);font-size:15px;padding:20px;}
+	.item-1 p{letter-spacing: 1px;height: 100%;position: relative;opacity: 0;-webkit-transition: opacity 0.35s, -webkit-transform 0.35s;transition: opacity 0.35s, transform 0.35s;transition-delay: 0.15s;margin: 0 auto;max-width: 1500px;-ms-transform: rotate(0deg) scale(0.2); /* IE 9 */ -webkit-transform: rotate(0deg) scale(0.2); transform: rotate(0deg) scale(0.2); font-size:20px;line-height:20px;}
 	.item-1.large p{font-size:24px;}
 	.effect-1:hover .item-1 p{opacity: 0.9;	-ms-transform: rotate(0deg) scale(1); /* IE 9 */-webkit-transform: rotate(0deg) scale(1); /* Chrome, Safari, Opera */transform: rotate(0deg) scale(1);}
-	.item-2 p{font-family: Playfair Display;letter-spacing: 1px;font-size: 68.5%;height: 100%;position: relative;opacity: 0;-webkit-transition: opacity 0.35s, -webkit-transform 0.35s;transition: opacity 0.35s, transform 0.35s;margin: 0 auto;max-width: 1500px;-webkit-transform: scale(3);transform: scale(3);font-size: 120px;transition-delay: 0.15s;}
+	.item-2 p{font-family: Playfair Display;letter-spacing: 1px;height: 100%;position: relative;opacity: 0;-webkit-transition: opacity 0.35s, -webkit-transform 0.35s;transition: opacity 0.35s, transform 0.35s;margin: 0 auto;max-width: 1500px;-webkit-transform: scale(3);transform: scale(3);font-size: 90px;line-height: 90px;transition-delay: 0.15s;}
 	.item-2.large p {font-size:140px;}
 	.effect-1:hover .item-2 p 	{opacity: 0.2;-webkit-transform: scale(1);transform: scale(1);}
 	.small-arrow	{border: 0px solid #222;padding: 34px;}

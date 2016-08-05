@@ -101,7 +101,7 @@ a:link {text-decoration: none;}
 /* Large Devices, Wide Screens */
 @media only screen and (min-width : 1200px)
 {
-	  .container-featured { width: 1188px!important; }
+	  .container-featured { width: 1210px!important; }
 	  .slick-item-container { margin-left: 20px; margin-right:20px; }
 	 .featured-slider-1 .nav-doubleflip a.nothumbnail{margin-top:7px;}
 	  .featured-slider-1 .nav-doubleflip{display:block;position: relative;}

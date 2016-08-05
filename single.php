@@ -222,12 +222,6 @@ if($show_fancy_prev_next)
 											the_tags('','','');
 											echo'</div>';*/
 
-											if($show_simple_prev_next)
-											{
-												$prev_post_string='<i class="fa fa-long-arrow-left" aria-hidden="true"></i>'.__( 'Previous Post', 'thshpr' );
-												$next_post_string=__( 'Next Post', 'thshpr' ).'<i class="fa fa-long-arrow-right" aria-hidden="true"></i>';
-												echo'<div class="simple-page-nav">'.get_previous_post_link('%link',$prev_post_string).get_next_post_link('%link',$next_post_string).'</div>';
-											}
 											if($show_author_info)
 											{
 												include(locate_template('single-templates/author-bio.php'));

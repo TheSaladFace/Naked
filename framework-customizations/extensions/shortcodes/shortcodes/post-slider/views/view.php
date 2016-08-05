@@ -64,8 +64,7 @@ $small_height=thshpr_generate_aspect_height($small_image_ratio,$width);
 		</a>
 	</div>
 	<div class="fw-container container-featured">
-		<div class="row">
-			<div class="site-header-inner fw-col-12 fw-col-md-12">
+			<div class="site-header-inner">
 				<div class="naked-featured-slider" data-slick='{"slidesToShow": <?php echo $number_slides; ?>, "slidesToScroll": 1}'>
 
 					<?php
