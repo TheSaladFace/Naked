@@ -82,11 +82,5 @@ $options = array(
 			'label' => __('Hide', 'thshpr'),
 		),
 	),
-	'opt_header_height_adjustment' => array(
-		'label' => __( 'Header Height Adjustment (for fixed headers)', 'thshpr' ),
-		'type' => 'text',
-		'value' => '120',
-		'desc' => __( 'If you have a tall logo you may need to manually set the height here for smooth loading', 'thshpr' ),
-	),
-
+	
 );

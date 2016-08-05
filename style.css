@@ -532,7 +532,7 @@ a:link {text-decoration: none;}
 	/**
 	 * Title area
 	 */
-	.offset-title{margin-left:-40px;padding:40px;background-color:#fff;margin-top:-80px;}
+	.offset-title{margin-left:-40px;padding:40px;background-color:#fff;margin-top:-120px;}
 	.component-element h4.sub-title-header{font-size:26px;color: #4c4c4c;font-style: italic;}
 	.spacer-1px{margin-top:1px;}
 	.spacer-2px{margin-top:2px;}
@@ -554,16 +554,50 @@ a:link {text-decoration: none;}
 	 */
 	#post-tags{margin: 20px 0px 20px 0px;}
 	.tags-label{font-size: 14px; font-style: italic; color: #a6a6a6;margin-right:5px;}
+
 	/**
 	 * Author Bio
 	 */
-	.author-info{padding:30px;margin-bottom:30px;}
+
+	.about-the-author-title{ font-style: italic;
+     padding-top: 0px;
+     font-size: 46px;
+     margin-bottom: 35px;
+     margin-top: 40px;}
+ 	.about-the-author-title:before {
+ 		content: "";
+ 	    display: inline-block;
+ 	    vertical-align: top;
+ 	    height: 10px;
+ 	    width: 80px;
+ 	    margin-right: 6px;
+ 	    background: #212121;
+ 	    top: -20px;
+ 	    position: relative;
+ 	    display: block;
+ 	}
+	.author-info{    padding: 35px 0px;
+    margin-bottom: 30px;
+    border-top: 1px solid #f3f3f3;
+}
 	.author-avatar{float:left;}
-	.author-avatar img{border-radius: 57px;}
+	/*.author-avatar img{border-radius: 57px;}*/
 	.author-content{padding-left: 144px;}
 	.author-title a{font-size: 18px;text-transform:uppercase;color:#222;}
 	.author-extra-info{}
-	.author-bio{padding: 5px 0px 5px 0px; margin: 0;font-size: 14px;}
+	.author-bio{padding: 5px 0px 10px 0px; margin: 0;font-size: 16px;}
+
+	/**
+	 * Simple Previous and Next Links
+	 */
+	.simple-page-nav{    /* border-top: 1px solid #e5e5e5; */
+    padding-top: 20px;
+    padding-bottom: 120px;
+    /* margin-top: 45px; */}
+	a[rel="next"] {float:right; }
+	a[rel="next"] i {padding-left:6px; }
+	a[rel="prev"] {float:left; }
+	a[rel="prev"] i {padding-right:6px; }
 
 
 	/**
@@ -576,7 +610,11 @@ a:link {text-decoration: none;}
 	.divider-h2{margin:0px;padding:0px;display: inline-block;  padding-right: 20px;background-color:#fff;font-size: 36px;font-weight: bold;color: #000;transform: translateY(-50%);}
 	.divider-container{transform: translateY(25%);}
 	.comment-form-comment #comment{ width:100%;}
-	.comments-title,.comment-reply-title{ font-style:italic;padding-top: 10px; font-size: 52px; margin-bottom: 35px; margin-top: 40px;}
+	.comments-title,.comment-reply-title{ font-style: italic;
+    padding-top: 0px;
+    font-size: 46px;
+    margin-bottom: 35px;
+    margin-top: 40px;}
 	.comments-title:before {
 		content: "";
 	    display: inline-block;
@@ -585,7 +623,7 @@ a:link {text-decoration: none;}
 	    width: 80px;
 	    margin-right: 6px;
 	    background: #212121;
-	    top: -25px;
+	    top: -20px;
 	    position: relative;
 	    display: block;
 	}
@@ -883,7 +921,7 @@ border: 3px solid #444;
 	.tags{margin:0px; font-size: 0px;}
 
 	/** general meta **/
-	.meta-excerpt {font-size: 14px; font-style: italic; color: #a6a6a6; line-height: 22px; margin:-8px 0px -4px 0px; } /* not sure why the meta exerpt needs such a large -ve top margin*/
+	.meta-excerpt {font-size: 15px; font-style: italic; color: #a6a6a6; line-height: 22px; margin:-8px 0px -4px 0px; } /* not sure why the meta exerpt needs such a large -ve top margin*/
 	.meta-excerpt a{color: #a6a6a6;}
 	.focus .meta-excerpt{  font-size:17px;  line-height: 24px;} /*focus adjustment*/
 
@@ -1007,6 +1045,7 @@ border: 3px solid #444;
 	.reddit-inner{background-color: #7187b5;transition:  all .35s ease; -moz-transition:  all .35s ease;  -o-transition:  all .35s ease;  -ms-transition:  all .35s ease;  transition:  all .35s ease;}
 	.flickr-inner{background-color: #ff4ca9;transition:  all .35s ease; -moz-transition:  all .35s ease;  -o-transition:  all .35s ease;  -ms-transition:  all .35s ease;  transition:  all .35s ease;}
 	.email-inner{background-color: #555;transition:  all .35s ease; -moz-transition:  all .35s ease;  -o-transition:  all .35s ease;  -ms-transition:  all .35s ease;  transition:  all .35s ease;}
+	.website-inner{background-color: #555;transition:  all .35s ease; -moz-transition:  all .35s ease;  -o-transition:  all .35s ease;  -ms-transition:  all .35s ease;  transition:  all .35s ease;}
 
 	/** social media hover animations- box colors **/
 	.facebook-inner:hover{background-color:#3b5998;}
@@ -1022,6 +1061,7 @@ border: 3px solid #444;
 	.reddit-inner:hover{background-color: #4e69a2;}
 	.flickr-inner:hover{background-color: #ff0084;}
 	.email-inner:hover{background-color:#111111; }
+	.website-inner:hover{background-color:#111111; }
 
 	/** social media hover animations- box appears **/
 	/*.share-boxes:hover .social-box:nth-child(3) {left:30px; opacity:100;}

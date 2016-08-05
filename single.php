@@ -25,10 +25,16 @@ if(function_exists( 'fw_get_db_customizer_option' ))
 	$title_divider_type=fw_locate_theme_path_uri('/static/img/').fw_get_db_customizer_option('opt_single_title_divider_type');
 	$show_side_meta=fw_get_db_customizer_option('opt_show_side_meta');
 
+	/** header options **/
 	$header_height_adjustment=fw_get_db_customizer_option('opt_header_height_adjustment');
 
+	/** prev / next post options **/
+	$show_fancy_prev_next=fw_get_db_customizer_option('opt_show_fancy_prev_next');
+	$show_simple_prev_next=fw_get_db_customizer_option('opt_show_simple_prev_next');
+
+
 	/** image options **/
-	$offset_embedded_images=fw_get_db_customizer_option("offset_embedded_images");
+	$offset_embedded_images=fw_get_db_customizer_option("opt_offset_embedded_images");
 	if($offset_embedded_images==1)
 	{
 		$image_offset_class="offset-featured-image";
@@ -93,7 +99,11 @@ else
 get_header();
 include(locate_template('global-templates/page-borders.php'));
 include(locate_template('global-templates/header-nav.php'));
-include(locate_template('single-templates/page-navigation.php'));
+
+if($show_fancy_prev_next)
+{
+	include(locate_template('single-templates/page-navigation.php'));
+}
 ?>
 
 <div class="body-main-content" id="body-main-content">
@@ -128,7 +138,7 @@ include(locate_template('single-templates/page-navigation.php'));
 							{
 								the_post();
 								?>
-								<div class="title-holder">
+								<div class="title-holder <?php echo $offset_class; ?>">
 									<?php
 
 									if(function_exists( 'fw_get_db_customizer_option' )) //requires unyson plugin / options, if not enabled, don't display meta
@@ -212,6 +222,12 @@ include(locate_template('single-templates/page-navigation.php'));
 											the_tags('','','');
 											echo'</div>';*/
 
+											if($show_simple_prev_next)
+											{
+												$prev_post_string='<i class="fa fa-long-arrow-left" aria-hidden="true"></i>'.__( 'Previous Post', 'thshpr' );
+												$next_post_string=__( 'Next Post', 'thshpr' ).'<i class="fa fa-long-arrow-right" aria-hidden="true"></i>';
+												echo'<div class="simple-page-nav">'.get_previous_post_link('%link',$prev_post_string).get_next_post_link('%link',$next_post_string).'</div>';
+											}
 											if($show_author_info)
 											{
 												include(locate_template('single-templates/author-bio.php'));

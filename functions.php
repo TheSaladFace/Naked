@@ -104,11 +104,67 @@ function thshpr_show_extra_profile_fields( $user )
 				<span class="description">Please enter your Linked In URL (enter entire URL).</span>
 			</td>
 		</tr>
+        <tr>
+			<th><label for="youtube">Youtube</label></th>
+			<td>
+				<input type="text" name="youtube" id="youtube" value="<?php echo esc_attr( get_the_author_meta( 'youtube', $user->ID ) ); ?>" class="regular-text" /><br />
+				<span class="description">Please enter your Youtube URL (enter entire URL).</span>
+			</td>
+		</tr>
 		<tr>
 			<th><label for="pinterest">Pinterest</label></th>
 			<td>
 				<input type="text" name="pinterest" id="pinterest" value="<?php echo esc_attr( get_the_author_meta( 'pinterest', $user->ID ) ); ?>" class="regular-text" /><br />
 				<span class="description">Please enter your Pinterest URL (enter entire URL).</span>
+			</td>
+		</tr>
+        <tr>
+			<th><label for="instagram">Instagram</label></th>
+			<td>
+				<input type="text" name="instagram" id="instagram" value="<?php echo esc_attr( get_the_author_meta( 'instagram', $user->ID ) ); ?>" class="regular-text" /><br />
+				<span class="description">Please enter your Instagram URL (enter entire URL).</span>
+			</td>
+		</tr>
+        <tr>
+			<th><label for="tumblr">Tumblr</label></th>
+			<td>
+				<input type="text" name="tumblr" id="tumblr" value="<?php echo esc_attr( get_the_author_meta( 'tumblr', $user->ID ) ); ?>" class="regular-text" /><br />
+				<span class="description">Please enter your Tumblr URL (enter entire URL).</span>
+			</td>
+		</tr>
+        <tr>
+			<th><label for="vine">Vine</label></th>
+			<td>
+				<input type="text" name="vine" id="vine" value="<?php echo esc_attr( get_the_author_meta( 'vine', $user->ID ) ); ?>" class="regular-text" /><br />
+				<span class="description">Please enter your Vine URL (enter entire URL).</span>
+			</td>
+		</tr>
+        <tr>
+			<th><label for="snapchat">Snapchat</label></th>
+			<td>
+				<input type="text" name="snapchat" id="snapchat" value="<?php echo esc_attr( get_the_author_meta( 'snapchat', $user->ID ) ); ?>" class="regular-text" /><br />
+				<span class="description">Please enter your Snapchat URL (enter entire URL).</span>
+			</td>
+		</tr>
+        <tr>
+			<th><label for="reddit">Reddit</label></th>
+			<td>
+				<input type="text" name="reddit" id="reddit" value="<?php echo esc_attr( get_the_author_meta( 'reddit', $user->ID ) ); ?>" class="regular-text" /><br />
+				<span class="description">Please enter your Reddit URL (enter entire URL).</span>
+			</td>
+		</tr>
+        <tr>
+			<th><label for="flickr">Flickr</label></th>
+			<td>
+				<input type="text" name="flickr" id="flickr" value="<?php echo esc_attr( get_the_author_meta( 'flickr', $user->ID ) ); ?>" class="regular-text" /><br />
+				<span class="description">Please enter your Flickr URL (enter entire URL).</span>
+			</td>
+		</tr>
+        <tr>
+			<th><label for="email">Email</label></th>
+			<td>
+				<input type="text" name="email" id="email" value="<?php echo esc_attr( get_the_author_meta( 'email', $user->ID ) ); ?>" class="regular-text" /><br />
+				<span class="description">Please enter your Email URL (enter entire URL).</span>
 			</td>
 		</tr>
 
@@ -125,12 +181,20 @@ function thshpr_save_extra_profile_fields( $user_id )
 {
 	if ( !current_user_can( 'edit_user', $user_id ) )
 	return false;
+    update_usermeta( $user_id, 'extrainfo', $_POST['extrainfo'] );
 	update_usermeta( $user_id, 'twitter', $_POST['twitter'] );
 	update_usermeta( $user_id, 'facebook', $_POST['facebook'] );
 	update_usermeta( $user_id, 'googleplus', $_POST['googleplus'] );
 	update_usermeta( $user_id, 'linkedin', $_POST['linkedin'] );
 	update_usermeta( $user_id, 'pinterest', $_POST['pinterest'] );
-	update_usermeta( $user_id, 'extrainfo', $_POST['extrainfo'] );
+    update_usermeta( $user_id, 'youtube', $_POST['youtube'] );
+    update_usermeta( $user_id, 'instagram', $_POST['instagram'] );
+	update_usermeta( $user_id, 'tumblr', $_POST['tumblr'] );
+	update_usermeta( $user_id, 'vine', $_POST['vine'] );
+	update_usermeta( $user_id, 'snapchat', $_POST['snapchat'] );
+	update_usermeta( $user_id, 'reddit', $_POST['reddit'] );
+    update_usermeta( $user_id, 'flickr', $_POST['flickr'] );
+	update_usermeta( $user_id, 'email', $_POST['email'] );
 
 }
 add_action( 'personal_options_update', 'thshpr_save_extra_profile_fields' );

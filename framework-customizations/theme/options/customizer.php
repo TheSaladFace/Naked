@@ -100,11 +100,39 @@ $options = array(
 							'label' => __('Hide', 'thshpr'),
 						),
 					),
-					'offset_embedded_images' =>array(
+					'opt_offset_embedded_images' =>array(
 						'type'  => 'switch',
 						'value' => '1',
 						'label' => __('Offset Embedded Images', 'thshpr'),
 						'help' => __( 'This will offset the embedded images slightly outside the flow of text (left aligned, right aligned and featured images)', 'thshpr'  ),
+						'left-choice' => array(
+							'value' => '1',
+							'label' => __('Offset', 'thshpr'),
+						),
+						'right-choice' => array(
+							'value' => '0',
+							'label' => __('No Offset', 'thshpr'),
+						),
+					),
+					'opt_show_fancy_prev_next' =>array(
+						'type'  => 'switch',
+						'value' => '1',
+						'label' => __('Show Fancy Prev / Next Buttons', 'thshpr'),
+						'help' => __( 'This will show the fancy prev and next buttons that stick to the edges of the screen', 'thshpr'  ),
+						'left-choice' => array(
+							'value' => '1',
+							'label' => __('Show', 'thshpr'),
+						),
+						'right-choice' => array(
+							'value' => '0',
+							'label' => __('Hide', 'thshpr'),
+						),
+					),
+					'opt_show_simple_prev_next' =>array(
+						'type'  => 'switch',
+						'value' => '1',
+						'label' => __('Show Simple Prev / Next Buttons', 'thshpr'),
+						'help' => __( 'This will show the simple prev and next buttons at the end of the post', 'thshpr'  ),
 						'left-choice' => array(
 							'value' => '1',
 							'label' => __('Show', 'thshpr'),
