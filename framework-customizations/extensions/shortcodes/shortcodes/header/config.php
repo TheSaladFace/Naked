@@ -2,7 +2,7 @@
 
 $cfg = array(
     'page_builder' => array(
-        'title'         => __('Header, Variation 1', 'fw'),
+        'title'         => __('Header', 'fw'),
         'description'   => __('Creates a header', 'fw'),
         'tab'           => __('Content Elements', 'fw'),
     )

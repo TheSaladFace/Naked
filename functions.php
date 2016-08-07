@@ -14,7 +14,7 @@ if (defined('FW'))
     function thshpr_set_default_shortcodes($previous_shortcodes)
     {
         var_dump($previous_shortcodes);
-        return array( 'posts_block', 'spacer', 'about_the_author','header_variation_1','post_navigation','post_slider_3','5_posts_featured' );
+        return array( 'posts_block', 'spacer', 'about_the_author','header','post_navigation','post_slider_3','5_posts_featured' );
     }
     add_filter('fw:ext:wp-shortcodes:default-shortcodes', 'thshpr_set_default_shortcodes');
 }

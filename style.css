@@ -869,15 +869,17 @@ border: 3px solid #444;
 	a{color:#000;}
 	a:hover{text-decoration:none;}*/
 	/** header style 1 **/
-	.header-variation-1-h2{
+	.special-header{
+		padding-bottom: 35px;
+	}
+	.fancy-header.special-header{
 	font-style: italic;
      padding-top: 0px;
      font-size: 46px;
-     margin-bottom: 35px;
      margin-top: 40px;
-	 border-bottom: 1px solid #f3f3f3;
-    padding-bottom: 35px;}
- 	.header-variation-1-h2:before {
+
+}
+ 	.fancy-header.special-header:before {
  		content: "";
  	    display: inline-block;
  	    vertical-align: top;
@@ -889,6 +891,11 @@ border: 3px solid #444;
  	    position: relative;
  	    display: block;
  	}
+	.special-header.show-bottom
+	{
+		margin-bottom: 40px;
+		border-bottom: 1px solid #f3f3f3;
+	}
 
 	/** component element padding **/
 	.component-element{padding:8px 0px 8px 0px;}
