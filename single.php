@@ -222,11 +222,11 @@ if($show_fancy_prev_next)
 											the_tags('','','');
 											echo'</div>';*/
 
-											if($show_author_info)
+											/*if($show_author_info) disabled now, placed as a shortcode instead
 											{
 												include(locate_template('single-templates/author-bio.php'));
 
-											}
+											}*/
 
 											// If comments are open or we have at least one comment, load up the comment template.
 											if ( comments_open() || get_comments_number() ) :

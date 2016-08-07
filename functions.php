@@ -5,15 +5,23 @@
  * @package naked
  */
 
- /*
- Plugin Name: Naked Theme Helper Plugin
- */
+/**
+  * Enable shortcodes for editor
+  */
 
-
+if (defined('FW'))
+{
+    function thshpr_set_default_shortcodes($previous_shortcodes)
+    {
+        var_dump($previous_shortcodes);
+        return array( 'posts_block', 'spacer', 'about_the_author','header_variation_1','post_navigation','post_slider_3','5_posts_featured' );
+    }
+    add_filter('fw:ext:wp-shortcodes:default-shortcodes', 'thshpr_set_default_shortcodes');
+}
 /**
   * Adds styles for the editor
   */
-function thshpr_add_editor_styles()
+/*function thshpr_add_editor_styles()
 {
     add_editor_style( 'custom-editor-styles.css' );
 }
@@ -22,7 +30,7 @@ add_action( 'init', 'thshpr_add_editor_styles' );
 /**
   * Special Styles in Posts
   */
-function thshpr_mce_buttons_2($buttons) {
+/*function thshpr_mce_buttons_2($buttons) {
 	array_unshift($buttons, 'styleselect');
 	return $buttons;
 }
@@ -31,7 +39,7 @@ add_filter('mce_buttons_2', 'thshpr_mce_buttons_2');
 /**
   * Callback function to filter the MCE settings
   */
-function thshpr_before_init_insert_formats( $init_array )
+/*function thshpr_before_init_insert_formats( $init_array )
 {
 	// Define the style_formats array
 	$style_formats = array(
@@ -56,7 +64,7 @@ function thshpr_before_init_insert_formats( $init_array )
 
 }
 // Attach callback to 'tiny_mce_before_init'
-add_filter( 'tiny_mce_before_init', 'thshpr_before_init_insert_formats' );
+add_filter( 'tiny_mce_before_init', 'thshpr_before_init_insert_formats' );*/
 
 
 
@@ -389,8 +397,8 @@ function thshpr_print_styles()
 	.'.dropcap{ color:'.esc_html($h1['color']).';}'
     .'blockquote{ font-family:'.esc_html($h1['family']).';}'
 	.'h2{ font-family:'.esc_html($h2['family']).';'. thshpr_google_font_style_weight_split($h2['variation']) . 'font-size:'.esc_html($h2['size']).'px;'. 'color:'.esc_html($h2['color']).';'. 'letter-spacing:'.esc_html($h2['letter-spacing']).'px;'. 'line-height:'.esc_html($h2['line-height']).'px; }'
-	.'h3, .component-element h3{ font-family:'.esc_html($h3['family']).';'. thshpr_google_font_style_weight_split($h3['variation']) . 'font-size:'.esc_html($h3['size']).'px;'. 'color:'.esc_html($h3['color']).';'. 'letter-spacing:'.esc_html($h3['letter-spacing']).'px;'. 'line-height:'.esc_html($h3['line-height']).'px; }'
-	.'h4, .component-element h4{ font-family:'.esc_html($h4['family']).';'. thshpr_google_font_style_weight_split($h4['variation']) . 'font-size:'.esc_html($h4['size']).'px;'. 'color:'.esc_html($h4['color']).';'. 'letter-spacing:'.esc_html($h4['letter-spacing']).'px;'. 'line-height:'.esc_html($h4['line-height']).'px; }'
+	.'h3, .component-element h3, .component-element h3 a{ font-family:'.esc_html($h3['family']).';'. thshpr_google_font_style_weight_split($h3['variation']) . 'font-size:'.esc_html($h3['size']).'px;'. 'color:'.esc_html($h3['color']).';'. 'letter-spacing:'.esc_html($h3['letter-spacing']).'px;'. 'line-height:'.esc_html($h3['line-height']).'px; }'
+	.'h4, .component-element h4, .component-element h4 a{ font-family:'.esc_html($h4['family']).';'. thshpr_google_font_style_weight_split($h4['variation']) . 'font-size:'.esc_html($h4['size']).'px;'. 'color:'.esc_html($h4['color']).';'. 'letter-spacing:'.esc_html($h4['letter-spacing']).'px;'. 'line-height:'.esc_html($h4['line-height']).'px; }'
 	.'h5{ font-family:'.esc_html($h5['family']).';'. thshpr_google_font_style_weight_split($h5['variation']) . 'font-size:'.esc_html($h5['size']).'px;'. 'color:'.esc_html($h5['color']).';'. 'letter-spacing:'.esc_html($h5['letter-spacing']).'px;'. 'line-height:'.esc_html($h5['line-height']).'px; }'
 	.'h6{ font-family:'.esc_html($h6['family']).';'. thshpr_google_font_style_weight_split($h6['variation']) . 'font-size:'.esc_html($h6['size']).'px;'. 'color:'.esc_html($h6['color']).';'. 'letter-spacing:'.esc_html($h6['letter-spacing']).'px;'. 'line-height:'.esc_html($h6['line-height']).'px; }'
 	.'body{ font-family:'.esc_html($body['family']).';'. thshpr_google_font_style_weight_split($body['variation']) . 'font-size:'.esc_html($body['size']).'px;'. 'color:'.esc_html($body['color']).';'. 'letter-spacing:'.esc_html($body['letter-spacing']).'px;'. 'line-height:'.esc_html($body['line-height']).'px; }'

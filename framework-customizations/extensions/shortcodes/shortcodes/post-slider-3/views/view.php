@@ -26,27 +26,45 @@ $order_by=$atts['opt_posts_block_ordering'];
 $category_tag_number=$atts['opt_posts_block_number_categories'];
 $components_elements=$atts['opt_posts_block_functionality'];
 $read_more=$atts['opt_posts_block_read_more_text'];
-$large_excerpt_length=$atts["opt_posts_block_large_excerpt_length"];
+$excerpt_length=$atts["opt_posts_block_excerpt_length"];
 $divider_type=fw_locate_theme_path_uri('/static/img/').$atts['opt_divider_type'];
 $show_hover_effects="No";
 $cell_class="focus";
 $show_author_image=$atts['opt_posts_block_show_author_image'];
+$auto_rotate_speed=$atts['opt_posts_block_auto_rotate_speed'];
+$hidden_thumb="";
 
 /** image ratios **/
 $small_image_ratio=$atts['opt_small_image_ratio'];
 $width=$atts['opt_small_image_max_width'];
 $small_height=thshpr_generate_aspect_height($small_image_ratio,$width);
+
+$autorotate_string="data-speed=".$auto_rotate_speed;
+
 ?>
 
-<div class="thumbnail-slider  featured-slider-3 featured-thumbnail-slider post-slider-4 <?php echo $unique_id; ?>" role="banner">
+<div <?php echo $autorotate_string; ?> class="thumbnail-slider featured-slider-3 featured-thumbnail-slider post-slider-4 <?php echo $unique_id; ?>" role="banner">
 
 <div class="fw-row">
 	<div class="site-header-inner fw-col-12 fw-col-md-12">
 		<div class="naked-featured-slider-4 focus">
 			<?php
-			$args = array(
-				'cat' => $post_categories,
-				'orderby' => $order_by);
+            if(is_single())
+            {
+                $currentID = get_the_ID();
+                $args = array(
+    				'cat' => $post_categories,
+    				'orderby' => $order_by,
+                    'post__not_in' => array($currentID)
+                );
+            }
+            else
+            {
+                $args = array(
+    				'cat' => $post_categories,
+    				'orderby' => $order_by
+                );
+            }
 
 			// The Query
 			$the_query = new WP_Query( $args );
@@ -66,9 +84,9 @@ $small_height=thshpr_generate_aspect_height($small_image_ratio,$width);
 								case 'Title':
 									include locate_template('post-component-elements/title-string.php');
 								break;
-								case 'Excerpt':
-									include locate_template('post-component-elements/excerpt-string.php');
-								break;
+                                case 'Title+Excerpt':
+                                    include locate_template('post-component-elements/title-excerpt-posts-slider-string.php');
+                                break;
 								case 'Categories':
 									include locate_template('post-component-elements/categories-string.php');
 								break;

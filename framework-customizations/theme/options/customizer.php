@@ -86,6 +86,8 @@ $options = array(
 							'label' => __('Hide', 'thshpr'),
 						),
 					),
+					/*
+					now displayed as a shortcode
 					'opt_show_author_info' =>array(
 						'type'  => 'switch',
 						'value' => '1',
@@ -99,7 +101,7 @@ $options = array(
 							'value' => '0',
 							'label' => __('Hide', 'thshpr'),
 						),
-					),
+					),*/
 					'opt_offset_embedded_images' =>array(
 						'type'  => 'switch',
 						'value' => '1',

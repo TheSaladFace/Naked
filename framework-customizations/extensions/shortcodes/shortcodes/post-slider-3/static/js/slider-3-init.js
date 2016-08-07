@@ -1,9 +1,24 @@
+var dataSpeed=parseInt(jQuery('.featured-slider-3').attr('data-speed'));
+if(dataSpeed>0)
+{
+	var autoRotate=true;
+	var autoRotateSpeed=dataSpeed*1000;
+	var pause=true;
+}
+else
+{
+	var autoRotate=false;
+	var pause=false;
+}
+
+console.log(autoRotate);
 jQuery('.naked-featured-slider-4').slick({
 	slidesToShow: 1,
 	slidesToScroll: 1,
 	infinite: true,
-	autoplay: false,
-	autoplaySpeed: 3000,
+	autoplay: autoRotate,
+	autoplaySpeed: autoRotateSpeed,
+	pauseOnFocus:pause,
 	centerMode: false,
 	variableWidth: false,
 	dots: true,

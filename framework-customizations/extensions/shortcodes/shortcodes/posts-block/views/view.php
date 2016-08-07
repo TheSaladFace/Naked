@@ -79,11 +79,25 @@ large column left
 	<?php
 	Global $wp_query;
 	/** Define custom query parameters **/
-	$custom_query_args = array(
-		'cat' => $post_categories,
-		'posts_per_page' => $max_posts,
-		'orderby' => $order_by
-		);
+    if(is_single())
+    {
+        $currentID = get_the_ID();
+        $custom_query_args = array(
+    		'cat' => $post_categories,
+    		'posts_per_page' => $max_posts,
+    		'orderby' => $order_by,
+            'post__not_in' => array($currentID)
+    		);
+    }
+    else
+    {
+        $args = array(
+            'cat' => $post_categories,
+            'orderby' => $order_by,
+            'post__not_in' => array($currentID)
+        );
+    }
+
 	/** Get current page and append to custom query parameters array **/
 	$custom_query_args['paged'] = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1;
 	/** Instantiate custom query **/

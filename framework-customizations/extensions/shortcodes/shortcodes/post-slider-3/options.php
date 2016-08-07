@@ -41,6 +41,22 @@ $options = array(
 		),
 	),
 
+	/* options specific to this shortcode */
+	'other_options_box' => array(
+    	'type' => 'tab',
+		'title' => __('Other', 'thshpr'),
+    	'options' => array(
+
+			'opt_posts_block_auto_rotate_speed'=> array(
+				'label' => __( 'Autorotate Speed', 'thshpr' ),
+				'type'  => 'text',
+				'value' => '0',
+				'desc'  => __( 'Please enter speed at which you want the slides to autorotate in seconds (leave at 0 to disable)','unyson' ),
+			),
+
+		),
+	),
+
 );
 
 ?>

@@ -533,7 +533,7 @@ a:link {text-decoration: none;}
 	 * Title area
 	 */
 	.offset-title{margin-left:-40px;padding:40px;background-color:#fff;margin-top:-120px;}
-	.component-element h4.sub-title-header{font-size:26px;color: #4c4c4c;font-style: italic;}
+	.component-element h4.sub-title-header{font-size:26px;line-height: 32px;color: #4c4c4c;font-style: italic;}
 	.spacer-1px{margin-top:1px;}
 	.spacer-2px{margin-top:2px;}
 	.spacer-5px{margin-top:5px;}
@@ -577,9 +577,9 @@ a:link {text-decoration: none;}
  	    position: relative;
  	    display: block;
  	}
-	.author-info{    padding: 35px 0px;
+	.author-info{
     margin-bottom: 30px;
-    border-top: 1px solid #f3f3f3;
+
 }
 	.author-avatar{float:left;}
 	/*.author-avatar img{border-radius: 57px;}*/
@@ -634,7 +634,7 @@ a:link {text-decoration: none;}
 	.comment-form-comment, .comment-notes, .comment-form-url, .form-submit, .comment-form-author, .comment-form-email{ margin:0; }
 	.comment{padding-top:30px;}
 	.comment p{ padding:0px; margin:0px; font-size: 15px;}
-	#comments { width: 100%; clear: left;padding-top: 40px;}
+	#comments { width: 100%; clear: left;}
 	#comments ol.comment-list { list-style: none;margin: 0; display: block;width: 100%; padding-left:30px;}
 	#comments ol.comment-list .comment .comment-body { border-bottom: 1px solid #f2f2f2; position: relative; min-height: 56px; padding-left: 76px; padding-bottom: 30px;}
 	#comments ol.comment-list .comment .comment-body:hover .reply { opacity: 1;}
@@ -679,8 +679,9 @@ a:link {text-decoration: none;}
     margin: 5px 0px 25px 0px;
     padding: 5px 13px 5px 12px;
     float: right;
+	opacity:0;
 	}
-	.comments-box #cancel-comment-reply-link { display:block;}
+	.comments-box #cancel-comment-reply-link { opacity:1;}
 	.comment-respond .comment-notes,
 	.comment-respond .form-allowed-tags,
 	.comment-respond .logged-in-as { font-size: 15px; color:#a6a6a6; margin-bottom: 18px;font-style:italic; }
@@ -944,7 +945,7 @@ border: 3px solid #444;
 
 	/** general meta **/
 	.meta-excerpt {font-size: 15px; font-style: italic; color: #a6a6a6; line-height: 22px; margin:-8px 0px -4px 0px; } /* not sure why the meta exerpt needs such a large -ve top margin*/
-	.meta-excerpt a{color: #a6a6a6;}
+	.meta-excerpt a{color: #7a7a7a;}
 	.focus .meta-excerpt{  font-size:17px;  line-height: 24px;} /*focus adjustment*/
 
 	/** divider **/
@@ -976,6 +977,7 @@ border: 3px solid #444;
 
 	/** social media icons **/
 	.share-outer{height:46px;}
+	.naked-featured-slider-4 .share-outer{display:inline-block;}
    .search-social-container{height: 36px; position: relative; width: 100%;}
    .social-share-boxes{pointer-events: auto;float:left;font-size: 14px; font-style: italic; color: #a6a6a6;display:inline-block;line-height: 10px; margin-bottom: 0px; padding-bottom: 0px;padding-top: 0px;}
    .social-share-boxes .absolute-container{position:relative;display: inline-block;}
