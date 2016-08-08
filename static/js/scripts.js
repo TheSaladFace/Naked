@@ -347,9 +347,15 @@ jQuery(document).ready(function(jQuery) {
         jQuery(this).find('.thumb-enlarge').removeClass("accent-button-color").addClass("dark-button-color");
     });
 
-    //jQuery( '.alignnone' ).closest('a').wrap('<div class="align-none-fix"></div>');
+    /**
+     * WordPress no caption fix (replicate the caption class layout so everything works ok)
+     */
 
-
+    jQuery( 'img.alignleft' ).removeClass('alignleft').closest('a').wrap('<div class="alignleft wp-caption"></div>');
+    jQuery( 'img.alignright' ).removeClass('alignright').closest('a').wrap('<div class="alignright wp-caption"></div>');
+    jQuery( 'img.aligncenter' ).removeClass('aligncenter').closest('a').wrap('<div class="aligncenter wp-caption special-align-center"></div>');
+    /*need to force the size of the image onto the wrapped div*/
+    //jQuery( '.aligncenter').width(jQuery(this).find('img').width());
 });
 
 //resize absolute elements due to borders
