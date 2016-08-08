@@ -880,7 +880,7 @@ border: 3px solid #444;
      font-size: 46px;
      margin-top: 40px;
 
-}
+	}
  	.fancy-header.special-header:before {
  		content: "";
  	    display: inline-block;
@@ -892,6 +892,17 @@ border: 3px solid #444;
  	    top: -20px;
  	    position: relative;
  	    display: block;
+ 	}
+	.fancy-header.special-header.accent-line:after{
+		content: "";
+	    display: inline-block;
+	    vertical-align: top;
+	    height: 3px;
+	    width: 80px;
+	    margin-right: 6px;
+	    top: -75px;
+	    position: relative;
+	    display: block;
  	}
 	.special-header.show-bottom
 	{

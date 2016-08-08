@@ -37,6 +37,20 @@ $options = array(
 			'label' => __('Hide', 'thshpr'),
 		),
 	),
+	'opt_header_fancy_header_show_accent' =>array(
+		'type'  => 'switch',
+		'value' => '1',
+		'label' => __('Show Extra Accent Color on Fancy Header', 'thshpr'),
+		'help' => __( 'This will show an extra accent color strip above the dark strip on the fancy header', 'thshpr'  ),
+		'left-choice' => array(
+			'value' => '1',
+			'label' => __('Show', 'thshpr'),
+		),
+		'right-choice' => array(
+			'value' => '0',
+			'label' => __('Hide', 'thshpr'),
+		),
+	),
 
 );
 
