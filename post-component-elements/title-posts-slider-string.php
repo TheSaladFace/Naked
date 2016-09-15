@@ -14,6 +14,6 @@ if($cell_class=="focus")
 }
 else
 {
-    $item_string.='<div class="component-element meta-title"><h4><a href="'.get_permalink().'">'.get_the_title().'</a></h4></div><div class="hidden-thumb">'.$hidden_thumb.'</div><span class="hidden-desc">'.get_the_title().'</span>';
+    $item_string.='<div class="component-element meta-title"><h5><a href="'.get_permalink().'">'.get_the_title().'</a></h5></div><div class="hidden-thumb">'.$hidden_thumb.'</div><span class="hidden-desc">'.get_the_title().'</span>';
 }
 ?>

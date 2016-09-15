@@ -7,56 +7,21 @@ $options = array(
         'title' => __('General Options', 'thshpr'),
         'options' => array(
 
-			'opt_sticky_sidebar' =>array(
-				'type'  => 'switch',
-				'value' => '1',
-				'label' => __('Make Sidebar Sticky', 'thshpr'),
-				'help' => __( 'This will make the sidebars sticky on scrolling', 'thshpr'  ),
-				'left-choice' => array(
-					'value' => '1',
-					'label' => __('Sticky', 'thshpr'),
-				),
-				'right-choice' => array(
-					'value' => '0',
-					'label' => __('Normal', 'thshpr'),
-				),
-			),
-
-			'opt_sticky_position' => array(
-				'label' => __( 'Sticky Sidebar Position (pixels)', 'thshpr' ),
+			'opt_site_borders_size' => array(
+				'label' => __( 'Site Borders Size (pixels)', 'thshpr' ),
 				'type'  => 'text',
-				'value' => '150',
-				'desc'  => __( 'Please enter vertical coordinates of the sticky sidebar if enabled above','thshpr' ),
-			),
-
-			'opt_show_site_borders' =>array(
-				'type'  => 'switch',
-				'value' => 'Show',
-				'label' => __('Show Site Borders', 'thshpr'),
-				'help' => __( 'This will display the site borders', 'thshpr'  ),
-				'left-choice' => array(
-					'value' => '1',
-					'label' => __('Show', 'thshpr'),
-				),
-				'right-choice' => array(
-					'value' => '0',
-					'label' => __('Hide', 'thshpr'),
-				),
+				'value' => '20',
+				'desc'  => __( 'Please enter the size of the site borders (dont add the px)','thshpr' ),
+				'help'  => __( 'Set to zero to remove', 'thshpr'  ),
 			),
 			'opt_site_borders_color' =>array(
 				'type'  => 'color-picker',
 				'value' => '#111',
 				'palettes' => array( '#111', '#0ce9ed', '#941940' ),
 				'label' => __('Site Borders Color', 'thshpr'),
-				'desc'  => __('The color that is used for the site borders', 'thshpr'),
+				'desc'  => __('The color that is used for the site borders if set greater than 0 above', 'thshpr'),
 			),
-			'opt_site_borders_size' => array(
-				'label' => __( 'Site Borders Size (pixels)', 'thshpr' ),
-				'type'  => 'text',
-				'value' => '20',
-				'desc'  => __( 'Please enter the size of the site borders (dont add the px)','thshpr' ),
-				'help'  => __( 'Leave blank to remove', 'thshpr'  ),
-			),
+
         ),
     ),
 	'panel_2' => array(
@@ -65,7 +30,7 @@ $options = array(
 			fw()->theme->get_options('header-options'),
         ),
     ),
-	'panel_3' => array(
+	/*'panel_3' => array(
         'title' => __('Posts', 'thshpr'),
         'options' => array(
 
@@ -102,21 +67,8 @@ $options = array(
 							'label' => __('Hide', 'thshpr'),
 						),
 					),*/
-					'opt_offset_embedded_images' =>array(
-						'type'  => 'switch',
-						'value' => '1',
-						'label' => __('Offset Embedded Images', 'thshpr'),
-						'help' => __( 'This will offset the embedded images slightly outside the flow of text (left aligned, right aligned and featured images)', 'thshpr'  ),
-						'left-choice' => array(
-							'value' => '1',
-							'label' => __('Offset', 'thshpr'),
-						),
-						'right-choice' => array(
-							'value' => '0',
-							'label' => __('No Offset', 'thshpr'),
-						),
-					),
-					'opt_show_fancy_prev_next' =>array(
+
+					/*'opt_show_fancy_prev_next' =>array(
 						'type'  => 'switch',
 						'value' => '1',
 						'label' => __('Show Fancy Prev / Next Buttons', 'thshpr'),
@@ -131,9 +83,9 @@ $options = array(
 						),
 					),
 				),
-            ),
+            ),*/
 
-			'title_options' => array(
+			/*'title_options' => array(
                 'title' => __('Post Title Options', 'thshpr'),
 				'options' => array(
 					fw()->theme->get_options('title-options'),
@@ -147,14 +99,26 @@ $options = array(
 				),
             ),
         ),
+    ),*/
+	'panel_3' => array(
+        'title' => __('Widget Options', 'thshpr'),
+        'options' => array(
+			fw()->theme->get_options('widget-options'),
+        ),
     ),
 	'panel_4' => array(
+        'title' => __('Footer', 'thshpr'),
+        'options' => array(
+			fw()->theme->get_options('footer-options'),
+        ),
+    ),
+	'panel_5' => array(
         'title' => __('Typography', 'thshpr'),
         'options' => array(
 			fw()->theme->get_options('typography-options'),
         ),
     ),
-	'panel_5' => array(
+	'panel_6' => array(
         'title' => __('Colors', 'thshpr'),
         'options' => array(
 
@@ -190,7 +154,7 @@ $options = array(
 			),
         ),
     ),
-	'panel_6' => array(
+	'panel_7' => array(
         'title' => __('Social', 'thshpr'),
         'options' => array(
 			'opt_social_twitter' => array(

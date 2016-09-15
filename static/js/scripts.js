@@ -35,21 +35,43 @@ var titleHeight;
 var logoSmallHeight=50;
 var dataSpacing=parseInt(jQuery('body').attr('data-spacing'));
 var dataStickyPosn=parseInt(jQuery('body').attr('data-stickyposn'));
+var stickyPosn=106;
 var extraYPosn=((menuLogoHeight/2)-(headerExtraHeight/2))+dataSpacing; //dataspacing added cos of top padding on body
 var firstLevel;
 var windowWidth;
 var thisItemMaxEdge
-jQuery('.logo').data('size','big');
+var amountScrolled = 300;
+var rightPosnScrollToTop;
+
+
 
 jQuery(document).ready(function(jQuery) {
+
+    jQuery('.logo').data('size','big');
 
     menuLogoHeight=jQuery(".menu-logo").outerHeight();
     logoHeight=jQuery(".logo").outerHeight();
     extraTopbarHeight=jQuery(".extra-topbar").outerHeight();
     titleHeight=jQuery(".site-title").outerHeight();
     headerImageHeight=jQuery(".header-image").outerHeight();
+    rightPosnScrollToTop = jQuery('#scroll-to-top').css('right');
 
-    jQuery('.header-container').height(menuLogoHeight);
+    /**
+     * Scroll to Top Button Initialise. Button is initially invisible, but "in", since we have to place it via functions.php
+     * because of variable borders. We collect the initial "out" position above (rightPosnScrollToTop) and use later to bring back out.
+     */
+    if ( jQuery(window).scrollTop() <= amountScrolled ) // Only hide it if the scroll is at the top of the page
+    {
+        jQuery('#scroll-to-top').data('state','out');
+        jQuery('#scroll-to-top').stop().animate({right: "-70px"});
+    }
+    else
+    {
+        jQuery('#scroll-to-top').data('state','in');
+        jQuery('#scroll-to-top').stop().css({opacity: "1"});
+    }
+
+    jQuery('.header-container').height(calcHeaderHeight());
 
     /**
      * IMPROVE COMMENT stuff
@@ -302,10 +324,12 @@ jQuery(document).ready(function(jQuery) {
         top:topBarPosition
     },300);
 
+
+
     /**
-     * Sticky Sidebar
+     * Remove p from blockquote
      */
-    jQuery(".sticky-element").sticky({topSpacing:dataStickyPosn});
+    jQuery('blockquote').text(jQuery('blockquote').text());
 
     /**
      * Magnific Popup
@@ -354,8 +378,53 @@ jQuery(document).ready(function(jQuery) {
     jQuery( 'img.alignleft' ).removeClass('alignleft').closest('a').wrap('<div class="alignleft wp-caption"></div>');
     jQuery( 'img.alignright' ).removeClass('alignright').closest('a').wrap('<div class="alignright wp-caption"></div>');
     jQuery( 'img.aligncenter' ).removeClass('aligncenter').closest('a').wrap('<div class="aligncenter wp-caption special-align-center"></div>');
-    /*need to force the size of the image onto the wrapped div*/
-    //jQuery( '.aligncenter').width(jQuery(this).find('img').width());
+
+    /**
+     * Remove the hardcoded WordPress image widths from the images so they can be set by their containing div Widths
+     * via css
+     */
+    jQuery('.wp-caption').find('img').removeAttr('style').removeAttr('width').removeAttr('height');
+    jQuery('.wp-caption').removeAttr('style').removeAttr('width').removeAttr('height');
+
+    /**
+     * Sticky Sidebar
+     */
+
+    //resize the sticky sidebar because applying fixed means its not relative to its parent
+    jQuery(".sticky-sidebar").width(jQuery(".sticky-sidebar").parent().width());
+
+    /**
+     * Scroll to Top Button - Press
+     */
+    jQuery('a#scroll-to-top').click(function() {
+	jQuery('html, body').animate({
+		scrollTop: 0
+	}, 700);
+	return false;
+    });
+
+});
+
+
+/**
+ * Scroll to Top Button slide out and in
+ */
+jQuery(window).scroll(function() {
+	if ( jQuery(window).scrollTop() > amountScrolled ) {
+        if(jQuery('#scroll-to-top').data('state') == 'in')
+        {
+            jQuery('#scroll-to-top').stop().css({opacity: "1"}); //is set opacity = 0 in css so force to 1 here.
+            jQuery('#scroll-to-top').data('state','out');
+            jQuery('#scroll-to-top').stop().animate({right: rightPosnScrollToTop}, 300);
+        }
+
+	} else {
+        if(jQuery('#scroll-to-top').data('state') == 'out')
+        {
+            jQuery('#scroll-to-top').data('state','in');
+            jQuery('#scroll-to-top').stop().animate({right: "-70px"}, 300);
+        }
+	}
 });
 
 //resize absolute elements due to borders
@@ -368,6 +437,12 @@ jQuery( window ).resize(function() {
     jQuery('.header-extra').stop().animate({ //reposition header extra vertical position
         top:topBarPosition
     },300);
+
+    //resize the sticky sidebar because applying fixed means its not relative to its parent
+    jQuery(".sticky-sidebar").width(jQuery(".sticky-sidebar").parent().width());
+
+
+
 });
 
 
@@ -390,25 +465,38 @@ jQuery(window).scroll(function(){
     if(jQuery( "header" ).hasClass( "sticky-header" ))
     {
         var barHeight;
-        if(jQuery(document).scrollTop() > 100)
+        if(jQuery(document).scrollTop() > 50)
         {
+
             if(jQuery('.logo').data('size') == 'big')
             {
 
+
                 jQuery('.logo').data('size','small');
-                jQuery('.vcenter-topbar.logo-holder').stop().animate({paddingTop: "5px",paddingBottom: "5px"},300);
-                jQuery('.extra-topbar').stop().animate({height: "0px"},300);
+                jQuery('.vcenter-topbar.logo-holder').stop().animate({paddingTop: "5px",paddingBottom: "5px"},100);
+                jQuery('.extra-topbar').stop().animate({height: "0px"},100);
 
                 jQuery( ".logo" ).stop().animate({
                   height:logoSmallHeight
-                }, {
-                  step: function( now, fx ) {
+                    }, {
+                    step: function( now, fx ) {
                     headerHeight=calcHeaderHeight();
                     topBarPosition=calcTopBarPosition();
                     jQuery('.header-extra').css({ top:topBarPosition });
                     jQuery( "header").height(headerHeight);
                     jQuery('.header-container').height(headerHeight);
-                  }
+
+
+                    // jQuery(".sticky-sidebar").css('padding-top',headerHeightPlus+'px');
+
+
+                },complete: function () {
+
+                    //var stickPosnTop=calcHeaderHeight()+45;
+                    //jQuery('.sticky-sidebar').stop().animate({paddingTop:stickPosnTop },300);
+
+
+                }
                 });
 
                 jQuery( ".progress-indicator" ).css("top",0); //set the position of the progress indicator
@@ -416,14 +504,16 @@ jQuery(window).scroll(function(){
                 jQuery( ".site-description" ).hide(300);//hide can be done immediately no need to wait for logo to finish animating
 
             }
+
         }
         else
         {
+
             if(jQuery('.logo').data('size') == 'small')
             {
                 jQuery('.logo').data('size','big');
                 jQuery('.vcenter-topbar.logo-holder').stop().animate({paddingTop: "20px",paddingBottom: "20px"},300);
-                jQuery('.extra-topbar').stop().animate({height: extraTopbarHeight},300);
+                jQuery('.extra-topbar').stop().animate({height: extraTopbarHeight},200);
 
                 jQuery( ".logo" ).stop().animate({
                   height:logoHeight
@@ -435,8 +525,15 @@ jQuery(window).scroll(function(){
                     jQuery( "header").height(headerHeight);
                     jQuery('.header-container').height(headerHeight);
 
+
+                },complete: function () {
+
+
+
                 }
                 });
+                //var stickPosnTop=calcHeaderHeight()+40;
+                //jQuery('.sticky-sidebar').stop().animate({paddingTop:0 },400);
 
                 jQuery( ".progress-indicator" ).css("top","-100px");
                 jQuery( ".progress-indicator" ).fadeOut();

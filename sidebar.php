@@ -13,7 +13,7 @@
 		{
 			/** side meta options **/
 			$sticky_sidebar=fw_get_db_customizer_option('opt_sticky_sidebar');
-
+			$sidebar_header_accent=fw_get_db_customizer_option('opt_sidebar_header_accent');
 
 			if($sticky_sidebar==1)
 			{
@@ -24,6 +24,15 @@
 				$sticky_sidebar_class="";
 			}
 
+			if($sidebar_header_accent==1)
+			{
+				$sidebar_header_class="fancy-header";
+			}
+			else
+			{
+				$sidebar_header_class="";
+			}
+
 		}
 		else
 		{
@@ -31,7 +40,7 @@
 		}
 
 	?>
-		<div class="sidebar-right sidebar <?php echo $sticky_sidebar_class; ?>">
+		<div class="sidebar-right sidebar <?php echo $sticky_sidebar_class; ?> <?php echo $sidebar_header_class; ?>">
 
 			<?php do_action( 'before_sidebar' ); ?>
 			<?php if ( ! dynamic_sidebar( 'right-sidebar' ) ) : ?>

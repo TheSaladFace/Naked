@@ -25,44 +25,6 @@ if ( ! function_exists( '_wp_render_title_tag' ) ) {
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 <?php wp_head(); ?>
 </head>
-<?php
-	if(function_exists( 'fw_get_db_customizer_option' ))
-	{
 
-		/*header options*/
-		$show_site_borders=fw_get_db_customizer_option('opt_show_site_borders');
-		$site_borders_size=fw_get_db_customizer_option('opt_site_borders_size');
-
-		/*widget options*/
-		$sticky_sidebar=fw_get_db_customizer_option('opt_sticky_sidebar');
-		$sticky_position=fw_get_db_customizer_option('opt_sticky_position');
-
-	}
-	else
-	{
-		$show_site_borders=1;
-		$site_borders_size=20;
-	}
-	/*generate body spacing string for site borders*/
-	if($show_site_borders)
-	{
-		$body_spacing_style='style="padding:'.$site_borders_size.'px"';
-		$data_spacing='data-spacing="'.$site_borders_size.'"';
-	}
-	else
-	{
-		$body_spacing_style='';
-		$data_spacing='data-spacing="0"';
-	}
-
-	if($sticky_sidebar)
-	{
-		$data_sticky='data-stickyposn="'.$sticky_position.'"';
-	}
-	else
-	{
-		$data_sticky='data-spacing="150"';
-	}
-?>
-<body <?php echo $body_spacing_style; ?> <?php echo $data_spacing; ?> <?php echo $data_sticky; ?> <?php body_class(); ?>>
+<body <?php body_class(); ?>>
 	<?php do_action( 'before' ); ?>

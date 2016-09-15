@@ -21,7 +21,7 @@ class thshpr_ad_Widget extends WP_Widget {
   function thshpr_ad_Widget()
   {
   	  $widget_ops = array('classname' => 'widget_advies', 'description' => __( "Displays Adverts", 'thshpr') );
-      parent::__construct( 'thshpr_ad', __('Ad Widget', 'thshpr'), $widget_ops );
+      parent::__construct( 'thshpr_ad', __('Naked Ad Widget', 'thshpr'), $widget_ops );
       $this->alt_option_name = 'widget_advies';
 
   	  add_action( 'save_post', array(&$this, 'flush_widget_cache') );

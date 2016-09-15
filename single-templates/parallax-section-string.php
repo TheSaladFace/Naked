@@ -17,7 +17,12 @@ if (!empty($header_image_height)){$header_image_height_string=' height:'.$header
 $background_attachment_string=''; $section_parallax_string=''; $parallax_string='';
 if (!empty($background_parallax_ratio))
 {
-    $parallax_string='data-stellar-background-ratio="'.$background_parallax_ratio.'"';
+    $parallax_str='data-stellar-background-ratio="'.$background_parallax_ratio.'"';
+    $background_attachment_string= 'background-attachment: fixed;'; //set this to fixed for stellar
+}
+else
+{
+    $parallax_str='data-stellar-background-ratio="0"';
     $background_attachment_string= 'background-attachment: fixed;'; //set this to fixed for stellar
 }
 $style_string = 'style="'.$background_color_string.$background_image_string.$background_position_string.$background_repeat_string.$background_size_string.$background_attachment_string.$header_image_height_string.'"';
@@ -31,6 +36,7 @@ if($header_fade_image_scroll==1)
     $parallax_class .= ' parallax-fade';
 }
 
-$item_string.='<section class="fw-main-row header-image '.$parallax_class.'" '.$style_string.$parallax_string.'></section>';
+$parallax_string.='<section class="fw-main-row header-image '.$parallax_class.'" '.$style_string.$parallax_str.'><div class="parallax-header"></div></section>';
+
 
 ?>

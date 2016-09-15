@@ -162,7 +162,7 @@ if(function_exists( 'fw_get_db_customizer_option' ))
 							$description = get_bloginfo( 'description', 'display' );
 							if ( $description || is_customize_preview() )
 							{
-								echo'<div class="site-description">'.$description.'</div>';
+								echo'<div class="site-description small-italic">'.$description.'</div>';
 							}
 							?>
 						</div><!--

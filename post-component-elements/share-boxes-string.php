@@ -18,7 +18,7 @@ $item_string.='
 <div class="share-outer component-element">
     <div class="social-share-boxes share-boxes featured-posts-grid-paragraph">
         <div class="absolute-container">
-            <i class="fa fa-share-alt start-icon background-accent share"></i><span class="share-label">'.__( 'Share This ', 'thshpr' ).'</span><!--
+            <i class="fa fa-share-alt start-icon background-accent share"></i><span class="share-label small-italic">'.__( 'Share This ', 'thshpr' ).'</span><!--
              --><span class="social-box facebook"><a class="inner facebook-inner" href="https://www.facebook.com/sharer/sharer.php?u='.urlencode(get_permalink()).'"><i class="fa fa-facebook icon"></i></a></span><!--
              --><span class="social-box twitter"><a class="inner twitter-inner" href="https://twitter.com/home?status='.urlencode(get_permalink()).'"><i class="fa fa-twitter icon"></i></a></span><!--
              --><span class="social-box google-plus"><a class="inner google-plus-inner" href="https://plus.google.com/share?url='.urlencode(get_permalink()).'"><i class="fa fa-google-plus icon"></i></a></span><!--
