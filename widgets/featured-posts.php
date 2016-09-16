@@ -42,7 +42,7 @@ class thshpr_featured_posts_widget extends WP_Widget {
 		$post_categories=wp_get_post_categories(get_the_ID());
 		$post_categories=array_values($post_categories);
 		$post_categories=thshpr_get_category_ids_string($post_categories);
-		
+
 		if(function_exists( 'fw_get_db_customizer_option' ))
 		{
 			$widget_component_elements= fw_get_db_customizer_option('opt_widget_functionality');
@@ -132,16 +132,18 @@ class thshpr_featured_posts_widget extends WP_Widget {
 		echo $before_widget;
 		if ( $title ) echo $before_title . $title . $after_title;
 
-		echo'<div class="featured-posts-wrap posts">';
+		echo'<div class="featured-posts-wrap posts posts-widget">';
 		echo'<ul class="thumb-list">';
 		while ( $the_query->have_posts() )
 		{
+			echo '<li>';
 			$the_query->the_post();
 			$item_string=""; //set it up for concat
 			$post_format = get_post_format();
 			$item_string="";
 			include(locate_template('widget-templates/components-string.php')); //generates title string from customzed options
 			echo $item_string;
+			echo '</li>';
 		}
 		echo	'</ul>';
 		echo	'</div>';

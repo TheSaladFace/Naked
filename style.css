@@ -527,6 +527,9 @@ a:link {text-decoration: none;}
 	.sidebar .inner{box-sizing: border-box;}
 	.sidebar .social-share-boxes{float:none;}
 
+	/*Posts Widgets*/
+	.sidebar .widget .posts-widget li {margin-bottom:40px;}
+
 	/**
 	 * General
 	 */
@@ -1139,6 +1142,9 @@ border: 3px solid #444;
 	.author-gravatar{ display: inline-block; float: left; margin-right: 8px;}
 	.author-gravatar img{ /*border-radius: 25px;*/}
 	.author-thumbnail-visible{margin-top: 11px;height: 30px;}
+
+	/** excerpt **/
+	.large-excerpt a,.small-excerpt a{transition:  all .35s linear; -moz-transition:  all .35s linear;  -o-transition:  all .35s linear;  -ms-transition:  all .35s linear;  transition:  all .35s linear;}
 
 
 

@@ -910,6 +910,244 @@ $options = array(
 		),
 	),
 
+	'large_excerpt_options' => array(
+		'title' => _('Large Excerpt', 'thshpr'),
+		'options' => array(
+
+			'opt_large_excerpt' =>array(
+			    'type' => 'typography-v2',
+			    'value' => array(
+					'family' => 'PT Serif',
+					'style' => 'italic',
+        			'weight' => 400,
+			        'size' => 18,
+			        'line-height' => 15,
+			        'letter-spacing' => 0,
+			        'color' => '#a6a6a6'
+			    ),
+			    'components' => array(
+			        'family'         => true,
+			        'size'           => true,
+			        'line-height'    => true,
+			        'letter-spacing' => true,
+			        'color'          => true
+			    ),
+			    'label' => _('Large Excerpt Large Devices / Widescreens', 'thshpr'),
+			    'desc'  => _('Choose the typography for large devices / wide screens (1200px+)', 'thshpr'),
+			),
+			'opt_large_excerpt_font_hover_color' =>array(
+		    'type'  => 'color-picker',
+		    'value' => '#111111',
+		    'label' => __('Large Excerpt Font Hover Color', 'thshpr'),
+		    'desc'  => __('Choose a color for the font on mouse hover for the large excerpt links', 'thshpr'),
+		    ),
+			'opt_large_excerpt_medium_devices_desktops' =>array(
+			    'type' => 'typography-v2',
+			    'value' => array(
+					'family' => 'Playfair Display',
+					'style' => 'regular',
+        			'weight' => 400,
+			        'size' => 17,
+			        'line-height' => 20,
+			        'letter-spacing' => 0,
+			        'color' => '#111111'
+			    ),
+			    'components' => array(
+			        'family'         => false,
+			        'size'           => true,
+			        'line-height'    => true,
+			        'letter-spacing' => false,
+			        'color'          => false,
+			    ),
+			    'label' => _('Large Excerpt - Medium Devices / Desktops', 'thshpr'),
+			    'desc'  => _('Choose the size and line height for medium devices / desktops (992px+)', 'thshpr'),
+			),
+			'opt_large_excerpt_small_devices_tablets' =>array(
+			    'type' => 'typography-v2',
+			    'value' => array(
+					'family' => 'Playfair Display',
+					'style' => 'regular',
+        			'weight' => 400,
+			        'size' => 17,
+			        'line-height' => 20,
+			        'letter-spacing' => 0,
+			        'color' => '#111111'
+			    ),
+			    'components' => array(
+			        'family'         => false,
+			        'size'           => true,
+			        'line-height'    => true,
+			        'letter-spacing' => false,
+			        'color'          => false,
+			    ),
+			    'label' => _('Large Excerpt - Small Devices / Tablets', 'thshpr'),
+			    'desc'  => _('Choose the size and line height for small devices / tablets (768px+)', 'thshpr'),
+			),
+			'opt_large_excerpt_extra_small_devices_phones' =>array(
+			    'type' => 'typography-v2',
+			    'value' => array(
+					'family' => 'Playfair Display',
+					'style' => 'regular',
+        			'weight' => 400,
+			        'size' => 17,
+			        'line-height' => 20,
+			        'letter-spacing' => 0,
+			        'color' => '#111111'
+			    ),
+			    'components' => array(
+			        'family'         => false,
+			        'size'           => true,
+			        'line-height'    => true,
+			        'letter-spacing' => false,
+			        'color'          => false,
+			    ),
+			    'label' => _('Large Excerpt - Small Devices / Phones', 'thshpr'),
+			    'desc'  => _('Choose the size and line height for small devices / phones (480px+)', 'thshpr'),
+			),
+			'opt_large_excerpt_tiny_devices_phones' =>array(
+			    'type' => 'typography-v2',
+			    'value' => array(
+					'family' => 'Playfair Display',
+					'style' => 'regular',
+        			'weight' => 400,
+			        'size' => 17,
+			        'line-height' => 20,
+			        'letter-spacing' => 0,
+			        'color' => '#111111'
+			    ),
+			    'components' => array(
+			        'family'         => false,
+			        'size'           => true,
+			        'line-height'    => true,
+			        'letter-spacing' => false,
+			        'color'          => false,
+			    ),
+			    'label' => _('Large Excerpt - Tiny Devices / Phones', 'thshpr'),
+			    'desc'  => _('Choose the size and line height for small devices / phones (320px+)', 'thshpr'),
+			),
+
+		),
+	),
+
+	'small_excerpt_options' => array(
+		'title' => _('Small Excerpt', 'thshpr'),
+		'options' => array(
+
+			'opt_small_excerpt' =>array(
+			    'type' => 'typography-v2',
+			    'value' => array(
+					'family' => 'PT Serif',
+					'style' => 'italic',
+        			'weight' => 400,
+			        'size' => 16,
+			        'line-height' => 24,
+			        'letter-spacing' => 0,
+			        'color' => '#a6a6a6'
+			    ),
+			    'components' => array(
+			        'family'         => true,
+			        'size'           => true,
+			        'line-height'    => true,
+			        'letter-spacing' => true,
+			        'color'          => true
+			    ),
+			    'label' => _('Small Excerpt Large Devices / Widescreens', 'thshpr'),
+			    'desc'  => _('Choose the typography for large devices / wide screens (1200px+)', 'thshpr'),
+			),
+			'opt_small_excerpt_font_hover_color' =>array(
+		    'type'  => 'color-picker',
+		    'value' => '#111111',
+		    'label' => __('Small Excerpt Font Hover Color', 'thshpr'),
+		    'desc'  => __('Choose a color for the font on mouse hover for the Small Excerpt links', 'thshpr'),
+		    ),
+			'opt_small_excerpt_medium_devices_desktops' =>array(
+			    'type' => 'typography-v2',
+			    'value' => array(
+					'family' => 'Playfair Display',
+					'style' => 'regular',
+        			'weight' => 400,
+			        'size' => 16,
+			        'line-height' => 24,
+			        'letter-spacing' => 0,
+			        'color' => '#111111'
+			    ),
+			    'components' => array(
+			        'family'         => false,
+			        'size'           => true,
+			        'line-height'    => true,
+			        'letter-spacing' => false,
+			        'color'          => false,
+			    ),
+			    'label' => _('Small Excerpt - Medium Devices / Desktops', 'thshpr'),
+			    'desc'  => _('Choose the size and line height for medium devices / desktops (992px+)', 'thshpr'),
+			),
+			'opt_small_excerpt_small_devices_tablets' =>array(
+			    'type' => 'typography-v2',
+			    'value' => array(
+					'family' => 'Playfair Display',
+					'style' => 'regular',
+        			'weight' => 400,
+			        'size' => 16,
+			        'line-height' => 24,
+			        'letter-spacing' => 0,
+			        'color' => '#111111'
+			    ),
+			    'components' => array(
+			        'family'         => false,
+			        'size'           => true,
+			        'line-height'    => true,
+			        'letter-spacing' => false,
+			        'color'          => false,
+			    ),
+			    'label' => _('Small Excerpt - Small Devices / Tablets', 'thshpr'),
+			    'desc'  => _('Choose the size and line height for small devices / tablets (768px+)', 'thshpr'),
+			),
+			'opt_small_excerpt_extra_small_devices_phones' =>array(
+			    'type' => 'typography-v2',
+			    'value' => array(
+					'family' => 'Playfair Display',
+					'style' => 'regular',
+        			'weight' => 400,
+			        'size' => 16,
+			        'line-height' => 24,
+			        'letter-spacing' => 0,
+			        'color' => '#111111'
+			    ),
+			    'components' => array(
+			        'family'         => false,
+			        'size'           => true,
+			        'line-height'    => true,
+			        'letter-spacing' => false,
+			        'color'          => false,
+			    ),
+			    'label' => _('Small Excerpt - Small Devices / Phones', 'thshpr'),
+			    'desc'  => _('Choose the size and line height for small devices / phones (480px+)', 'thshpr'),
+			),
+			'opt_small_excerpt_tiny_devices_phones' =>array(
+			    'type' => 'typography-v2',
+			    'value' => array(
+					'family' => 'Playfair Display',
+					'style' => 'regular',
+        			'weight' => 400,
+			        'size' => 16,
+			        'line-height' => 24,
+			        'letter-spacing' => 0,
+			        'color' => '#111111'
+			    ),
+			    'components' => array(
+			        'family'         => false,
+			        'size'           => true,
+			        'line-height'    => true,
+			        'letter-spacing' => false,
+			        'color'          => false,
+			    ),
+			    'label' => _('Small Excerpt - Tiny Devices / Phones', 'thshpr'),
+			    'desc'  => _('Choose the size and line height for small devices / phones (320px+)', 'thshpr'),
+			),
+
+		),
+	),
+
 
 	'small_italic_options' => array(
 		'title' => _('Small Italic Text', 'thshpr'),
@@ -933,7 +1171,7 @@ $options = array(
 			        'letter-spacing' => true,
 			        'color'          => true
 			    ),
-			    'label' => _('Body Text Large Devices / Widescreens', 'thshpr'),
+			    'label' => _('Small Italic Large Devices / Widescreens', 'thshpr'),
 			    'desc'  => _('Choose the typography for large devices / wide screens (1200px+)', 'thshpr'),
 			),
 			'opt_small_italic_font_hover_color' =>array(
@@ -960,7 +1198,7 @@ $options = array(
 			        'letter-spacing' => false,
 			        'color'          => false,
 			    ),
-			    'label' => _('Body - Medium Devices / Desktops', 'thshpr'),
+			    'label' => _('Small Italic - Medium Devices / Desktops', 'thshpr'),
 			    'desc'  => _('Choose the size and line height for medium devices / desktops (992px+)', 'thshpr'),
 			),
 			'opt_small_italic_small_devices_tablets' =>array(
@@ -981,7 +1219,7 @@ $options = array(
 			        'letter-spacing' => false,
 			        'color'          => false,
 			    ),
-			    'label' => _('Body - Small Devices / Tablets', 'thshpr'),
+			    'label' => _('Small Italic - Small Devices / Tablets', 'thshpr'),
 			    'desc'  => _('Choose the size and line height for small devices / tablets (768px+)', 'thshpr'),
 			),
 			'opt_small_italic_extra_small_devices_phones' =>array(
@@ -1002,7 +1240,7 @@ $options = array(
 			        'letter-spacing' => false,
 			        'color'          => false,
 			    ),
-			    'label' => _('Body - Small Devices / Phones', 'thshpr'),
+			    'label' => _('Small Italic - Small Devices / Phones', 'thshpr'),
 			    'desc'  => _('Choose the size and line height for small devices / phones (480px+)', 'thshpr'),
 			),
 			'opt_small_italic_tiny_devices_phones' =>array(
@@ -1023,7 +1261,7 @@ $options = array(
 			        'letter-spacing' => false,
 			        'color'          => false,
 			    ),
-			    'label' => _('Body - Tiny Devices / Phones', 'thshpr'),
+			    'label' => _('Small Italic - Tiny Devices / Phones', 'thshpr'),
 			    'desc'  => _('Choose the size and line height for small devices / phones (320px+)', 'thshpr'),
 			),
 
