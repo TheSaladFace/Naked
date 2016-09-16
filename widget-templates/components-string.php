@@ -22,6 +22,9 @@ if ($components_elements): foreach ($components_elements as $key=>$value)
 		case 'Title':
 			include locate_template('post-component-elements/title-string.php');
 		break;
+		case 'Excerpt':
+			include locate_template('post-component-elements/excerpt-string.php');
+		break;
 		case 'Categories':
 			include locate_template('post-component-elements/categories-string.php');
 		break;

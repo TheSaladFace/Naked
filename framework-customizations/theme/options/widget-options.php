@@ -180,6 +180,7 @@ $options = array(
 						'choices' => array(
 							'Thumbnail' => 'Thumbnail',
 							'Title' => 'Title',
+							'Excerpt' => 'Excerpt',
 							'Categories' => 'Categories',
 							'Tags' => 'Tags',
 							'Date' => 'Date',
@@ -216,6 +217,14 @@ $options = array(
 					'4' => '4',
 					'5' => '5',
 				),
+			),
+
+			'opt_widget_excerpt_length' => array(
+				'label' => __( 'Excerpt Length', 'thshpr' ),
+				'type'  => 'text',
+				'value' => '11',
+				'desc'  => __( 'Enter the length of the excerpt (in words) excerpts will be automatically trimmed to this length','thshpr' ),
+				'help'  => __( '', 'thshpr'  ),
 			),
 
 			'opt_widget_divider_type' => array(

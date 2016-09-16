@@ -52,6 +52,7 @@ class thshpr_featured_posts_widget extends WP_Widget {
 			$width=390;
 			$show_hover_effects=fw_get_db_customizer_option('opt_show_hover_effects');
 			$small_image_ratio=fw_get_db_customizer_option('opt_small_image_ratio');
+			$excerpt_length=fw_get_db_customizer_option('opt_widget_excerpt_length');
 			//top hover item
 			$opt_image_hover_item_top= fw_get_db_customizer_option('opt_image_hover_item_1');
 			$small_height= thshpr_generate_aspect_height($small_image_ratio,$width);

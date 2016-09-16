@@ -46,10 +46,10 @@ if ( has_post_thumbnail() )
                         $item_string.='
 
                         <div class="item-1">
-                            <p><span class="centered">'.$hover_top.'</span></p>
+                            <div><span class="centered">'.$hover_top.'</span></div>
                         </div>
                         <div class="item-2">
-                            <p><span class="centered">'.$hover_bottom.'</span></p>
+                            <div><span class="centered">'.$hover_bottom.'</span></div>
                         </div>
                     </div>';
 
