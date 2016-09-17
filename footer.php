@@ -190,7 +190,7 @@ if($footer_top_row_columns>0||$footer_main_row_columns>0||$footer_bottom_row_col
      */
     if($footer_top_row_columns>0)
     {
-        echo'<section style="'.$footer_top_section_style_string.'">
+        echo'<section class="fw-main-row" style="'.$footer_top_section_style_string.'">
         <div class="'.$footer_top_row_width_string.'"><div class="fw-row footer-top-row">';
 
         if($footer_top_row_columns==1)
@@ -269,7 +269,7 @@ if($footer_top_row_columns>0||$footer_main_row_columns>0||$footer_bottom_row_col
      */
     if($footer_main_row_columns>0)
     {
-        echo'<section style="'.$footer_main_section_style_string.'"><div class="'.$footer_main_row_width_string.'"><div class="fw-row footer-main-row">';
+        echo'<section class="fw-main-row" style="'.$footer_main_section_style_string.'"><div class="'.$footer_main_row_width_string.'"><div class="fw-row footer-main-row">';
 
         if($footer_main_row_columns==1)
         {
@@ -450,7 +450,7 @@ if($footer_top_row_columns>0||$footer_main_row_columns>0||$footer_bottom_row_col
      */
     if($footer_bottom_row_columns>0)
     {
-        echo'<section style="'.$footer_bottom_section_style_string.'"><div class="'.$footer_bottom_row_width_string.'"><div class="fw-row footer-bottom-row">';
+        echo'<section class="fw-main-row" style="'.$footer_bottom_section_style_string.'"><div class="'.$footer_bottom_row_width_string.'"><div class="fw-row footer-bottom-row">';
 
         if($footer_bottom_row_columns==1)
         {
