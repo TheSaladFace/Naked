@@ -2,15 +2,12 @@
 /**
 * Description: Featured Posts Widget
 * Author: thshpr Themes
-* URL: http://meshaper.com
-* Date 11/02/2015
-* License: GNU General Public License v2 or later
-* License URI: http://www.gnu.org/licenses/gpl-2.0.html
+* URL: http://themegasms.com
+* Date 17/09/2016
 * @package thshpr
 **/
 
 define("THEME_SLUG", "(Theme)");
-
 add_action( 'widgets_init', 'thshpr_featured_posts_widget' );
 
 /**
@@ -45,6 +42,9 @@ class thshpr_featured_posts_widget extends WP_Widget {
 
 		if(function_exists( 'fw_get_db_customizer_option' ))
 		{
+			/**
+			 * Variables from customizer
+			 */
 			$widget_component_elements= fw_get_db_customizer_option('opt_widget_functionality');
 			$widget_category_tag_number=fw_get_db_customizer_option('opt_widget_number_categories');
 			$widget_divider_type=fw_get_db_customizer_option('opt_widget_divider_type');
@@ -53,7 +53,10 @@ class thshpr_featured_posts_widget extends WP_Widget {
 			$show_hover_effects=fw_get_db_customizer_option('opt_show_hover_effects');
 			$small_image_ratio=fw_get_db_customizer_option('opt_small_image_ratio');
 			$excerpt_length=fw_get_db_customizer_option('opt_widget_excerpt_length');
-			//top hover item
+
+			/**
+			 * Hover Items
+			 */
 			$opt_image_hover_item_top= fw_get_db_customizer_option('opt_image_hover_item_1');
 			$small_height= thshpr_generate_aspect_height($small_image_ratio,$width);
 
@@ -73,7 +76,6 @@ class thshpr_featured_posts_widget extends WP_Widget {
 				$hover_top='<img src="'.$opt_image_hover_item_top['3']['opt_image_hover_item_image']['url'].'">';
 			}
 
-			//bottom hover item
 			$opt_image_hover_item_bottom= fw_get_db_customizer_option('opt_image_hover_item_2');
 			if($opt_image_hover_item_bottom['template']==0) //nothing
 			{
@@ -94,10 +96,19 @@ class thshpr_featured_posts_widget extends WP_Widget {
 		}
 		else
 		{
-			$components=array("Image","Title","Date");
-			$category_tag_number=1;
-			$hover_top='N';
-			$hover_bottom='';
+			/**
+			 * Variables when unyson plugin not added
+			 */
+			$widget_component_elements= array("Image","Title","Categories");
+			$widget_category_tag_number=3;
+			$small_image_ratio=fw_get_db_customizer_option('opt_small_image_ratio');
+			$width=390;
+			$show_hover_effects=fw_get_db_customizer_option('opt_show_hover_effects');
+			$small_image_ratio=0.5625;
+			$excerpt_length=11;
+			$show_hover_effects="No";
+			$hover_top='+';
+			$hover_bottom='N';
 		}
 
 		$cache = wp_cache_get('theme_widget_featured_posts', 'widget');
@@ -138,12 +149,11 @@ class thshpr_featured_posts_widget extends WP_Widget {
 		while ( $the_query->have_posts() )
 		{
 			echo '<li>';
-			$the_query->the_post();
-			$item_string=""; //set it up for concat
-			$post_format = get_post_format();
-			$item_string="";
-			include(locate_template('widget-templates/components-string.php')); //generates title string from customzed options
-			echo $item_string;
+				$the_query->the_post();
+				$item_string=""; //set it up for concat
+				$post_format = get_post_format();
+				include(locate_template('widget-templates/components-string.php')); //generates title string from customzed options
+				echo $item_string;
 			echo '</li>';
 		}
 		echo	'</ul>';
@@ -170,13 +180,10 @@ class thshpr_featured_posts_widget extends WP_Widget {
 		$instance['title'] = strip_tags($new_instance['title']);
 		$instance['number'] = (int) $new_instance['number'];
 		$instance['cat'] = $new_instance['cat'];
-
 		$this->flush_widget_cache();
-
 		$alloptions = wp_cache_get( 'alloptions', 'options' );
 		if ( isset($alloptions['widget_recent_entries']) )
 			delete_option('widget_recent_entries');
-
 		return $instance;
 	}
 
@@ -221,6 +228,6 @@ class thshpr_featured_posts_widget extends WP_Widget {
 				<?php endforeach;?>
 			</select>
 		</p>
-<?php
+	<?php
 	}
 }
