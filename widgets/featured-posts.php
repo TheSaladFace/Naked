@@ -7,7 +7,6 @@
 * @package thshpr
 **/
 
-define("THEME_SLUG", "(Theme)");
 add_action( 'widgets_init', 'thshpr_featured_posts_widget' );
 
 /**

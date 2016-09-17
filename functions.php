@@ -1349,19 +1349,14 @@ require get_template_directory() . '/widgets/social-icons.php';
 require get_template_directory() . '/widgets/featured-posts.php';
 
 /**
- * Implement the Custom Header feature.
+ * Load related posts widgets
  */
-/*require get_template_directory() . '/static/custom-header.php';*/
+require get_template_directory() . '/widgets/related-posts.php';
 
 /**
- * Custom template tags for this theme.
+ * Load popular posts widgets
  */
-/*require get_template_directory() . '/static/template-tags.php';*/
-
-/**
- * Custom functions that act independently of the theme templates.
- */
-/*require get_template_directory() . '/static/extras.php';*/
+//require get_template_directory() . '/widgets/popular-posts.php';
 
 /**
  * Customizer additions.
@@ -1373,22 +1368,8 @@ require get_template_directory() . '/widgets/featured-posts.php';
  */
 /*require get_template_directory() . '/static/jetpack.php';*/
 
-/**
- * Load modified nav walker for bootstrap
- */
-/*require get_template_directory() . '/static/bootstrap-wp-navwalker.php';*/
-
-/**
- * Load social icons
- */
-//require get_template_directory() . '/static/widgets/social-icons.php';
 
 
-
-/**
- * Load popular posts widgets
- */
-//require get_template_directory() . '/static/widgets/popular-posts.php';
 
 /**
  * Load related posts widgets
