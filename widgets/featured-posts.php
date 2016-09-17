@@ -132,10 +132,22 @@ class thshpr_featured_posts_widget extends WP_Widget {
 			$number = 15;
 
 		$query = array('showposts' => $number, 'nopaging' => 0, 'post_status' => 'publish');
-		if(!empty($instance['cat'])){
-			$query['cat'] = implode(',', $instance['cat']);
+		/**
+		 * Get category ID's
+		 */
+		$catids = array();
+
+		foreach($instance['cat'] as $name) {
+
+			$term=get_term_by( "name", $name, 'category');
+			$catids[] = $term->term_id; //store the id of each slug in $catids
 		}
-		 $post_category=get_cat_ID( implode(',', $instance['cat']) );
+		$post_category=implode(',', $catids);
+
+		if(!empty($instance['cat']))
+		{
+			$query['cat'] = $post_category;
+		}
 
 		$the_query = new WP_Query($query);
 		if ($the_query->have_posts()) :
@@ -220,7 +232,7 @@ class thshpr_featured_posts_widget extends WP_Widget {
 			<input id="<?php echo $this->get_field_id('number'); ?>" name="<?php echo $this->get_field_name('number'); ?>" type="text" value="<?php echo $number; ?>" size="3" />
 		</p>
 		<p>
-			<label for="<?php echo $this->get_field_id('cat'); ?>"><?php _e( 'Categories:' , 'thshpr'); ?></label>
+			<label for="<?php echo $this->get_field_id('cat'); ?>"><?php _e( 'Categories (shift / ctrl click for multiple cats):' , 'thshpr'); ?></label>
 			<select name="<?php echo $this->get_field_name('cat'); ?>[]" id="<?php echo $this->get_field_name('cat');?>" class="widefat" multiple="multiple">
 				<?php foreach($categories as $category):?>
 				<option value="<?php echo $category->name;?>"<?php echo in_array($category->name, $cat)? ' selected="selected"':'';?>><?php echo $category->name;?></option>

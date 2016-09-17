@@ -249,7 +249,7 @@ class thshpr_related_posts_widget extends WP_Widget {
 			<input id="<?php echo $this->get_field_id('number'); ?>" name="<?php echo $this->get_field_name('number'); ?>" type="text" value="<?php echo $number; ?>" size="3" />
 		</p>
 		<p>
-			<label for="<?php echo $this->get_field_id('cat'); ?>"><?php _e( 'Include posts with the same tags in categories:' , 'naked'); ?></label>
+			<label for="<?php echo $this->get_field_id('cat'); ?>"><?php _e( 'Categories (shift / ctrl click for multiple cats):' , 'naked'); ?></label>
 			<select name="<?php echo $this->get_field_name('cat'); ?>[]" id="<?php echo $this->get_field_name('cat');?>" class="widefat" multiple="multiple">
 				<?php foreach($categories as $category):?>
 				<option value="<?php echo $category->name;?>"<?php echo in_array($category->name, $cat)? ' selected="selected"':'';?>><?php echo $category->name;?></option>
