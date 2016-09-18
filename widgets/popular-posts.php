@@ -1,12 +1,10 @@
 <?php
 /**
 * Description: Popular Posts Widget
-* Author: Naked Themes
-* URL: http://meshaper.com
-* Date 11/02/2015
-* License: GNU General Public License v2 or later
-* License URI: http://www.gnu.org/licenses/gpl-2.0.html
-* @package naked
+* Author: thshpr Themes
+* URL: http://themegasms.com
+* Date 17/09/2016
+* @package thshpr
 **/
 
 
@@ -24,7 +22,7 @@ class naked_popular_posts_widget extends WP_Widget {
 
 	function naked_popular_posts_Widget() {
 		$widget_ops = array('classname' => 'widget_popular_posts', 'description' => __( "Displays posts from a selected category", 'naked') );
-		$this->WP_Widget('popular_posts', __('(Theme) Popular Posts', 'naked'), $widget_ops);
+		parent::__construct('popular_posts', __('(Theme) Popular Posts', 'naked'), $widget_ops);
 		$this->alt_option_name = 'widget_popular_posts';
 
 		add_action( 'save_post', array(&$this, 'flush_widget_cache') );
@@ -37,12 +35,12 @@ class naked_popular_posts_widget extends WP_Widget {
 	 * @since 0.1
 	 */
 	function widget($args, $instance) {
-		
+
 		 if(function_exists( 'fw_get_db_settings_option' )) //check for options framework
 		{
 			$components= fw_get_db_settings_option('opt_widget_post_elements');
 			$category_tag_number=fw_get_db_settings_option('opt_widget_post_category_number');
-		
+
 			//top hover item
 			$opt_image_hover_item_top= fw_get_db_settings_option('opt_image_hover_item_1');
 			if($opt_image_hover_item_top['template']==0) //nothing
@@ -50,7 +48,7 @@ class naked_popular_posts_widget extends WP_Widget {
 			}
 			else if($opt_image_hover_item_top['template']==1)//text
 			{
-				$hover_top=$opt_image_hover_item_top['1']['opt_image_hover_item_1_text'];	
+				$hover_top=$opt_image_hover_item_top['1']['opt_image_hover_item_1_text'];
 			}
 			else if($opt_image_hover_item_top['template']==2)//icon
 			{
@@ -58,9 +56,9 @@ class naked_popular_posts_widget extends WP_Widget {
 			}
 			else if($opt_image_hover_item_top['template']==3)//image
 			{
-				$hover_top='<img src="'.$opt_image_hover_item_top['3']['opt_image_hover_item_1_image']['url'].'">';	
+				$hover_top='<img src="'.$opt_image_hover_item_top['3']['opt_image_hover_item_1_image']['url'].'">';
 			}
-			
+
 			//bottom hover item
 			$opt_image_hover_item_bottom= fw_get_db_settings_option('opt_image_hover_item_2');
 			if($opt_image_hover_item_bottom['template']==0) //nothing
@@ -68,7 +66,7 @@ class naked_popular_posts_widget extends WP_Widget {
 			}
 			else if($opt_image_hover_item_bottom['template']==1)//text
 			{
-				$hover_bottom=$opt_image_hover_item_bottom['1']['opt_image_hover_item_2_text'];	
+				$hover_bottom=$opt_image_hover_item_bottom['1']['opt_image_hover_item_2_text'];
 			}
 			else if($opt_image_hover_item_bottom['template']==2)//icon
 			{
@@ -76,9 +74,9 @@ class naked_popular_posts_widget extends WP_Widget {
 			}
 			else if($opt_image_hover_item_bottom['template']==3)//image
 			{
-				$hover_bottom='<img src="'.$opt_image_hover_item_bottom['3']['opt_image_hover_item_2_image']['url'].'">';	
+				$hover_bottom='<img src="'.$opt_image_hover_item_bottom['3']['opt_image_hover_item_2_image']['url'].'">';
 			}
-		
+
 		}
 		else
 		{
@@ -89,7 +87,7 @@ class naked_popular_posts_widget extends WP_Widget {
 		}
 		 $thumbnail_size='sidebar_image';
 		 $small_thumbnail_size='small_sidebar_image';
-		 
+
 		$cache = wp_cache_get('widget_popular_posts', 'widget');
 
 		if ( !is_array($cache) )
@@ -110,95 +108,95 @@ class naked_popular_posts_widget extends WP_Widget {
 			$number = 1;
 		else if ( $number > 15 )
 			$number = 15;
-		
+
 		$query = array(
-			'showposts' => $number, 
-			'nopaging' => 0, 
+			'showposts' => $number,
+			'nopaging' => 0,
 			'post_status' => 'publish',
 			'orderby'      => 'meta_value',  /* this will look at the meta_key you set below */
 			'meta_key'     => 'naked_post_views_count',
 		);
 		if(!empty($instance['cat'])){
 			$query['cat'] = implode(',', $instance['cat']);
-			
+
 		}
 		 $post_category=get_cat_ID( implode(',', $instance['cat']) );
-		 
+
 		$the_query = new WP_Query($query);
 		if ($the_query->have_posts()) :
-		
-		echo $before_widget; 
-		if ( $title ) echo $before_title . $title . $after_title; 
-		
+
+		echo $before_widget;
+		if ( $title ) echo $before_title . $title . $after_title;
+
 		echo'<div class="popular-posts-wrap">';
 		echo'<ul class="thumb-list">';
-		while ( $the_query->have_posts() ) 
+		while ( $the_query->have_posts() )
 		{
 			$the_query->the_post();
 			$item_string=""; //set it up for concat
 			$post_format = get_post_format();
-			
+
 			$hidden_thumb="";
 			if ( has_post_thumbnail() ) //hidden thumbnail for use in prev next buttons
-			{ 
+			{
 				$hidden_thumb=get_the_post_thumbnail(get_the_ID(),'prevnext' );
 			}
 			if($post_format!='quote' && $post_format!='link' && $post_format!='aside' && $post_format!='status')
-		    	{ 
-				if ($components): foreach ($components as $key=>$value) 
+		    	{
+				if ($components): foreach ($components as $key=>$value)
 				{
-				 
-				    switch($value) 
+
+				    switch($value)
 				    {
-				 
-					case 'Image': 
-							if ( has_post_thumbnail() ) 
-							{ 
+
+					case 'Image':
+							if ( has_post_thumbnail() )
+							{
 								$item_string.='<div class="widget-paragraph">
 													<a href="'.get_permalink().'">
-														<div class="grid">											
+														<div class="grid">
 															<div class="effect-1">'.get_the_post_thumbnail(get_the_ID(),$thumbnail_size ).'
-																	
+
 																<div class="item-1">
 																	<p><span class="centered">'.$hover_top.'</span></p>
-																</div>	
+																</div>
 																<div class="item-2">
 																	<p><span class="centered">'.$hover_bottom.'</span></p>
 																</div>
-																									
+
 															</div>
 														</div>
 													</a>
-												</div>';							
+												</div>';
 							}
 							break;
-							 
-																
-						case 'Title': 
+
+
+						case 'Title':
 								$item_string.='<a href="'.get_permalink().'"><p class="widget-paragraph widget-title">'.get_the_title().'<br/>&#8594;</p></a><div class="hidden-thumb">'.$hidden_thumb.'</div><span class="hidden-desc">'.get_the_title().'</span>';
 							break;
-							
-							case 'Image Title': 
-							if ( has_post_thumbnail() ) 
-							{ 
+
+							case 'Image Title':
+							if ( has_post_thumbnail() )
+							{
 								$item_string.='<div class="widget-paragraph image-title">
 													<a href="'.get_permalink().'">
-														<div class="grid small-widget-image">											
+														<div class="grid small-widget-image">
 															<div class="effect-1">'.get_the_post_thumbnail(get_the_ID(),$small_thumbnail_size ).'
-																	
-																
-																									
+
+
+
 															</div>
 														</div>
 													</a>
 													<a href="'.get_permalink().'"><p class="widget-paragraph widget-title">'.get_the_title().'</p></a>
-													
-												</div>';							
+
+												</div>';
 							}
 							break;
-							 
-										 
-							case 'Categories': 
+
+
+							case 'Categories':
 								$categories = get_the_category();
 								$separator = ' ';
 								$output = '';
@@ -206,11 +204,11 @@ class naked_popular_posts_widget extends WP_Widget {
 								{
 									$output.='<p class=" widget-paragraph widget-categories">';
 									$n=0;
-									foreach($categories as $category) 
+									foreach($categories as $category)
 									{
-		
+
 										if($category->cat_ID!=$post_category&&$n<$category_tag_number)
-										{											
+										{
 											$output .= '<a href="'.get_category_link( $category->term_id ).'" title="' . esc_attr( sprintf( __( "View all posts in %s" ), $category->name ) ) . '">'.$category->cat_name.'</a>'.$separator;
 										}
 										$n++;
@@ -219,16 +217,16 @@ class naked_popular_posts_widget extends WP_Widget {
 									$item_string.=trim($output, $separator);
 								}
 								break;
-											
-								case 'Tags': 
+
+								case 'Tags':
 									$posttags = get_the_tags();
 									$separator = ' ';
 									$output = '';
-									if ($posttags) 
+									if ($posttags)
 									{
 										$output.='<p class=" widget-paragraph widget-tags">';
 										$n=0;
-										  foreach($posttags as $tag) 
+										  foreach($posttags as $tag)
 										  {
 											  if($n<$category_tag_number)
 											  {
@@ -240,31 +238,31 @@ class naked_popular_posts_widget extends WP_Widget {
 										  $item_string.=trim($output, $separator);
 									}
 								break;
-									
-								case 'Author': 
+
+								case 'Author':
 									$item_string.='<p class="widget-paragraph widget-author"><i class="icon-user-5 icon"></i>';
 									$item_string.=__( 'Posted By: ', 'naked' ).'<a href="'.get_author_posts_url(get_the_author_meta( 'ID' )).'">'.get_the_author().'</a>';
 									$item_string.='</p>';
 									break;
-											
-								case 'Date': 
+
+								case 'Date':
 									$item_string.='<p class="featured-thumbnail-slider-date widget-paragraph widget-date"><i class="icon-calendar-inv icon"></i>';
-									$item_string.=get_the_date(); 
+									$item_string.=get_the_date();
 									$item_string.='</p>';
 								break;
-							 
+
 						    }
-						 
+
 						}
 					endif;
-							
+
 				echo '  <li>'.$item_string.'</li>';
 			}
 		}
 		echo	'</ul>';
 		echo	'</div>';
-		echo $after_widget; 
-		
+		echo $after_widget;
+
 		// Reset the global $the_post as this query will have roflstomped on it
 		wp_reset_query();
 
@@ -273,19 +271,19 @@ class naked_popular_posts_widget extends WP_Widget {
 		$cache[$args['widget_id']] = ob_get_flush();
 		wp_cache_set('widget_popular_posts', $cache, 'widget');
 	}
-	
+
 	/**
 	 * Save and sanitize values
 	 * @since 0.1
 	 */
 	function update( $new_instance, $old_instance ) {
 		$instance = $old_instance;
-		
+
 		// Strip to remove HTML
 		$instance['title'] = strip_tags($new_instance['title']);
 		$instance['number'] = (int) $new_instance['number'];
 		$instance['cat'] = $new_instance['cat'];
-		
+
 		$this->flush_widget_cache();
 
 		$alloptions = wp_cache_get( 'alloptions', 'options' );
@@ -304,18 +302,18 @@ class naked_popular_posts_widget extends WP_Widget {
 	 * @since 0.1
 	 */
 	function form( $instance ) {
-		
+
 		// Defaults
 		$defaults = array(
 		'title' => 'Popular Posts',
 		'number' => '5',
 		);
 
-		$instance = wp_parse_args( (array) $instance, $defaults ); 
-		
+		$instance = wp_parse_args( (array) $instance, $defaults );
+
 		$title = isset($instance['title']) ? esc_attr($instance['title']) : '';
 		$cat = isset($instance['cat']) ? $instance['cat'] : array();
-		
+
 		if ( !isset($instance['number']) || !$number = (int) $instance['number'] )
 			$number = 5;
 

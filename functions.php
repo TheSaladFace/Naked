@@ -1354,6 +1354,11 @@ require get_template_directory() . '/widgets/featured-posts.php';
 require get_template_directory() . '/widgets/related-posts.php';
 
 /**
+ * Load recent posts widgets
+ */
+require get_template_directory() . '/widgets/recent-posts.php';
+
+/**
  * Load popular posts widgets
  */
 //require get_template_directory() . '/widgets/popular-posts.php';

@@ -21,7 +21,7 @@ class thshpr_featured_posts_widget extends WP_Widget {
 
 	function thshpr_featured_posts_Widget() {
 		$widget_ops = array('classname' => 'widget_featured_posts', 'description' => __( "Displays posts from a selected category", 'thshpr') );
-		$this->__construct('featured_posts', __('Naked Featured Posts', 'thshpr'), $widget_ops);
+		parent::__construct('featured_posts', __('Naked Featured Posts', 'thshpr'), $widget_ops);
 		$this->alt_option_name = 'widget_featured_posts';
 
 		add_action( 'save_post', array(&$this, 'flush_widget_cache') );
@@ -91,7 +91,6 @@ class thshpr_featured_posts_widget extends WP_Widget {
 			{
 				$hover_bottom='<img src="'.$opt_image_hover_item_bottom['3']['opt_image_hover_item_image']['url'].'">';
 			}
-
 		}
 		else
 		{
