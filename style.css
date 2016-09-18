@@ -529,7 +529,7 @@ a:link {text-decoration: none;}
 
 	/*Posts Widgets*/
 	.sidebar .widget .posts-widget li {margin-bottom:40px;}
-
+	.sidebar .widget .posts-widget ul li:last-child{margin-bottom:0px;}
 	/**
 	 * General
 	 */
