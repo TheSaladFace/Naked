@@ -1384,6 +1384,7 @@ border: 3px solid #444;
 	.search-toggle {  cursor: pointer;  float: right;  height: 26px;  text-align: center;	  font-size:17px;  padding-left: 20px;  margin-left: 12px;  margin-right:-4px;border-left:1px solid #ddd;}
 	.search-toggle .screen-reader-text { left: 5px; /* Avoid a horizontal scrollbar when the site has a long menu */ }
 	.social-container{  display: inline-block;	}
+	.fw-container-fluid.menu-nav, .fw-container-fluid.menu-nav .fw-col-xs-6{padding:0px;}
 }
 
 /* Extra Small Devices, Phones */
@@ -1658,9 +1659,9 @@ transition-delay: 0s;
   * header extra bar
   */
 
- .right-extras{width:73px;margin-right:-20px;}
+ .right-extras{width:73px;}
  .header-extra{pointer-events: none;top:-500px;}
- #nav-toggle{pointer-events: auto; display: inline-block; padding: 8px 12px 2px 11px; font-size: 14px; margin-left: -20px;transition:  all .35s ease; -moz-transition:  all .35s ease;  -o-transition:  all .35s ease;  -ms-transition:  all .35s ease;  transition:  all .35s ease; -webkit-transition-delay: 0s;  transition-delay: 0s;}
+ #nav-toggle{pointer-events: auto; display: inline-block; padding: 8px 12px 2px 11px; font-size: 14px;transition:  all .35s ease; -moz-transition:  all .35s ease;  -o-transition:  all .35s ease;  -ms-transition:  all .35s ease;  transition:  all .35s ease; -webkit-transition-delay: 0s;  transition-delay: 0s;}
  /*!
  * Hamburgers
  * @description Tasty CSS-animated hamburgers
