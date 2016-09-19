@@ -2,10 +2,8 @@
 /**
 * Description: Recent Posts Widget
 * Author: thshpr Themes
-* URL: http://meshaper.com
-* Date 11/02/2015
-* License: GNU General Public License v2 or later
-* License URI: http://www.gnu.org/licenses/gpl-2.0.html
+* URL: http://themegasms.com
+* Date 18/09/2016
 * @package thshpr
 **/
 

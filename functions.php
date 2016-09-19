@@ -646,6 +646,30 @@ function thshpr_print_styles()
 }
 add_action('wp_enqueue_scripts', 'thshpr_print_styles');
 
+/**
+  * Places meta for counting page views for the popular posts plugin
+  */
+function thshpr_popular_posts($post_id) {
+	$count_key = 'thshpr_popular_posts_count';
+	$count = get_post_meta($post_id, $count_key, true);
+	if ($count == '') {
+		$count = 0;
+		delete_post_meta($post_id, $count_key);
+		add_post_meta($post_id, $count_key, '0');
+	} else {
+		$count++;
+		update_post_meta($post_id, $count_key, $count);
+	}
+}
+function thshpr_track_posts($post_id) {
+	if (!is_single()) return;
+	if (empty($post_id)) {
+		global $post;
+		$post_id = $post->ID;
+	}
+	thshpr_popular_posts($post_id);
+}
+add_action('wp_head', 'thshpr_track_posts');
 
 /**
   * Generates hover string from the passed option array
@@ -1333,7 +1357,6 @@ function thshpr_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'thshpr_scripts');
 
-require get_template_directory() . '/widgets/image-upload.php';
 /**
  * Load ad 125
  */
@@ -1361,7 +1384,7 @@ require get_template_directory() . '/widgets/recent-posts.php';
 /**
  * Load popular posts widgets
  */
-//require get_template_directory() . '/widgets/popular-posts.php';
+require get_template_directory() . '/widgets/popular-posts.php';
 
 /**
  * Customizer additions.
