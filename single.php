@@ -32,7 +32,7 @@ if(function_exists( 'fw_get_db_post_option' )) //check for post options
 	$subtitle=fw_get_db_post_option($post->ID, 'opt_subtitle');
   	$title_category_tag_number=fw_get_db_post_option($post->ID, 'opt_single_title_number_categories');
   	$title_show_author_image=fw_get_db_post_option($post->ID, 'opt_single_title_show_author_image');
-  	$title_divider_type=fw_locate_theme_path_uri('/static/img/').fw_get_db_post_option($post->ID, 'opt_single_title_divider_type');
+  	$title_divider_type=fw_get_db_post_option($post->ID, 'opt_single_title_divider_type');
   	$title_shift_title=fw_get_db_post_option($post->ID, 'opt_title_shift_amount');
   	$title_margin_amount=fw_get_db_post_option($post->ID, 'opt_title_bottom_margin_amount');
 
