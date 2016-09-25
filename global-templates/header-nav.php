@@ -58,6 +58,7 @@ if(function_exists( 'fw_get_db_customizer_option' ))
 
 
 ?>
+<div class="menu-hover-icon"><i class="fa fa-caret-up" aria-hidden="true"></i></div>
     <div id="animatedModal">
 
 		<div class="close-icon background-dark background-dark-hover close-animatedModal">

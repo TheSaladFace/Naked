@@ -3,6 +3,48 @@
  * @package naked
  */
 
+ /**
+  * Mega Menu
+  */
+function hoverIn() {
+ 		var a = jQuery(this);
+ 		var nav = a.closest('.nav-menu');
+ 		var mega = a.find('.mega-menu');
+ 		var offset = rightSide(nav) - leftSide(a);
+ 		mega.width(Math.min(rightSide(nav), columns(mega)*245));
+        var shiftLeft=Math.min(0, offset - mega.width());
+ 		mega.css('left', shiftLeft);
+        mega.find('.mega-menu-row').fadeIn(400);
+
+ 	}
+
+ 	function hoverOut() {
+        var a = jQuery(this);
+ 		var nav = a.closest('.nav-menu');
+ 		var mega = a.find('.mega-menu');
+        mega.find('.mega-menu-row').fadeOut(0);
+ 	}
+
+ 	function columns(mega) {
+ 		var columns = 0;
+ 		mega.children('.mega-menu-row').each(function () {
+ 			columns = Math.max(columns, jQuery(this).children('.mega-menu-col').length);
+ 		});
+ 		return columns;
+ 	}
+
+ 	function leftSide(elem) {
+ 		return elem.offset().left;
+ 	}
+
+ 	function rightSide(elem) {
+ 		return elem.offset().left + elem.width();
+ 	}
+
+ 	jQuery('.primary-navigation .menu-item-has-mega-menu').hover(hoverIn, hoverOut);
+
+
+
 function calcHeaderHeight(){
     var currentLogoHeight=jQuery(".menu-logo").outerHeight();
     var extraTopBarHeight=jQuery(".extra-topbar").outerHeight();
@@ -55,6 +97,13 @@ jQuery(document).ready(function(jQuery) {
     titleHeight=jQuery(".site-title").outerHeight();
     headerImageHeight=jQuery(".header-image").outerHeight();
     rightPosnScrollToTop = jQuery('#scroll-to-top').css('right');
+    jQuery(".menu-hover-icon").fadeOut(0);
+    jQuery('.mega-menu-row').fadeOut(0);
+    jQuery('.sub-menu').fadeOut(0);
+    jQuery('.mega-menu-row .sub-menu').fadeIn(0);
+    jQuery('.primary-navigation ul ul ul').css({display:"block"});
+
+
 
     /**
      * Scroll to Top Button Initialise. Button is initially invisible, but "in", since we have to place it via functions.php
@@ -138,6 +187,9 @@ jQuery(document).ready(function(jQuery) {
     /*remove the bottom border on the last sidr items*/
     jQuery( ".sidr a" ).last().css( "border-bottom", "0px" );
 
+    /*fix the mega menu structure not working in SIDR*/
+    jQuery( ".sidr-class-mega-menu-row" ).unwrap();
+
     /**
      * sidr collapsible sub items
      */
@@ -199,16 +251,18 @@ jQuery(document).ready(function(jQuery) {
     /* Global variables, needed because of hover out and in */
     jQuery("#menu-main>li").find("ul").first().stop().fadeOut(); //set initial fadeout of first level ul elements so they can be faded back in
 
-    jQuery("#menu-main>li").mouseenter(function() { //all the rest happens on hover over top level meny items
+    jQuery("#menu-main>li.menu-item-has-children").mouseenter(function() { //all the rest happens on hover over top level meny items
 
         /* set variables */
         firstLevel=jQuery(this);
         var off = jQuery(this).offset();
         var topItemLeftX = off.left;
-        var subItemWidth=jQuery(".primary-navigation li .menu-item-has-children > a").width();
+        var subItemWidth=jQuery(firstLevel).find("ul a").first().width();
         var topItemLeftPadding=jQuery(firstLevel).find("a").first().css("paddingLeft").replace("px", "");
         var firstLevelWidth=jQuery(firstLevel).width();
         windowWidth = jQuery(window).width();
+
+
 
         /* determine number of levels */
         var numLevels=1;
@@ -219,26 +273,31 @@ jQuery(document).ready(function(jQuery) {
         /* obtain far right edge of the items deepest hover */
         var safeWidth=subItemWidth*numLevels;
         thisItemMaxEdge=topItemLeftX+firstLevelWidth+safeWidth;
+        console.log(subItemWidth);
+        console.log(windowWidth);
 
         /* check for overlap */
         if(thisItemMaxEdge>windowWidth)
         {
-
+            jQuery(".menu-hover-icon").prependTo(firstLevel).stop().fadeIn(400);
             var distanceToShiftFirstSub=(firstLevelWidth-(topItemLeftPadding*2))-subItemWidth; //where to place the first level hover if its out of bounds
             jQuery(firstLevel).addClass('edge'); //adds class, 3rd level items dealt with in CSS with - width
-            jQuery(firstLevel).find('ul').first().css("left",distanceToShiftFirstSub+6); //set adjusted backwards first level position
+            jQuery(firstLevel).find('ul').first().css("left",distanceToShiftFirstSub-2); //set adjusted backwards first level position
             jQuery(firstLevel).find('ul').first().stop().fadeIn(400); //fadein the first level for good measure (might as well as we are now reliant on js)
         }
         else
         {
+            jQuery(".menu-hover-icon").prependTo(firstLevel).stop().fadeIn(400);
             jQuery(firstLevel).removeClass('edge'); //make sure this item has no edge class
-            jQuery(firstLevel).find('ul').first().css("left",6); //set normal position
+            jQuery(firstLevel).find('ul').first().css("left",-2); //set normal position
             jQuery(firstLevel).find('ul').first().stop().fadeIn(400);
         }
 
+
     }).mouseleave(function() {
         jQuery(firstLevel).removeClass('edge');
-        jQuery(firstLevel).find('ul').first().stop().fadeOut(150, function() {
+        jQuery(".menu-hover-icon").stop().fadeOut(0);
+        jQuery(firstLevel).find('ul').first().stop().fadeOut(0, function() {
             jQuery(this).css("left","-999em"); //shift the menu to prevent activation when user mouses over the area
         });
     });
