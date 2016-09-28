@@ -273,7 +273,8 @@ function thshpr_load_fonts()
 	$large_description = fw_get_db_customizer_option('opt_large_description');
 	$other_meta = fw_get_db_customizer_option('opt_other_meta');
     $article_lead = fw_get_db_customizer_option('opt_article_lead');
-
+    $top_level_menu = fw_get_db_customizer_option('opt_top_level_menu');
+    $sub_level_menu = fw_get_db_customizer_option('opt_sub_level_menu');
 
 	/* gets google fonts and adds to the array */
 	if( isset($google_fonts[$h1['family']]) ){
@@ -313,6 +314,12 @@ function thshpr_load_fonts()
 	if( isset($google_fonts[$other_meta['family']]) ){
 		$include_from_google[$other_meta['family']] = $google_fonts[$other_meta['family']];
 	}
+    if( isset($google_fonts[$top_level_menu['family']]) ){
+		$include_from_google[$top_level_menu['family']] = $google_fonts[$top_level_menu['family']];
+	}
+    if( isset($google_fonts[$sub_level_menu['family']]) ){
+		$include_from_google[$sub_level_menu['family']] = $google_fonts[$sub_level_menu['family']];
+	}
 	if ( ! sizeof( $include_from_google ) ) {
 		return '';
 	}
@@ -349,6 +356,7 @@ function thshpr_google_font_style_weight_split($field) {
         foreach ($matches[0] as $value) {
             if ( $value == 'italic' ) {
                 $output .= 'font-style:' . $value . ';';
+                $output .= 'font-weight:normal;';
             } else if ( $value == 'regular' ) {
                 $output .= 'font-style:normal;';
             } else {
@@ -438,6 +446,12 @@ function thshpr_print_styles()
     $small_italic_extra_small_devices_phones=fw_get_db_customizer_option('opt_small_italic_extra_small_devices_phones');
     $small_italic_tiny_devices_phones=fw_get_db_customizer_option('opt_small_italic_tiny_devices_phones');
 
+    $top_level_menu = fw_get_db_customizer_option('opt_top_level_menu');
+    $sub_level_menu = fw_get_db_customizer_option('opt_sub_level_menu');
+    $mega_menu_border_color = fw_get_db_customizer_option('opt_mega_menu_border_color');
+
+
+
     $large_excerpt = fw_get_db_customizer_option('opt_large_excerpt');
     $large_excerpt_hover = fw_get_db_customizer_option('opt_large_excerpt_font_hover_color');
     $large_excerpt_medium_devices_desktops=fw_get_db_customizer_option('opt_large_excerpt_medium_devices_desktops');
@@ -479,8 +493,20 @@ function thshpr_print_styles()
     $dark_color = fw_get_db_customizer_option('opt_dark_color');
     $dark_contents_color = fw_get_db_customizer_option('opt_dark_contents_color');
 
+    $sub_menu_background_color = fw_get_db_customizer_option('opt_sub_menu_background_color');
+    $mobile_menu_sub_sub_color = fw_get_db_customizer_option('opt_mobile_menu_sub_sub_color');
+    $mobile_menu_sub_sub_sub_color = fw_get_db_customizer_option('opt_mobile_menu_sub_sub_sub_color');
+    $mobile_menu_toggle_button_border_color = fw_get_db_customizer_option('opt_mobile_menu_toggle_button_border_color');
+    $mobile_menu_toggle_button_second_level_border_color = fw_get_db_customizer_option('opt_mobile_menu_toggle_button_second_level_border_color');
+    $mobile_menu_divider_color = fw_get_db_customizer_option('opt_mobile_menu_divider_color');
+    $mobile_menu_sub_divider_color = fw_get_db_customizer_option('opt_mobile_menu_sub_divider_color');
+    $mobile_menu_sub_sub_divider_color = fw_get_db_customizer_option('opt_mobile_menu_sub_sub_divider_color');
+    $menu_background_hover_color = fw_get_db_customizer_option('opt_menu_background_hover_color');
+    $menu_background_hover_color_text = fw_get_db_customizer_option('opt_menu_background_hover_color_text');
+
     $site_borders_size=fw_get_db_customizer_option('opt_site_borders_size');
     $scroll_to_top_bottom_position=$site_borders_size+12;
+
 	$option_styles =
 	'
     @media only screen and (min-width : 320px)
@@ -514,16 +540,31 @@ function thshpr_print_styles()
         .'.small-italic a:hover{ color:'.esc_html($small_italic_hover).';}'
         .'#cancel-comment-reply-link,input,textarea{ font-family:'.esc_html($body['family']).';}'
         .'.focus .meta-excerpt,.focus .meta-excerpt a{ font-family:'.esc_html($large_description['family']).';'. thshpr_google_font_style_weight_split($large_description['variation']) . 'font-size:'.esc_html($large_description['size']).'px;'. 'color:'.esc_html($large_description['color']).';'. 'letter-spacing:'.esc_html($large_description['letter-spacing']).'px;'. 'line-height:'.esc_html($large_description['line-height']).'px; }'
-    	.'.primary-navigation ul li ul li a:hover{ background-color:'.esc_html($accent_color).'; color:'.esc_html($accent_contents_color).';  }'
-        .'.background-accent{ background-color:'.esc_html($accent_color).'; color:'.esc_html($accent_contents_color).'; }'
+    	.'.background-accent{ background-color:'.esc_html($accent_color).'; color:'.esc_html($accent_contents_color).'; }'
         .'.background-accent-hover{ background-color:'.esc_html($dark_color).'; color:'.esc_html($dark_contents_color).'; }'
         .'.offset-title,{ border-top:10px solid '.esc_html($dark_color).'; }'
-        .'.sidr a:hover{ background-color:'.esc_html($accent_color).'; color:'.esc_html($accent_contents_color).'; }'
-        .'.sidr-toggle:hover{ background-color:'.esc_html($accent_color).'; color:'.esc_html($accent_contents_color).';border-color:'.esc_html($accent_color).'!important; }'
+
+        .'.mega-menu-row, .primary-navigation ul li ul li a,.sidr a,.primary-navigation .mega-menu a:hover{ background-color:'.esc_html($sub_menu_background_color).';color:'.esc_html($sub_level_menu['color']).';}'
+        .'.primary-navigation ul li ul li a:hover{ background-color:'.esc_html($menu_background_hover_color).'; color:'.esc_html($menu_background_hover_color_text).';  }'
+        .'.sidr li li a{ background-color:'.esc_html($mobile_menu_sub_sub_color).';color:'.esc_html($sub_level_menu['color']).';}'
+        .'.sidr li li li a{ background-color:'.esc_html($mobile_menu_sub_sub_sub_color).';color:'.esc_html($sub_level_menu['color']).';}'
+        .'.menu-hover-icon{color:'.esc_html($sub_menu_background_color).';}'
+        .'.sidr a.hoverme:hover{ background-color:'.esc_html($menu_background_hover_color).'; color:'.esc_html($menu_background_hover_color_text).'; }'
+        .'.sidr-toggle:hover{ background-color:'.esc_html($menu_background_hover_color).'; color:'.esc_html($menu_background_hover_color_text).';border-color:'.esc_html($menu_background_hover_color).'!important; }'
+        .'.primary-navigation ul li ul li a{font-family:'.esc_html($sub_level_menu['family']).';'. thshpr_google_font_style_weight_split($sub_level_menu['variation']) . 'font-size:'.esc_html($sub_level_menu['size']).'px;'. 'color:'.esc_html($sub_level_menu['color']).';'. 'letter-spacing:'.esc_html($sub_level_menu['letter-spacing']).'px;'. 'line-height:'.esc_html($sub_level_menu['line-height']).'px; }'
+        .'.primary-navigation ul li a{font-family:'.esc_html($top_level_menu['family']).';'. thshpr_google_font_style_weight_split($top_level_menu['variation']) . 'font-size:'.esc_html($top_level_menu['size']).'px;'. 'color:'.esc_html($top_level_menu['color']).';'. 'letter-spacing:'.esc_html($top_level_menu['letter-spacing']).'px;'. 'line-height:'.esc_html($top_level_menu['line-height']).'px; }'
+        .'.primary-navigation .mega-menu-col{ border-left:1px solid '.esc_html($mega_menu_border_color).'; }'
+        .'.sidr-toggle{ border:1px solid '.esc_html($mobile_menu_toggle_button_border_color).'; }'
+        .'.sidr li li .sidr-toggle{ border:1px solid '.esc_html($mobile_menu_toggle_button_second_level_border_color).'; }'
+        .'.sidr a { border-bottom:1px solid '.esc_html($mobile_menu_divider_color).'; }'
+        .'.sidr li li a { border-bottom:1px solid '.esc_html($mobile_menu_sub_divider_color).'; }'
+        .'.sidr li li li a { border-bottom:1px solid '.esc_html($mobile_menu_sub_sub_divider_color).'; }'
+
+
+
+
+
         .'.dark-button-color{ background-color:'.esc_html($dark_color).'; color:'.esc_html($dark_contents_color).';}'
-        .'.primary-navigation ul li ul li a{ background-color:'.esc_html($dark_color).'; color:'.esc_html($dark_contents_color).';}'
-        .'.mega-menu-row{ background-color:'.esc_html($dark_color).'; color:'.esc_html($dark_contents_color).';}'
-        .'.primary-navigation .mega-menu a:hover{ background-color:'.esc_html($dark_color).'; color:'.esc_html($dark_contents_color).';}'
         .'.dark-button-color .hamburger-inner,.dark-button-color .hamburger-inner:before, .dark-button-color .hamburger-inner:after{ background-color:'.esc_html($dark_contents_color).';}'
         .'.accent-button-color .hamburger-inner,.accent-button-color .hamburger-inner:before, .accent-button-color .hamburger-inner:after{ background-color:'.esc_html($accent_contents_color).';}'
         .'.accent-button-color{ background-color:'.esc_html($accent_color).'; color:'.esc_html($accent_contents_color).';}'

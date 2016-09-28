@@ -190,6 +190,8 @@ jQuery(document).ready(function(jQuery) {
     /*fix the mega menu structure not working in SIDR*/
     jQuery( ".sidr-class-mega-menu-row" ).unwrap();
 
+    jQuery('.sidr li:not(:has(>ul))').find('a').addClass('hoverme');
+
     /**
      * sidr collapsible sub items
      */

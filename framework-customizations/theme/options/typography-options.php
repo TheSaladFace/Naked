@@ -1433,20 +1433,40 @@ $options = array(
 		),
 	),
 
-
-	/*	'meta_options' => array(
-		'title' => _('Meta Options', 'thshpr'),
+	'menu_options' => array(
+		'title' => _('Main / Mobile Menu', 'thshpr'),
 		'options' => array(
 
-			'opt_category_tag' =>array(
+			'opt_top_level_menu' =>array(
 			    'type' => 'typography-v2',
 			    'value' => array(
-					'family' => 'Droid Serif',
+					'family' => 'PT Serif',
+					'style' => 'regular',
+        			'weight' => 400,
+			        'size' => 14,
+			        'line-height' => 58,
+			        'letter-spacing' => 0,
+			        'color' => '#111111'
+			    ),
+			    'components' => array(
+			        'family'         => true,
+			        'size'           => true,
+			        'line-height'    => true,
+			        'letter-spacing' => true,
+			        'color'          => true
+			    ),
+			    'label' => _('Main Menu Top Level Typography', 'thshpr'),
+			    'desc'  => _('Choose the typography for the visible row of links on the main menu', 'thshpr'),
+			),
+			'opt_sub_level_menu' =>array(
+			    'type' => 'typography-v2',
+			    'value' => array(
+					'family' => 'PT Serif',
 					'style' => 'italic',
         			'weight' => 400,
-			        'size' => 11,
-			        'line-height' => 11,
-			        'letter-spacing' => 1,
+			        'size' => 15,
+			        'line-height' => 22,
+			        'letter-spacing' => 0,
 			        'color' => '#ffffff'
 			    ),
 			    'components' => array(
@@ -1456,115 +1476,88 @@ $options = array(
 			        'letter-spacing' => true,
 			        'color'          => true
 			    ),
-			    'label' => _('Categories / Tags', 'thshpr'),
-			    'desc'  => _('Choose the typography for the category / tag components', 'thshpr'),
+			    'label' => _('Main Menu Sub Level Typography (+ Mobile Menu)', 'thshpr'),
+			    'desc'  => _('Choose the typography for the main menu sub levels and mobile menu', 'thshpr'),
 			),
 
-			'opt_category_tag_font_color_hover' =>array(
-			    'type'  => 'rgba-color-picker',
-			    'value' => 'rgba(255,255,255,1)',
-			    // palette colors array
-			    'palettes' => array( '#ffffff' ),
-			    'label' => _('Category / Tag font color hover', 'thshpr'),
-			    'desc'  => _('Choose the font color on mouse hover for this component', 'thshpr'),
-			),
+			'opt_sub_menu_background_color' =>array(
+		    'type'  => 'color-picker',
+		    'value' => '#111111',
+		    'label' => __('Sub Menu Background Color', 'thshpr'),
+		    'desc'  => __('Choose a color for the sub menu background color and the mobile menu main background color', 'thshpr'),
+		    ),
+			'opt_mobile_menu_sub_sub_color' =>array(
+		    'type'  => 'color-picker',
+		    'value' => '#333333',
+		    'label' => __('Mobile Menu Sub Sub Background Color', 'thshpr'),
+		    'desc'  => __('Choose a color for the mobile menu sub sub background color', 'thshpr'),
+		    ),
+			'opt_mobile_menu_sub_sub_sub_color' =>array(
+		    'type'  => 'color-picker',
+		    'value' => '#555555',
+		    'label' => __('Mobile Menu Sub Sub Sub Background Color', 'thshpr'),
+		    'desc'  => __('Choose a color for the mobile menu sub sub sub background color', 'thshpr'),
+		    ),
 
-			'opt_category_tag_background' =>array(
-			    'type'  => 'rgba-color-picker',
-			    'value' => 'rgba(201,201,201,1)',
-			    // palette colors array
-			    'palettes' => array( '#c9c9c9'),
-			    'label' => _('Category / Tag component background color', 'thshpr'),
-			    'desc'  => _('Choose the background color for this component', 'thshpr'),
-			),
+			'opt_menu_background_hover_color' =>array(
+		    'type'  => 'color-picker',
+		    'value' => '#ffeb00',
+		    'label' => __('Menu Background Hover Color', 'thshpr'),
+		    'desc'  => __('Choose a color for the main and mobile menu background hovers', 'thshpr'),
+		    ),
+			'opt_menu_background_hover_color_text' =>array(
+		    'type'  => 'color-picker',
+		    'value' => '#111111',
+		    'label' => __('Menu Background Hover Text Color ', 'thshpr'),
+		    'desc'  => __('Choose a text color for the main and mobile menu background hovers', 'thshpr'),
+		    ),
 
-			'opt_category_tag_background_hover' =>array(
-			    'type'  => 'rgba-color-picker',
-			    'value' => 'rgba(0,0,0,1)',
-			    // palette colors array
-			    'palettes' => array( '#000000' ),
-			    'label' => _('Category / Tag component background color hover', 'thshpr'),
-			    'desc'  => _('Choose the background color on mouse hover for this component', 'thshpr'),
-			),
 
-			'opt_large_description' =>array(
-			    'type' => 'typography-v2',
-			    'value' => array(
-			        'family' => 'Droid Serif',
-					'style' => 'italic',
-        			'weight' => 400,
-			        'size' => 17,
-			        'line-height' => 24,
-			        'letter-spacing' => 0,
-			        'color' => '#a6a6a6'
-			    ),
-			    'components' => array(
-			        'family'         => true,
-			        'size'           => true,
-			        'line-height'    => true,
-			        'letter-spacing' => true,
-			        'color'          => true
-			    ),
-			    'label' => _('Large Excerpt', 'thshpr'),
-			    'desc'  => _('Choose the typography for the large excerpt component', 'thshpr'),
-				'help' => _( 'Used for the larger excerpt in some post blocks', 'thshpr' ),
-			),
 
-			'opt_small_description' =>array(
-			    'type' => 'typography-v2',
-			    'value' => array(
-			        'family' => 'Droid Serif',
-					'style' => 'italic',
-        			'weight' => 400,
-			        'size' => 15,
-			        'line-height' => 20,
-			        'letter-spacing' => 0,
-			        'color' => '#a6a6a6'
-			    ),
-			    'components' => array(
-			        'family'         => true,
-			        'size'           => true,
-			        'line-height'    => true,
-			        'letter-spacing' => true,
-			        'color'          => true
-			    ),
-			    'label' => _('Normal Excerpt', 'thshpr'),
-			    'desc'  => _('Choose the typography for the normal excerpt component', 'thshpr'),
-				'help' => _( 'Used for the excerpt in post blocks', 'thshpr' ),
-			),
+			'opt_mega_menu_border_color' =>array(
+		    'type'  => 'color-picker',
+		    'value' => '#222222',
+		    'label' => __('Mega Menu Divider Color', 'thshpr'),
+		    'desc'  => __('Choose a color for the mega menu column divider', 'thshpr'),
+		    ),
+			'opt_mobile_menu_toggle_button_border_color' =>array(
+		    'type'  => 'color-picker',
+		    'value' => '#333333',
+		    'label' => __('Mobile Menu Toggle Button Border Color', 'thshpr'),
+		    'desc'  => __('Choose a color for the mobile menu toggle button border', 'thshpr'),
+		    ),
+			'opt_mobile_menu_toggle_button_second_level_border_color' =>array(
+		    'type'  => 'color-picker',
+		    'value' => '#3f3f3f',
+		    'label' => __('Mobile Menu Second Level Toggle Button Border Color', 'thshpr'),
+		    'desc'  => __('Choose a color for the mobile menu second level toggle button border', 'thshpr'),
+		    ),
+			'opt_mobile_menu_divider_color' =>array(
+		    'type'  => 'color-picker',
+		    'value' => '#1a1a1a',
+		    'label' => __('Mobile Menu Horizontal Item Divider Color', 'thshpr'),
+		    'desc'  => __('Choose a color for the mobile menu horizontal item divider', 'thshpr'),
+		    ),
+			'opt_mobile_menu_sub_divider_color' =>array(
+		    'type'  => 'color-picker',
+		    'value' => '#3a3a3a',
+		    'label' => __('Mobile Menu Horizontal Sub Item Divider Color', 'thshpr'),
+		    'desc'  => __('Choose a color for the mobile menu horizontal sub item divider', 'thshpr'),
+		    ),
+			'opt_mobile_menu_sub_sub_divider_color' =>array(
+		    'type'  => 'color-picker',
+		    'value' => '#5c5c5c',
+		    'label' => __('Mobile Menu Horizontal Sub Sub Item Divider Color', 'thshpr'),
+		    'desc'  => __('Choose a color for the mobile menu horizontal sub sub item divider', 'thshpr'),
+		    ),
 
-			'opt_other_meta' =>array(
-			    'type' => 'typography-v2',
-			    'value' => array(
-					'family' => 'Droid Serif',
-					'style' => 'italic',
-        			'weight' => 400,
-			        'size' => 14,
-			        'line-height' => 14,
-			        'letter-spacing' => 0,
-			        'color' => '#a6a6a6'
-			    ),
-			    'components' => array(
-			        'family'         => true,
-			        'size'           => true,
-			        'line-height'    => true,
-			        'letter-spacing' => true,
-			        'color'          => true
-			    ),
-			    'label' => _('Other Meta', 'thshpr'),
-			    'desc'  => _('Choose the typography for the other meta elements', 'thshpr'),
-			),
-			'opt_other_meta_hover' =>array(
-			    'type'  => 'rgba-color-picker',
-			    'value' => 'rgba(0,0,0,1)',
-			    // palette colors array
-			    'palettes' => array( '#000000' ),
-			    'label' => _('Category / Tag font color hover', 'thshpr'),
-			    'desc'  => _('Choose the font color on mouse hover for this component', 'thshpr'),
-			),
+
+
+
 
 		),
-	),*/
+	),
+
 
 
 
