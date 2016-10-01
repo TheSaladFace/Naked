@@ -142,7 +142,7 @@ jQuery(document).ready(function(jQuery) {
     jQuery('#nav-toggle').sidr({
         name: 'sidr-left',
         side: 'left',
-        source: '.vcenter-topbar.logo-holder,#menu-main',
+        source: '.vcenter-topbar.logo-holder,.menu-main-menu-container .nav-menu',
         displace: true,
 
         onOpen: function() {
@@ -251,9 +251,9 @@ jQuery(document).ready(function(jQuery) {
      * Adds animation fadeout and in on menu
      */
     /* Global variables, needed because of hover out and in */
-    jQuery("#menu-main>li").find("ul").first().stop().fadeOut(); //set initial fadeout of first level ul elements so they can be faded back in
+    jQuery(".menu-main-menu-container .nav-menu>li").find("ul").first().stop().fadeOut(); //set initial fadeout of first level ul elements so they can be faded back in
 
-    jQuery("#menu-main>li.menu-item-has-children").mouseenter(function() { //all the rest happens on hover over top level meny items
+    jQuery(".menu-main-menu-container .nav-menu>li.menu-item-has-children").mouseenter(function() { //all the rest happens on hover over top level meny items
 
         /* set variables */
         firstLevel=jQuery(this);

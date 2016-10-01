@@ -4,7 +4,7 @@ Theme URI: http://nakedthemes.com
 Author: Naked Themes
 Author URI: http://nakedthemes.com
 Description: Hi, I am the ultra minimal starter theme _tk, ready for your next awesome WordPress project! I am the most seamless and minimalistic integration of Twitter Bootstrap Framework into the _s starter theme from Automattic, the guys behind WordPress.
-Version: 1.1
+Version: 1.0
 License: GNU General Public License
 License URI: see license.txt
 Tags: responsive-layout, one-column, two-columns, three-columns, left-sidebar, right-sidebar, custom-background, custom-colors, custom-header, custom-menu, featured-images, flexible-header, microformats, post-formats, rtl-language-support, sticky-post, theme-options, threaded-comments, translation-ready
@@ -1910,8 +1910,8 @@ header.smaller .logo{}
     color: #111;
     right: 1px;}
 
- .primary-navigation .main-menu-container{text-align: right;}
- .primary-navigation ul>li>a { padding-left: 16px;padding-right:16px; text-transform:uppercase;} /*first level menu*/
+ .primary-navigation>div{text-align: right;}
+ .primary-navigation ul>li>a { font-weight: bold; padding-left: 16px;padding-right:16px; text-transform:uppercase;} /*first level menu*/
  /*.menu-item-has-children>ul:before{
 	 content: "\f0d8";
 	 font-family: FontAwesome;

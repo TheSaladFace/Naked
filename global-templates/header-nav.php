@@ -213,55 +213,55 @@ if(function_exists( 'fw_get_db_customizer_option' ))
 						<div class="header-share-boxes share-boxes featured-posts-grid-paragraph component-element">
 							<div class="absolute-container">
 								<i class="fa fa-plus icon start-icon background-accent header"></i><!--';
-								if(isset($social_facebook))
+								if(isset($social_facebook)&&$social_facebook!="")
 								{
 									echo'--><span class="social-box facebook"><a class="inner facebook-inner" href="'.urlencode($social_facebook).'"><i class="fa fa-facebook icon"></i></a></span><!--';
 								}
-								if(isset($social_twitter))
+								if(isset($social_twitter)&&$social_twitter!="")
 								{
 									echo'--><span class="social-box facebook"><a class="inner twitter-inner" href="'.urlencode($social_twitter).'"><i class="fa fa-twitter icon"></i></a></span><!--';
 								}
-								if(isset($social_googleplus))
+								if(isset($social_googleplus)&&$social_googleplus!="")
 								{
 									echo'--><span class="social-box googleplus"><a class="inner google-plus-inner" href="'.urlencode($social_googleplus).'"><i class="fa fa-google-plus icon"></i></a></span><!--';
 								}
-								if(isset($social_linkedin))
+								if(isset($social_linkedin)&&$social_linkedin!="")
 								{
 									echo'--><span class="social-box linkedin"><a class="inner linked-in-inner" href="'.urlencode($social_linkedin).'"><i class="fa fa-linkedin icon"></i></a></span><!--';
 								}
-								if(isset($social_youtube))
+								if(isset($social_youtube)&&$social_youtube!="")
 								{
 									echo'--><span class="social-box youtube"><a class="inner youtube-inner" href="'.urlencode($social_youtube).'"><i class="fa fa-youtube icon"></i></a></span><!--';
 								}
-								if(isset($social_instagram))
+								if(isset($social_instagram)&&$social_instagram!="")
 								{
 									echo'--><span class="social-box instagram"><a class="inner instagram-inner" href="'.urlencode($social_instagram).'"><i class="fa fa-instagram icon"></i></a></span><!--';
 								}
-								if(isset($social_pinterest))
+								if(isset($social_pinterest)&&$social_pinterest!="")
 								{
 									echo'--><span class="social-box pinterest"><a class="inner pinterest-inner" href="'.urlencode($social_pinterest).'"><i class="fa fa-pinterest icon"></i></a></span><!--';
 								}
-								if(isset($social_tumblr))
+								if(isset($social_tumblr)&&$social_tumblr!="")
 								{
 									echo'--><span class="social-box tumblr"><a class="inner tumblr-inner" href="'.urlencode($social_tumblr).'"><i class="fa fa-tumblr icon"></i></a></span><!--';
 								}
-								if(isset($social_vine))
+								if(isset($social_vine)&&$social_vine!="")
 								{
 									echo'--><span class="social-box vine"><a class="inner vine-inner" href="'.urlencode($social_vine).'"><i class="fa fa-vine icon"></i></a></span><!--';
 								}
-								if(isset($social_snapchat))
+								if(isset($social_snapchat)&&$social_snapchat!="")
 								{
 									echo'--><span class="social-box snapchat"><a class="inner snapchat-inner" href="'.urlencode($social_snapchat).'"><i class="fa fa-snapchat icon"></i></a></span><!--';
 								}
-								if(isset($social_reddit))
+								if(isset($social_reddit)&&$social_reddit!="")
 								{
 									echo'--><span class="social-box reddit"><a class="inner reddit-inner" href="'.urlencode($social_reddit).'"><i class="fa fa-reddit icon"></i></a></span><!--';
 								}
-								if(isset($social_flickr))
+								if(isset($social_flickr)&&$social_flickr!="")
 								{
 									echo'--><span class="social-box flickr"><a class="inner flickr-inner" href="'.urlencode($social_flickr).'"><i class="fa fa-flickr icon"></i></a></span><!--';
 								}
-								if(isset($social_email))
+								if(isset($social_email)&&$social_email!="")
 								{
 									echo'--><span class="social-box email"><a class="inner email-inner" href="'.urlencode($social_email).'"><i class="fa fa-at icon"></i></a></span>';
 								}
