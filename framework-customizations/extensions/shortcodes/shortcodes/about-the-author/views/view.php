@@ -27,12 +27,19 @@ $flickr_url=get_the_author_meta( 'flickr' );
 $email_url=get_the_author_meta( 'email' );
 $website_url=get_the_author_meta( 'url' );
 
+
+$show_dividers=$atts['opt_show_dividers'];
+$divider_type=fw_locate_theme_path_uri('/static/img/').$atts['opt_divider_type'];
+$height=8;
+$style_string='"background-image: url('.$divider_type.'.png); height:'.$height.'px;"';
+
+
 //generate user social link contraptoid
 $item_string='
 <div class="share-outer component-element '.$unique_id.'">
     <div class="social-share-boxes share-boxes featured-posts-grid-paragraph">
         <div class="absolute-container">
-        <i class="a fa fa-share-alt start-icon background-accent share"></i><span class="share-label">'.__( 'Author Links ', 'thshpr' ).'</span><!--';
+        <i class="a fa fa-share-alt start-icon background-accent share"></i><span class="share-label small-italic">'.__( 'Author Links ', 'thshpr' ).'</span><!--';
 
 		// generate author strings
 		if($website_url!="")
@@ -104,13 +111,31 @@ $item_string.='
 	</div><!-- .author-avatar -->
 	<div class="author-content">
 		<h4 class="author-title"><a class="author-link" href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>" rel="author"><?php echo get_the_author(); ?></a></h4>
-		<div class="author-extra-info meta-excerpt component-element"><?php echo get_the_author_meta( 'extrainfo' ); ?></div>
-		<p class="author-bio">
+        <?php if($show_dividers){ ?>
+        <div class="divider-header component-element">
+    		<div class="divider-container">
+    			<?php
+    				echo'<div class="divider-background" style='.$style_string.'></div>';
+    			?>
+    		</div>
+    	</div>
+        <?php } ?>
+        <div class="author-extra-info meta-excerpt component-element"><?php echo get_the_author_meta( 'extrainfo' ); ?></div>
+        <p class="author-bio">
 			<?php
                 $bio = nl2br(get_the_author_meta('description'));
                 echo $bio;
             ?>
 		</p>
+        <?php if($show_dividers){ ?>
+        <div class="divider-header component-element">
+    		<div class="divider-container">
+    			<?php
+    				echo'<div class="divider-background" style='.$style_string.'></div>';
+    			?>
+    		</div>
+    	</div>
+        <?php } ?>
 		<?php echo $item_string;?>
 	</div><!-- .author-description -->
 </div><!-- .author-info -->

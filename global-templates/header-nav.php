@@ -209,6 +209,7 @@ if(function_exists( 'fw_get_db_customizer_option' ))
 					}
 					if($show_social==1)
 					{
+						if($social_facebook!=""&&$social_twitter!=""&&$social_googleplus!=""&&$social_linkedin!=""&&$social_youtube!=""&&$social_instagram!=""&&$social_pinterest!=""&&$social_tumblr!=""&&$social_vine!=""&&$social_snapchat!=""&&$social_reddit!=""&&$social_flickr!=""&&$social_email!="")
 						echo'
 						<div class="header-share-boxes share-boxes featured-posts-grid-paragraph component-element">
 							<div class="absolute-container">

@@ -554,6 +554,7 @@ a:link {text-decoration: none;}
 		 border-left: 10px solid #111;
 		 margin: 0px;
 		 margin-bottom: 35px;
+		font-style: italic!important;
 	 }
 
 
@@ -659,8 +660,13 @@ a:link {text-decoration: none;}
 	.author-avatar{float:left;}
 	/*.author-avatar img{border-radius: 57px;}*/
 	.author-content{padding-left: 144px;}
-	.author-title a{font-size: 18px;text-transform:uppercase;color:#222;}
-	.author-extra-info{}
+	.author-title a{font-size: 28px;
+    /* text-transform: uppercase; */
+    color: #222;
+    font-style: italic;
+    margin-bottom: 5px;
+    display: block;}
+	.author-extra-info{font-style: italic;}
 	.author-bio{padding: 5px 0px 10px 0px; margin: 0;font-size: 16px;}
 
 	/**
