@@ -797,15 +797,128 @@ $options = array(
 		),
 	),
 
+	'article_subtitle' => array(
+		'title' => _('Post Subtitle', 'thshpr'),
+		'options' => array(
+
+			'opt_subtitle' =>array(
+			    'type' => 'typography-v2',
+			    'value' => array(
+					'family' => 'Playfair Display',
+					'variation' => 'italic',
+        			'weight' => 400,
+			        'size' => 32,
+			        'line-height' => 38,
+			        'letter-spacing' => 0,
+			        'color' => '#2c2c2c'
+			    ),
+			    'components' => array(
+			        'family'         => true,
+			        'size'           => true,
+			        'line-height'    => true,
+			        'letter-spacing' => true,
+			        'color'          => true
+			    ),
+			    'label' => _('Article Lead Large Devices / Widescreens', 'thshpr'),
+			    'desc'  => _('Choose the typography for large devices / wide screens (1200px+)', 'thshpr'),
+			),
+			'opt_subtitle_medium_devices_desktops' =>array(
+			    'type' => 'typography-v2',
+			    'value' => array(
+					'family' => 'Playfair Display',
+					'variation' => 'regular',
+        			'weight' => 400,
+			        'size' => 28,
+			        'line-height' => 33,
+			        'letter-spacing' => 0,
+			        'color' => '#111111'
+			    ),
+			    'components' => array(
+			        'family'         => false,
+			        'size'           => true,
+			        'line-height'    => true,
+			        'letter-spacing' => false,
+			        'color'          => false,
+			    ),
+			    'label' => _('Article Lead - Medium Devices / Desktops', 'thshpr'),
+			    'desc'  => _('Choose the size and line height for medium devices / desktops (992px+)', 'thshpr'),
+			),
+			'opt_subtitle_small_devices_tablets' =>array(
+			    'type' => 'typography-v2',
+			    'value' => array(
+					'family' => 'Playfair Display',
+					'variation' => 'regular',
+        			'weight' => 400,
+			        'size' => 24,
+			        'line-height' => 29,
+			        'letter-spacing' => 0,
+			        'color' => '#111111'
+			    ),
+			    'components' => array(
+			        'family'         => false,
+			        'size'           => true,
+			        'line-height'    => true,
+			        'letter-spacing' => false,
+			        'color'          => false,
+			    ),
+			    'label' => _('Article Lead - Small Devices / Tablets', 'thshpr'),
+			    'desc'  => _('Choose the size and line height for small devices / tablets (768px+)', 'thshpr'),
+			),
+			'opt_subtitle_extra_small_devices_phones' =>array(
+			    'type' => 'typography-v2',
+			    'value' => array(
+					'family' => 'Playfair Display',
+					'variation' => 'regular',
+        			'weight' => 400,
+			        'size' => 22,
+			        'line-height' => 27,
+			        'letter-spacing' => 0,
+			        'color' => '#111111'
+			    ),
+			    'components' => array(
+			        'family'         => false,
+			        'size'           => true,
+			        'line-height'    => true,
+			        'letter-spacing' => false,
+			        'color'          => false,
+			    ),
+			    'label' => _('Article Lead - Small Devices / Phones', 'thshpr'),
+			    'desc'  => _('Choose the size and line height for small devices / phones (480px+)', 'thshpr'),
+			),
+			'opt_subtitle_tiny_devices_phones' =>array(
+			    'type' => 'typography-v2',
+			    'value' => array(
+					'family' => 'Playfair Display',
+					'variation' => 'regular',
+        			'weight' => 400,
+			        'size' => 22,
+			        'line-height' => 27,
+			        'letter-spacing' => 0,
+			        'color' => '#111111'
+			    ),
+			    'components' => array(
+			        'family'         => false,
+			        'size'           => true,
+			        'line-height'    => true,
+			        'letter-spacing' => false,
+			        'color'          => false,
+			    ),
+			    'label' => _('Article Lead - Tiny Devices / Phones', 'thshpr'),
+			    'desc'  => _('Choose the size and line height for small devices / phones (320px+)', 'thshpr'),
+			),
+
+		),
+	),
+
 	'article_lead_text' => array(
-		'title' => _('Post Lead Text / Post Subtitle', 'thshpr'),
+		'title' => _('Post Lead Text', 'thshpr'),
 		'options' => array(
 
 			'opt_article_lead' =>array(
 			    'type' => 'typography-v2',
 			    'value' => array(
 					'family' => 'Playfair Display',
-					'variation' => 'italic',
+					'variation' => 'regular',
         			'weight' => 400,
 			        'size' => 32,
 			        'line-height' => 38,
