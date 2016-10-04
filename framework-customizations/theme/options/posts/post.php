@@ -66,22 +66,11 @@ $options = array(
 			),
 			'opt_left_right_padding' => array(
 				'label' => __( 'Left / Right Padding (if no sidebar above) - large screens only', 'thshpr' ),
-				'type' => 'short-select',
-				'value' => '100',
-				'desc' => __( 'Narrows the body content when only one column is chosen','thshpr'),
-				'choices' => array(
-					'0' => '0',
-					'50' => '50',
-					'100' => '100',
-					'150' => '150',
-					'200' => '200',
-					'250' => '250',
-					'300' => '300',
-					'350' => '350',
-					'400' => '400',
-				),
+				'type'  => 'text',
+				'value' => '150',
+				'desc'  => __( 'Narrows the body content when only one column is chosen.', 'thshpr' ),
 			),
-
+			
 			'opt_show_fancy_prev_next' =>array(
 				'type'  => 'switch',
 				'value' => '1',
