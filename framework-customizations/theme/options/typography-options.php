@@ -797,6 +797,119 @@ $options = array(
 		),
 	),
 
+	'article_blockquote' => array(
+		'title' => _('Blockquote', 'thshpr'),
+		'options' => array(
+
+			'opt_blockquote' =>array(
+			    'type' => 'typography-v2',
+			    'value' => array(
+					'family' => 'Playfair Display',
+					'variation' => 'italic',
+        			'weight' => 400,
+			        'size' => 32,
+			        'line-height' => 38,
+			        'letter-spacing' => 0,
+			        'color' => '#2c2c2c'
+			    ),
+			    'components' => array(
+			        'family'         => true,
+			        'size'           => true,
+			        'line-height'    => true,
+			        'letter-spacing' => true,
+			        'color'          => true
+			    ),
+			    'label' => _('Blockquote Large Devices / Widescreens', 'thshpr'),
+			    'desc'  => _('Choose the typography for large devices / wide screens (1200px+)', 'thshpr'),
+			),
+			'opt_blockquote_medium_devices_desktops' =>array(
+			    'type' => 'typography-v2',
+			    'value' => array(
+					'family' => 'Playfair Display',
+					'variation' => 'regular',
+        			'weight' => 400,
+			        'size' => 28,
+			        'line-height' => 33,
+			        'letter-spacing' => 0,
+			        'color' => '#111111'
+			    ),
+			    'components' => array(
+			        'family'         => false,
+			        'size'           => true,
+			        'line-height'    => true,
+			        'letter-spacing' => false,
+			        'color'          => false,
+			    ),
+			    'label' => _('Blockquote - Medium Devices / Desktops', 'thshpr'),
+			    'desc'  => _('Choose the size and line height for medium devices / desktops (992px+)', 'thshpr'),
+			),
+			'opt_blockquote_small_devices_tablets' =>array(
+			    'type' => 'typography-v2',
+			    'value' => array(
+					'family' => 'Playfair Display',
+					'variation' => 'regular',
+        			'weight' => 400,
+			        'size' => 24,
+			        'line-height' => 29,
+			        'letter-spacing' => 0,
+			        'color' => '#111111'
+			    ),
+			    'components' => array(
+			        'family'         => false,
+			        'size'           => true,
+			        'line-height'    => true,
+			        'letter-spacing' => false,
+			        'color'          => false,
+			    ),
+			    'label' => _('Blockquote - Small Devices / Tablets', 'thshpr'),
+			    'desc'  => _('Choose the size and line height for small devices / tablets (768px+)', 'thshpr'),
+			),
+			'opt_blockquote_extra_small_devices_phones' =>array(
+			    'type' => 'typography-v2',
+			    'value' => array(
+					'family' => 'Playfair Display',
+					'variation' => 'regular',
+        			'weight' => 400,
+			        'size' => 22,
+			        'line-height' => 27,
+			        'letter-spacing' => 0,
+			        'color' => '#111111'
+			    ),
+			    'components' => array(
+			        'family'         => false,
+			        'size'           => true,
+			        'line-height'    => true,
+			        'letter-spacing' => false,
+			        'color'          => false,
+			    ),
+			    'label' => _('Blockquote - Small Devices / Phones', 'thshpr'),
+			    'desc'  => _('Choose the size and line height for small devices / phones (480px+)', 'thshpr'),
+			),
+			'opt_blockquote_tiny_devices_phones' =>array(
+			    'type' => 'typography-v2',
+			    'value' => array(
+					'family' => 'Playfair Display',
+					'variation' => 'regular',
+        			'weight' => 400,
+			        'size' => 22,
+			        'line-height' => 27,
+			        'letter-spacing' => 0,
+			        'color' => '#111111'
+			    ),
+			    'components' => array(
+			        'family'         => false,
+			        'size'           => true,
+			        'line-height'    => true,
+			        'letter-spacing' => false,
+			        'color'          => false,
+			    ),
+			    'label' => _('Blockquote - Tiny Devices / Phones', 'thshpr'),
+			    'desc'  => _('Choose the size and line height for small devices / phones (320px+)', 'thshpr'),
+			),
+
+		),
+	),
+
 	'article_subtitle' => array(
 		'title' => _('Post Subtitle', 'thshpr'),
 		'options' => array(
@@ -819,7 +932,7 @@ $options = array(
 			        'letter-spacing' => true,
 			        'color'          => true
 			    ),
-			    'label' => _('Article Lead Large Devices / Widescreens', 'thshpr'),
+			    'label' => _('Subtitle Large Devices / Widescreens', 'thshpr'),
 			    'desc'  => _('Choose the typography for large devices / wide screens (1200px+)', 'thshpr'),
 			),
 			'opt_subtitle_medium_devices_desktops' =>array(
@@ -840,7 +953,7 @@ $options = array(
 			        'letter-spacing' => false,
 			        'color'          => false,
 			    ),
-			    'label' => _('Article Lead - Medium Devices / Desktops', 'thshpr'),
+			    'label' => _('Subtitle - Medium Devices / Desktops', 'thshpr'),
 			    'desc'  => _('Choose the size and line height for medium devices / desktops (992px+)', 'thshpr'),
 			),
 			'opt_subtitle_small_devices_tablets' =>array(
@@ -861,7 +974,7 @@ $options = array(
 			        'letter-spacing' => false,
 			        'color'          => false,
 			    ),
-			    'label' => _('Article Lead - Small Devices / Tablets', 'thshpr'),
+			    'label' => _('Subtitle - Small Devices / Tablets', 'thshpr'),
 			    'desc'  => _('Choose the size and line height for small devices / tablets (768px+)', 'thshpr'),
 			),
 			'opt_subtitle_extra_small_devices_phones' =>array(
@@ -882,7 +995,7 @@ $options = array(
 			        'letter-spacing' => false,
 			        'color'          => false,
 			    ),
-			    'label' => _('Article Lead - Small Devices / Phones', 'thshpr'),
+			    'label' => _('Subtitle - Small Devices / Phones', 'thshpr'),
 			    'desc'  => _('Choose the size and line height for small devices / phones (480px+)', 'thshpr'),
 			),
 			'opt_subtitle_tiny_devices_phones' =>array(
@@ -903,7 +1016,7 @@ $options = array(
 			        'letter-spacing' => false,
 			        'color'          => false,
 			    ),
-			    'label' => _('Article Lead - Tiny Devices / Phones', 'thshpr'),
+			    'label' => _('Subtitle - Tiny Devices / Phones', 'thshpr'),
 			    'desc'  => _('Choose the size and line height for small devices / phones (320px+)', 'thshpr'),
 			),
 

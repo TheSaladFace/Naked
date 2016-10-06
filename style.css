@@ -554,7 +554,6 @@ a:link {text-decoration: none;}
 		 border-left: 10px solid #111;
 		 margin: 0px;
 		 margin-bottom: 35px;
-		font-style: italic!important;
 	 }
 
 
@@ -565,7 +564,11 @@ a:link {text-decoration: none;}
 	img {display: inline-block;	height: auto; max-width: 100%; }
 	.alignleft{ display: inline; float: left; margin-right: 40px; margin-top: 8px; margin-bottom:20px;}
 	.alignright	{display: inline;float: right;margin-left: 45px;margin-top: 8px;margin-bottom:20px;}
-	.wp-caption.aligncenter{margin-bottom: 40px;margin-top: 8px;    text-align: center;}
+	.wp-caption.aligncenter {
+    margin-bottom: 30px;
+    padding-top: 12px;
+    text-align: center;
+}
 	.wp-caption-text{margin-bottom: 0px; padding-bottom: 0px; padding-top:10px;text-align:left;font-size: 15px;font-style: italic;}
 	.wp-caption	{position:relative;	max-width: 100%; font-size: 14px; color: #a6a6a6; line-height: 20px;	}
 	.featured-image{ margin-bottom:30px; margin-top:30px;}
@@ -1124,8 +1127,9 @@ border: 3px solid #444;
 	.focus .meta-title{margin: -10px 0px -5px 0px;}
 
 	/** tags and categories **/
-	.tags a { font-size: 12px; display: inline-block; background-color: #c9c9c9; text-transform: uppercase; color: #fff; margin: 0 1px 0px 0;  padding: 6px 4px 4px 6px;  line-height: 11px;letter-spacing:1px;}
+	.tags a { font-size: 12px; display: inline-block; background-color: #c9c9c9; text-transform: uppercase; color: #fff; margin: 0 1px 5px 0;  padding: 6px 4px 4px 6px;  line-height: 11px;letter-spacing:1px;}
 	.tags{margin:0px; font-size: 0px;}
+	.meta-tags{margin-bottom: -5px;}
 
 	/** general meta **/
 	.meta-excerpt {line-height: 22px; margin:-8px 0px -4px 0px; } /* not sure why the meta exerpt needs such a large -ve top margin*/
