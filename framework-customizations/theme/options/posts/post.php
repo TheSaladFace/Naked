@@ -11,6 +11,14 @@ $options = array(
 		'desc'  => __( 'An optional field that can be displayed providing more information about the post', 'thshpr' ),
 		'help' =>__( 'Only required if the subtitle element is added either in the customiser or below if override options is selected', 'thshpr'  ),
 	),
+	'opt_parallax_image' => array(
+		'label' => __('Optional Full Width Parallax Image', 'thshpr'),
+		'desc' => __('Please select the optional full width parallax image', 'thshpr'),
+		'help' =>__( 'Only required if the "Show Full Width Header (Parallax) Image" is switched on either in the customiser or below if override options is selected', 'thshpr'  ),
+		'type' => 'background-image',
+		'choices' => array(//	in future may will set predefined images
+		)
+	),
 
 	'override_customizer' =>array(
 	    'type'  => 'multi-picker',
@@ -27,7 +35,7 @@ $options = array(
 	    'picker' => array(
 	        // '<custom-key>' => option
 	        'option-type' => array(
-	            'label'   => __('Choose Options For This Post', '{domain}'),
+	            'label'   => __('Choose Options For This Post', 'thshpr'),
 	            'type'    => 'select', // or 'short-select'
 	            'choices' => array(
 	                'customizer'  => __('Use Global Customiser Options', 'thshpr'),

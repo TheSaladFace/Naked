@@ -20,7 +20,14 @@ if(function_exists( 'fw_get_db_post_option' )) //check for post options
     //'option_id/'. fw_get_db_post_option('option_id/'. 'gadget')
 	$overrides=fw_get_db_post_option($post->ID, 'override_customizer');
 	$override_customizer=$overrides['option-type'];
+
+	/**
+	  * These two ptions have to be in the post itself
+	  */
 	$subtitle=fw_get_db_post_option($post->ID, 'opt_subtitle');
+	$back_image=fw_get_db_post_option($post->ID, 'opt_parallax_image');
+	$background_image=$back_image['data']['icon'];
+
 	if($override_customizer=='override')
 	{
 		/**
@@ -69,8 +76,6 @@ if(function_exists( 'fw_get_db_post_option' )) //check for post options
 	  	$header_image_height=$overrides['override']['opt_header_image_height'];
 	  	$background_position=$overrides['override']['opt_background_position'];
 	  	$background_color=$overrides['override']['opt_background_color'];
-	  	$back_image=$overrides['override']['opt_background_image'];
-	  	$background_image=$back_image['data']['icon'];
 	  	$background_repeat=$overrides['override']['opt_background_repeat'];
 	  	$background_size=$overrides['override']['opt_background_size'];
 	  	$background_parallax_ratio=$overrides['override']['opt_background_parallax_ratio'];
@@ -123,8 +128,6 @@ if(function_exists( 'fw_get_db_post_option' )) //check for post options
 	  	$header_image_height=fw_get_db_customizer_option('opt_header_image_height');
 	  	$background_position=fw_get_db_customizer_option('opt_background_position');
 	  	$background_color=fw_get_db_customizer_option('opt_background_color');
-	  	$back_image=fw_get_db_customizer_option('opt_background_image');
-	  	$background_image=$back_image['data']['icon'];
 	  	$background_repeat=fw_get_db_customizer_option('opt_background_repeat');
 	  	$background_size=fw_get_db_customizer_option('opt_background_size');
 	  	$background_parallax_ratio=fw_get_db_customizer_option('opt_background_parallax_ratio');
