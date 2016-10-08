@@ -16,58 +16,119 @@ if(function_exists( 'fw_get_db_customizer_option' ))
 
 if(function_exists( 'fw_get_db_post_option' )) //check for post options
 {
-	/**
-	  * General Options
-	  */
-	$show_progress_indicator=fw_get_db_post_option($post->ID, 'opt_show_progress_indicator');
-	$sidebar_type=fw_get_db_post_option($post->ID, 'opt_sidebar_type');
-	$sticky_sidebar=fw_get_db_post_option($post->ID, 'opt_sticky_sidebar');
-	$left_right_padding=fw_get_db_post_option($post->ID, 'opt_left_right_padding');
-	$show_fancy_prev_next=fw_get_db_post_option($post->ID, 'opt_show_fancy_prev_next');
-
-	/**
-	  * Title Options
-	  */
-	$title_components_elements=fw_get_db_post_option($post->ID, 'opt_single_title_functionality');
+	//$value = fw_get_db_post_option(
+    //'option_id/'. fw_get_db_post_option('option_id/'. 'gadget')
+	$overrides=fw_get_db_post_option($post->ID, 'override_customizer');
+	$override_customizer=$overrides['option-type'];
 	$subtitle=fw_get_db_post_option($post->ID, 'opt_subtitle');
-  	$title_category_tag_number=fw_get_db_post_option($post->ID, 'opt_single_title_number_categories');
-  	$title_show_author_image=fw_get_db_post_option($post->ID, 'opt_single_title_show_author_image');
-  	$title_divider_type=fw_get_db_post_option($post->ID, 'opt_single_title_divider_type');
-  	$title_shift_title=fw_get_db_post_option($post->ID, 'opt_title_shift_amount');
-  	$title_margin_amount=fw_get_db_post_option($post->ID, 'opt_title_bottom_margin_amount');
+	if($override_customizer=='override')
+	{
+		/**
+		  * General Options
+		  */
+		$show_progress_indicator=$overrides['override']['opt_show_progress_indicator'];
+		$sidebar_type=$overrides['override']['opt_sidebar_type'];
+		$sticky_sidebar=$overrides['override']['opt_sticky_sidebar'];
+		$left_right_padding=$overrides['override']['opt_left_right_padding'];
+		$show_fancy_prev_next=$overrides['override']['opt_show_fancy_prev_next'];
 
-	/**
-	  * General Images Options
-	  */
-	$offset_images=fw_get_db_post_option($post->ID, 'opt_offset_images');
-	$left_aligned_image_max_width=fw_get_db_post_option($post->ID, 'opt_left_aligned_image_max_width');
-	$right_aligned_image_max_width=fw_get_db_post_option($post->ID, 'opt_right_aligned_image_max_width');
-	$center_aligned_image_max_width=fw_get_db_post_option($post->ID, 'opt_center_aligned_image_max_width');
-	$non_aligned_image_max_width=fw_get_db_post_option($post->ID, 'opt_non_aligned_image_max_width');
+		/**
+		  * Title Options
+		  */
+		$title_components_elements=$overrides['override']['opt_single_title_functionality'];
+	  	$title_category_tag_number=$overrides['override']['opt_single_title_number_categories'];
+	  	$title_show_author_image=$overrides['override']['opt_single_title_show_author_image'];
+	  	$title_divider_type=$overrides['override']['opt_single_title_divider_type'];
+	  	$title_shift_title=$overrides['override']['opt_title_shift_amount'];
+	  	$title_margin_amount=$overrides['override']['opt_title_bottom_margin_amount'];
 
-	/**
-	  * Featured Images Options
-	  */
-	$featured_image_show=fw_get_db_post_option($post->ID, 'opt_featured_image_show');
-  	$featured_image_link_to_full=fw_get_db_post_option($post->ID, 'opt_featured_image_link_to_full');
-  	$width=fw_get_db_post_option($post->ID, 'opt_featured_image_max_width');
-  	$large_image_ratio=fw_get_db_post_option($post->ID, 'opt_featured_image_ratio');
-  	$large_height= thshpr_generate_aspect_height($large_image_ratio,$width);
+		/**
+		  * General Images Options
+		  */
+		$offset_images=$overrides['override']['opt_offset_images'];
+		$left_aligned_image_max_width=$overrides['override']['opt_left_aligned_image_max_width'];
+		$right_aligned_image_max_width=$overrides['override']['opt_right_aligned_image_max_width'];
+		$center_aligned_image_max_width=$overrides['override']['opt_center_aligned_image_max_width'];
+		$non_aligned_image_max_width=$overrides['override']['opt_non_aligned_image_max_width'];
 
-	/**
-	  * Fullscreen Header Image Options
-	  */
-	$header_image_width=1190;//hard set because scaling is used
-  	$header_show_image=fw_get_db_post_option($post->ID, 'opt_header_show_image');
-  	$header_fade_image_scroll=fw_get_db_post_option($post->ID, 'opt_header_fade_image_scroll');
-  	$header_image_height=fw_get_db_post_option($post->ID, 'opt_header_image_height');
-  	$background_position=fw_get_db_post_option($post->ID, 'opt_background_position');
-  	$background_color=fw_get_db_post_option($post->ID, 'opt_background_color');
-  	$back_image=fw_get_db_post_option($post->ID, 'opt_background_image');
-  	$background_image=$back_image['data']['icon'];
-  	$background_repeat=fw_get_db_post_option($post->ID, 'opt_background_repeat');
-  	$background_size=fw_get_db_post_option($post->ID, 'opt_background_size');
-  	$background_parallax_ratio=fw_get_db_post_option($post->ID, 'opt_background_parallax_ratio');
+		/**
+		  * Featured Images Options
+		  */
+		$featured_image_show=$overrides['override']['opt_featured_image_show'];
+	  	$featured_image_link_to_full=$overrides['override']['opt_featured_image_link_to_full'];
+	  	$width=$overrides['override']['opt_featured_image_max_width'];
+	  	$large_image_ratio=$overrides['override']['opt_featured_image_ratio'];
+	  	$large_height= thshpr_generate_aspect_height($large_image_ratio,$width);
+
+		/**
+		  * Fullscreen Header Image Options
+		  */
+		$header_image_width=1190;//hard set because scaling is used
+	  	$header_show_image=$overrides['override']['opt_header_show_image'];
+	  	$header_fade_image_scroll=$overrides['override']['opt_header_fade_image_scroll'];
+	  	$header_image_height=$overrides['override']['opt_header_image_height'];
+	  	$background_position=$overrides['override']['opt_background_position'];
+	  	$background_color=$overrides['override']['opt_background_color'];
+	  	$back_image=$overrides['override']['opt_background_image'];
+	  	$background_image=$back_image['data']['icon'];
+	  	$background_repeat=$overrides['override']['opt_background_repeat'];
+	  	$background_size=$overrides['override']['opt_background_size'];
+	  	$background_parallax_ratio=$overrides['override']['opt_background_parallax_ratio'];
+	}
+	else
+	{
+		/**
+		  * General Options
+		  */
+		$show_progress_indicator=fw_get_db_customizer_option('opt_show_progress_indicator');
+		$sidebar_type=fw_get_db_customizer_option('opt_sidebar_type');
+		$sticky_sidebar=fw_get_db_customizer_option('opt_sticky_sidebar');
+		$left_right_padding=fw_get_db_customizer_option('opt_left_right_padding');
+		$show_fancy_prev_next=fw_get_db_customizer_option('opt_show_fancy_prev_next');
+
+		/**
+		  * Title Options
+		  */
+		$title_components_elements=fw_get_db_customizer_option('opt_single_title_functionality');
+	  	$title_category_tag_number=fw_get_db_customizer_option('opt_single_title_number_categories');
+	  	$title_show_author_image=fw_get_db_customizer_option('opt_single_title_show_author_image');
+	  	$title_divider_type=fw_get_db_customizer_option('opt_single_title_divider_type');
+	  	$title_shift_title=fw_get_db_customizer_option('opt_title_shift_amount');
+	  	$title_margin_amount=fw_get_db_customizer_option('opt_title_bottom_margin_amount');
+
+		/**
+		  * General Images Options
+		  */
+		$offset_images=fw_get_db_customizer_option('opt_offset_images');
+		$left_aligned_image_max_width=fw_get_db_customizer_option('opt_left_aligned_image_max_width');
+		$right_aligned_image_max_width=fw_get_db_customizer_option('opt_right_aligned_image_max_width');
+		$center_aligned_image_max_width=fw_get_db_customizer_option('opt_center_aligned_image_max_width');
+		$non_aligned_image_max_width=fw_get_db_customizer_option('opt_non_aligned_image_max_width');
+
+		/**
+		  * Featured Images Options
+		  */
+		$featured_image_show=fw_get_db_customizer_option('opt_featured_image_show');
+	  	$featured_image_link_to_full=fw_get_db_customizer_option('opt_featured_image_link_to_full');
+	  	$width=fw_get_db_customizer_option('opt_featured_image_max_width');
+	  	$large_image_ratio=fw_get_db_customizer_option('opt_featured_image_ratio');
+	  	$large_height= thshpr_generate_aspect_height($large_image_ratio,$width);
+
+		/**
+		  * Fullscreen Header Image Options
+		  */
+		$header_image_width=1190;//hard set because scaling is used
+	  	$header_show_image=fw_get_db_customizer_option('opt_header_show_image');
+	  	$header_fade_image_scroll=fw_get_db_customizer_option('opt_header_fade_image_scroll');
+	  	$header_image_height=fw_get_db_customizer_option('opt_header_image_height');
+	  	$background_position=fw_get_db_customizer_option('opt_background_position');
+	  	$background_color=fw_get_db_customizer_option('opt_background_color');
+	  	$back_image=fw_get_db_customizer_option('opt_background_image');
+	  	$background_image=$back_image['data']['icon'];
+	  	$background_repeat=fw_get_db_customizer_option('opt_background_repeat');
+	  	$background_size=fw_get_db_customizer_option('opt_background_size');
+	  	$background_parallax_ratio=fw_get_db_customizer_option('opt_background_parallax_ratio');
+	}
 
 	/**
 	  * Generate class strings on content columns and sidebar
@@ -78,12 +139,12 @@ if(function_exists( 'fw_get_db_post_option' )) //check for post options
 	if($sidebar_type=="left")
   	{
   		$content_column_string.="fw-col-md-8 m-right";
-		$main_id='';
+		$main_id='main-right';
   	}
   	else if($sidebar_type=="right")
   	{
   		$content_column_string.="fw-col-md-8 m-left";
-		$main_id='';
+		$main_id='main-left';
   	}
   	else
   	{
@@ -237,7 +298,6 @@ if($show_fancy_prev_next)
 
 				<div class="<?php echo $content_column_string; ?>" id="<?php echo $main_id; ?>">
 					<div id="primary" class="content-area <?php echo $content_inner_string; ?>">
-						<main id="main" class="site-main" role="main">
 
 
 						<?php
@@ -265,51 +325,7 @@ if($show_fancy_prev_next)
 								<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 									<?php
-									if ( has_post_thumbnail() )
-									{
-										if($featured_image_show)
-										{
-											?>
-											<div class="featured-image-holder">
-											<?php
-												$item_string="";
-												if($featured_image_link_to_full) //requires unyson plugin / options, if not enabled, don't display meta
-												{
 
-													$path = thshpr_get_full_image(get_post_thumbnail_id(get_the_ID()));
-
-													$item_string.='
-													<div class="featured-image">
-													<a href="'.$path.'" style="position: relative; display: inline-block;">
-													';
-
-													$image_string=thshpr_generate_wp_image($width,$large_height,get_the_ID());
-									                $item_string.=$image_string;
-									                $item_string.='
-
-													</a>
-									                </div>';
-
-												}
-												else
-												{
-
-													$item_string.='
-													<div class=" '.$image_offset_class.' featured-image">';
-
-													$image_string=thshpr_generate_image($width,$large_height,get_the_ID());
-									                $item_string.=$image_string;
-									                $item_string.='
-
-									                </div>';
-
-												}
-												echo $item_string;
-											?>
-											</div>
-										<?php
-										}
-									}
 
 											/* translators: %s: Name of current post */
 											the_content();
@@ -341,7 +357,7 @@ if($show_fancy_prev_next)
 						}
 						?>
 
-						</main><!-- #main -->
+
 					</div><!-- #primary -->
 				</div><!-- close .main-content-inner -->
 

@@ -30,95 +30,31 @@ $options = array(
 			fw()->theme->get_options('header-options'),
         ),
     ),
-	/*'panel_3' => array(
+	'panel_3' => array(
         'title' => __('Posts', 'thshpr'),
         'options' => array(
-
-			'general_options' => array(
-                'title' => __('General Options', 'thshpr'),
-				'options' => array(
-					'opt_show_side_meta' =>array(
-						'type'  => 'switch',
-						'value' => '1',
-						'label' => __('Show Side Meta Information', 'thshpr'),
-						'help' => __( 'This will display the side meta panel on the left hand side of the post. Populate this from the Author Bio Options', 'thshpr'  ),
-						'left-choice' => array(
-							'value' => '1',
-							'label' => __('Show', 'thshpr'),
-						),
-						'right-choice' => array(
-							'value' => '0',
-							'label' => __('Hide', 'thshpr'),
-						),
-					),
-					/*
-					now displayed as a shortcode
-					'opt_show_author_info' =>array(
-						'type'  => 'switch',
-						'value' => '1',
-						'label' => __('Show Author Information Box', 'thshpr'),
-						'help' => __( 'This will display the author info box at the bottom of the post.', 'thshpr'  ),
-						'left-choice' => array(
-							'value' => '1',
-							'label' => __('Show', 'thshpr'),
-						),
-						'right-choice' => array(
-							'value' => '0',
-							'label' => __('Hide', 'thshpr'),
-						),
-					),*/
-
-					/*'opt_show_fancy_prev_next' =>array(
-						'type'  => 'switch',
-						'value' => '1',
-						'label' => __('Show Fancy Prev / Next Buttons', 'thshpr'),
-						'help' => __( 'This will show the fancy prev and next buttons that stick to the edges of the screen', 'thshpr'  ),
-						'left-choice' => array(
-							'value' => '1',
-							'label' => __('Show', 'thshpr'),
-						),
-						'right-choice' => array(
-							'value' => '0',
-							'label' => __('Hide', 'thshpr'),
-						),
-					),
-				),
-            ),*/
-
-			/*'title_options' => array(
-                'title' => __('Post Title Options', 'thshpr'),
-				'options' => array(
-					fw()->theme->get_options('title-options'),
-				),
-            ),
-
-            'side_meta_options' => array(
-                'title' => __('Side Meta Options', 'thshpr'),
-				'options' => array(
-					fw()->theme->get_options('side-meta-options'),
-				),
-            ),
+			fw()->theme->get_options('posts'),
         ),
-    ),*/
-	'panel_3' => array(
+    ),
+	'panel_4' => array(
         'title' => __('Widget Options', 'thshpr'),
         'options' => array(
 			fw()->theme->get_options('widget-options'),
         ),
     ),
-	'panel_4' => array(
+	'panel_5' => array(
         'title' => __('Footer', 'thshpr'),
         'options' => array(
 			fw()->theme->get_options('footer-options'),
         ),
     ),
-	'panel_5' => array(
+	'panel_6' => array(
         'title' => __('Typography', 'thshpr'),
         'options' => array(
 			fw()->theme->get_options('typography-options'),
         ),
     ),
-	'panel_6' => array(
+	'panel_7' => array(
         'title' => __('Colors', 'thshpr'),
         'options' => array(
 
@@ -154,7 +90,7 @@ $options = array(
 			),
         ),
     ),
-	'panel_7' => array(
+	'panel_8' => array(
         'title' => __('Social', 'thshpr'),
         'options' => array(
 			'opt_social_twitter' => array(

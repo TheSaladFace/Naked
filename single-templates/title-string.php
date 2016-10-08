@@ -23,6 +23,9 @@ if ($components_elements): foreach ($components_elements as $key=>$value)
 		case 'Subtitle':
 			include locate_template('post-component-elements/subtitle-string.php');
 		break;
+		case 'Featured Image':
+			include locate_template('post-component-elements/featured-image-string.php');
+		break;
 		case 'Categories':
 			include locate_template('post-component-elements/categories-string.php');
 		break;
