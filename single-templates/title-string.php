@@ -56,6 +56,9 @@ if ($components_elements): foreach ($components_elements as $key=>$value)
 		case 'Share Boxes':
 			include locate_template('post-component-elements/share-boxes-string.php');
 		break;
+		case 'Breadcrumbs':
+			include locate_template('post-component-elements/breadcrumbs-string.php');
+		break;
 		case 'Divider':
 			include locate_template('post-component-elements/divider-string.php');
 		break;

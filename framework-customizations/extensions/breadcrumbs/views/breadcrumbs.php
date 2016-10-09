@@ -39,25 +39,44 @@
  */
 ?>
 
-<?php if ( ! empty( $items ) ) : ?>
-	<div class="breadcrumbs">
-		<?php for ( $i = 0; $i < count( $items ); $i ++ ) : ?>
-			<?php if ( $i == ( count( $items ) - 1 ) ) : ?>
-				<span class="last-item"><?php echo $items[ $i ]['name'] ?></span>
-			<?php elseif ( $i == 0 ) : ?>
-				<span class="first-item">
-				<?php if( isset( $items[ $i ]['url'] ) ) : ?>
-					<a href="<?php echo $items[ $i ]['url'] ?>"><?php echo $items[ $i ]['name'] ?></a></span>
-				<?php else : echo $items[ $i ]['name']; endif ?>
-				<span class="separator"><?php echo $separator ?></span>
-			<?php
-			else : ?>
-				<span class="<?php echo( $i - 1 ) ?>-item">
-					<?php if( isset( $items[ $i ]['url'] ) ) : ?>
-						<a href="<?php echo $items[ $i ]['url'] ?>"><?php echo $items[ $i ]['name'] ?></a></span>
-					<?php else : echo $items[ $i ]['name']; endif ?>
-				<span class="separator"><?php echo $separator ?></span>
-			<?php endif ?>
-		<?php endfor ?>
-	</div>
-<?php endif ?>
+<?php
+if ( ! empty( $items ) )
+{
+	$item_string.='<div class="breadcrumbs">';
+		for ( $i = 0; $i < count( $items ); $i ++ )
+        {
+			if ( $i == ( count( $items ) - 1 ) )
+            {
+				$item_string.='<span class="last-item">'.$items[ $i ]['name'].'</span>';
+            }
+            elseif ( $i == 0 )
+            {
+				$item_string.='<span class="first-item">';
+				if( isset( $items[ $i ]['url'] ) )
+                {
+					$item_string.='<a href="'.$items[ $i ]['url'].'">'.$items[ $i ]['name'].'</a></span>';
+                }
+                else
+                {
+                    $item_string.=$items[ $i ]['name'];
+                }
+				$item_string.='<span class="separator">'.$separator.'</span>';
+			}
+			else
+            {
+                $j=$i-1;
+				$item_string.='<span class="'. $j ,'-item">';
+					if( isset( $items[ $i ]['url'] ) )
+                    {
+						$item_string.='<a href="'.$items[ $i ]['url'].'">'.$items[ $i ]['name'].'</a></span>';
+					}
+                    else
+                    {
+                        $item_string.=$items[ $i ]['name'];
+                    }
+				$item_string.='<span class="separator">'.$separator.'</span>';
+			}
+		}
+	$item_string.='</div>';
+}
+?>

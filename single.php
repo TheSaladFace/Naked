@@ -47,7 +47,10 @@ if(function_exists( 'fw_get_db_post_option' )) //check for post options
 	  	$title_show_author_image=$overrides['override']['opt_single_title_show_author_image'];
 	  	$title_divider_type=$overrides['override']['opt_single_title_divider_type'];
 	  	$title_shift_title=$overrides['override']['opt_title_shift_amount'];
+		$title_shift_breadcrumbs=$overrides['override']['opt_breadcrumbs_shift_amount'];
+		$breadcrumbs_homepage_title=fw_get_db_customizer_option('opt_breadcrumbs_homepage_title');
 	  	$title_margin_amount=$overrides['override']['opt_title_bottom_margin_amount'];
+
 
 		/**
 		  * General Images Options
@@ -99,6 +102,9 @@ if(function_exists( 'fw_get_db_post_option' )) //check for post options
 	  	$title_show_author_image=fw_get_db_customizer_option('opt_single_title_show_author_image');
 	  	$title_divider_type=fw_get_db_customizer_option('opt_single_title_divider_type');
 	  	$title_shift_title=fw_get_db_customizer_option('opt_title_shift_amount');
+		$title_shift_breadcrumbs=fw_get_db_customizer_option('opt_breadcrumbs_shift_amount');
+		$breadcrumbs_homepage_title=fw_get_db_customizer_option('opt_breadcrumbs_homepage_title');
+
 	  	$title_margin_amount=fw_get_db_customizer_option('opt_title_bottom_margin_amount');
 
 		/**
@@ -167,6 +173,16 @@ if(function_exists( 'fw_get_db_post_option' )) //check for post options
 	{
 		$content_column_string.=" no-offset-title";
 	}
+	$breadcrumbs_offset_string='';
+	if($title_shift_breadcrumbs>0)
+	{
+		$breadcrumbs_offset_string.=" offset-breadcrumbs";
+	}
+	else
+	{
+		$breadcrumbs_offset_string.=" no-offset-breadcrumbs";
+	}
+
 	$sticky_class="";
 	if($sticky_sidebar&&$sticky_header)
 	{
@@ -187,7 +203,7 @@ if(function_exists( 'fw_get_db_post_option' )) //check for post options
 		function thshpr_print_single_styles()
 		{
 
-			global $title_shift_title, $title_margin_amount, $left_right_padding, $header_margin_amount, $left_aligned_image_max_width, $right_aligned_image_max_width, $center_aligned_image_max_width, $non_aligned_image_max_width;
+			global $title_shift_breadcrumbs, $title_shift_title, $title_margin_amount, $left_right_padding, $header_margin_amount, $left_aligned_image_max_width, $right_aligned_image_max_width, $center_aligned_image_max_width, $non_aligned_image_max_width;
 
 			$single_option_styles =
 			'
@@ -197,6 +213,8 @@ if(function_exists( 'fw_get_db_post_option' )) //check for post options
 				.'.alignright.wp-caption{width:100%;}'
 				.'.aligncenter.wp-caption{width:100%;}'
 				.'.alignnone.wp-caption{width:100%;}'
+				.'.offset-breadcrumbs{margin-top:-'.$title_shift_breadcrumbs.'px;}'
+
 
 		    .'}
 
@@ -275,9 +293,6 @@ if($show_fancy_prev_next)
 
 	}
 ?>
-
-
-
 
 	<section class="fw-main-row ">
 		<div class="fw-container ">
