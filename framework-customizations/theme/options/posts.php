@@ -114,7 +114,7 @@ $options = array(
 						'opt_single_title_rows' => 'Spacer 20px',
 			        ),
 					array(
-						'opt_featured_image' => 'Featured Image',
+						'opt_single_title_rows' => 'Featured Image',
 			        ),
 			    ),
 				'template' => '{{- opt_single_title_rows }}',
