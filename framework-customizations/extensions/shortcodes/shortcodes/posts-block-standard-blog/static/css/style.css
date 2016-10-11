@@ -3,7 +3,7 @@
 {
 	/*centering*/
 	.blog-standard .blog-row{margin-bottom:40px;}
-	.blog-standard .post-divider{border-bottom:1px solid #e3e3e3;}
+	.blog-standard .post-divider{border-bottom:1px solid #f3f3f3;}
 	.components-holder{display:table;}
 	.rw-holder{display:table-cell; vertical-align: middle;}
 	.blog-standard>div:last-of-type {margin-bottom:0px;}

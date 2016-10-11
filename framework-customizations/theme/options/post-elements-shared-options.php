@@ -11,6 +11,23 @@ $options = array(
 	'opt_posts_block_functionality'=> array(
 		'type' =>'addable-box',
 		'label' => __('Add Post Elements', 'thshpr'),
+		'value' => array(
+			array(
+				'opt_header_featuredposts_rows' => 'Thumbnail',
+			),
+			array(
+				'opt_header_featuredposts_rows' => 'Title',
+			),
+			array(
+				'opt_header_featuredposts_rows' => 'Excerpt',
+			),
+			array(
+				'opt_header_featuredposts_rows' => 'Date+Comments',
+			),
+			array(
+				'opt_header_featuredposts_rows' => 'Categories',
+			),
+		),
 		'desc' => __('Add / remove / reorder elements to be displayed in each post', 'thshpr'),
 		'template' => '{{- opt_header_featuredposts_rows }}',
 		'popup-title' => null,
@@ -24,10 +41,11 @@ $options = array(
 				'choices' => array(
 					'Thumbnail' => 'Thumbnail',
 					'Title' => 'Title',
+					'Read More' => 'Read More',
 					'Excerpt' => 'Excerpt',
+					'Subtitle' => 'Subtitle',
 					'Categories' => 'Categories',
 					'Tags' => 'Tags',
-					'Read More' => 'Read More',
 					'Date' => 'Date',
 					'Author' => 'Author',
 					'Comments' => 'Comments',
@@ -37,6 +55,14 @@ $options = array(
 					'Date+Comments+Author' => 'Date+Comments+Author',
 					'Share Boxes' => 'Share Boxes',
 					'Divider' => 'Divider',
+					'Spacer 50px' => 'Spacer 50px',
+					'Spacer 40px' => 'Spacer 40px',
+					'Spacer 30px' => 'Spacer 30px',
+					'Spacer 20px' => 'Spacer 20px',
+					'Spacer 10px' => 'Spacer 10px',
+					'Spacer 5px' => 'Spacer 5px',
+					'Spacer 2px' => 'Spacer 2px',
+					'Spacer 1px' => 'Spacer 1px',
 				),
 			),
 		),
@@ -76,7 +102,7 @@ $options = array(
 	'opt_posts_block_read_more_text' => array(
 		'label' => __( 'Read More Text', 'thshpr' ),
 		'type' => 'text',
-		'value' => 'Read More',
+		'value' => 'Read More <br/>&#8594;',
 		'desc' => __( 'Enter the text to be used for the read more link', 'thshpr' ),
 		'help' => __( 'Unicode arrow codes can be used (e.g. http://character-code.com/arrows-html-codes.php), only needed if the read more element is selected above', 'thshpr'  ),
 	),

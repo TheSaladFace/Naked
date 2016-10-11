@@ -1078,7 +1078,7 @@ border: 3px solid #444;
 
 	/** component element padding **/
 	.component-element{padding:8px 0px 8px 0px;}
-	.focus .component-element{padding:12px 0px 12px 0px;}
+	/*.focus .component-element{padding:12px 0px 12px 0px;}*/
 
 	/** bottom padding **/
 	.component-element:last-child{margin-bottom:0px;padding-bottom:0px;}
@@ -1123,7 +1123,7 @@ border: 3px solid #444;
 	.component-element h3.small-headline{font-size:24px; line-height: 32px;}
 	.component-element h4{font-size:16px;font-weight: normal; line-height: 23px; margin:0px;}
 	.meta-title{margin: -3px 0px -3px 0px;}
-	.focus .meta-title{margin: -10px 0px -5px 0px;}
+	.focus .meta-title{margin: 0px 0px 8px 0px;}
 
 	/** tags and categories **/
 	.tags a { font-size: 12px; display: inline-block; background-color: #c9c9c9; text-transform: uppercase; color: #fff; margin: 0 1px 5px 0;  padding: 6px 4px 4px 6px;  line-height: 11px;letter-spacing:1px;}
@@ -1132,7 +1132,6 @@ border: 3px solid #444;
 
 	/** general meta **/
 	.meta-excerpt {line-height: 22px; margin:-8px 0px -4px 0px; } /* not sure why the meta exerpt needs such a large -ve top margin*/
-	.focus .meta-excerpt{  font-size:17px;  line-height: 24px;} /*focus adjustment*/
 
 	/** divider **/
 	.divider-border{width:100%;margin:15px 0px 15px 0px;}

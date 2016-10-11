@@ -800,19 +800,37 @@ function thshpr_get_category_ids_string($post_categories)
  */
 function thshpr_stripped_excerpt($limit)
 {
+
 	$excerpt = get_the_excerpt();
 	$excerpt = strip_tags($excerpt);
 	$excerpt = explode(' ', $excerpt, $limit);
 
-	 if (count($excerpt)>=$limit) {
-	 array_pop($excerpt);
-	 $excerpt = implode(" ",$excerpt).'...';
-	 } else {
-	 $excerpt = implode(" ",$excerpt);
-	 }
-	 $excerpt = preg_replace('`[[^]]*]`','',$excerpt);
-	 return $excerpt;
+    if (count($excerpt)>=$limit)
+    {
+    	array_pop($excerpt);
+    	$excerpt = implode(" ",$excerpt).'...';
+    }
+    else
+    {
+    	$excerpt = implode(" ",$excerpt);
+    }
+
+	return $excerpt;
 }
+
+/**
+ * General excerpt functions
+ * @requires $ratio,$width
+ */
+function thshpr_excerpt_more( $more ) {
+    return '';
+}
+add_filter('excerpt_more', 'thshpr_excerpt_more');
+
+function thshpr_excerpt_length( $length ) {
+	return 10000;
+}
+add_filter( 'excerpt_length', 'thshpr_excerpt_length', 999 );
 
 /**
  * Generates height given a width and aspect ratio
@@ -1062,6 +1080,10 @@ function thshpr_widgets_init() {
         if($extra_top_bar_widget)
         {
             $create_top_bar_widgets=2;
+        }
+        else
+        {
+            $create_top_bar_widgets=0;
         }
     }
     else

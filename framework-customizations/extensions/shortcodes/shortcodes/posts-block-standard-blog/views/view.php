@@ -34,7 +34,7 @@ $large_excerpt_length=$atts["opt_posts_block_large_excerpt_length"];
 $components_elements=$atts["opt_posts_block_functionality"];
 $read_more=$atts['opt_posts_block_read_more_text'];
 $max_posts=$atts['opt_posts_block_number_posts'];
-$divider_type=fw_locate_theme_path_uri('/static/img/').$atts['opt_divider_type'];
+$divider_type=$atts['opt_divider_type'];
 $show_author_image=$atts['opt_posts_block_show_author_image'];
 
 /** Specific shortcode variables **/
@@ -55,6 +55,9 @@ $small_width=$atts['opt_small_image_max_width'];
 $large_width=$atts['opt_large_image_max_width'];//needs adding to options
 $large_height= thshpr_generate_aspect_height($large_image_ratio,$large_width);
 $small_height= thshpr_generate_aspect_height($small_image_ratio,$small_width);
+
+
+
 ?>
 
 <div class="featured-posts-grid grid-2-col blog-standard <?php echo $unique_id; ?>">
@@ -91,11 +94,12 @@ if ( $custom_query ->have_posts() )
 		}
 		$item_string.='<div class="fw-row blog-row">';
 		$hidden_thumb="";
-		/** get the  full width image option, this is set in the post options and allows a post to
-		have a full width image **/
+
+		/** post options **/
 		if(function_exists('fw_get_db_settings_option')) //check for options framework
 		{
 			$fullsize=fw_get_db_post_option(get_the_ID(), 'opt_meta_post_full_size');
+			$subtitle=fw_get_db_post_option(get_the_ID(), 'opt_subtitle');
 		}
 		else
 		{
@@ -117,17 +121,17 @@ if ( $custom_query ->have_posts() )
 					case 'Title':
 						include locate_template('post-component-elements/title-string.php');
 					break;
-					case 'Excerpt':
-                        include locate_template('post-component-elements/excerpt-string.php');
+					case 'Subtitle':
+						include locate_template('post-component-elements/subtitle-string.php');
+					break;
+					case 'Featured Image':
+						include locate_template('post-component-elements/featured-image-string.php');
 					break;
 					case 'Categories':
-                        include locate_template('post-component-elements/categories-string.php');
+						include locate_template('post-component-elements/categories-string.php');
 					break;
 					case 'Tags':
-                        include locate_template('post-component-elements/tags-string.php');
-                	break;
-					case 'Read More':
-						include locate_template('post-component-elements/read-more-string.php');
+						include locate_template('post-component-elements/tags-string.php');
 					break;
 					case 'Author':
 						include locate_template('post-component-elements/author-string.php');
@@ -151,10 +155,40 @@ if ( $custom_query ->have_posts() )
 						include locate_template('post-component-elements/date-comments-author-string.php');
 					break;
 					case 'Share Boxes':
-                        include locate_template('post-component-elements/share-boxes-string.php');
+						include locate_template('post-component-elements/share-boxes-string.php');
+					break;
+					case 'Breadcrumbs':
+						include locate_template('post-component-elements/breadcrumbs-string.php');
 					break;
 					case 'Divider':
-                        include locate_template('post-component-elements/divider-string.php');
+						include locate_template('post-component-elements/divider-string.php');
+					break;
+					case 'Spacer 50px':
+						include locate_template('post-component-elements/spacer-50px.php');
+					break;
+					case 'Spacer 40px':
+						include locate_template('post-component-elements/spacer-40px.php');
+					break;
+					case 'Spacer 30px':
+						include locate_template('post-component-elements/spacer-30px.php');
+					break;
+					case 'Spacer 20px':
+						include locate_template('post-component-elements/spacer-20px.php');
+					break;
+					case 'Spacer 10px':
+						include locate_template('post-component-elements/spacer-10px.php');
+					break;
+					case 'Spacer 5px':
+						include locate_template('post-component-elements/spacer-5px.php');
+					break;
+					case 'Spacer 2px':
+						include locate_template('post-component-elements/spacer-2px.php');
+					break;
+					case 'Spacer 1px':
+						include locate_template('post-component-elements/spacer-1px.php');
+					break;
+					case 'Read More':
+						include locate_template('post-component-elements/read-more-string.php');
 					break;
 				}
 			}
@@ -184,31 +218,35 @@ if ( $custom_query ->have_posts() )
 			endif;
 			if ( has_post_thumbnail()) //end thumbnail wrap
 			{
-				$item_string.='</div></div></div><div class="fw-col-md-6 eq-height"><div class="components-holder eq-height"><div class="rw-holder">';
+				$item_string.='</div></div></div><div class="fw-col-md-6 eq-height"><div class="components-holder focus eq-height"><div class="rw-holder">';
 			}
 			else //if no image, make the components the will width of container
 			{
-				$item_string.='<div class="fw-col-md-12">';
+				$item_string.='<div class="fw-col-md-12  focus">';
 			}
 			/** run compoents loop **/
 			if ($components_elements): foreach ($components_elements as $key=>$value)
 			{
+				$cell_class="focus";
 				switch($value['opt_header_featuredposts_rows'])
 				{
 					case 'Title':
 						include locate_template('post-component-elements/title-string.php');
 					break;
-					case 'Excerpt':
-						include locate_template('post-component-elements/excerpt-string.php');
+					case 'Title':
+						include locate_template('post-component-elements/title-string.php');
+					break;
+					case 'Subtitle':
+						include locate_template('post-component-elements/subtitle-string.php');
+					break;
+					case 'Featured Image':
+						include locate_template('post-component-elements/featured-image-string.php');
 					break;
 					case 'Categories':
 						include locate_template('post-component-elements/categories-string.php');
 					break;
 					case 'Tags':
 						include locate_template('post-component-elements/tags-string.php');
-					break;
-					case 'Read More':
-						include locate_template('post-component-elements/read-more-string.php');
 					break;
 					case 'Author':
 						include locate_template('post-component-elements/author-string.php');
@@ -234,8 +272,38 @@ if ( $custom_query ->have_posts() )
 					case 'Share Boxes':
 						include locate_template('post-component-elements/share-boxes-string.php');
 					break;
+					case 'Breadcrumbs':
+						include locate_template('post-component-elements/breadcrumbs-string.php');
+					break;
 					case 'Divider':
 						include locate_template('post-component-elements/divider-string.php');
+					break;
+					case 'Spacer 50px':
+						include locate_template('post-component-elements/spacer-50px.php');
+					break;
+					case 'Spacer 40px':
+						include locate_template('post-component-elements/spacer-40px.php');
+					break;
+					case 'Spacer 30px':
+						include locate_template('post-component-elements/spacer-30px.php');
+					break;
+					case 'Spacer 20px':
+						include locate_template('post-component-elements/spacer-20px.php');
+					break;
+					case 'Spacer 10px':
+						include locate_template('post-component-elements/spacer-10px.php');
+					break;
+					case 'Spacer 5px':
+						include locate_template('post-component-elements/spacer-5px.php');
+					break;
+					case 'Spacer 2px':
+						include locate_template('post-component-elements/spacer-2px.php');
+					break;
+					case 'Spacer 1px':
+						include locate_template('post-component-elements/spacer-1px.php');
+					break;
+					case 'Read More':
+						include locate_template('post-component-elements/read-more-string.php');
 					break;
 				}
 			}
