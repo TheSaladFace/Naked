@@ -136,6 +136,7 @@ $item_string="";
 			$the_query->the_post();
             $p++;
 			$hidden_thumb="";
+            $subtitle=fw_get_db_post_option(get_the_ID(), 'opt_subtitle');
 
 
             /*$item_string.="<br><br>n:".$p;
@@ -165,23 +166,26 @@ $item_string="";
                     case 'Title':
 						include locate_template('post-component-elements/title-string.php');
 					break;
+                    case 'Read More':
+						include locate_template('post-component-elements/read-more-string.php');
+					break;
 					case 'Excerpt':
                         include locate_template('post-component-elements/excerpt-string.php');
 					break;
+                    case 'Subtitle':
+            			include locate_template('post-component-elements/subtitle-string.php');
+            		break;
 					case 'Categories':
                         include locate_template('post-component-elements/categories-string.php');
 					break;
 					case 'Tags':
                         include locate_template('post-component-elements/tags-string.php');
                 	break;
-					case 'Read More':
-						include locate_template('post-component-elements/read-more-string.php');
+                    case 'Date':
+						include locate_template('post-component-elements/date-string.php');
 					break;
 					case 'Author':
 						include locate_template('post-component-elements/author-string.php');
-					break;
-					case 'Date':
-						include locate_template('post-component-elements/date-string.php');
 					break;
 					case 'Comments':
 						include locate_template('post-component-elements/comments-string.php');
@@ -204,6 +208,30 @@ $item_string="";
 					case 'Divider':
                         include locate_template('post-component-elements/divider-string.php');
 					break;
+                    case 'Spacer 50px':
+            			include locate_template('post-component-elements/spacer-50px.php');
+            		break;
+            		case 'Spacer 40px':
+            			include locate_template('post-component-elements/spacer-40px.php');
+            		break;
+            		case 'Spacer 30px':
+            			include locate_template('post-component-elements/spacer-30px.php');
+            		break;
+            		case 'Spacer 20px':
+            			include locate_template('post-component-elements/spacer-20px.php');
+            		break;
+            		case 'Spacer 10px':
+            			include locate_template('post-component-elements/spacer-10px.php');
+            		break;
+            		case 'Spacer 5px':
+            			include locate_template('post-component-elements/spacer-5px.php');
+            		break;
+            		case 'Spacer 2px':
+            			include locate_template('post-component-elements/spacer-2px.php');
+            		break;
+            		case 'Spacer 1px':
+            			include locate_template('post-component-elements/spacer-1px.php');
+            		break;
 				}
 
 			}
