@@ -136,8 +136,11 @@ $item_string="";
 			$the_query->the_post();
             $p++;
 			$hidden_thumb="";
-            $subtitle=fw_get_db_post_option(get_the_ID(), 'opt_subtitle');
-
+            /** post options **/
+    		if(function_exists('fw_get_db_settings_option')) //check for options framework
+    		{
+                $subtitle=fw_get_db_post_option(get_the_ID(), 'opt_subtitle');
+            }
 
             /*$item_string.="<br><br>n:".$p;
             $item_string.="<br>Featured positon".$featured_position;*/

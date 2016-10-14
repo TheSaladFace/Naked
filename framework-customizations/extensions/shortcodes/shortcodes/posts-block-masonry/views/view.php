@@ -47,6 +47,15 @@ else if($number_columns==3){$boostrap_column_string="fw-col-sm-4";}
 else if($number_columns==4){$boostrap_column_string="fw-col-sm-3";}
 $next_text=$atts["opt_posts_block_next_post_text"];
 $prev_text=$atts["opt_posts_block_prev_post_text"];
+$show_page_numbers=$atts['opt_posts_block_show_page_numbers'];
+if($show_page_numbers=="Yes")
+{
+	$show_page_numbers_string="show-page-numbers";
+}
+else
+{
+	$show_page_numbers_string="no-page-numbers";
+}
 $image_size=$atts["opt_posts_block_image_size"];
 ?>
 
@@ -185,7 +194,10 @@ $image_size=$atts["opt_posts_block_image_size"];
 <?php
 if($enabled_pagination=="Yes")
 {
-	echo'<div class="page-nav">'.$greyed_prev.$pagination.$greyed_next.'</div>';
+
+	echo'<div class="next-text hidden">'.$next_text.'</div>';
+	echo'<div class="prev-text hidden">'.$prev_text.'</div>';
+	echo'<div class="page-nav-standard '.$show_page_numbers_string.'">'.$pagination.'</div>';
 }
 ?>
 </div>

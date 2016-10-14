@@ -46,6 +46,15 @@ else if($num_columns==4){$boostrap_column=3;}
 $small_hide_excerpt=0;
 $next_text=$atts["opt_posts_block_next_post_text"];
 $prev_text=$atts["opt_posts_block_prev_post_text"];
+$show_page_numbers=$atts['opt_posts_block_show_page_numbers'];
+if($show_page_numbers=="Yes")
+{
+	$show_page_numbers_string="show-page-numbers";
+}
+else
+{
+	$show_page_numbers_string="no-page-numbers";
+}
 
 /** image ratios **/
 $small_image_ratio=$atts['opt_small_image_ratio'];
@@ -232,7 +241,10 @@ large column left
 <?php
 if($enabled_pagination=="Yes")
 {
-	echo'<div class="page-nav-standard">'.$greyed_prev.$pagination.$greyed_next.'</div>';
+
+	echo'<div class="next-text hidden">'.$next_text.'</div>';
+	echo'<div class="prev-text hidden">'.$prev_text.'</div>';
+	echo'<div class="page-nav-standard '.$show_page_numbers_string.'">'.$pagination.'</div>';
 }
 ?>
 </div>

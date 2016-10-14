@@ -39,10 +39,20 @@ $show_author_image=$atts['opt_posts_block_show_author_image'];
 
 /** Specific shortcode variables **/
 $show_divider=$atts["opt_posts_block_show_divider"];
-$next_text=$atts["opt_posts_block_next_post_text"];
-$prev_text=$atts["opt_posts_block_prev_post_text"];
 $enabled_pagination=$atts['opt_posts_block_pagination'];
+$next_text=$atts['opt_posts_block_next_post_text'];
+$prev_text=$atts['opt_posts_block_prev_post_text'];
 $small_hide_excerpt=0;
+$show_page_numbers=$atts['opt_posts_block_show_page_numbers'];
+if($show_page_numbers=="Yes")
+{
+	$show_page_numbers_string="show-page-numbers";
+}
+else
+{
+	$show_page_numbers_string="no-page-numbers";
+}
+
 
 /** hover items **/
 $hover_top=thshpr_get_image_hover_string($atts['opt_image_hover_item_1']);
@@ -121,23 +131,26 @@ if ( $custom_query ->have_posts() )
 					case 'Title':
 						include locate_template('post-component-elements/title-string.php');
 					break;
-					case 'Subtitle':
-						include locate_template('post-component-elements/subtitle-string.php');
+                    case 'Read More':
+						include locate_template('post-component-elements/read-more-string.php');
 					break;
-					case 'Featured Image':
-						include locate_template('post-component-elements/featured-image-string.php');
+					case 'Excerpt':
+                        include locate_template('post-component-elements/excerpt-string.php');
 					break;
+                    case 'Subtitle':
+            			include locate_template('post-component-elements/subtitle-string.php');
+            		break;
 					case 'Categories':
-						include locate_template('post-component-elements/categories-string.php');
+                        include locate_template('post-component-elements/categories-string.php');
 					break;
 					case 'Tags':
-						include locate_template('post-component-elements/tags-string.php');
+                        include locate_template('post-component-elements/tags-string.php');
+                	break;
+                    case 'Date':
+						include locate_template('post-component-elements/date-string.php');
 					break;
 					case 'Author':
 						include locate_template('post-component-elements/author-string.php');
-					break;
-					case 'Date':
-						include locate_template('post-component-elements/date-string.php');
 					break;
 					case 'Comments':
 						include locate_template('post-component-elements/comments-string.php');
@@ -155,41 +168,35 @@ if ( $custom_query ->have_posts() )
 						include locate_template('post-component-elements/date-comments-author-string.php');
 					break;
 					case 'Share Boxes':
-						include locate_template('post-component-elements/share-boxes-string.php');
-					break;
-					case 'Breadcrumbs':
-						include locate_template('post-component-elements/breadcrumbs-string.php');
+                        include locate_template('post-component-elements/share-boxes-string.php');
 					break;
 					case 'Divider':
-						include locate_template('post-component-elements/divider-string.php');
+                        include locate_template('post-component-elements/divider-string.php');
 					break;
-					case 'Spacer 50px':
-						include locate_template('post-component-elements/spacer-50px.php');
-					break;
-					case 'Spacer 40px':
-						include locate_template('post-component-elements/spacer-40px.php');
-					break;
-					case 'Spacer 30px':
-						include locate_template('post-component-elements/spacer-30px.php');
-					break;
-					case 'Spacer 20px':
-						include locate_template('post-component-elements/spacer-20px.php');
-					break;
-					case 'Spacer 10px':
-						include locate_template('post-component-elements/spacer-10px.php');
-					break;
-					case 'Spacer 5px':
-						include locate_template('post-component-elements/spacer-5px.php');
-					break;
-					case 'Spacer 2px':
-						include locate_template('post-component-elements/spacer-2px.php');
-					break;
-					case 'Spacer 1px':
-						include locate_template('post-component-elements/spacer-1px.php');
-					break;
-					case 'Read More':
-						include locate_template('post-component-elements/read-more-string.php');
-					break;
+                    case 'Spacer 50px':
+            			include locate_template('post-component-elements/spacer-50px.php');
+            		break;
+            		case 'Spacer 40px':
+            			include locate_template('post-component-elements/spacer-40px.php');
+            		break;
+            		case 'Spacer 30px':
+            			include locate_template('post-component-elements/spacer-30px.php');
+            		break;
+            		case 'Spacer 20px':
+            			include locate_template('post-component-elements/spacer-20px.php');
+            		break;
+            		case 'Spacer 10px':
+            			include locate_template('post-component-elements/spacer-10px.php');
+            		break;
+            		case 'Spacer 5px':
+            			include locate_template('post-component-elements/spacer-5px.php');
+            		break;
+            		case 'Spacer 2px':
+            			include locate_template('post-component-elements/spacer-2px.php');
+            		break;
+            		case 'Spacer 1px':
+            			include locate_template('post-component-elements/spacer-1px.php');
+            		break;
 				}
 			}
 			endif;
@@ -331,29 +338,11 @@ $pagination = get_the_posts_pagination
 (
 	array
 	(
-		'mid_size' => 3,
-		'prev_text' => $prev_text,
-		'next_text' => $next_text,
+		'mid_size' => 0,
+		'prev_text' => 'prev',
+		'next_text' => 'next',
 	)
 );
-$prev_post = get_previous_posts_link();
-if (empty( $prev_post ))
-{
-	$greyed_prev='<div class="prev page-numbers-faded" >'.$prev_text.'</div>';
-}
-else
-{
-	$greyed_prev='';
-}
-$next_post = get_next_posts_link();
-if (empty( $next_post ))
-{
-	$greyed_next='<div class="next page-numbers-faded" >'.$next_text.'</div>';
-}
-else
-{
-	$greyed_next='';
-}
 
 /** Reset main query object **/
 $wp_query = NULL;
@@ -367,9 +356,13 @@ wp_reset_postdata();
 ?>
 </div>
 <?php
+
 if($enabled_pagination=="Yes")
 {
-echo'<div class="page-nav-standard">'.$greyed_prev.$pagination.$greyed_next.'</div>';
+
+	echo'<div class="next-text hidden">'.$next_text.'</div>';
+	echo'<div class="prev-text hidden">'.$prev_text.'</div>';
+	echo'<div class="page-nav-standard '.$show_page_numbers_string.'">'.$pagination.'</div>';
 }
 ?>
 </div>

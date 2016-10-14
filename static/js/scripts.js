@@ -103,6 +103,18 @@ jQuery(document).ready(function(jQuery) {
     jQuery('.mega-menu-row .sub-menu').fadeIn(0);
     jQuery('.primary-navigation ul ul ul').css({display:"block"});
 
+    jQuery('.page-numbers').addClass("background-dark").addClass("background-dark-hover");
+    jQuery('.page-numbers.current').removeClass("background-dark").removeClass("background-dark-hover").addClass("background-accent");
+    var nextText=jQuery( "div.next-text").text();
+    var prevText=jQuery( "div.prev-text").text();
+    jQuery('.prev.page-numbers').html( '<i class="fa fa-chevron-left" aria-hidden="true"></i>').after( '<div class="after-prev small-italic">'+prevText+'</div>' );
+    jQuery('.next.page-numbers').html( '<i class="fa fa-chevron-right" aria-hidden="true"></i>').before( '<div class="before-next small-italic">'+nextText+'</div>' );
+
+
+
+
+
+
 
 
     /**

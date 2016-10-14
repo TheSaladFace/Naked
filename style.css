@@ -1278,20 +1278,33 @@ border: 3px solid #444;
 
 	/** pagination **/
 	.page-nav{margin-top: 10px; margin-bottom: 50px;}
-	.page-nav-standard{margin-top:40px;}
+	.page-nav-standard{margin-top:40px;border-top: 1px solid #f3f3f3; padding-top: 40px;}
 	.nav-links{position: relative;text-align:center;}
-	.page-numbers,.page-numbers-faded { padding: 10px 15px 10px 16px;  margin-left: 0px;  color: #888;font-size:15px;-webkit-transition: all .35s linear; -moz-transition:  all .35s linear;  -o-transition:  all .35s linear;  -ms-transition:  all .35s linear;  transition:  all .35s linear;}
+	.page-numbers,.page-numbers-faded,.page-numbers.prev, .page-numbers.next,.page-numbers-faded.prev, .page-numbers-faded.next  {
+		padding: 8px 15px 8px 13px;font-size: 15px;
+		    font-weight: bold;
+    margin-left: 0px;
+    -webkit-transition: all .35s linear;
+    -moz-transition: all .35s linear;
+    -o-transition: all .35s linear;
+    -ms-transition: all .35s linear;
+    transition: all .35s linear;}
+	.page-numbers-faded,.page-numbers.prev, .page-numbers.next,.page-numbers-faded.prev, .page-numbers-faded.next  {
+	padding: 5px 15px 5px 13px;
+	font-size: 11px;
+    }
 	.page-numbers-faded.prev{padding-right:14px;}
 	.page-numbers-faded.next{padding-left:14px;}
-	.page-numbers.dots{ margin-left: 0px; color: #111; }
-	.current{  color: #333; border:1px solid #dfdfdf;}
-	.next,.prev{padding: 0px 0px;color:#111;}
+	.page-numbers.dots{ margin-left: 0px;}
+	.next,.prev{padding: 0px 0px;}
 	.page-numbers-faded.next, .page-numbers-faded.prev{color:#ddd;display:inline-block;opacity:0;}
 	.nav-links .page-numbers-faded.next,.nav-links .page-numbers-faded.prev{opacity:1;}
+	.after-prev{position: absolute; left: 43px; top: 6px;}
+	.before-next{position: absolute; right: 43px; top: 6px;text-align:right;}
 
-	/** pagination hover **/
-	.page-numbers:hover{color:#111;}
-	.page-numbers.next:hover,.page-numbers.prev:hover{color:#111;}
+	.no-page-numbers .page-numbers{display:none;}
+	.no-page-numbers .page-numbers.next,.no-page-numbers .page-numbers.prev{display:block;}
+
 
 }
 /** Extra Small Devices, Phones **/
@@ -1309,7 +1322,7 @@ border: 3px solid #444;
 	.component-element h3{font-size: 32px;line-height: 36px;}
 	.focus .component-element h3{  }
 	.component-element h3.small-headline{font-size:24px; line-height: 32px;}
-	.page-numbers.prev, .page-numbers.next,.page-numbers-faded.prev, .page-numbers-faded.next {  position: absolute;  top: 0;}
+	.page-numbers.prev, .page-numbers.next,.page-numbers-faded.prev, .page-numbers-faded.next {  position: absolute;  top: -4px;}
 	.page-numbers.next,.page-numbers-faded.next  { right: 0;}
 	.page-numbers.prev,.page-numbers-faded.prev  { left: 0;}
 }
