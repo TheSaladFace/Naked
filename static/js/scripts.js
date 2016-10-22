@@ -94,8 +94,9 @@ jQuery(document).ready(function(jQuery) {
     menuLogoHeight=jQuery(".menu-logo").outerHeight();
     logoHeight=jQuery(".logo").outerHeight();
     extraTopbarHeight=jQuery(".extra-topbar").outerHeight();
-    titleHeight=jQuery(".site-title").outerHeight();
+    titleHeight=jQuery(".archive-title-image-overlay").outerHeight();
     headerImageHeight=jQuery(".header-image").outerHeight();
+    archiveHeaderImageHeight=jQuery(".archive-title-image-overlay").outerHeight();
     rightPosnScrollToTop = jQuery('#scroll-to-top').css('right');
     jQuery(".menu-hover-icon").fadeOut(0);
     jQuery('.mega-menu-row').fadeOut(0);
@@ -114,8 +115,18 @@ jQuery(document).ready(function(jQuery) {
 
 
 
+    /**
+     * Category Title Overlay Image
+     * Shift it up to the middle of the image.
+     */
+    categoryHeaderCenterOffset=((titleHeight)/2+(headerImageHeight/2))*-1;
+    console.log(titleHeight);
+    console.log(headerImageHeight);
+
+    jQuery(".archive-title-image-overlay").css("margin-top",categoryHeaderCenterOffset);
 
 
+//archive-title-image-overlay
 
     /**
      * Scroll to Top Button Initialise. Button is initially invisible, but "in", since we have to place it via functions.php

@@ -275,6 +275,7 @@ function thshpr_load_fonts()
     $article_lead = fw_get_db_customizer_option('opt_article_lead');
     $blockquote = fw_get_db_customizer_option('opt_blockquote');
     $subtitle = fw_get_db_customizer_option('opt_subtitle');
+    $read_more = fw_get_db_customizer_option('opt_read_more');
     $top_level_menu = fw_get_db_customizer_option('opt_top_level_menu');
     $sub_level_menu = fw_get_db_customizer_option('opt_sub_level_menu');
 
@@ -313,6 +314,10 @@ function thshpr_load_fonts()
 
     if( isset($google_fonts[$subtitle['family']]) ){
 		$include_from_google[$subtitle['family']] = $google_fonts[$subtitle['family']];
+	}
+
+    if( isset($google_fonts[$read_more['family']]) ){
+		$include_from_google[$read_more['family']] = $google_fonts[$read_more['family']];
 	}
 
 	if( isset($google_fonts[$categories_tags['family']]) ){
@@ -451,6 +456,8 @@ function thshpr_print_styles()
     $body_tiny_devices_phones=fw_get_db_customizer_option('opt_body_tiny_devices_phones');
     $small_italic = fw_get_db_customizer_option('opt_small_italic');
     $small_italic_hover = fw_get_db_customizer_option('opt_small_italic_font_hover_color');
+    $read_more = fw_get_db_customizer_option('opt_read_more');
+    $read_more_hover = fw_get_db_customizer_option('opt_read_more_font_hover_color');
     $small_italic_medium_devices_desktops=fw_get_db_customizer_option('opt_small_italic_medium_devices_desktops');
 	$small_italic_small_devices_tablets=fw_get_db_customizer_option('opt_small_italic_small_devices_tablets');
     $small_italic_extra_small_devices_phones=fw_get_db_customizer_option('opt_small_italic_extra_small_devices_phones');
@@ -548,7 +555,7 @@ function thshpr_print_styles()
 		.'.post-date, .rss-date, .rssSummary{ font-family:'.esc_html($small_italic['family']).';'. thshpr_google_font_style_weight_split($small_italic['variation']) . 'color:'.esc_html($small_italic['color']).';}'
 		.'.sidebar .widget ul.children li:before{ color:'.esc_html($small_italic['color']).';}'
 		.'.tags, .tags a{ font-family:'.esc_html($categories_tags['family']).';'. thshpr_google_font_style_weight_split($categories_tags['variation']) . 'font-size:'.esc_html($categories_tags['size']).'px;'. 'color:'.esc_html($categories_tags['color']).';'. 'letter-spacing:'.esc_html($categories_tags['letter-spacing']).'px;'. 'line-height:'.esc_html($categories_tags['line-height']).'px; }'
-    	.'.tags a{ background-color:'.esc_html($categories_tags_background).';}'
+        .'.tags a{ background-color:'.esc_html($categories_tags_background).';}'
     	.'.tags a:hover{ background-color:'.esc_html($categories_tags_font_hover_color).';}'
     	.'.tags a:hover{ background-color:'.esc_html($categories_tags_background_hover).';}'
 		.'.tagcloud{ line-height:'.esc_html($categories_tags['line-height']).'px; }'
@@ -562,6 +569,8 @@ function thshpr_print_styles()
         .'.small-excerpt a:hover{ color:'.esc_html($small_excerpt_hover).';}'
 		.'.small-italic, .small-italic a, .sidebar .small-italic ,.sidebar .small-italic a{ font-family:'.esc_html($small_italic['family']).';'. thshpr_google_font_style_weight_split($small_italic['variation']) . 'font-size:'.esc_html($small_italic_tiny_devices_phones['size']).'px;'. 'color:'.esc_html($small_italic['color']).';'. 'letter-spacing:'.esc_html($small_italic['letter-spacing']).'px;'. 'line-height:'.esc_html($small_italic_tiny_devices_phones['line-height']).'px; }'
         .'.small-italic a:hover{ color:'.esc_html($small_italic_hover).';}'
+        .'.read-more a{ font-family:'.esc_html($read_more['family']).';'. thshpr_google_font_style_weight_split($read_more['variation']) . 'font-size:'.esc_html($read_more['size']).'px;'. 'color:'.esc_html($read_more['color']).';'. 'letter-spacing:'.esc_html($read_more['letter-spacing']).'px;'. 'line-height:'.esc_html($read_more['line-height']).'px; }'
+        .'.read-more a:hover{ color:'.esc_html($read_more_hover).';}'
         .'#cancel-comment-reply-link,input,textarea{ font-family:'.esc_html($body['family']).';}'
         .'.focus .meta-excerpt,.focus .meta-excerpt a{ font-family:'.esc_html($large_description['family']).';'. thshpr_google_font_style_weight_split($large_description['variation']) . 'font-size:'.esc_html($large_description['size']).'px;'. 'color:'.esc_html($large_description['color']).';'. 'letter-spacing:'.esc_html($large_description['letter-spacing']).'px;'. 'line-height:'.esc_html($large_description['line-height']).'px; }'
     	.'.background-accent{ background-color:'.esc_html($accent_color).'; color:'.esc_html($accent_contents_color).'; }'

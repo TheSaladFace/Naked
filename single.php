@@ -283,7 +283,7 @@ if($show_fancy_prev_next)
 ?>
 
 <div class="body-main-content" id="body-main-content">
-
+	
 <?php
 	if(function_exists( 'fw_get_db_post_option' ) && $header_show_image)
 	{

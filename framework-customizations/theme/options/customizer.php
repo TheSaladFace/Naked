@@ -37,24 +37,30 @@ $options = array(
         ),
     ),
 	'panel_4' => array(
+        'title' => __('Archives', 'thshpr'),
+        'options' => array(
+			fw()->theme->get_options('archives'),
+        ),
+    ),
+	'panel_5' => array(
         'title' => __('Widget Options', 'thshpr'),
         'options' => array(
 			fw()->theme->get_options('widget-options'),
         ),
     ),
-	'panel_5' => array(
+	'panel_6' => array(
         'title' => __('Footer', 'thshpr'),
         'options' => array(
 			fw()->theme->get_options('footer-options'),
         ),
     ),
-	'panel_6' => array(
+	'panel_7' => array(
         'title' => __('Typography', 'thshpr'),
         'options' => array(
 			fw()->theme->get_options('typography-options'),
         ),
     ),
-	'panel_7' => array(
+	'panel_8' => array(
         'title' => __('Colors', 'thshpr'),
         'options' => array(
 
@@ -90,7 +96,7 @@ $options = array(
 			),
         ),
     ),
-	'panel_8' => array(
+	'panel_9' => array(
         'title' => __('Social', 'thshpr'),
         'options' => array(
 			'opt_social_twitter' => array(

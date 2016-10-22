@@ -19,6 +19,21 @@ $options = array(
 		'choices' => array(//	in future may will set predefined images
 		)
 	),
+	'opt_fullsize' => array(
+		'label' => __('Full Width (Featured) Post In Post Blocks (Where Applicable)', 'thshpr'),
+		'desc' => __('Make this post and full width in some post blocks (e.g. blog)', 'thshpr'),
+		'type'  => 'switch',
+		'value' => 'No',
+		'left-choice' => array(
+			'value' => 'Yes',
+			'label' => __('Yes', 'thshpr'),
+		),
+		'right-choice' => array(
+			'value' => 'No',
+			'label' => __('No', 'thshpr'),
+		),
+
+	),
 
 	'override_customizer' =>array(
 	    'type'  => 'multi-picker',

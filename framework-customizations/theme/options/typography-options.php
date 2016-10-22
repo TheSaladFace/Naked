@@ -1147,7 +1147,7 @@ $options = array(
 					'variation' => 'italic',
         			'weight' => 400,
 			        'size' => 18,
-			        'line-height' => 15,
+			        'line-height' => 26,
 			        'letter-spacing' => 0,
 			        'color' => '#a6a6a6'
 			    ),
@@ -1653,6 +1653,42 @@ $options = array(
 		    'value' => '#111111',
 		    'label' => __('Tags / Categories Background Hover Color', 'thshpr'),
 		    'desc'  => __('Choose a background color on mouse hover for the tags / categories / tag clouds', 'thshpr'),
+		    ),
+
+
+		),
+	),
+
+	'read_more_options' => array(
+		'title' => _('Read More', 'thshpr'),
+		'options' => array(
+
+			'opt_read_more' =>array(
+			    'type' => 'typography-v2',
+			    'value' => array(
+					'family' => 'PT Serif',
+					'variation' => 'italic',
+        			'weight' => 400,
+			        'size' => 18,
+			        'line-height' => 24,
+			        'letter-spacing' => 0,
+			        'color' => '#a6a6a6'
+			    ),
+			    'components' => array(
+			        'family'         => true,
+			        'size'           => true,
+			        'line-height'    => true,
+			        'letter-spacing' => true,
+			        'color'          => true
+			    ),
+			    'label' => _('Read More', 'thshpr'),
+			    'desc'  => _('Choose the typography for the read more links', 'thshpr'),
+			),
+			'opt_read_more_font_hover_color' =>array(
+		    'type'  => 'color-picker',
+		    'value' => '#111111',
+		    'label' => __('Read More Font Hover Color', 'thshpr'),
+		    'desc'  => __('Choose a color for the font on mouse hover for the read more links', 'thshpr'),
 		    ),
 
 

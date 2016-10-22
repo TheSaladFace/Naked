@@ -58,6 +58,22 @@ $options = array(
 		'title' => __('Other', 'thshpr'),
     	'options' => array(
 
+			'opt_posts_block_vertical_align_columns'=>array(
+				'type'  => 'switch',
+				'value' => 'Yes',
+				'label' => __('Vertical Align Columns', 'thshpr'),
+				'desc'  => __('Vertically align the two columns', 'thshpr'),
+				'left-choice' => array(
+					'value' => 'Yes',
+					'label' => __('Yes', 'thshpr'),
+				),
+				'right-choice' => array(
+					'value' => 'No',
+					'label' => __('No', 'thshpr'),
+				),
+				'help' =>__( 'This is an optional divider between each post', 'thshpr'  ),
+			),
+
 			'opt_posts_block_right_cell_height' => array(
 				'label' => __( 'Right Cell Height', 'thshpr' ),
 				'type' => 'text',
@@ -81,6 +97,21 @@ $options = array(
 				),
 				'help' =>__( 'This is an optional divider between each post', 'thshpr'  ),
 			),
+
+			'opt_posts_block_layout' => array(
+				'label' => __( 'Layout', 'thshpr' ),
+				'type' => 'select',
+				'value' => 'image-left-50',
+				'desc' => __( 'Please select the layout you wish to use for this posts block','thshpr'),
+				'choices' => array(
+					'image-left-50' => 'Image Left 1/2 Width',
+					'image-left-33' => 'Image Left 1/3 Width',
+					'image-right-50' => 'Image Right 1/2 Width',
+					'image-right-33' => 'Image Right 1/3 Width',
+					'full-width' => 'Full Width',
+				),
+			),
+
 
 		),
 	),
