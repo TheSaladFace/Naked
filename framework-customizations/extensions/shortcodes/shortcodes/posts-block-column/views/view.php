@@ -68,6 +68,7 @@ $small_height= thshpr_generate_aspect_height($small_image_ratio,$small_width);
 			while ( $the_query->have_posts() )
 			{
 				$the_query->the_post();
+
 				$cell_class="";
 				if($i==1 && $large_post_top=="Yes")
 				{
@@ -76,6 +77,7 @@ $small_height= thshpr_generate_aspect_height($small_image_ratio,$small_width);
 				}
 				else
 				{
+					var_dump($components_elements);
 					if ( has_post_thumbnail() )
 					{
 						$cell_class="tiny tiny-has-thumbnail";

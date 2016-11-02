@@ -120,6 +120,126 @@ $options = array(
 		),
 	),
 
+	'archives_h1_options' => array(
+		'title' => _('H1 (archives)', 'thshpr'),
+		'options' => array(
+
+			'opt_h1_archives' =>array(
+			    'type' => 'typography-v2',
+			    'value' => array(
+					'family' => 'Playfair Display',
+					'variation' => 'regular',
+        			'weight' => 400,
+			        'size' => 60,
+			        'line-height' => 60,
+			        'letter-spacing' => 0,
+			        'color' => '#111111'
+			    ),
+			    'components' => array(
+			        'family'         => true,
+			        'size'           => true,
+			        'line-height'    => true,
+			        'letter-spacing' => true,
+			        'color'          => true,
+			    ),
+			    'label' => _('H1 (archives) Large Devices / Widescreens', 'thshpr'),
+			    'desc'  => _('Choose the typography for large devices / wide screens (1200px+)', 'thshpr'),
+			),
+
+			'opt_h1_archives_background_color' =>array(
+		    'type'  => 'color-picker',
+		    'value' => '#ffffff',
+		    'label' => __('H1 (archives) Background Color', 'thshpr'),
+		    'desc'  => __('Choose a color for the H1 (archives) background color', 'thshpr'),
+		    ),
+
+			'opt_h1_archives_medium_devices_desktops' =>array(
+			    'type' => 'typography-v2',
+			    'value' => array(
+					'family' => 'Playfair Display',
+					'variation' => 'regular',
+        			'weight' => 400,
+			        'size' => 54,
+			        'line-height' => 56,
+			        'letter-spacing' => 0,
+			        'color' => '#111111'
+			    ),
+			    'components' => array(
+			        'family'         => false,
+			        'size'           => true,
+			        'line-height'    => true,
+			        'letter-spacing' => false,
+			        'color'          => false,
+			    ),
+			    'label' => _('H1 (archives) - Medium Devices / Desktops', 'thshpr'),
+			    'desc'  => _('Choose the size and line height for medium devices / desktops (992px+)', 'thshpr'),
+			),
+			'opt_h1_archives_small_devices_tablets' =>array(
+			    'type' => 'typography-v2',
+			    'value' => array(
+					'family' => 'Playfair Display',
+					'variation' => 'regular',
+        			'weight' => 400,
+			        'size' => 50,
+			        'line-height' => 52,
+			        'letter-spacing' => 0,
+			        'color' => '#111111'
+			    ),
+			    'components' => array(
+			        'family'         => false,
+			        'size'           => true,
+			        'line-height'    => true,
+			        'letter-spacing' => false,
+			        'color'          => false,
+			    ),
+			    'label' => _('H1 (archives) - Small Devices / Tablets', 'thshpr'),
+			    'desc'  => _('Choose the size and line height for small devices / tablets (768px+)', 'thshpr'),
+			),
+			'opt_h1_archives_extra_small_devices_phones' =>array(
+			    'type' => 'typography-v2',
+			    'value' => array(
+					'family' => 'Playfair Display',
+					'variation' => 'regular',
+        			'weight' => 400,
+			        'size' => 40,
+			        'line-height' => 42,
+			        'letter-spacing' => 0,
+			        'color' => '#111111'
+			    ),
+			    'components' => array(
+			        'family'         => false,
+			        'size'           => true,
+			        'line-height'    => true,
+			        'letter-spacing' => false,
+			        'color'          => false,
+			    ),
+			    'label' => _('H1 (archives) - Small Devices / Phones', 'thshpr'),
+			    'desc'  => _('Choose the size and line height for small devices / phones (480px+)', 'thshpr'),
+			),
+			'opt_h1_archives_tiny_devices_phones' =>array(
+			    'type' => 'typography-v2',
+			    'value' => array(
+					'family' => 'Playfair Display',
+					'variation' => 'regular',
+        			'weight' => 400,
+			        'size' => 34,
+			        'line-height' => 37,
+			        'letter-spacing' => 0,
+			        'color' => '#111111'
+			    ),
+			    'components' => array(
+			        'family'         => false,
+			        'size'           => true,
+			        'line-height'    => true,
+			        'letter-spacing' => false,
+			        'color'          => false,
+			    ),
+			    'label' => _('H1 (archives) - Tiny Devices / Phones', 'thshpr'),
+			    'desc'  => _('Choose the size and line height for small devices / phones (320px+)', 'thshpr'),
+			),
+		),
+	),
+
 	'h2_options' => array(
 		'title' => _('H2', 'thshpr'),
 		'options' => array(
@@ -1136,6 +1256,119 @@ $options = array(
 		),
 	),
 
+	'archive_description_text' => array(
+		'title' => _('Archive Descriptions', 'thshpr'),
+		'options' => array(
+
+			'opt_archive_description' =>array(
+			    'type' => 'typography-v2',
+			    'value' => array(
+					'family' => 'Playfair Display',
+					'variation' => 'italic',
+        			'weight' => 400,
+			        'size' => 32,
+			        'line-height' => 38,
+			        'letter-spacing' => 0,
+			        'color' => '#a6a6a6'
+			    ),
+			    'components' => array(
+			        'family'         => true,
+			        'size'           => true,
+			        'line-height'    => true,
+			        'letter-spacing' => true,
+			        'color'          => true
+			    ),
+			    'label' => _('Archive Descriptions Large Devices / Widescreens', 'thshpr'),
+			    'desc'  => _('Choose the typography for large devices / wide screens (1200px+)', 'thshpr'),
+			),
+			'opt_archive_description_medium_devices_desktops' =>array(
+			    'type' => 'typography-v2',
+			    'value' => array(
+					'family' => 'Playfair Display',
+					'variation' => 'regular',
+        			'weight' => 400,
+			        'size' => 28,
+			        'line-height' => 33,
+			        'letter-spacing' => 0,
+			        'color' => '#a6a6a6'
+			    ),
+			    'components' => array(
+			        'family'         => false,
+			        'size'           => true,
+			        'line-height'    => true,
+			        'letter-spacing' => false,
+			        'color'          => false,
+			    ),
+			    'label' => _('Archive Descriptions - Medium Devices / Desktops', 'thshpr'),
+			    'desc'  => _('Choose the size and line height for medium devices / desktops (992px+)', 'thshpr'),
+			),
+			'opt_archive_description_small_devices_tablets' =>array(
+			    'type' => 'typography-v2',
+			    'value' => array(
+					'family' => 'Playfair Display',
+					'variation' => 'regular',
+        			'weight' => 400,
+			        'size' => 24,
+			        'line-height' => 29,
+			        'letter-spacing' => 0,
+			        'color' => '#a6a6a6'
+			    ),
+			    'components' => array(
+			        'family'         => false,
+			        'size'           => true,
+			        'line-height'    => true,
+			        'letter-spacing' => false,
+			        'color'          => false,
+			    ),
+			    'label' => _('Archive Descriptions - Small Devices / Tablets', 'thshpr'),
+			    'desc'  => _('Choose the size and line height for small devices / tablets (768px+)', 'thshpr'),
+			),
+			'opt_archive_description_extra_small_devices_phones' =>array(
+			    'type' => 'typography-v2',
+			    'value' => array(
+					'family' => 'Playfair Display',
+					'variation' => 'regular',
+        			'weight' => 400,
+			        'size' => 22,
+			        'line-height' => 27,
+			        'letter-spacing' => 0,
+			        'color' => '#a6a6a6'
+			    ),
+			    'components' => array(
+			        'family'         => false,
+			        'size'           => true,
+			        'line-height'    => true,
+			        'letter-spacing' => false,
+			        'color'          => false,
+			    ),
+			    'label' => _('Archive Descriptions - Small Devices / Phones', 'thshpr'),
+			    'desc'  => _('Choose the size and line height for small devices / phones (480px+)', 'thshpr'),
+			),
+			'opt_archive_description_tiny_devices_phones' =>array(
+			    'type' => 'typography-v2',
+			    'value' => array(
+					'family' => 'Playfair Display',
+					'variation' => 'regular',
+        			'weight' => 400,
+			        'size' => 22,
+			        'line-height' => 27,
+			        'letter-spacing' => 0,
+			        'color' => '#a6a6a6'
+			    ),
+			    'components' => array(
+			        'family'         => false,
+			        'size'           => true,
+			        'line-height'    => true,
+			        'letter-spacing' => false,
+			        'color'          => false,
+			    ),
+			    'label' => _('Archive Descriptions - Tiny Devices / Phones', 'thshpr'),
+			    'desc'  => _('Choose the size and line height for small devices / phones (320px+)', 'thshpr'),
+			),
+
+		),
+	),
+
 	'large_excerpt_options' => array(
 		'title' => _('Large Excerpt', 'thshpr'),
 		'options' => array(
@@ -1174,7 +1407,7 @@ $options = array(
 					'variation' => 'regular',
         			'weight' => 400,
 			        'size' => 17,
-			        'line-height' => 20,
+			        'line-height' => 24,
 			        'letter-spacing' => 0,
 			        'color' => '#111111'
 			    ),
@@ -1195,7 +1428,7 @@ $options = array(
 					'variation' => 'regular',
         			'weight' => 400,
 			        'size' => 17,
-			        'line-height' => 20,
+			        'line-height' => 24,
 			        'letter-spacing' => 0,
 			        'color' => '#111111'
 			    ),
@@ -1215,8 +1448,8 @@ $options = array(
 					'family' => 'Playfair Display',
 					'variation' => 'regular',
         			'weight' => 400,
-			        'size' => 17,
-			        'line-height' => 20,
+			        'size' => 16,
+			        'line-height' => 24,
 			        'letter-spacing' => 0,
 			        'color' => '#111111'
 			    ),
@@ -1236,8 +1469,8 @@ $options = array(
 					'family' => 'Playfair Display',
 					'variation' => 'regular',
         			'weight' => 400,
-			        'size' => 17,
-			        'line-height' => 20,
+			        'size' => 16,
+			        'line-height' => 24,
 			        'letter-spacing' => 0,
 			        'color' => '#111111'
 			    ),

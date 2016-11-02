@@ -8,7 +8,7 @@ $options = array(
 
 	'override_customiser' => array(
 		'type' => 'box',
-		'title' => __('Category Options', 'thshpr'),
+		'title' => __('Tag Options', 'thshpr'),
 		'options' => array(
 
 			'opt_parallax_image' => array(
@@ -35,13 +35,13 @@ $options = array(
 			    'picker' => array(
 			        // '<custom-key>' => option
 			        'option-type' => array(
-			            'label'   => __('Choose Options For This Category', 'thshpr'),
+			            'label'   => __('Choose Options For This Tag', 'thshpr'),
 			            'type'    => 'select', // or 'short-select'
 			            'choices' => array(
 			                'customizer'  => __('Use Global Customiser Options', 'thshpr'),
-			                'override' => __('Override Options For This Category', 'thshpr')
+			                'override' => __('Override Options For This Tag', 'thshpr')
 			            ),
-			            'desc'    => __('You should set global post options in the customizer first, then override here if you wish to change the options for this specific category', 'thshpr'),
+			            'desc'    => __('You should set global post options in the customizer first, then override here if you wish to change the options for this specific Tag', 'thshpr'),
 			        )
 			    ),
 

@@ -22,25 +22,171 @@ if(function_exists( 'fw_get_db_customizer_option' ))
 	So we need to use match height and strap point this coding is contained in inits.js **/
 	wp_enqueue_script('blog-inits', $uri . '/static/js/inits.js',array('jquery','thshpr-match-height','thshpr-strap-point'),'',true );
 
-	/** Other variables from options **/
-	$order_by=fw_get_db_customizer_option('opt_posts_block_ordering');
-	$show_hover_effects=fw_get_db_customizer_option('opt_posts_block_hover_effects');
-	$category_tag_number=fw_get_db_customizer_option('opt_posts_block_number_categories');
-	$excerpt_length=fw_get_db_customizer_option('opt_posts_block_excerpt_length');
-	$large_excerpt_length=fw_get_db_customizer_option('opt_posts_block_large_excerpt_length');
-	$components_elements=fw_get_db_customizer_option('opt_posts_block_functionality');
-	$read_more=fw_get_db_customizer_option('opt_posts_block_read_more_text');
-	$max_posts=fw_get_db_customizer_option('opt_posts_block_number_posts');
-	$divider_type=fw_get_db_customizer_option('opt_divider_type');
-	$show_author_image=fw_get_db_customizer_option('opt_posts_block_show_author_image');
+    $override_customizer='';
+    if (is_category())
+    {
+        $overrides=fw_get_db_term_option($wp_query->get_queried_object_id(), 'category', 'override_customizer');
+    }
+    else if (is_tag())
+    {
+        $overrides=fw_get_db_term_option($wp_query->get_queried_object_id(), 'post_tag', 'override_customizer');
+    }
 
-	/** Specific shortcode variables **/
-	$show_divider=fw_get_db_customizer_option('opt_posts_block_show_divider');
-	$enabled_pagination=fw_get_db_customizer_option('opt_posts_block_pagination');
-	$next_text=fw_get_db_customizer_option('opt_posts_block_next_post_text');
-	$prev_text=fw_get_db_customizer_option('opt_posts_block_prev_post_text');
-	$small_hide_excerpt=0;
-	$show_page_numbers=fw_get_db_customizer_option('opt_posts_block_show_page_numbers');
+	if($override_customizer=='override')
+	{
+        /** Other variables from options **/
+    	$order_by=$overrides['override']['opt_posts_block_ordering'];
+    	$show_hover_effects=$overrides['override']['opt_posts_block_hover_effects'];
+    	$category_tag_number=$overrides['override']['opt_posts_block_number_categories'];
+    	$excerpt_length=$overrides['override']['opt_posts_block_excerpt_length'];
+    	$large_excerpt_length=$overrides['override']['opt_posts_block_large_excerpt_length'];
+    	$post_components_elements=$overrides['override']['opt_posts_block_functionality'];
+    	$read_more=$overrides['override']['opt_posts_block_read_more_text'];
+    	$max_posts=$overrides['override']['opt_posts_block_number_posts'];
+    	$divider_type=$overrides['override']['opt_divider_type'];
+    	$show_author_image=$overrides['override']['opt_posts_block_show_author_image'];
+
+    	/** Specific shortcode variables **/
+    	$show_divider=$overrides['override']['opt_posts_block_show_divider'];
+    	$enabled_pagination=$overrides['override']['opt_posts_block_pagination'];
+    	$next_text=$overrides['override']['opt_posts_block_next_post_text'];
+    	$prev_text=$overrides['override']['opt_posts_block_prev_post_text'];
+    	$small_hide_excerpt=0;
+    	$show_page_numbers=$overrides['override']['opt_posts_block_show_page_numbers'];
+
+        $layout=$overrides['override']['opt_posts_block_layout'];
+    	$vertical_align_columns=$overrides['override']['opt_posts_block_vertical_align_columns'];
+
+        /** hover items **/
+    	$hover_top=thshpr_get_image_hover_string($overrides['override']['opt_image_hover_item_1']);
+    	$hover_bottom=thshpr_get_image_hover_string($overrides['override']['opt_image_hover_item_2']);
+
+    	/** image ratios **/
+    	$large_image_ratio=$overrides['override']['opt_large_image_ratio'];
+    	$small_image_ratio=$overrides['override']['opt_small_image_ratio'];
+    	$small_width=$overrides['override']['opt_small_image_max_width'];
+    	$large_width=$overrides['override']['opt_large_image_max_width'];//needs adding to options
+    	$large_height= thshpr_generate_aspect_height($large_image_ratio,$large_width);
+    	$small_height= thshpr_generate_aspect_height($small_image_ratio,$small_width);
+
+        /**
+          * General Options
+          */
+        $show_progress_indicator=$overrides['override']['opt_show_progress_indicator'];
+        $sidebar_type=$overrides['override']['opt_sidebar_type'];
+        $sticky_sidebar=$overrides['override']['opt_sticky_sidebar'];
+        $center_title=$overrides['override']['opt_posts_block_center_title'];
+        $title_overlay_image=$overrides['override']['opt_posts_block_title_overlay_image'];
+
+        $title_overlay_image_string="";
+
+        /**
+          * Fullscreen Image Options
+          */
+        $header_image_width=1190;//hard set because scaling is used
+        $back_image=fw_get_db_term_option($wp_query->get_queried_object_id(), 'category', 'opt_parallax_image');
+        $background_image="";
+        if(isset($back_image['data']['icon']))
+        {
+            $background_image=$back_image['data']['icon'];
+        }
+
+        $header_fade_image_scroll=$overrides['override']['opt_header_fade_image_scroll'];
+        $header_image_height=$overrides['override']['opt_header_image_height'];
+        $background_position=$overrides['override']['opt_background_position'];
+        $background_color=$overrides['override']['opt_background_color'];
+        $background_repeat=$overrides['override']['opt_background_repeat'];
+        $background_size=$overrides['override']['opt_background_size'];
+        $background_parallax_ratio=$overrides['override']['opt_background_parallax_ratio'];
+
+        /**
+		  * Title Options
+		  */
+
+		$breadcrumbs_homepage_title=fw_get_db_customizer_option('opt_breadcrumbs_homepage_title');
+        $title_components_elements=$overrides['override']['opt_category_title_functionality'];
+        $header_divider_type=$overrides['override']['opt_categories_title_divider_type'];
+
+    }
+
+    else
+    {
+        /** Other variables from options **/
+    	$order_by=fw_get_db_customizer_option('opt_posts_block_ordering');
+    	$show_hover_effects=fw_get_db_customizer_option('opt_posts_block_hover_effects');
+    	$category_tag_number=fw_get_db_customizer_option('opt_posts_block_number_categories');
+    	$excerpt_length=fw_get_db_customizer_option('opt_posts_block_excerpt_length');
+    	$large_excerpt_length=fw_get_db_customizer_option('opt_posts_block_large_excerpt_length');
+    	$post_components_elements=fw_get_db_customizer_option('opt_posts_block_functionality');
+    	$read_more=fw_get_db_customizer_option('opt_posts_block_read_more_text');
+    	$max_posts=fw_get_db_customizer_option('opt_posts_block_number_posts');
+    	$divider_type=fw_get_db_customizer_option('opt_divider_type');
+    	$show_author_image=fw_get_db_customizer_option('opt_posts_block_show_author_image');
+
+    	/** Specific shortcode variables **/
+    	$show_divider=fw_get_db_customizer_option('opt_posts_block_show_divider');
+    	$enabled_pagination=fw_get_db_customizer_option('opt_posts_block_pagination');
+    	$next_text=fw_get_db_customizer_option('opt_posts_block_next_post_text');
+    	$prev_text=fw_get_db_customizer_option('opt_posts_block_prev_post_text');
+    	$small_hide_excerpt=0;
+    	$show_page_numbers=fw_get_db_customizer_option('opt_posts_block_show_page_numbers');
+
+        $layout=fw_get_db_customizer_option('opt_posts_block_layout');
+    	$vertical_align_columns=fw_get_db_customizer_option('opt_posts_block_vertical_align_columns');
+
+        /** hover items **/
+    	$hover_top=thshpr_get_image_hover_string(fw_get_db_customizer_option('opt_image_hover_item_1'));
+    	$hover_bottom=thshpr_get_image_hover_string(fw_get_db_customizer_option('opt_image_hover_item_2'));
+
+    	/** image ratios **/
+    	$large_image_ratio=fw_get_db_customizer_option('opt_large_image_ratio');
+    	$small_image_ratio=fw_get_db_customizer_option('opt_small_image_ratio');
+    	$small_width=fw_get_db_customizer_option('opt_small_image_max_width');
+    	$large_width=fw_get_db_customizer_option('opt_large_image_max_width');//needs adding to options
+    	$large_height= thshpr_generate_aspect_height($large_image_ratio,$large_width);
+    	$small_height= thshpr_generate_aspect_height($small_image_ratio,$small_width);
+
+        /**
+          * General Options
+          */
+        $show_progress_indicator=fw_get_db_customizer_option('opt_show_progress_indicator');
+        $sidebar_type=fw_get_db_customizer_option('opt_sidebar_type');
+        $sticky_sidebar=fw_get_db_customizer_option('opt_sticky_sidebar');
+        $center_title=fw_get_db_customizer_option('opt_posts_block_center_title');
+        $title_overlay_image=fw_get_db_customizer_option('opt_posts_block_title_overlay_image');
+
+        $title_overlay_image_string="";
+
+        /**
+          * Fullscreen Image Options
+          */
+        $header_image_width=1190;//hard set because scaling is used
+        $back_image=fw_get_db_term_option($wp_query->get_queried_object_id(), 'category', 'opt_parallax_image');
+
+        $background_image="";
+        if(isset($back_image['data']['icon']))
+        {
+            $background_image=$back_image['data']['icon'];
+        }
+
+        $header_fade_image_scroll=fw_get_db_customizer_option('opt_header_fade_image_scroll');
+        $header_image_height=fw_get_db_customizer_option('opt_header_image_height');
+        $background_position=fw_get_db_customizer_option('opt_background_position');
+        $background_color=fw_get_db_customizer_option('opt_background_color');
+        $background_repeat=fw_get_db_customizer_option('opt_background_repeat');
+        $background_size=fw_get_db_customizer_option('opt_background_size');
+        $background_parallax_ratio=fw_get_db_customizer_option('opt_background_parallax_ratio');
+
+        /**
+		  * Title Options
+		  */
+		$breadcrumbs_homepage_title=fw_get_db_customizer_option('opt_breadcrumbs_homepage_title');
+        $title_components_elements=fw_get_db_customizer_option('opt_categories_title_functionality');
+        $header_divider_type=fw_get_db_customizer_option('opt_categories_title_divider_type');
+
+    }
+
+
 	if($show_page_numbers=="Yes")
 	{
 		$show_page_numbers_string="show-page-numbers";
@@ -49,8 +195,7 @@ if(function_exists( 'fw_get_db_customizer_option' ))
 	{
 		$show_page_numbers_string="no-page-numbers";
 	}
-	$layout=fw_get_db_customizer_option('opt_posts_block_layout');
-	$vertical_align_columns=fw_get_db_customizer_option('opt_posts_block_vertical_align_columns');
+
 
 	if($vertical_align_columns=="Yes")
 	{
@@ -61,38 +206,19 @@ if(function_exists( 'fw_get_db_customizer_option' ))
 		$vertical_align_columns_string="";
 	}
 
-	/** hover items **/
-	$hover_top=thshpr_get_image_hover_string(fw_get_db_customizer_option('opt_image_hover_item_1'));
-	$hover_bottom=thshpr_get_image_hover_string(fw_get_db_customizer_option('opt_image_hover_item_2'));
 
-	/** image ratios **/
-	$large_image_ratio=fw_get_db_customizer_option('opt_large_image_ratio');
-	$small_image_ratio=fw_get_db_customizer_option('opt_small_image_ratio');
-	$small_width=fw_get_db_customizer_option('opt_small_image_max_width');
-	$large_width=fw_get_db_customizer_option('opt_large_image_max_width');//needs adding to options
-	$large_height= thshpr_generate_aspect_height($large_image_ratio,$large_width);
-	$small_height= thshpr_generate_aspect_height($small_image_ratio,$small_width);
-
-    /**
-      * General Options
-      */
-    $show_progress_indicator=fw_get_db_customizer_option('opt_show_progress_indicator');
-    $sidebar_type=fw_get_db_customizer_option('opt_sidebar_type');
-    $sticky_sidebar=fw_get_db_customizer_option('opt_sticky_sidebar');
-    $center_title=fw_get_db_customizer_option('opt_posts_block_center_title');
-    $title_overlay_image=fw_get_db_customizer_option('opt_posts_block_title_overlay_image');
-
-    $title_overlay_image_string="";
-    if($title_overlay_image=="Yes")
+    if($title_overlay_image=="Yes" && $background_image!="") //if the image isn't present we cant have this
     {
         $title_overlay_image_string="archive-title-image-overlay";
     }
 
-
-
+    $center_title_string="";
+    if($center_title=="Yes")
+    {
+        $center_title_string="center";
+    }
 
     $post_categories=$wp_query->get_queried_object_id();
-    //$left_right_padding=fw_get_db_customizer_option('opt_left_right_padding');
     $content_column_string='';
 	if($sidebar_type=="left")
   	{
@@ -112,24 +238,6 @@ if(function_exists( 'fw_get_db_customizer_option' ))
   	}
 
 
-    /**
-      * Fullscreen Image Options
-      */
-
-      /**
-        * Fullscreen Header Image Options
-        */
-    $header_image_width=1190;//hard set because scaling is used
-    $back_image=fw_get_db_term_option($wp_query->get_queried_object_id(), 'category', 'opt_parallax_image');
-    $background_image=$back_image['data']['icon'];
-
-    $header_fade_image_scroll=fw_get_db_term_option($wp_query->get_queried_object_id(), 'category', 'opt_header_fade_image_scroll');
-    $header_image_height=fw_get_db_term_option($wp_query->get_queried_object_id(), 'category', 'opt_header_image_height');
-    $background_position=fw_get_db_term_option($wp_query->get_queried_object_id(), 'category', 'opt_background_position');
-    $background_color=fw_get_db_term_option($wp_query->get_queried_object_id(), 'category', 'opt_background_color');
-    $background_repeat=fw_get_db_term_option($wp_query->get_queried_object_id(), 'category', 'opt_background_repeat');
-    $background_size=fw_get_db_term_option($wp_query->get_queried_object_id(), 'category', 'opt_background_size');
-    $background_parallax_ratio=fw_get_db_term_option($wp_query->get_queried_object_id(), 'category', 'opt_background_parallax_ratio');
 
 
 
@@ -141,11 +249,15 @@ get_header();
 include(locate_template('global-templates/page-borders.php'));
 include(locate_template('global-templates/header-nav.php'));
 
-if(function_exists( 'fw_get_db_post_option' ) && $back_image)
+if(function_exists( 'fw_get_db_post_option' ) && $background_image!="")
 {
 	$parallax_string="";
 	include(locate_template('single-templates/parallax-section-string.php')); //generates meta string from customzed options
 	echo $parallax_string;
+    if($title_overlay_image=="Yes")
+    {
+        echo'<div class="category-spacer"></div>';
+    }
 }
 
 ?>
@@ -175,32 +287,31 @@ if(function_exists( 'fw_get_db_post_option' ) && $back_image)
 
                         <div class="featured-posts-grid grid-2-col blog-standard">
 
-                            <div class="archive-header <?php echo $title_overlay_image_string; ?>">
+                            <div class="archive-header <?php echo $title_overlay_image_string; ?> <?php echo $center_title_string; ?>">
                         		<?php
+                                $divider_type=$header_divider_type;
+                                $components_elements=$title_components_elements; //have to set this here because component elements used twice otherwise
+                                $breadcrumbs_offset_string="";
+                                $item_string="";
                                 if($center_title=="Yes")
                                 {
                                     echo'<div class="fw-row"><div class="fw-col-sm-12">';
-                    			    the_archive_title( '<h1 class="page-title center">', '</h1>' );
+                                    include locate_template('archive-templates/title-elements-string.php');
                                     echo'</div></div>';
                                 }
                                 else
                                 {
-                    			    the_archive_title( '<h1 class="page-title">', '</h1>' );
+                                    include locate_template('archive-templates/title-elements-string.php');
                                 }
+                                echo $item_string;
                         		?>
                         	</div><!-- .page-header -->
             		        <?php
-                            if($title_overlay_image=="Yes")
-                            {
-                                the_archive_description( '<div class="taxonomy-description center">', '</div>' );
-                            }
-                            else
-                            {
-                                the_archive_description( '<div class="taxonomy-description">', '</div>' );
-                            }
+
 
                             $item_string="";
                             $i=1;
+                            $components_elements=$post_components_elements; //again, this set because there are two component elements, one for title, one for posts
 
                             if ( have_posts() ) :
                 			// Start the Loop.
@@ -258,15 +369,6 @@ if(function_exists( 'fw_get_db_post_option' ) && $back_image)
 
                             echo $item_string;
 
-
-
-                			// Previous/next page navigation.
-                			the_posts_pagination( array(
-                				'prev_text'          => __( 'Previous page', 'twentysixteen' ),
-                				'next_text'          => __( 'Next page', 'twentysixteen' ),
-                				'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'twentysixteen' ) . ' </span>',
-                			) );
-
                 		// If no content, include the "No posts found" template.
                 		else :
                 			get_template_part( 'template-parts/content', 'none' );
@@ -296,5 +398,25 @@ if(function_exists( 'fw_get_db_post_option' ) && $back_image)
         </div>
     </section>
 </div>
+
+<?php
+/** Custom query loop pagination **/
+$pagination = get_the_posts_pagination
+(
+	array
+	(
+		'mid_size' => 0,
+		'prev_text' => 'prev',
+		'next_text' => 'next',
+	)
+);
+
+if($enabled_pagination=="Yes")
+{
+	echo'<div class="next-text hidden">'.$next_text.'</div>';
+	echo'<div class="prev-text hidden">'.$prev_text.'</div>';
+	echo'<div class="page-nav-standard '.$show_page_numbers_string.'">'.$pagination.'</div>';
+}
+?>
 
 <?php get_footer(); ?>

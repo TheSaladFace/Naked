@@ -283,7 +283,7 @@ if($show_fancy_prev_next)
 ?>
 
 <div class="body-main-content" id="body-main-content">
-	
+
 <?php
 	if(function_exists( 'fw_get_db_post_option' ) && $header_show_image)
 	{
@@ -333,7 +333,7 @@ if($show_fancy_prev_next)
 									{
 										$item_string="";
 										$cell_class="single";//sets for the large header
-										include(locate_template('single-templates/title-string.php')); //generates title string from customzed options
+										include(locate_template('single-templates/title-elements-string.php')); //generates title string from customzed options
 										echo $item_string;
 									}
 
