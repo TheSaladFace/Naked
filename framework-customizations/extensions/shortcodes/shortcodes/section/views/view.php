@@ -81,6 +81,15 @@ if ( ! empty( $atts['opt_background_parallax_ratio'] ) ) {
 
 $bg_video_data_attr    = '';
 $section_extra_classes = '';
+
+if ( ! empty( $atts['opt_remove_duplicate_posts'] ) )
+{
+	if($atts['opt_remove_duplicate_posts'] =="Yes")
+	{
+		$section_extra_classes .= ' remove-duplicate-posts';
+	}
+}
+
 if ( ! empty( $atts['opt_video'] ) ) {
 	$filetype           = wp_check_filetype( $atts['opt_video'] );
 	$filetypes          = array( 'mp4' => 'mp4', 'ogv' => 'ogg', 'webm' => 'webm', 'jpg' => 'poster' );

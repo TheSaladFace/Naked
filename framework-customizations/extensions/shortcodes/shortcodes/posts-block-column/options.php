@@ -67,7 +67,7 @@ $options = array(
 				'label' => __( 'Maximum Number of Posts Per Page', 'thshpr' ),
 				'type'  => 'text',
 				'value' => '10',
-				'desc'  => __( 'Please enter the maximum number of posts per page','thshpr' ),
+				'desc'  => __( 'Please enter the maximum number of posts per page if pagination enabled or total posts if not.','thshpr' ),
 				'help'  => __( 'Enter 0 for unlimited posts if pagination is turned off', 'thshpr' ),
 			),
 

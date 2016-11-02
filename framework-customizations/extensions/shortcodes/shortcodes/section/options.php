@@ -63,6 +63,20 @@ $options = array(
 			'label' => __('No', 'thshpr'),
 		),
 	),
+	'opt_remove_duplicate_posts' => array(
+		'label' => __('Remove Duplicate Posts', 'thshpr'),
+		'value' => 'Yes',
+		'desc'    => __( 'Removes duplicate posts within this section. Useful when you build up post blocks manually using a single category','thshpr' ),
+		'type' => 'switch',
+		'left-choice' => array(
+			'value' => 'Yes',
+			'label' => __('Yes', 'thshpr'),
+		),
+		'right-choice' => array(
+			'value' => 'No',
+			'label' => __('No', 'thshpr'),
+		),
+	),
 
 	fw()->theme->get_options('background-shared-options'),
 

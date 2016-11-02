@@ -902,6 +902,23 @@ function thshpr_excerpt_length( $length ) {
 add_filter( 'excerpt_length', 'thshpr_excerpt_length', 999 );
 
 /**
+ * Multidimentional array search
+ * @requires $needle,$haystack
+ */
+ function thshpr_in_array_recursive($needle, $haystack) {
+
+     $it = new RecursiveIteratorIterator(new RecursiveArrayIterator($haystack));
+
+     foreach($it AS $element) {
+         if($element == $needle) {
+             return true;
+         }
+     }
+
+     return false;
+ }
+
+/**
  * Generates height given a width and aspect ratio
  * @requires $ratio,$width
  */

@@ -115,7 +115,21 @@ jQuery(document).ready(function(jQuery) {
 
 
 
+    /**
+     * Remove Duplicate Posts
+     * Removes the duplicate posts from a section, used when people build up post blocks from column block.
+     */
 
+    // unique() must take a native array
+    var duplicateChk = {};
+
+    jQuery('.duplicate-check').each (function () {
+        if (duplicateChk.hasOwnProperty(this.id)) {
+           jQuery(this).remove();
+        } else {
+           duplicateChk[this.id] = 'true';
+        }
+    });
 
     /**
      * Category Title Overlay Image

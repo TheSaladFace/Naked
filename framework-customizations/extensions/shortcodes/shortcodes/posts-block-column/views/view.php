@@ -68,29 +68,32 @@ $small_height= thshpr_generate_aspect_height($small_image_ratio,$small_width);
 			while ( $the_query->have_posts() )
 			{
 				$the_query->the_post();
+				$id_class=get_the_ID();
+				$cell_class="duplicate-check ";
 
-				$cell_class="";
 				if($i==1 && $large_post_top=="Yes")
 				{
-					$cell_class="focus";
+					$cell_class.="focus";
 					$style_info="";
 				}
 				else
 				{
-					var_dump($components_elements);
-					if ( has_post_thumbnail() )
+					//check to see if the thumbnail has been included. If not we don't want to show thumbnail
+					$thumbnail_exists=thshpr_in_array_recursive('Thumbnail',$components_elements);
+
+					if ( has_post_thumbnail() && $thumbnail_exists ) //post can have a thumbnail but thumbnails not be a component element
 					{
-						$cell_class="tiny tiny-has-thumbnail";
+						$cell_class.="tiny tiny-has-thumbnail";
 						$padding_left=$small_width+20;
 						$style_info="style=padding-left:".$padding_left."px;min-height:".$small_height."px;";
 					}
 					else
 					{
-						$cell_class="tiny";
+						$cell_class.="tiny";
 						$style_info="";
 					}
 				}
-				$item_string.='<div class="'.$cell_class.'" '.$style_info.'>';
+				$item_string.='<div class="'.$cell_class.'" id="'.$id_class.'" '.$style_info.'>';
 				$hidden_thumb="";
 				//Image must come first here
 				if ($components_elements): foreach ($components_elements as $key=>$value)
