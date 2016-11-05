@@ -816,6 +816,9 @@ function thshpr_track_posts($post_id) {
 }
 add_action('wp_head', 'thshpr_track_posts');
 
+
+
+
 /**
   * Generates hover string from the passed option array
   * @requires $opt_image_hover_item - multidimensional array containing user choice for hover

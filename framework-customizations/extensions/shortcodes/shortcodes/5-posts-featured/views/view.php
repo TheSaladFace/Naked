@@ -9,7 +9,6 @@ if (!defined('FW')) die('Forbidden');
 /** Paths **/
 $uri = fw_get_template_customizations_directory_uri('/extensions/shortcodes/shortcodes/5-posts-featured');
 $shortcodes_shared_uri = fw_get_template_customizations_directory_uri('/extensions/shortcodes'); //the place for global shortcode templates + css
-
 /** Style and JS Includes **/
 wp_enqueue_style('thshpr-5-posts-featured', $uri . '/static/css/style.css',null, null, 'screen');
 

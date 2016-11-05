@@ -4,6 +4,19 @@
  */
 
 /** Dont run without Unyson plugin **/
+$GLOBALS['remove_duplicate_posts'] = 'No';
+$GLOBALS['section-posts_used'] = '';
+if ( ! empty( $atts['opt_remove_duplicate_posts'] ))
+{
+
+	if($atts['opt_remove_duplicate_posts']=="Yes")
+	{
+		$GLOBALS['remove_duplicate_posts'] = 'Yes';
+
+	}
+}
+
+$GLOBALS['A'] = 'B';
 
 if (!defined('FW')) die('Forbidden');
 
@@ -112,3 +125,9 @@ $container_class.=$padding_top.$padding_bottom.$margin_top.$margin_bottom;
 		<?php echo do_shortcode( $content ); ?>
 	</div>
 </section>
+
+
+<?php
+$GLOBALS['remove_duplicate_posts'] = 'No';
+$GLOBALS['section-posts_used'] = '';
+?>

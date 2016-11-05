@@ -34,6 +34,9 @@ Tags: responsive-layout, one-column, two-columns, three-columns, left-sidebar, r
 	.background-accent{transition:  all .35s ease; -moz-transition:  all .35s ease;  -o-transition:  all .35s ease;  -ms-transition:  all .35s ease;  transition:  all .35s ease; -webkit-transition-delay: 0s;  transition-delay: 0s;}
 
 
+		/*border bottom styles*/
+		.margin-bottom-class{margin-bottom:40px;}
+
 
 
 	a:active,a:visited,a:active,a:focus
@@ -1328,6 +1331,7 @@ border: 3px solid #444;
 	.page-numbers.prev, .page-numbers.next,.page-numbers-faded.prev, .page-numbers-faded.next {  position: absolute;  top: -4px;}
 	.page-numbers.next,.page-numbers-faded.next  { right: 0;}
 	.page-numbers.prev,.page-numbers-faded.prev  { left: 0;}
+
 }
 
 /** Medium Devices, Desktops **/

@@ -70,6 +70,20 @@ $options = array(
 				'desc'  => __( 'Please enter the maximum number of posts per page if pagination enabled or total posts if not.','thshpr' ),
 				'help'  => __( 'Enter 0 for unlimited posts if pagination is turned off', 'thshpr' ),
 			),
+			'opt_posts_block_bottom_margin'=>array(
+				'type'  => 'switch',
+				'value' => 'No',
+				'label' => __('Bottom Margin of Block', 'thshpr'),
+				'desc'  => __('Please enter a bottom margin for this block (will be applied for higher resolution devices)', 'thshpr'),
+				'left-choice' => array(
+					'value' => 'Yes',
+					'label' => __('Yes', 'thshpr'),
+				),
+				'right-choice' => array(
+					'value' => 'No',
+					'label' => __('No', 'thshpr'),
+				),
+			),
 
 		),
 	),

@@ -121,15 +121,48 @@ jQuery(document).ready(function(jQuery) {
      */
 
     // unique() must take a native array
-    var duplicateChk = {};
+//    var duplicateChk = {};
+//    var p=0;
+//    jQuery('.posts-block-column').each (function () {
+//        var numPosts=jQuery(this).attr( "max-posts" );
+//        var columnBlock=jQuery(this);
+//        var u=0;
 
-    jQuery('.duplicate-check').each (function () {
-        if (duplicateChk.hasOwnProperty(this.id)) {
-           jQuery(this).remove();
-        } else {
-           duplicateChk[this.id] = 'true';
-        }
-    });
+
+
+        //if(p<=1)
+        //{
+
+/*
+                jQuery(columnBlock).find('.duplicate-check').each(function () { //this is doing all of them at once
+
+                    var ids = jQuery('[id="' + this.id + '"]');
+
+                    // remove duplicate IDs
+                    if (ids.length > 1 && ids[0] == this)
+                    {
+                        jQuery('[id="' + this.id + '"]:gt(0)').remove();
+
+                    }
+
+                });
+
+*/
+            //jQuery(columnBlock).children().slice(numPosts).remove();
+        //}
+        //jQuery(columnBlock).children().slice(numPosts).remove();
+
+//    p++;
+
+//    });
+
+    /*jQuery('.posts-block-column').each (function () {
+
+        var numPosts=jQuery(this).attr( "max-posts" );
+        jQuery(this).children().slice(numPosts).remove();
+    });*/
+
+
 
     /**
      * Category Title Overlay Image
