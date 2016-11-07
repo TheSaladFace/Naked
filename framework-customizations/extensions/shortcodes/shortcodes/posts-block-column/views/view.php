@@ -13,10 +13,30 @@ $shortcodes_shared_uri = fw_get_template_customizations_directory_uri('/extensio
 /** Style and JS Includes **/
 wp_enqueue_style('thshpr-posts-block-column', $uri . '/static/css/style.css',null, null, 'screen');
 
-/** Generate category id string **/
-$post_categories=$atts["opt_posts_block_categories"];
-$post_categories=array_values($post_categories);
-$post_categories=thshpr_get_category_ids_string($post_categories);
+/** Get posts source **/
+$post_source=$atts["post_source"];
+$post_source_type=$post_source['option-type'];
+
+if($post_source_type=="categories")
+{
+	/** Generate category id string **/
+	$post_categories=$post_source['categories']['opt_posts_block_categories'];
+	$post_categories=array_values($post_categories);
+	$post_categories=thshpr_get_category_ids_string($post_categories);
+	$max_posts=$post_source['categories']['opt_posts_block_number_posts'];
+}
+else if($post_source_type=="posts")
+{
+	/** Generate category id string **/
+	$post_id_array=$post_source['posts']["opt_posts_block_posts"];
+	$max_posts=count($post_id_array);
+	/*$post_single_id=array_values($post_single_id);
+	$post_single_id=thshpr_get_category_ids_string($post_single_id);*/
+}
+
+
+
+
 
 /** Other variables from options **/
 $unique_id='id-'.$atts['id'];
@@ -27,16 +47,16 @@ $excerpt_length=$atts["opt_posts_block_excerpt_length"];
 $large_excerpt_length=$atts["opt_posts_block_large_excerpt_length"];
 $components_elements=$atts["opt_posts_block_functionality"];
 $read_more=$atts['opt_posts_block_read_more_text'];
-$atts['opt_posts_block_number_posts'];
 $divider_type=fw_locate_theme_path_uri('/static/img/').$atts['opt_divider_type'];
 $show_author_image=$atts['opt_posts_block_show_author_image'];
+$thumbnail_behaviour=$atts['opt_posts_block_thumbnail_behaviour'];
+
 
 /** hover items **/
 $hover_top=thshpr_get_image_hover_string($atts['opt_image_hover_item_1']);
 $hover_bottom=thshpr_get_image_hover_string($atts['opt_image_hover_item_2']);
 
 /** shortcode specific variables **/
-$max_posts=$atts['opt_posts_block_number_posts'];
 $small_width=$atts['opt_small_image_max_width'];
 $large_post_top=$atts["opt_posts_block_large_top"];
 $bottom_margin=$atts["opt_posts_block_bottom_margin"];
@@ -56,10 +76,24 @@ $small_height= thshpr_generate_aspect_height($small_image_ratio,$small_width);
 
 <div class="posts-block-column <?php echo $bottom_margin_string; ?>" <?php echo $unique_id; //so user can style instance ?>">
 	<?php
-	$args = array(
+
+	if($post_source_type=="categories")
+	{
+		$args = array(
 		'cat' => $post_categories,
 		'posts_per_page' => -1,
 		'orderby' => $order_by);
+
+	}
+	else if($post_source_type=="posts")
+	{
+		$args = array(
+		'post__in'      => $post_id_array,
+		'posts_per_page' => -1,
+		'orderby' => $order_by);
+	}
+
+
 		/** WP Query **/
 		$the_query = new WP_Query( $args );
 		$l=1;
@@ -88,17 +122,22 @@ $small_height= thshpr_generate_aspect_height($small_image_ratio,$small_width);
 				{
 					if($l<=$max_posts) //artificially imposing max posts because we are removing duplicates
 					{
+						//check to see if the thumbnail has been included. If not we don't want to show thumbnail
+						$thumbnail_exists=thshpr_in_array_recursive('Thumbnail',$components_elements);
+
 						if($l==1 && $large_post_top=="Yes")
 						{
-							$cell_class.=" focus";
+							$focus_has_thumbnail="";
+							if ( has_post_thumbnail() && $thumbnail_exists && $thumbnail_behaviour=="show all" || $thumbnail_behaviour=="hide on small posts") //post can have a thumbnail but thumbnails not be a component element
+							{
+								$focus_has_thumbnail=1;
+							}
+							$cell_class.="focus";
 							$style_info="";
 						}
 						else
 						{
-							//check to see if the thumbnail has been included. If not we don't want to show thumbnail
-							$thumbnail_exists=thshpr_in_array_recursive('Thumbnail',$components_elements);
-
-							if ( has_post_thumbnail() && $thumbnail_exists ) //post can have a thumbnail but thumbnails not be a component element
+							if ( has_post_thumbnail() && $thumbnail_exists && $thumbnail_behaviour=="show all" ) //post can have a thumbnail but thumbnails not be a component element
 							{
 								$cell_class.="tiny tiny-has-thumbnail";
 								$padding_left=$small_width+20;
@@ -106,7 +145,7 @@ $small_height= thshpr_generate_aspect_height($small_image_ratio,$small_width);
 							}
 							else
 							{
-								$cell_class.=" tiny";
+								$cell_class.="tiny";
 								$style_info="";
 							}
 						}
@@ -133,7 +172,7 @@ $small_height= thshpr_generate_aspect_height($small_image_ratio,$small_width);
 											</a>
 											</div>';
 										}
-										else
+										else if($focus_has_thumbnail==1)
 										{
 											include locate_template('post-component-elements/image-string.php');
 										}
