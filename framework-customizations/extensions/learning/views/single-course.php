@@ -43,10 +43,10 @@ get_header(); ?>
 						<div class="tabs-course-panel">
 							<div class="tabs-course" id="tabs-course">
 								<ul>
-									<li><a href="#tab-course-details"><?php _e( 'Course Details', 'unyson' ); ?></a>
+									<li><a href="#tab-course-details"><?php _e( 'Course Details', 'thshpr' ); ?></a>
 									</li>
 									<?php if ( ! empty( $lessons ) ) : ?>
-										<li><a href="#tab-course-lessons"><?php _e( 'Lessons', 'unyson' ); ?></a></li>
+										<li><a href="#tab-course-lessons"><?php _e( 'Lessons', 'thshpr' ); ?></a></li>
 									<?php endif ?>
 								</ul>
 								<div id="tab-course-details"><?php the_content() ?></div>
@@ -54,7 +54,7 @@ get_header(); ?>
 									<div id="tab-course-lessons">
 										<div class="section-course">
 											<span class="title-section-course"><?php the_title() ?> <?php _e( 'Lessons',
-													'unyson' ); ?></span>
+													'thshpr' ); ?></span>
 											<ul class="course-lesson">
 												<?php foreach ( $lessons as $lesson ) : fw_ext_learning_get_lesson_type( $lesson->ID ) ?>
 													<li>

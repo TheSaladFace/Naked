@@ -49,7 +49,7 @@ get_header(); ?>
 					</div>
 					<?php if ( $post->post_parent > 0 ) : ?>
 						<div class="entry-meta">
-							<p><?php _e( 'Back to', 'fw' ); ?>:
+							<p><?php _e( 'Back to', 'thshpr' ); ?>:
 								<a href="<?php echo get_permalink( $post->post_parent ) ?>"><?php echo get_the_title( $post->post_parent ) ?></a>
 							</p>
 						</div>
@@ -59,13 +59,13 @@ get_header(); ?>
 							<?php if ( $previous = fw_ext_learning_get_previous_lesson( $post->ID ) ) : ?>
 								<a href="<?php echo get_permalink( $previous->ID ) ?>" rel="prev"><span
 										class="meta-nav"><?php _e( 'Previous Lesson',
-											'unyson' ); ?></span><?php echo $previous->post_title ?>
+											'thshpr' ); ?></span><?php echo $previous->post_title ?>
 								</a>
 							<?php endif ?>
 							<?php if ( $next = fw_ext_learning_get_next_lesson( $post->ID ) ) : ?>
 								<a href="<?php echo get_permalink( $next->ID ) ?>" rel="next"><span
 										class="meta-nav"><?php _e( 'Next Lesson',
-											'unyson' ); ?></span><?php echo $next->post_title ?>
+											'thshpr' ); ?></span><?php echo $next->post_title ?>
 								</a>
 							<?php endif ?>
 						</div>

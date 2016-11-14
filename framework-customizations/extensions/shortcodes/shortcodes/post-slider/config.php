@@ -2,9 +2,9 @@
 
 $cfg = array(
     'page_builder' => array(
-        'title'         => __('Post Slider', 'fw'),
-        'description'   => __('Creates a thumbnail slider or posts', 'fw'),
-        'tab'           => __('Content Elements', 'fw'),
+        'title'         => __('Post Slider', 'thshpr'),
+        'description'   => __('Creates a thumbnail slider or posts', 'thshpr'),
+        'tab'           => __('Content Elements', 'thshpr'),
     )
 );
 

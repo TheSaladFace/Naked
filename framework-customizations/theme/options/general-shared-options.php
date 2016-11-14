@@ -14,7 +14,7 @@ $options = array(
 		'label' => __( 'Order Method', 'thshpr' ),
 		'type' => 'short-select',
 		'value' => 'date',
-		'desc' => __( 'Please choose how you wish the posts to be ordered.','unyson' ),
+		'desc' => __( 'Please choose how you wish the posts to be ordered.','thshpr' ),
 		'choices' => array(
 			'date' => 'date',
 			'rand' => 'random',
@@ -22,7 +22,7 @@ $options = array(
 			'author' => 'author',
 			'parent' => 'parent',
 		),
-		'help' =>__( 'Determines the order which the posts will be displayed in the shortcode output', 'unyson'  ),
+		'help' =>__( 'Determines the order which the posts will be displayed in the shortcode output', 'thshpr'  ),
 	),
 
 	'opt_posts_block_categories' => array(
@@ -30,8 +30,8 @@ $options = array(
 		'label' => __( 'Population Categories', 'thshpr' ),
 		'population' => 'taxonomy',
 		'source' => 'category',
-		'desc' => __( 'Please type the categories you wish to draw posts from.','unyson' ),
-		'help' =>__( 'Begin typing and the field will search the categories, select the ones you require', 'unyson'  ),
+		'desc' => __( 'Please type the categories you wish to draw posts from.','thshpr' ),
+		'help' =>__( 'Begin typing and the field will search the categories, select the ones you require', 'thshpr'  ),
 	),
 
 );

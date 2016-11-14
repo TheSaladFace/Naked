@@ -75,7 +75,7 @@ $options = array(
 				'label' => __( 'Previous / Next Button Vertical Position', 'thshpr' ),
 				'type'  => 'text',
 				'value' => '20',
-				'desc'  => __( 'Please enter the vertical position of the previous and next buttons (in pixels).','unyson' ),
+				'desc'  => __( 'Please enter the vertical position of the previous and next buttons (in pixels).','thshpr' ),
 				'help'  => __( 'This can be changed to vertically align the buttons depending on the other options chosen', 'thshpr' ),
 			),
 

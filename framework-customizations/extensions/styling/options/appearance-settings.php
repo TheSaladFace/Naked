@@ -11,7 +11,7 @@ $options = array(
 		'blocks'     => array(
 			
 			'extranavbar'  => array(
-				'title'        => __( 'Header', 'fw' ),
+				'title'        => __( 'Header', 'thshpr' ),
 				'elements'     => array( 'h1', 'links', 'links_hover', 'background'),
 				//all allowed array( 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'links', 'links_hover', 'background' )
 				'css_selector' => array(
@@ -25,7 +25,7 @@ $options = array(
 			),
 			
 			'extranavbar6'  => array(
-				'title'        => __( 'Header', 'fw' ),
+				'title'        => __( 'Header', 'thshpr' ),
 				'elements'     => array( 'h1', 'links', 'links_hover', 'background'),
 				//all allowed array( 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'links', 'links_hover', 'background' )
 				'css_selector' => array(
@@ -38,7 +38,7 @@ $options = array(
 				//css selectors ( string|array )
 			),
 			'extranavbar7'  => array(
-				'title'        => __( 'Header', 'fw' ),
+				'title'        => __( 'Header', 'thshpr' ),
 				'elements'     => array( 'h1', 'links', 'links_hover', 'background'),
 				//all allowed array( 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'links', 'links_hover', 'background' )
 				'css_selector' => array(
@@ -51,7 +51,7 @@ $options = array(
 				//css selectors ( string|array )
 			),
 			'header'  => array(
-				'title'        => __( 'Header', 'fw' ),
+				'title'        => __( 'Header', 'thshpr' ),
 				'elements'     => array( 'h1', 'links', 'links_hover', 'background'),
 				//all allowed array( 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'links', 'links_hover', 'background' )
 				'css_selector' => array(
@@ -59,7 +59,7 @@ $options = array(
 				),
 				'before' => array(
 				'menu_border' => array(
-				    'label' => __('Menu Border', 'fw'),
+				    'label' => __('Menu Border', 'thshpr'),
 				    'desc'  => false,
 				    'type'  => 'color-picker',
 				    'value' => '#cccccc',
@@ -71,7 +71,7 @@ $options = array(
 				//css selectors ( string|array )
 			),
 			'content' => array(
-				'title'        => __( 'Content', 'fw' ),
+				'title'        => __( 'Content', 'thshpr' ),
 				'elements'     => array( 'h2', 'h3', 'p', 'links', 'links_hover', 'background' ),
 				'css_selector' => array(
 					'#primary.content-area',
@@ -82,22 +82,22 @@ $options = array(
 				)
 			),
 			'sidebar' => array(
-				'title'        => __( 'Sidebar', 'fw' ),
+				'title'        => __( 'Sidebar', 'thshpr' ),
 				'elements'     => array( 'h1', 'links', 'links_hover', 'background' ),
 				'css_selector' => array( '#secondary', '.site:before' )
 			),
 			'footer'  => array(
-				'title'        => __( 'Footer', 'fw' ),
+				'title'        => __( 'Footer', 'thshpr' ),
 				'elements'     => array( 'h1', 'links', 'links_hover', 'background' ),
 				'css_selector' => '#colophon'
 			),
 		),
 	),
 	'quick_css'   => array(
-		'label' => __( 'Quick CSS', 'fw' ),
+		'label' => __( 'Quick CSS', 'thshpr' ),
 		'desc'  => sprintf(
 			__( 'Just want to do some quick CSS changes? Enter them here, they will be %s applied to the theme. ' .
-			    'If you need to change major portions of the theme %s please use the custom.css file.', 'fw' ),
+			    'If you need to change major portions of the theme %s please use the custom.css file.', 'thshpr' ),
 			'<br/>',
 			'<br/>'
 		),

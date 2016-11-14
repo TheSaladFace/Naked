@@ -2,9 +2,9 @@
 
 $cfg = array(
     'page_builder' => array(
-        'title'         => __('Spacer', 'fw'),
-        'description'   => __('Simple spacer shortcode', 'fw'),
-        'tab'           => __('Post Safe Shortcodes', 'fw'),
+        'title'         => __('Spacer', 'thshpr'),
+        'description'   => __('Simple spacer shortcode', 'thshpr'),
+        'tab'           => __('Post Safe Shortcodes', 'thshpr'),
     )
 );
 

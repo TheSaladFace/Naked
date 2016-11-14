@@ -4,6 +4,6 @@
  */
 
 $manifest = array();
-$manifest['title'] = __('Awesome Demo', 'fw');
+$manifest['title'] = __('Awesome Demo', 'thshpr');
 $manifest['screenshot'] = $uri . '/screenshot.png';
 $manifest['preview_link'] = 'https://your-site.com/demo/awesome';

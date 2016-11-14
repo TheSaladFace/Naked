@@ -24,16 +24,16 @@ get_header(); ?>
 				$text = '';
 
 				if ( $pass_mark > 0 ) {
-					$text = sprintf( __( 'You require %d%% in oder to pass the test', 'unyson' ), $pass_mark );
+					$text = sprintf( __( 'You require %d%% in oder to pass the test', 'thshpr' ), $pass_mark );
 				}
 
 				$response = fw_ext_learning_quiz_get_response();
 				if ( ! empty( $response ) ) {
 					if ( (int) $response['minimum-pass-mark'] > 0 ) {
 						if ( (int) $response['accumulated'] < (int) $response['minimum-pass-mark'] ) {
-							$text = __( 'Sorry, you did not pass the test', 'unyson' );
+							$text = __( 'Sorry, you did not pass the test', 'thshpr' );
 						} else {
-							$text = __( 'Congratulation, you passed the test', 'unyson' );
+							$text = __( 'Congratulation, you passed the test', 'thshpr' );
 						}
 					} else {
 						$correct = 0;
@@ -47,7 +47,7 @@ get_header(); ?>
 						}
 
 						$text = sprintf(
-							__( 'You answered correctly %s questions from %s', 'fw' ),
+							__( 'You answered correctly %s questions from %s', 'thshpr' ),
 							$correct,
 							count($response['questions'])
 						);
@@ -74,7 +74,7 @@ get_header(); ?>
 					<header class="entry-header">
 						<h1 class="entry-title">
 							<a href="<?php the_permalink() ?>"><?php echo $lesson->post_title ?>
-								: <?php _e( 'Quiz', 'unyson' ); ?></a>
+								: <?php _e( 'Quiz', 'thshpr' ); ?></a>
 						</h1>
 
 						<?php if ( function_exists( 'fw_ext_breadcrumbs' ) && is_single() ) {
@@ -114,7 +114,7 @@ get_header(); ?>
 					</div>
 					<?php if ( $post->post_parent > 0 ) : ?>
 						<div class="entry-meta">
-							<p><?php _e( 'Back to', 'fw' ); ?>:
+							<p><?php _e( 'Back to', 'thshpr' ); ?>:
 								<a href="<?php echo get_permalink( $post->post_parent ) ?>"><?php echo get_the_title( $post->post_parent ) ?></a>
 							</p>
 						</div>

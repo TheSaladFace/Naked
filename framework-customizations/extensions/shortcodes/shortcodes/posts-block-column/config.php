@@ -2,9 +2,9 @@
 
 $cfg = array(
     'page_builder' => array(
-        'title'         => __('Single Posts Column', 'fw'),
-        'description'   => __('Creates a single column of posts', 'fw'),
-        'tab'           => __('Content Elements', 'fw'),
+        'title'         => __('Single Posts Column', 'thshpr'),
+        'description'   => __('Creates a single column of posts', 'thshpr'),
+        'tab'           => __('Content Elements', 'thshpr'),
     )
 );
 

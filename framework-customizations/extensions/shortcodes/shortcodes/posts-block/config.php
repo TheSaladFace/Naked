@@ -2,9 +2,9 @@
 
 $cfg = array(
     'page_builder' => array(
-        'title'         => __('Standard Posts Grid', 'fw'),
-        'description'   => __('Creates a grid of posts in columns', 'fw'),
-        'tab'           => __('Content Elements', 'fw'),
+        'title'         => __('Standard Posts Grid', 'thshpr'),
+        'description'   => __('Creates a grid of posts in columns', 'thshpr'),
+        'tab'           => __('Content Elements', 'thshpr'),
     )
 );
 

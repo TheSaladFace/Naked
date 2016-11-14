@@ -13,7 +13,7 @@ get_header(); ?>
 			<?php if ( have_posts() ) : ?>
 
 				<header class="archive-header">
-					<h1 class="archive-title"><?php printf( __( 'Category Events: %s', 'unyson' ),
+					<h1 class="archive-title"><?php printf( __( 'Category Events: %s', 'thshpr' ),
 							single_cat_title( '', false ) ); ?></h1>
 					<?php
 					if ( function_exists( 'fw_ext_breadcrumbs' ) ) {

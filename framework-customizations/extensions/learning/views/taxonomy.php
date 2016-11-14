@@ -44,9 +44,9 @@ get_header(); ?>
 
 				endwhile; ?>
 				<div class="nav-previous"><?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts',
-							'unyson' ) ); ?></div>
+							'thshpr' ) ); ?></div>
 				<div class="nav-next"><?php previous_posts_link( __( 'Newer posts <span class="meta-nav">&rarr;</span>',
-							'unyson' ) ); ?></div>
+							'thshpr' ) ); ?></div>
 			<?php
 			else : // If no content, include the "No posts found" template.
 			{

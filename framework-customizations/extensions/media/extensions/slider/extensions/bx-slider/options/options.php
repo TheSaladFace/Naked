@@ -2,13 +2,13 @@
 
 $options = array(
 	'test1z' => array(
-		'label' => __('Type of Transition', 'unyson'),
-		'desc'  => __('Type of transition between slides', 'unyson'),
+		'label' => __('Type of Transition', 'thshpr'),
+		'desc'  => __('Type of transition between slides', 'thshpr'),
 		'type'  => 'select',
 		'choices' => array(
-			'horizontal' => __('Horizontal', 'unyson'),
-			'vertical' => __('Vertical', 'unyson'),
-			'fade' => __('Fade', 'unyson')
+			'horizontal' => __('Horizontal', 'thshpr'),
+			'vertical' => __('Vertical', 'thshpr'),
+			'fade' => __('Fade', 'thshpr')
 		),
 		'value' => 'horizontal',
 	)

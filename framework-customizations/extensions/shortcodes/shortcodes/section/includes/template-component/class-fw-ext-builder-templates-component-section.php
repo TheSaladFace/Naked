@@ -9,7 +9,7 @@ class FW_Ext_Builder_Templates_Component_Section extends FW_Ext_Builder_Template
 
 	public function get_title()
 	{
-		return __('Sections', 'fw');
+		return __('Sections', 'thshpr');
 	}
 
 	public function _render($data)
@@ -57,10 +57,10 @@ class FW_Ext_Builder_Templates_Component_Section extends FW_Ext_Builder_Template
 		}
 
 		if (empty($html)) {
-			$html = '<div class="fw-text-muted">'. __('No Templates Saved', 'fw') .'</div>';
+			$html = '<div class="fw-text-muted">'. __('No Templates Saved', 'thshpr') .'</div>';
 		} else {
 			$html =
-				'<p class="fw-text-muted load-template-title">'. __('Load Template', 'fw') .':</p>'
+				'<p class="fw-text-muted load-template-title">'. __('Load Template', 'thshpr') .':</p>'
 				. '<ul class="std">'. $html .'</ul>';
 		}
 
@@ -101,9 +101,9 @@ class FW_Ext_Builder_Templates_Component_Section extends FW_Ext_Builder_Template
 			'_fw_option_type_builder_templates_'. $this->get_type(),
 			array(
 				'l10n' => array(
-					'template_name' => __('Template Name', 'fw'),
-					'save_template' => __('Save Section', 'fw'),
-					'save_template_tooltip' => __('Save as Template', 'fw'),
+					'template_name' => __('Template Name', 'thshpr'),
+					'save_template' => __('Save Section', 'thshpr'),
+					'save_template_tooltip' => __('Save as Template', 'thshpr'),
 				),
 			)
 		);
@@ -185,7 +185,7 @@ class FW_Ext_Builder_Templates_Component_Section extends FW_Ext_Builder_Template
 		unset($decoded_json);
 
 		if (empty($template['title'])) {
-			$template['title'] = __('No Title', 'fw');
+			$template['title'] = __('No Title', 'thshpr');
 		}
 
 		$template_id = md5($template['json']);

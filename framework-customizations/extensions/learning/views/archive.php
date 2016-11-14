@@ -21,18 +21,18 @@ get_header(); ?>
 					<h1 class="page-title">
 						<?php
 						if ( is_day() ) :
-							printf( __( 'Daily Archives: %s', 'unyson' ), get_the_date() );
+							printf( __( 'Daily Archives: %s', 'thshpr' ), get_the_date() );
 
 						elseif ( is_month() ) :
-							printf( __( 'Monthly Archives: %s', 'unyson' ),
-								get_the_date( _x( 'F Y', 'monthly archives date format', 'unyson' ) ) );
+							printf( __( 'Monthly Archives: %s', 'thshpr' ),
+								get_the_date( _x( 'F Y', 'monthly archives date format', 'thshpr' ) ) );
 
 						elseif ( is_year() ) :
-							printf( __( 'Yearly Archives: %s', 'unyson' ),
-								get_the_date( _x( 'Y', 'yearly archives date format', 'unyson' ) ) );
+							printf( __( 'Yearly Archives: %s', 'thshpr' ),
+								get_the_date( _x( 'Y', 'yearly archives date format', 'thshpr' ) ) );
 
 						else :
-							_e( 'Archives', 'unyson' );
+							_e( 'Archives', 'thshpr' );
 						endif;
 						?>
 					</h1>
@@ -56,9 +56,9 @@ get_header(); ?>
 
 				endwhile; ?>
 				<div class="nav-previous"><?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts',
-							'unyson' ) ); ?></div>
+							'thshpr' ) ); ?></div>
 				<div class="nav-next"><?php previous_posts_link( __( 'Newer posts <span class="meta-nav">&rarr;</span>',
-							'unyson' ) ); ?></div>
+							'thshpr' ) ); ?></div>
 			<?php
 			else : // If no content, include the "No posts found" template.
 			{

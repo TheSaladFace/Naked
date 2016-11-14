@@ -9,7 +9,7 @@
 	<?php echo $items_html ?>
 	<div class="clear"></div>
 	<div class="alignleft">
-		<input type="submit" value="<?php _e( 'Submit', 'unyson' ) ?>"/>
+		<input type="submit" value="<?php _e( 'Submit', 'thshpr' ) ?>"/>
 	</div>
 	<div class="clear"></div>
 </div>

@@ -42,7 +42,7 @@ $options = array(
 		'type'  => 'text',
 		'value' => 'Next',
 		'desc'  => __( 'Enter the text to be used for the next post link ',
-		'unyson' ),
+		'thshpr' ),
 		'help'       =>__( 'This is optional, leave blank to just use arrows', 'thshpr'  ),
 	),
 
@@ -51,7 +51,7 @@ $options = array(
 		'type'  => 'text',
 		'value' => 'Prev',
 		'desc'  => __( 'Enter the text to be used for the previous post link ',
-		'unyson' ),
+		'thshpr' ),
 		'help'       =>__( 'This is optional, leave blank to just use arrows', 'thshpr'  ),
 	),
 

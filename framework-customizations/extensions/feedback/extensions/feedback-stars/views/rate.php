@@ -9,7 +9,7 @@
 ?>
 <!--Rating-->
 <div class="wrap-rating in-post">
-	<span class="rating-title"><?php _e( 'Rating', 'unyson' ); ?><sup>*</sup></span>
+	<span class="rating-title"><?php _e( 'Rating', 'thshpr' ); ?><sup>*</sup></span>
 
 	<div class="rating">
 		<?php

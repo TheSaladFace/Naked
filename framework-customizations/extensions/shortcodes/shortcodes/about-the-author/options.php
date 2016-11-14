@@ -23,8 +23,8 @@ $options = array(
 	    'type'  => 'image-picker',
 	    'value' => 'divider-thick-dark',
 
-	    'label' => __('Divider Type', 'fw'),
-	    'desc'  => __('Please select the type of divider you wish to use.', 'fw'),
+	    'label' => __('Divider Type', 'thshpr'),
+	    'desc'  => __('Please select the type of divider you wish to use.', 'thshpr'),
 	    'choices' => array(
 		'divider-stripes' => fw_get_template_customizations_directory_uri('/extensions/shortcodes/shortcodes/divider') .'/static/img/divider-stripes.png',
 		'divider-thin-light' =>fw_get_template_customizations_directory_uri('/extensions/shortcodes/shortcodes/divider') .'/static/img/divider-thin-light.png',

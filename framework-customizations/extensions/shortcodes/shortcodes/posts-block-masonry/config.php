@@ -2,9 +2,9 @@
 
 $cfg = array(
     'page_builder' => array(
-    	    'title'         => __('Posts Block: Masonry', 'fw'),
-        'description'   => __('Creates a grid of posts of varying cell heights', 'fw'),
-        'tab'           => __('Content Elements', 'fw'),
+    	    'title'         => __('Posts Block: Masonry', 'thshpr'),
+        'description'   => __('Creates a grid of posts of varying cell heights', 'thshpr'),
+        'tab'           => __('Content Elements', 'thshpr'),
     )
 );
 

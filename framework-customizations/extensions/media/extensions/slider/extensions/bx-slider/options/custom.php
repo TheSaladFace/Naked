@@ -2,9 +2,9 @@
 $options = array(
 	'subtitle' => array(
 		'type' => 'text',
-		'label' => __('Subtitle', 'unyson'),
+		'label' => __('Subtitle', 'thshpr'),
 		'value' => '',
-		'desc' => __( 'Choose a subtitle for your slide.', 'unyson' )
+		'desc' => __( 'Choose a subtitle for your slide.', 'thshpr' )
 	)
 );
 

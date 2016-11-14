@@ -51,7 +51,7 @@ $options = array(
 				'label' => __( 'Autorotate Speed', 'thshpr' ),
 				'type'  => 'text',
 				'value' => '0',
-				'desc'  => __( 'Please enter speed at which you want the slides to autorotate in seconds (leave at 0 to disable)','unyson' ),
+				'desc'  => __( 'Please enter speed at which you want the slides to autorotate in seconds (leave at 0 to disable)','thshpr' ),
 			),
 
 		),

@@ -54,11 +54,11 @@ $options = array(
 				'desc'  => __('Displays the initial slide info rows', 'thshpr'),
 				'left-choice' => array(
 				'value' => '1',
-				'label' => __('Show', 'fw'),
+				'label' => __('Show', 'thshpr'),
 				),
 				'right-choice' => array(
 				'value' => '0',
-				'label' => __('Hide', 'fw'),
+				'label' => __('Hide', 'thshpr'),
 				),
 				'help'  => __( 'This slider containes two sets of post elements. This lets you hide the default and only use the hover (below)', 'thshpr' ),
 			),

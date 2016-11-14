@@ -4,7 +4,7 @@ $options = array(
 
 	'id'    => array( 'type' => 'unique' ),
 	'opt_header_text' => array(
-		'label' => __( 'Divider Header Text (optional)', 'unyson' ),
+		'label' => __( 'Divider Header Text (optional)', 'thshpr' ),
 		'type'  => 'text',
 		'value' => 'Header',
 		'desc'  => __( 'Please enter the text for the divider header','thshpr' ),

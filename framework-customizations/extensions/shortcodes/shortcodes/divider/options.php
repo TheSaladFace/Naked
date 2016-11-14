@@ -9,8 +9,8 @@ $options = array(
 	    'type'  => 'image-picker',
 	    'value' => 'divider-thick-dark',
 	   
-	    'label' => __('Divider Type', 'fw'),
-	    'desc'  => __('Please select the type of divider you wish to use. Deselect to have no divider (only text, below)', 'fw'),
+	    'label' => __('Divider Type', 'thshpr'),
+	    'desc'  => __('Please select the type of divider you wish to use. Deselect to have no divider (only text, below)', 'thshpr'),
 	    'choices' => array(
 		'divider-stripes' => fw_get_template_customizations_directory_uri('/extensions/shortcodes/shortcodes/divider') .'/static/img/divider-stripes.png',
 		'divider-thin-light' =>fw_get_template_customizations_directory_uri('/extensions/shortcodes/shortcodes/divider') .'/static/img/divider-thin-light.png',
@@ -23,11 +23,11 @@ $options = array(
 	    'blank' => true, // (optional) if true, images can be deselected
 	),
 	'opt_divider_header_text'                      => array(
-		'label' => __( 'Divider Header Text (optional)', 'unyson' ),
+		'label' => __( 'Divider Header Text (optional)', 'thshpr' ),
 		'type'  => 'text',
 		'value' => '',
 		'desc'  => __( 'Please enter the text for the divider header',
-			'unyson' ),
+			'thshpr' ),
 	),	
 									
 									

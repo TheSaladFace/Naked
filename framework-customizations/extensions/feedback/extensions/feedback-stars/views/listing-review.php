@@ -19,7 +19,7 @@ case 'trackback' :
 // Display trackbacks differently than normal comments.
 ?>
 <li <?php comment_class(); ?> id="comment-<?php comment_ID(); ?>">
-	<p><?php _e( 'Pingback:', 'unyson' ); ?> <?php comment_author_link(); ?> <?php edit_comment_link( __( '(Edit)', 'unyson' ), '<span class="edit-link">', '</span>' ); ?></p>
+	<p><?php _e( 'Pingback:', 'thshpr' ); ?> <?php comment_author_link(); ?> <?php edit_comment_link( __( '(Edit)', 'thshpr' ), '<span class="edit-link">', '</span>' ); ?></p>
 	<?php
 	break;
 	default :
@@ -34,7 +34,7 @@ case 'trackback' :
 			printf( '<cite><b class="fn">%1$s</b> %2$s</cite>',
 				get_comment_author_link(),
 				// If current post author is also comment author, make it known visually.
-				( $comment->user_id === $post->post_author ) ? '<span>' . __( 'Post author', 'unyson' ) . '</span>' : ''
+				( $comment->user_id === $post->post_author ) ? '<span>' . __( 'Post author', 'thshpr' ) . '</span>' : ''
 			); ?>
 			<!--Rating-->
 			<?php if(!empty($rate)) : ?>
@@ -54,18 +54,18 @@ case 'trackback' :
 				esc_url( get_comment_link( $comment->comment_ID ) ),
 				get_comment_time( 'c' ),
 				/* translators: 1: date, 2: time */
-				sprintf( __( '%1$s at %2$s', 'unyson' ), get_comment_date(), get_comment_time() )
+				sprintf( __( '%1$s at %2$s', 'thshpr' ), get_comment_date(), get_comment_time() )
 			);
 			?>
 		</header><!-- .comment-meta -->
 
 		<?php if ( '0' == $comment->comment_approved ) : ?>
-			<p class="comment-awaiting-moderation"><?php _e( 'Your comment is awaiting moderation.', 'unyson' ); ?></p>
+			<p class="comment-awaiting-moderation"><?php _e( 'Your comment is awaiting moderation.', 'thshpr' ); ?></p>
 		<?php endif; ?>
 
 		<section class="comment-content comment">
 			<?php comment_text(); ?>
-			<?php edit_comment_link( __( 'Edit', 'unyson' ), '<p class="edit-link">', '</p>' ); ?>
+			<?php edit_comment_link( __( 'Edit', 'thshpr' ), '<p class="edit-link">', '</p>' ); ?>
 		</section><!-- .comment-content -->
 
 	</article><!-- #comment-## -->

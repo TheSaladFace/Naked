@@ -39,12 +39,12 @@ $options = fw_get_db_post_option( $post->ID, fw()->extensions->get( 'events' )->
 								if ( ! post_password_required() && ( comments_open() || get_comments_number() ) ) :
 									?>
 									<span class="comments-link"><?php comments_popup_link( __( 'Leave a comment',
-												'unyson' ), __( '1 Comment', 'unyson' ),
-											__( '% Comments', 'unyson' ) ); ?></span>
+												'thshpr' ), __( '1 Comment', 'thshpr' ),
+											__( '% Comments', 'thshpr' ) ); ?></span>
 								<?php
 								endif;
 
-								edit_post_link( __( 'Edit', 'unyson' ), '<span class="edit-link">', '</span>' );
+								edit_post_link( __( 'Edit', 'thshpr' ), '<span class="edit-link">', '</span>' );
 								?>
 								<?php
 								if ( function_exists( 'fw_ext_feedback' ) ) {
@@ -73,22 +73,22 @@ $options = fw_get_db_post_option( $post->ID, fw()->extensions->get( 'events' )->
 											'row_id'   => $key,
 											'calendar' => 'google'
 										), fw_current_url() ); ?>" type="button"><?php _e( 'Google Calendar',
-											'unyson' ) ?></button>
+											'thshpr' ) ?></button>
 									<button data-uri="<?php echo add_query_arg( array(
 											'row_id'   => $key,
 											'calendar' => 'ical'
 										), fw_current_url() ); ?>" type="button"><?php _e( 'Ical Export',
-											'unyson' ) ?></button>
+											'thshpr' ) ?></button>
 								</div>
 								<ul class="details-event">
-									<li><b><?php _e( 'Start', 'unyson' ) ?>
+									<li><b><?php _e( 'Start', 'thshpr' ) ?>
 											:</b> <?php echo $row['event_date_range']['from']; ?></li>
-									<li><b><?php _e( 'End', 'unyson' ) ?>
+									<li><b><?php _e( 'End', 'thshpr' ) ?>
 											:</b> <?php echo $row['event_date_range']['to']; ?></li>
 
 									<?php if ( empty( $row['event-user'] ) === false ) : ?>
 										<li>
-											<b><?php _e( 'Speakers', 'unyson' ) ?>:</b>
+											<b><?php _e( 'Speakers', 'thshpr' ) ?>:</b>
 											<?php foreach ( $row['event-user'] as $user_id ) : ?>
 												<?php $user_info = get_userdata( $user_id ); ?>
 												<?php echo esc_html( $user_info->display_name ); ?>

@@ -19,9 +19,9 @@ class Page_Builder_Section_Item extends Page_Builder_Item
 		$config = $shortcode_instance->get_config('page_builder');
 		return array_merge(
 			array(
-				'tab'         => __('Layout Elements', 'fw'),
-				'title'       => __('Section', 'fw'),
-				'description' => __('Creates a section', 'fw'),
+				'tab'         => __('Layout Elements', 'thshpr'),
+				'title'       => __('Section', 'thshpr'),
+				'description' => __('Creates a section', 'thshpr'),
 				'title_template' => null,
 			),
 			is_array($config) ? $config : array()
@@ -78,9 +78,9 @@ class Page_Builder_Section_Item extends Page_Builder_Item
 		$data['title_template'] = $config['title_template'];
 
 		$data['l10n'] = array(
-			'edit'      => __( 'Edit', 'fw' ),
-			'duplicate' => __( 'Duplicate', 'fw' ),
-			'remove'    => __( 'Remove', 'fw' ),
+			'edit'      => __( 'Edit', 'thshpr' ),
+			'duplicate' => __( 'Duplicate', 'thshpr' ),
+			'remove'    => __( 'Remove', 'thshpr' ),
 		);
 
 		return $data;
