@@ -120,7 +120,6 @@ jQuery(document).ready(function(jQuery) {
      * Shift it up to the middle of the image.
      */
     categoryHeaderCenterOffset=(((titleHeight)/2+(headerImageHeight/2))*-1)-categorySpacer;
-    console.log(categorySpacer);
 
     jQuery(".archive-title-image-overlay").css("margin-top",categoryHeaderCenterOffset);
 
@@ -162,7 +161,7 @@ jQuery(document).ready(function(jQuery) {
     jQuery('#nav-toggle').sidr({
         name: 'sidr-left',
         side: 'left',
-        source: '.vcenter-topbar.logo-holder,.menu-main-menu-container .nav-menu',
+        source: '.vcenter-topbar.logo-holder,.nav-container .nav-menu',
         displace: true,
 
         onOpen: function() {
