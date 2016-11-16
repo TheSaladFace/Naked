@@ -164,34 +164,16 @@ $options = array(
 				'type' =>'addable-box',
 				'label' => __('Add Title Elements', 'thshpr'),
 				'value' => array(
-			        array(
-			            'opt_archive_title_rows' => 'Title',
-			        ),
-					array(
-						'opt_archive_title_rows' => 'Spacer 10px',
-			        ),
-					array(
-						'opt_archive_title_rows' => 'Spacer 5px',
-			        ),
-					array(
-						'opt_archive_title_rows' => 'Divider',
-			        ),
-					array(
-						'opt_archive_title_rows' => 'Subtitle',
-			        ),
-					array(
-						'opt_archive_title_rows' => 'Divider',
-			        ),
-
-					array(
-						'opt_archive_title_rows' => 'Divider',
-			        ),
-
-					array(
-						'opt_archive_title_rows' => 'Spacer 20px',
-			        ),
-
+			    array(
+			        'opt_archive_title_rows' => 'Title',
 			    ),
+					array(
+						'opt_archive_title_rows' => 'Divider',
+			        ),
+					array(
+						'opt_archive_title_rows' => 'Breadcrumbs',
+			        ),
+				),
 				'template' => '{{- opt_archive_title_rows }}',
 				'popup-title' => null,
 				'help' => __( 'Add and order (drag and drop) the title elements to be displayed for the archive.', 'thshpr'  ),
@@ -244,7 +226,16 @@ $options = array(
 		'title' => __('Full Width Header Image Options', 'thshpr'),
 		'options' => array(
 
-			'opt_header_fade_image_scroll' =>array(
+			'opt_categories_header_parallax_image' => array(
+				'label' => __('Optional Full Width Parallax Image', 'thshpr'),
+				'desc' => __('Please select the optional full width parallax image', 'thshpr'),
+				'help' =>__( 'Only required if the "Show Full Width Header (Parallax) Image" is switched on either in the customiser or below if override options is selected', 'thshpr'  ),
+				'type' => 'background-image',
+				'choices' => array(//	in future may will set predefined images
+				)
+			),
+
+			'opt_categories_header_fade_image_scroll' =>array(
 				'type'  => 'switch',
 				'value' => 'Hide',
 				'label' => __('Fade Full Width Header (Parallax) Image on Scroll', 'thshpr'),
@@ -258,12 +249,12 @@ $options = array(
 					'label' => __('Dont Fade', 'thshpr'),
 				),
 			),
-			'opt_background_color' => array(
+			'opt_categories_background_color' => array(
 				'label' => __('Background Color', 'thshpr'),
 				'desc' => __('Please select the background color', 'thshpr'),
 				'type' => 'color-picker',
 			),
-			'opt_background_position' => array(
+			'opt_categories_background_position' => array(
 				'label' => __( 'Background Image Position', 'thshpr' ),
 				'type' => 'select',
 				'value' => 'left top',
@@ -281,7 +272,7 @@ $options = array(
 					'center bottom' => 'center bottom',
 				),
 			),
-			'opt_background_repeat'=> array(
+			'opt_categories_background_repeat'=> array(
 				'label'   => __( 'Background Image Repeat', 'thshpr' ),
 				'type'    => 'select',
 				'value'   => 'no-repeat',
@@ -294,7 +285,7 @@ $options = array(
 					'no-repeat' => 'no-repeat',
 				),
 			),
-			'opt_background_size' => array(
+			'opt_categories_background_size' => array(
 				'label'   => __( 'Background Size', 'thshpr' ),
 				'type'    => 'select',
 				'value'   => 'cover',
@@ -308,13 +299,13 @@ $options = array(
 					'contain' => 'contain',
 				),
 			),
-			'opt_background_parallax_ratio' =>array(
+			'opt_categories_background_parallax_ratio' =>array(
 				'type'  => 'text',
 				'value' => '',
 				'label' => __('Background Parallax Ratio', 'thshpr'),
 				'desc'  => __('Enter the number for the background parallax movement on scroll (leave empty to disable). Set this between 0 and 1 to ensure image coverage', 'thshpr'),
 			),
-			'opt_header_image_height' => array(
+			'opt_categories_header_image_height' => array(
 				'label' => __( 'Full Width Header (Parallax) Image Area Height', 'thshpr' ),
 				'type'  => 'text',
 				'value' => '200',
@@ -356,4 +347,6 @@ $options = array(
 
 		),
 	),
+
+
 );

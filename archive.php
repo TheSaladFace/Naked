@@ -158,10 +158,10 @@ if(function_exists( 'fw_get_db_customizer_option' ))
         $title_overlay_image_string="";
 
         /**
-          * Fullscreen Image Options
-          */
+        * Fullscreen Image Options
+        */
         $header_image_width=1190;//hard set because scaling is used
-        $back_image=fw_get_db_term_option($wp_query->get_queried_object_id(), 'category', 'opt_parallax_image');
+        $back_image=fw_get_db_customizer_option('opt_categories_header_parallax_image');
 
         $background_image="";
         if(isset($back_image['data']['icon']))
@@ -169,13 +169,13 @@ if(function_exists( 'fw_get_db_customizer_option' ))
             $background_image=$back_image['data']['icon'];
         }
 
-        $header_fade_image_scroll=fw_get_db_customizer_option('opt_header_fade_image_scroll');
-        $header_image_height=fw_get_db_customizer_option('opt_header_image_height');
-        $background_position=fw_get_db_customizer_option('opt_background_position');
-        $background_color=fw_get_db_customizer_option('opt_background_color');
-        $background_repeat=fw_get_db_customizer_option('opt_background_repeat');
-        $background_size=fw_get_db_customizer_option('opt_background_size');
-        $background_parallax_ratio=fw_get_db_customizer_option('opt_background_parallax_ratio');
+        $header_fade_image_scroll=fw_get_db_customizer_option('opt_categories_header_fade_image_scroll');
+        $header_image_height=fw_get_db_customizer_option('opt_categories_header_image_height');
+        $background_position=fw_get_db_customizer_option('opt_categories_background_position');
+        $background_color=fw_get_db_customizer_option('opt_categories_background_color');
+        $background_repeat=fw_get_db_customizer_option('opt_categories_background_repeat');
+        $background_size=fw_get_db_customizer_option('opt_categories_background_size');
+        $background_parallax_ratio=fw_get_db_customizer_option('opt_categories_background_parallax_ratio');
 
         /**
 		  * Title Options
@@ -297,13 +297,15 @@ if(function_exists( 'fw_get_db_post_option' ) && $background_image!="")
                                 {
                                     echo'<div class="fw-row"><div class="fw-col-sm-12">';
                                     include locate_template('archive-templates/title-elements-string.php');
+                                    echo $item_string;
                                     echo'</div></div>';
                                 }
                                 else
                                 {
                                     include locate_template('archive-templates/title-elements-string.php');
+                                    echo $item_string;
                                 }
-                                echo $item_string;
+
                         		?>
                         	</div><!-- .page-header -->
             		        <?php

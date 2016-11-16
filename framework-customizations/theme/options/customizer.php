@@ -37,7 +37,7 @@ $options = array(
         ),
     ),
 	'panel_4' => array(
-        'title' => __('Archives', 'thshpr'),
+        'title' => __('Archives & Search', 'thshpr'),
         'options' => array(
 			fw()->theme->get_options('archives'),
         ),

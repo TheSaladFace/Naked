@@ -2285,7 +2285,7 @@ header.smaller .logo{}
 	.archive-header.center .archive-description,.archive-header.center .archive-title,.archive-header.center .breadcrumbs,.archive-header.center .share-outer{text-align:center;}
 	.archive-header.center .social-share-boxes{float:none;}
 	.archive-title-image-overlay{position:absolute;}
-	.archive-title-image-overlay.center{left: 50%;-webkit-transform: translateX(-50%);transform: translateX(-50%);}
+	.archive-title-image-overlay.center{left: 50%;-webkit-transform: translateX(-50%);transform: translateX(-50%);width: 100%;}
 	.archive-description p{margin:0px;}
 	.category-spacer{height:60px;}
 }
