@@ -273,7 +273,7 @@ if(function_exists( 'fw_get_db_post_option' ) && $background_image!="")
 
                 		// If no content, include the "No posts found" template.
                 		else :
-                			get_template_part( 'template-parts/content', 'none' );
+                			include(locate_template('global-templates/content-none.php'));
 
                 		endif;
                 		?>
