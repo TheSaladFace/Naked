@@ -32,7 +32,7 @@ if ( !is_front_page() )
     if ( is_archive() && !is_tax() && !is_category() && !is_tag() )
     {
 
-        $breadcrumbs_string.='<li class="item-current item-archive"><span class="bread-current bread-archive">' . post_type_archive_title($prefix, false) . '</span></li>';
+        $breadcrumbs_string.='<li class="item-current item-archive"><span class="bread-current bread-archive">' . get_the_archive_title() . '</span></li>';
 
     }
     else if ( is_archive() && is_tax() && !is_category() && !is_tag() )

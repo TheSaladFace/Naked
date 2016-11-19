@@ -123,34 +123,6 @@ $options = array(
 					'full-width' => 'Full Width',
 				),
 			),
-			'opt_posts_block_center_title'=>array(
-				'type'  => 'switch',
-				'value' => 'Yes',
-				'label' => __('Center Title', 'thshpr'),
-				'desc'  => __('Horizontally Center the title in the middle of the page', 'thshpr'),
-				'left-choice' => array(
-					'value' => 'Yes',
-					'label' => __('Yes', 'thshpr'),
-				),
-				'right-choice' => array(
-					'value' => 'No',
-					'label' => __('No', 'thshpr'),
-				),
-			),
-			'opt_posts_block_title_overlay_image'=>array(
-				'type'  => 'switch',
-				'value' => 'Yes',
-				'label' => __('Overlay Title Over Image', 'thshpr'),
-				'desc'  => __('Overlays the title over the fill width image (if the image is set in the category / tag page)', 'thshpr'),
-				'left-choice' => array(
-					'value' => 'Yes',
-					'label' => __('Yes', 'thshpr'),
-				),
-				'right-choice' => array(
-					'value' => 'No',
-					'label' => __('No', 'thshpr'),
-				),
-			),
 
 
 		),
@@ -201,8 +173,31 @@ $options = array(
 					),
 				),
 			),
+			'opt_categories_shift_amount' => array(
+				'label' => __( 'Vertical Offset Title Area Amount', 'thshpr' ),
+				'type'  => 'text',
+				'value' => '0',
+				'desc'  => __( 'Enter the height to raise the title vertically in pixels. This should only be used when the full width header (parallax) image is enabled. This provides an overlap on the image.', 'thshpr' ),
+			),
+			'opt_categories_breadcrumbs_shift_amount' => array(
+				'label' => __( 'Vertical Offset Breadcrumbs', 'thshpr' ),
+				'type'  => 'text',
+				'value' => '0',
+				'desc'  => __( 'If you have the breadcrumbs first in the title elements list you may wish to shift it upwards slightly', 'thshpr' ),
+			),
+			'opt_categories_title_bottom_margin_amount' => array(
+				'label' => __( 'title Bottom Margin Amount', 'thshpr' ),
+				'type'  => 'text',
+				'value' => '40',
+				'desc'  => __( 'Enter the size of the title bottom margin in pixels. This should be used if you have used a large vertical offset above and wish to shift the rest of the content down.', 'thshpr' ),
+			),
+			'opt_categories_breadcrumbs_homepage_title' => array(
+				'label' => __( 'Homepage Title', 'thshpr' ),
+				'type'  => 'text',
+				'value' => 'Home',
+				'desc'  => __( 'Enter the text you wish to use for the home page in the breadcrumbs', 'thshpr' ),
+			),
 		),
-
 	),
 
 	'opt_categories_title_divider_type' => array(

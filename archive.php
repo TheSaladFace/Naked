@@ -102,10 +102,16 @@ if(function_exists( 'fw_get_db_customizer_option' ))
         /**
 		  * Title Options
 		  */
-
-		$breadcrumbs_homepage_title=fw_get_db_customizer_option('opt_breadcrumbs_homepage_title');
-        $title_components_elements=$overrides['override']['opt_category_title_functionality'];
+          /**
+  		  * Title Options
+  		  */
+  		$breadcrumbs_homepage_title=$overrides['override']['opt_breadcrumbs_homepage_title'];
+        $title_components_elements=$overrides['override']['opt_categories_title_functionality'];
         $header_divider_type=$overrides['override']['opt_categories_title_divider_type'];
+        $title_shift_title=$overrides['override']['opt_categories_shift_amount'];
+        $title_shift_breadcrumbs=$overrides['override']['opt_categories_title_bottom_margin_amount'];
+        $breadcrumbs_homepage_title=$overrides['override']['opt_breadcrumbs_homepage_title'];
+        $title_margin_amount=$overrides['override']['opt_breadcrumbs_title_bottom_margin_amount'];
 
     }
 
@@ -183,6 +189,10 @@ if(function_exists( 'fw_get_db_customizer_option' ))
 		$breadcrumbs_homepage_title=fw_get_db_customizer_option('opt_breadcrumbs_homepage_title');
         $title_components_elements=fw_get_db_customizer_option('opt_categories_title_functionality');
         $header_divider_type=fw_get_db_customizer_option('opt_categories_title_divider_type');
+        $title_shift_title=fw_get_db_customizer_option('opt_categories_shift_amount');
+        $title_shift_breadcrumbs=fw_get_db_customizer_option('opt_categories_breadcrumbs_shift_amount');
+        $breadcrumbs_homepage_title=fw_get_db_customizer_option('opt_breadcrumbs_homepage_title');
+        $title_margin_amount=fw_get_db_customizer_option('opt_breadcrumbs_title_bottom_margin_amount');
 
     }
 
@@ -207,16 +217,6 @@ if(function_exists( 'fw_get_db_customizer_option' ))
 	}
 
 
-    if($title_overlay_image=="Yes" && $background_image!="") //if the image isn't present we cant have this
-    {
-        $title_overlay_image_string="archive-title-image-overlay";
-    }
-
-    $center_title_string="";
-    if($center_title=="Yes")
-    {
-        $center_title_string="center";
-    }
 
     $post_categories=$wp_query->get_queried_object_id();
     $content_column_string='';
@@ -236,6 +236,88 @@ if(function_exists( 'fw_get_db_customizer_option' ))
 		$content_inner_string="left-right-padding";
 		$main_id='main-center';
   	}
+
+    if($title_shift_title>0)
+	{
+		$content_column_string.=" offset-title";
+	}
+	else
+	{
+		$content_column_string.=" no-offset-title";
+	}
+
+	$breadcrumbs_offset_string='';
+	if($title_shift_breadcrumbs>0)
+	{
+		$breadcrumbs_offset_string.=" offset-breadcrumbs";
+	}
+	else
+	{
+		$breadcrumbs_offset_string.=" no-offset-breadcrumbs";
+	}
+
+	$sticky_class="";
+	if($sticky_sidebar&&$sticky_header)
+	{
+		$sticky_class="sticky-sidebar";
+	}
+
+	/**
+	  * Generate title holder offset if required
+	  */
+	if($title_margin_amount>0)
+	{
+		$title_margin_adjust_string=' title-shift-margin-bottom';
+	}
+
+
+    /**
+      * Generates and outputs google fonts string, enqueues styles
+      */
+    function thshpr_print_single_styles()
+    {
+
+        global $title_shift_breadcrumbs, $title_shift_title, $title_margin_amount, $left_right_padding, $header_margin_amount, $left_aligned_image_max_width, $right_aligned_image_max_width, $center_aligned_image_max_width, $non_aligned_image_max_width;
+
+        $single_option_styles =
+        '
+        @media only screen and (min-width : 320px)
+        {'
+            .'.offset-breadcrumbs{margin-top:-'.$title_shift_breadcrumbs.'px;}'
+
+        .'}
+
+        /* Extra Small Devices, Phones */
+        @media only screen and (min-width : 480px)
+        {'
+
+        .'}
+
+        /* Small Devices, Tablets */
+        @media only screen and (min-width : 768px)
+        {'
+            .'.offset-featured-image{margin-top:0px;}'
+            .'.offset-title{margin-bottom:0px;}'
+        .'}
+
+        /* Medium Devices, Desktops */
+        @media only screen and (min-width : 992px)
+        {'
+            .'.offset-title{margin-top:-'.$title_shift_title.'px;}'
+            .'.title-shift-margin-bottom{margin-bottom:'.$title_margin_amount.'px;}'
+        .'}
+
+        /* Large Devices, Wide Screens */
+        @media only screen and (min-width : 1200px)
+        {'
+
+        .'}';
+
+        /*adds the styles to the end of optionstyle.css*/
+        wp_add_inline_style( 'thshpr-style', esc_html($single_option_styles) );
+
+    }
+    add_action('wp_enqueue_scripts', 'thshpr_print_single_styles');
 
 
 
@@ -282,33 +364,24 @@ if(function_exists( 'fw_get_db_post_option' ) && $background_image!="")
 
 				?>
                 <div class="<?php echo $content_column_string; ?>" id="<?php echo $main_id; ?>">
-                    <div id="primary" class="content-area">
+                    <div id="primary" class="content-area offset-title">
 
 
                         <div class="featured-posts-grid grid-2-col blog-standard">
 
-                            <div class="archive-header <?php echo $title_overlay_image_string; ?> <?php echo $center_title_string; ?>">
-                        		<?php
-                                $divider_type=$header_divider_type;
-                                $components_elements=$title_components_elements; //have to set this here because component elements used twice otherwise
-                                $breadcrumbs_offset_string="";
-                                $item_string="";
-                                if($center_title=="Yes")
-                                {
-                                    echo'<div class="fw-row"><div class="fw-col-sm-12">';
-                                    include locate_template('archive-templates/title-elements-string.php');
-                                    echo $item_string;
-                                    echo'</div></div>';
-                                }
-                                else
-                                {
-                                    include locate_template('archive-templates/title-elements-string.php');
-                                    echo $item_string;
-                                }
+                            <div class="title-holder <?php echo $title_margin_adjust_string; ?>">
+                                <?php
 
-                        		?>
-                        	</div><!-- .page-header -->
-            		        <?php
+                                $components_elements=$title_components_elements;
+                                $item_string="";
+                                $cell_class="single";//sets for the large header
+                                include(locate_template('archive-templates/title-elements-string.php')); //generates title string from customzed options
+                                echo $item_string;
+
+                                ?>
+                            </div>
+
+                            <?php
 
 
                             $item_string="";
