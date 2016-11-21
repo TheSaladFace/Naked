@@ -205,7 +205,7 @@ function thshpr_show_extra_profile_fields( $user )
 			<th><label for="email">Email</label></th>
 			<td>
 				<input type="text" name="email" id="email" value="<?php echo esc_attr( get_the_author_meta( 'email', $user->ID ) ); ?>" class="regular-text" /><br />
-				<span class="description">Please enter your Email URL (enter entire URL).</span>
+				<span class="description">Please enter your Email Address.</span>
 			</td>
 		</tr>
 

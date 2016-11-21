@@ -96,7 +96,7 @@ $item_string='
 		}
         if($email_url!="")
 		{
-			$item_string.='--><span class="social-box email"><a class="inner email-inner" href="'.$email_url.'"><i class="fa fa-envelope icon"></i></a></span>';
+			$item_string.='--><span class="social-box email"><a class="inner email-inner" href="mailto:'.$email_url.'"><i class="fa fa-envelope icon"></i></a></span>';
 		}
 
 $item_string.='
