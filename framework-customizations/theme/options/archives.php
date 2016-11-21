@@ -338,7 +338,52 @@ $options = array(
 		'title' => __('Pagination', 'thshpr'),
     	'options' => array(
 
-			fw()->theme->get_options('pagination-shared-options'),
+			'opt_posts_block_pagination'=>array(
+				'type'  => 'switch',
+				'value' => 'Yes',
+				'label' => __('Enable Pagination', 'thshpr'),
+				'desc'  => __('Enables pagination. * Only one posts block should have pagination per page', 'thshpr'),
+				'left-choice' => array(
+					'value' => 'Yes',
+					'label' => __('Yes', 'thshpr'),
+				),
+				'right-choice' => array(
+					'value' => 'No',
+					'label' => __('No', 'thshpr'),
+				),
+			),
+			'opt_posts_block_show_page_numbers'=>array(
+				'type'  => 'switch',
+				'value' => 'Yes',
+				'label' => __('Show Page Numbers', 'thshpr'),
+				'desc'  => __('Switching off will leave just previous and next buttons', 'thshpr'),
+				'left-choice' => array(
+					'value' => 'Yes',
+					'label' => __('Yes', 'thshpr'),
+				),
+				'right-choice' => array(
+					'value' => 'No',
+					'label' => __('No', 'thshpr'),
+				),
+			),
+
+			'opt_posts_block_next_post_text' => array(
+				'label' => __( 'Next Post Text', 'thshpr' ),
+				'type'  => 'text',
+				'value' => 'Next',
+				'desc'  => __( 'Enter the text to be used for the next post link ',
+				'thshpr' ),
+				'help'       =>__( 'This is optional, leave blank to just use arrows', 'thshpr'  ),
+			),
+
+			'opt_posts_block_prev_post_text' => array(
+				'label' => __( 'Prev Post Text', 'thshpr' ),
+				'type'  => 'text',
+				'value' => 'Prev',
+				'desc'  => __( 'Enter the text to be used for the previous post link ',
+				'thshpr' ),
+				'help'       =>__( 'This is optional, leave blank to just use arrows', 'thshpr'  ),
+			),
 
 		),
 	),

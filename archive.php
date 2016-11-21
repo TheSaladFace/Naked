@@ -480,7 +480,7 @@ $pagination = get_the_posts_pagination
 (
 	array
 	(
-		'mid_size' => 0,
+		'mid_size' => 7,
 		'prev_text' => 'prev',
 		'next_text' => 'next',
 	)
@@ -488,6 +488,7 @@ $pagination = get_the_posts_pagination
 
 if($enabled_pagination=="Yes")
 {
+    echo 'enabled pagination';
 	echo'<div class="next-text hidden">'.$next_text.'</div>';
 	echo'<div class="prev-text hidden">'.$prev_text.'</div>';
 	echo'<div class="page-nav-standard '.$show_page_numbers_string.'">'.$pagination.'</div>';
