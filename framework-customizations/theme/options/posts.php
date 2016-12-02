@@ -79,78 +79,167 @@ $options = array(
 		'type' => 'box',
 		'title' => __('Title Options', 'thshpr'),
 		'options' => array(
+
+
 			'opt_single_title_functionality'=> array(
 				'type' =>'addable-box',
 				'label' => __('Add Title Elements', 'thshpr'),
-				'value' => array(
-			        array(
-			            'opt_single_title_rows' => 'Title',
-			        ),
-					array(
-						'opt_single_title_rows' => 'Spacer 10px',
-			        ),
-					array(
-						'opt_single_title_rows' => 'Spacer 5px',
-			        ),
-					array(
-						'opt_single_title_rows' => 'Divider',
-			        ),
-					array(
-						'opt_single_title_rows' => 'Subtitle',
-			        ),
-					array(
-						'opt_single_title_rows' => 'Divider',
-			        ),
-					array(
-						'opt_single_title_rows' => 'Date+Comments+Author',
-			        ),
-					array(
-						'opt_single_title_rows' => 'Divider',
-			        ),
-					array(
-						'opt_single_title_rows' => 'Tags',
-			        ),
-					array(
-						'opt_single_title_rows' => 'Spacer 20px',
-			        ),
-					array(
-						'opt_single_title_rows' => 'Featured Image',
-			        ),
-			    ),
-				'template' => '{{- opt_single_title_rows }}',
-				'popup-title' => null,
+				'template' => '{{- opt_single_title_rows.the_block_type }}',
 				'help' => __( 'Add and order (drag and drop) the title elements to be displayed for this post.', 'thshpr'  ),
 				'size' =>'small', // small, medium, large
 				'limit' => 0, // limit the number of popup`s that can be added
+				/*'value' => array(
+					array(
+						'{{- opt_single_title_rows.the_block_type }}' => 'Title',
+					),
+					array(
+						'{{- opt_single_title_rows.the_block_type }}' => 'Spacer 10px',
+					),
+					array(
+						'{{- opt_single_title_rows.the_block_type }}' => 'Spacer 5px',
+					),
+					array(
+						'{{- opt_single_title_rows.the_block_type }}' => 'Divider',
+					),
+					array(
+						'{{- opt_single_title_rows.the_block_type }}' => 'Subtitle',
+					),
+					array(
+						'{{- opt_single_title_rows.the_block_type }}' => 'Divider',
+					),
+					array(
+						'{{- opt_single_title_rows.the_block_type }}' => 'Date+Comments+Author',
+					),
+					array(
+						'{{- opt_single_title_rows.the_block_type }}' => 'Divider',
+					),
+					array(
+						'{{- opt_single_title_rows.the_block_type }}' => 'Tags',
+					),
+					array(
+						'{{- opt_single_title_rows.the_block_type }}' => 'Spacer 20px',
+					),
+					array(
+						'{{- opt_single_title_rows.the_block_type }}' => 'Featured Image',
+					),
+				),*/
 				'box-options' => array(
-					'opt_single_title_rows' => array(
-						'label' => __( 'Row Type', 'thshpr' ),
-						'type' => 'select',
-						'choices' => array(
-							'Title' => 'Title',
-							'Subtitle' => 'Subtitle',
-							'Featured Image' => 'Featured Image',
-							'Categories' => 'Categories',
-							'Tags' => 'Tags',
-							'Date' => 'Date',
-							'Author' => 'Author',
-							'Comments' => 'Comments',
-							'Date+Comments' => 'Date+Comments',
-							'Comments+Author' => 'Comments+Author',
-							'Date+Author' => 'Date+Author',
-							'Date+Comments+Author' => 'Date+Comments+Author',
-							'Share Boxes' => 'Share Boxes',
-							'Breadcrumbs' => 'Breadcrumbs',
-							'Divider' => 'Divider',
-							'Spacer 50px' => 'Spacer 50px',
-							'Spacer 40px' => 'Spacer 40px',
-							'Spacer 30px' => 'Spacer 30px',
-							'Spacer 20px' => 'Spacer 20px',
-							'Spacer 10px' => 'Spacer 10px',
-							'Spacer 5px' => 'Spacer 5px',
-							'Spacer 2px' => 'Spacer 2px',
-							'Spacer 1px' => 'Spacer 1px',
-						),
+
+					'opt_single_title_rows' =>array(
+					    'type'  => 'multi-picker',
+						'picker' => array(
+					        'the_block_type' => array(
+					            'type'    => 'select',
+					            'choices' => array(
+									'Title' => __('Title', 'thshpr'),
+									'Plain Text' => __('Plain Text', 'thshpr'),
+									'Subtitle' => __('Subtitle', 'thshpr'),
+									'Featured Image' => __('Featured Image', 'thshpr'),
+									'Categories' => __('Categories', 'thshpr'),
+									'Tags' => __('Tags', 'thshpr'),
+									'Plain Text' => __('Plain Text', 'thshpr'),
+									'Date' => __('Date', 'thshpr'),
+									'Author' => __('Author', 'thshpr'),
+									'Comments' => __('Comments', 'thshpr'),
+									'Date+Comments' => __('Date+Comments', 'thshpr'),
+									'Comments+Author' => __('Comments+Author', 'thshpr'),
+									'Date+Author' => __('Date+Author', 'thshpr'),
+									'Date+Comments+Author' => __('Date+Comments+Author', 'thshpr'),
+									'Share Boxes' => __('Share Boxes', 'thshpr'),
+									'Breadcrumbs' => __('Breadcrumbs', 'thshpr'),
+									'Divider' => __('Divider', 'thshpr'),
+									'Spacer 50px' => __('Spacer 50px', 'thshpr'),
+									'Spacer 40px' => __('Spacer 40px', 'thshpr'),
+									'Spacer 30px' => __('Spacer 30px', 'thshpr'),
+									'Spacer 20px' => __('Spacer 20px', 'thshpr'),
+									'Spacer 10px' => __('Spacer 10px', 'thshpr'),
+									'Spacer 5px' => __('Spacer 5px', 'thshpr'),
+									'Spacer 2px' => __('Spacer 2px', 'thshpr'),
+									'Spacer 1px' => __('Spacer 1px', 'thshpr'),
+								)
+					        )
+					    ),
+					    'choices' => array(
+							'Title' => array(
+								'label' => __( 'Title', 'thshpr' ),
+					        ),
+							'Subtitle' => array(
+								'label' => __( 'Subtitle', 'thshpr' ),
+					        ),
+							'Featured Image' => array(
+								'label' => __( 'Featured Image', 'thshpr' ),
+					        ),
+							'Categories' => array(
+								'label' => __( 'Categories', 'thshpr' ),
+					        ),
+							'Tags' => array(
+								'label' => __( 'Tags', 'thshpr' ),
+					        ),
+							'Plain Text' => array(
+								'opt_plain_text_contents' => array(
+									'label' => __( 'Plain Text', 'thshpr' ),
+									'type'  => 'textarea',
+									'value' => '',
+									'desc'  => __( 'An optional field that contains the plain text for the plain text title element above (if selected)', 'thshpr' ),
+									'help' =>__( 'Only required if the plain text element is added', 'thshpr'  ),
+								),
+					        ),
+							'Date' => array(
+								'label' => __( 'Date', 'thshpr' ),
+					        ),
+							'Author' => array(
+								'label' => __( 'Author', 'thshpr' ),
+					        ),
+							'Comments' => array(
+								'label' => __( 'Comments', 'thshpr' ),
+					        ),
+							'Date+Comments' => array(
+								'label' => __( 'Date+Comments', 'thshpr' ),
+					        ),
+							'Comments+Author' => array(
+								'label' => __( 'Comments+Author', 'thshpr' ),
+					        ),
+							'Date+Author' => array(
+								'label' => __( 'Date+Author', 'thshpr' ),
+					        ),
+							'Date+Comments+Author' => array(
+								'label' => __( 'Date+Comments+Author', 'thshpr' ),
+					        ),
+							'Share Boxes' => array(
+								'label' => __( 'Share Boxes', 'thshpr' ),
+					        ),
+							'Breadcrumbs' => array(
+								'label' => __( 'Breadcrumbs', 'thshpr' ),
+					        ),
+							'Divider' => array(
+								'label' => __( 'Divider', 'thshpr' ),
+					        ),
+							'Spacer 50px' => array(
+								'label' => __( 'Spacer 50px', 'thshpr' ),
+					        ),
+							'Spacer 40px' => array(
+								'label' => __( 'Spacer 40px', 'thshpr' ),
+					        ),
+							'Spacer 30px' => array(
+								'label' => __( 'Spacer 30px', 'thshpr' ),
+					        ),
+							'Spacer 20px' => array(
+								'label' => __( 'Spacer 20px', 'thshpr' ),
+					        ),
+							'Spacer 10px' => array(
+								'label' => __( 'Spacer 10px', 'thshpr' ),
+					        ),
+							'Spacer 5px' => array(
+								'label' => __( 'Spacer 5px', 'thshpr' ),
+					        ),
+							'Spacer 2px' => array(
+								'label' => __( 'Spacer 2px', 'thshpr' ),
+					        ),
+							'Spacer 1px' => array(
+								'label' => __( 'Spacer 1px', 'thshpr' ),
+					        ),
+					    ),
+					    'show_borders' => false,
 					),
 				),
 			),
@@ -213,6 +302,7 @@ $options = array(
 				'help' => __( 'Only needed if the divider element is selected above', 'thshpr'  ),
 			    'blank' => false, // (optional) if true, images can be deselected
 			),
+
 			'opt_title_shift_amount' => array(
 				'label' => __( 'Vertical Offset Title Area Amount', 'thshpr' ),
 				'type'  => 'text',

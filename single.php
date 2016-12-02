@@ -50,6 +50,9 @@ if(function_exists( 'fw_get_db_post_option' )) //check for post options
 		$title_shift_breadcrumbs=$overrides['override']['opt_breadcrumbs_shift_amount'];
 		$breadcrumbs_homepage_title=fw_get_db_customizer_option('opt_breadcrumbs_homepage_title');
 	  	$title_margin_amount=$overrides['override']['opt_title_bottom_margin_amount'];
+		$plain_text_contents=$overrides['override']['opt_plain_text_contents'];
+
+
 
 
 		/**
@@ -104,7 +107,7 @@ if(function_exists( 'fw_get_db_post_option' )) //check for post options
 	  	$title_shift_title=fw_get_db_customizer_option('opt_title_shift_amount');
 		$title_shift_breadcrumbs=fw_get_db_customizer_option('opt_breadcrumbs_shift_amount');
 		$breadcrumbs_homepage_title=fw_get_db_customizer_option('opt_breadcrumbs_homepage_title');
-
+		$plain_text_contents=fw_get_db_customizer_option('opt_plain_text_contents');
 	  	$title_margin_amount=fw_get_db_customizer_option('opt_title_bottom_margin_amount');
 
 		/**

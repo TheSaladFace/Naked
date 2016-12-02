@@ -8,7 +8,64 @@ if (!defined('FW')) die('Forbidden');
 
 $options = array(
 
-	'opt_posts_block_functionality' =>array(
+	'opt_posts_block_functionality'=> array(
+		'type' =>'addable-box',
+		'label' => __('Add Post Elements', 'thshpr'),
+		'value' => array(
+			array(
+				'opt_header_featuredposts_rows' => 'Thumbnail',
+			),
+			array(
+				'opt_header_featuredposts_rows' => 'Title',
+			),
+			array(
+				'opt_header_featuredposts_rows' => 'Title+Excerpt',
+			),
+			array(
+				'opt_header_featuredposts_rows' => 'Categories',
+			),
+		),
+		'desc' => __('Add / remove / reorder elements to be displayed in each post', 'thshpr'),
+		'template' => '{{- opt_posts_block_rows }}',
+		'popup-title' => null,
+		'help' => __( 'Add and order (drag and drop) the posts elements to be displayed for this block. Thumbnail and divider may be unavailable for some blocks', 'thshpr'  ),
+		'size' =>'small', // small, medium, large
+		'limit' => 0, // limit the number of popup`s that can be added
+		'box-options' => array(
+			'opt_posts_block_rows' => array(
+				'label' => __( 'Row Type', 'thshpr' ),
+				'type' => 'select',
+				'choices' => array(
+					'Thumbnail' => 'Thumbnail',
+					'Title' => 'Title',
+					'Title+Excerpt' => 'Title+Excerpt',
+					'Read More' => 'Read More',
+					'Excerpt' => 'Excerpt',
+					'Categories' => 'Categories',
+					'Tags' => 'Tags',
+					'Date' => 'Date',
+					'Author' => 'Author',
+					'Comments' => 'Comments',
+					'Date+Comments' => 'Date+Comments',
+					'Comments+Author' => 'Comments+Author',
+					'Date+Author' => 'Date+Author',
+					'Date+Comments+Author' => 'Date+Comments+Author',
+					'Share Boxes' => 'Share Boxes',
+					'Divider' => 'Divider',
+					'Spacer 50px' => 'Spacer 50px',
+					'Spacer 40px' => 'Spacer 40px',
+					'Spacer 30px' => 'Spacer 30px',
+					'Spacer 20px' => 'Spacer 20px',
+					'Spacer 10px' => 'Spacer 10px',
+					'Spacer 5px' => 'Spacer 5px',
+					'Spacer 2px' => 'Spacer 2px',
+					'Spacer 1px' => 'Spacer 1px',
+				),
+			),
+		),
+	),
+
+	/*'opt_posts_block_functionality' =>array(
 		'type' => 'addable-box',
 		'label' => __('Add Post Elements', 'thshpr'),
 		'desc'  => __('Add / remove / reorder elements to be displayed in each post', 'thshpr'),
@@ -39,7 +96,7 @@ $options = array(
 				),
 			),
 		),
-	),
+	),*/
 
 	'opt_posts_block_number_categories' => array(
 		'label' => __( 'Number of Categories / Tags', 'thshpr' ),

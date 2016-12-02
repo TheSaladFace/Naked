@@ -47,6 +47,10 @@ Tags: responsive-layout, one-column, two-columns, three-columns, left-sidebar, r
     border: 0;
 	}
 
+	.slick-slide {
+    outline: none;
+	}
+
 	.top-border,.bottom-border,.left-border,.right-border{display:none;}
 }
 
@@ -1149,7 +1153,6 @@ button[type="submit"].search-submit
 	.component-element h3.small-headline{font-size:24px; line-height: 32px;}
 	.component-element h4{font-size:16px;font-weight: normal; line-height: 23px; margin:0px;}
 	.meta-title{margin: -3px 0px -3px 0px;}
-	.focus .meta-title{margin: 0px 0px 8px 0px;}
 
 	/** tags and categories **/
 	.tags a { font-size: 12px; display: inline-block; background-color: #c9c9c9; text-transform: uppercase; color: #fff; margin: 0 1px 5px 0;  padding: 6px 4px 4px 6px;  line-height: 11px;letter-spacing:1px;}

@@ -91,6 +91,31 @@ $options = array(
 				'help' =>__( 'Determines the order which the posts will be displayed in the shortcode output', 'thshpr'  ),
 			),
 
+			'opt_posts_block_type' => array(
+				'label' => __( 'Posts Block Type', 'thshpr' ),
+				'type' => 'select',
+				'value' => 'large image above small header',
+				'desc' => __( 'Please choose the type of post block','thshpr' ),
+				'choices' => array(
+					'images in sequence' => 'images in sequence',
+					'images left' => 'images left',
+				),
+			),
+			'opt_posts_block_large_header'=>array(
+				'type'  => 'switch',
+				'value' => 'Normal',
+				'label' => __('Header Size', 'thshpr'),
+				'desc'  => __('Size of header and excerpt', 'thshpr'),
+				'left-choice' => array(
+					'value' => 'Normal',
+					'label' => __('Normal', 'thshpr'),
+				),
+				'right-choice' => array(
+					'value' => 'Large',
+					'label' => __('Large', 'thshpr'),
+				),
+			),
+			/*
 			'opt_posts_block_large_top'=>array(
 				'type'  => 'switch',
 				'value' => 'Yes',
@@ -104,9 +129,9 @@ $options = array(
 					'value' => 'No',
 					'label' => __('No', 'thshpr'),
 				),
-			),
+			),*/
 
-			'opt_posts_block_thumbnail_behaviour' => array(
+			/*'opt_posts_block_thumbnail_behaviour' => array(
 				'label' => __( 'Thumbnails hide / show', 'thshpr' ),
 				'type' => 'short-select',
 				'value' => 'date',
@@ -116,7 +141,7 @@ $options = array(
 					'hide all' => 'hide all',
 					'hide on small posts' => 'hide on small posts',
 				),
-			),
+			),*/
 
 			'opt_posts_block_bottom_margin'=>array(
 				'type'  => 'switch',

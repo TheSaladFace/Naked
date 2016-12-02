@@ -43,9 +43,9 @@ $hover_top=thshpr_get_image_hover_string($atts['opt_image_hover_item_1']);
 $hover_bottom=thshpr_get_image_hover_string($atts['opt_image_hover_item_2']);
 
 /** image ratios **/
-$small_image_ratio=$atts['opt_small_image_ratio'];
-$width=$atts['opt_small_image_max_width'];
-$small_height=thshpr_generate_aspect_height($small_image_ratio,$width);
+$large_image_ratio=$atts['opt_large_image_ratio'];
+$width=$atts['opt_large_image_max_width'];
+$height=thshpr_generate_aspect_height($large_image_ratio,$width);
 ?>
 
 <div class="thumbnail-slider featured-slider-1 featured-thumbnail-slider <?php echo $unique_id; ?>" role="banner">
@@ -70,9 +70,11 @@ $small_height=thshpr_generate_aspect_height($small_image_ratio,$width);
 					<?php
 					$args = array(
 						'cat' => $post_categories,
+						'posts_per_page' => 100,
 						'orderby' => $order_by);
 					/** WP Query **/
 					$the_query = new WP_Query( $args );
+
 					$i=1;
 					$item_string="";
 					/** The Loop **/

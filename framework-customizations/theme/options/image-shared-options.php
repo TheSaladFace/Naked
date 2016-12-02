@@ -8,19 +8,19 @@ if (!defined('FW')) die('Forbidden');
 
 $options = array(
 
-	'opt_small_image_max_width' => array(
-		'label' => __( 'Normal Maximum Image Width', 'thshpr' ),
+	/*'opt_small_image_max_width' => array(
+		'label' => __( 'Small Maximum Image Width', 'thshpr' ),
 		'type' => 'text',
 		'value' => '900',
-		'desc' => __( 'Enter the normal image maximum width in pixels','thshpr' ),
+		'desc' => __( 'Enter the small image maximum width in pixels','thshpr' ),
 		'help' =>__( 'This should be set to be at least as large as the largest image needed for this block. A large size might be needed due to responsive resizing', 'thshpr'  ),
 	),
 
 	'opt_small_image_ratio' => array(
-		'label'   => __( 'Normal Image Ratio', 'thshpr' ),
+		'label'   => __( 'Small Image Ratio', 'thshpr' ),
 		'type'    => 'short-select',
 		'value'   => '0.75',
-		'desc'    => __( 'Please select the ratio of the normal sized images for this block (if the thumbnail post element is added above)The above maximum width is used and the height is automatically calculated. You must ensure the image is of sufficient original size.','thshpr' ),
+		'desc'    => __( 'Please select the ratio of the small images for this block. You must ensure the image is of sufficient original size.','thshpr' ),
 		'choices' => array(
 			'0.25' => '4 to 1',
 			'0.33' => '3 to 1',
@@ -35,21 +35,21 @@ $options = array(
 			'1.777777777777778' => '0.56 to 1 (9:16)',
 			'2.0' => '0.5 to 1',
 		),
-	),
+	),*/
 
 	'opt_large_image_max_width' => array(
-		'label' => __( 'Featured Maximum Image Width', 'thshpr' ),
+		'label' => __( 'Maximum Image Width', 'thshpr' ),
 		'type' => 'text',
 		'value' => '1120',
-		'desc' => __( 'Enter the featured image maximum width in pixels','thshpr' ),
+		'desc' => __( 'Enter the image maximum width in pixels','thshpr' ),
 		'help' =>__( 'This should be set to be at least as large as the largest image needed for this block. A large size might be needed due to responsive resizing. This only applies to blocks with a featured (larger) image', 'thshpr'  ),
 	),
 
 	'opt_large_image_ratio' => array(
-		'label' => __( 'Featured Image Ratio', 'thshpr' ),
+		'label' => __( 'Image Ratio', 'thshpr' ),
 		'type' => 'short-select',
 		'value' => '0.75',
-		'desc' => __( 'Please select the ratio of the large (featured) image for this block (if the thumbnail post element is added above). The above maximum width is used and the height is automatically calculated. You must ensure the image is of sufficient original size.','thshpr'),
+		'desc' => __( 'Please select the ratio of the image for this block (if the thumbnail post element is added above). The above maximum width is used and the height is automatically calculated. You must ensure the image is of sufficient original size.','thshpr'),
 		'choices' => array(
 			'0.25' => '4 to 1',
 			'0.33' => '3 to 1',
@@ -88,7 +88,7 @@ $options = array(
 		'desc' => false,
 		'picker' => array(
 			'template' => array(
-				'label' => __( 'Small Image Hover Upper Item', 'thshpr' ),
+				'label' => __( 'Image Hover Upper Item', 'thshpr' ),
 				'type' => 'select',
 				'choices' => array(
 					'0' => __('None', 'thshpr'),
@@ -142,7 +142,7 @@ $options = array(
 		'desc' => false,
 		'picker' => array(
 			'template' => array(
-				'label' => __( 'Small Image Hover Lower Item', 'thshpr' ),
+				'label' => __( 'Image Hover Lower Item', 'thshpr' ),
 				'type' => 'select',
 				'choices' => array(
 					'0' => __('None', 'thshpr'),

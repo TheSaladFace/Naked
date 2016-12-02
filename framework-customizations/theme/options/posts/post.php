@@ -59,7 +59,6 @@ $options = array(
 	            'desc'    => __('You should set global post options in the customizer first, then override here if you wish to change the options for this specific post', 'thshpr'),
 	        )
 	    ),
-
 	    'choices' => array(
 	        'customizer' => array(
 	        ),

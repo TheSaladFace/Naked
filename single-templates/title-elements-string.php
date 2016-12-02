@@ -35,6 +35,9 @@ if ($components_elements): foreach ($components_elements as $key=>$value)
 		case 'Author':
 			include locate_template('post-component-elements/author-string.php');
 		break;
+		case 'Plain Text':
+			include locate_template('post-component-elements/plain-text-string.php');
+		break;
 		case 'Date':
 			include locate_template('post-component-elements/date-string.php');
 		break;

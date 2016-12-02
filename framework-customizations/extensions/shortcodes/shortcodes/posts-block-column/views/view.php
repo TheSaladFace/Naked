@@ -49,7 +49,7 @@ $components_elements=$atts["opt_posts_block_functionality"];
 $read_more=$atts['opt_posts_block_read_more_text'];
 $divider_type=fw_locate_theme_path_uri('/static/img/').$atts['opt_divider_type'];
 $show_author_image=$atts['opt_posts_block_show_author_image'];
-$thumbnail_behaviour=$atts['opt_posts_block_thumbnail_behaviour'];
+$posts_block_large_header=$atts['opt_posts_block_large_header'];
 
 
 /** hover items **/
@@ -57,8 +57,9 @@ $hover_top=thshpr_get_image_hover_string($atts['opt_image_hover_item_1']);
 $hover_bottom=thshpr_get_image_hover_string($atts['opt_image_hover_item_2']);
 
 /** shortcode specific variables **/
-$small_width=$atts['opt_small_image_max_width'];
-$large_post_top=$atts["opt_posts_block_large_top"];
+/*$small_width=$atts['opt_small_image_max_width'];*/
+/*$large_post_top=$atts["opt_posts_block_large_top"];*/
+$posts_block_type=$atts["opt_posts_block_type"];
 $bottom_margin=$atts["opt_posts_block_bottom_margin"];
 if($bottom_margin=="Yes")
 {
@@ -67,10 +68,11 @@ if($bottom_margin=="Yes")
 
 /** image ratios **/
 $large_image_ratio=$atts['opt_large_image_ratio'];
-$small_image_ratio=$atts['opt_small_image_ratio'];
+/*$small_image_ratio=$atts['opt_small_image_ratio'];*/
 $width=$atts['opt_large_image_max_width'];
-$large_height= thshpr_generate_aspect_height($large_image_ratio,$width);
-$small_height= thshpr_generate_aspect_height($small_image_ratio,$small_width);
+$height= thshpr_generate_aspect_height($large_image_ratio,$width);
+
+/*$small_height= thshpr_generate_aspect_height($small_image_ratio,$small_width);*/
 
 ?>
 
@@ -124,123 +126,229 @@ $small_height= thshpr_generate_aspect_height($small_image_ratio,$small_width);
 					{
 						//check to see if the thumbnail has been included. If not we don't want to show thumbnail
 						$thumbnail_exists=thshpr_in_array_recursive('Thumbnail',$components_elements);
+						$hidden_thumb="";
 
-						if($l==1 && $large_post_top=="Yes")
+						if($posts_block_type=="images left")
 						{
-							$focus_has_thumbnail="";
-							if ( has_post_thumbnail() && $thumbnail_exists && $thumbnail_behaviour=="show all" || $thumbnail_behaviour=="hide on small posts") //post can have a thumbnail but thumbnails not be a component element
-							{
-								$focus_has_thumbnail=1;
-							}
-							$cell_class.="focus";
-							$style_info="";
-						}
-						else
-						{
-							if ( has_post_thumbnail() && $thumbnail_exists && $thumbnail_behaviour=="show all" ) //post can have a thumbnail but thumbnails not be a component element
+
+							if ( has_post_thumbnail() && $thumbnail_exists ) //post can have a thumbnail but thumbnails not be a component element
 							{
 								$cell_class.="tiny tiny-has-thumbnail";
-								$padding_left=$small_width+20;
-								$style_info="style=padding-left:".$padding_left."px;min-height:".$small_height."px;";
+								$padding_left=$width+20;
+								$style_info="style=padding-left:".$padding_left."px;min-height:".$height."px;";
 							}
 							else
 							{
 								$cell_class.="tiny";
 								$style_info="";
 							}
-						}
-
-						$item_string.='<div class="'.$cell_class.'" id="'.$id_class.'" '.$style_info.'>';
-						$hidden_thumb="";
-						//Image must come first here
-						if ($components_elements)
-						{
-							foreach ($components_elements as $key=>$value)
+							$item_string.='<div class="'.$cell_class.'" id="'.$id_class.'" '.$style_info.'>';
+							//Image must come first here
+							if ($components_elements)
 							{
-								switch($value['opt_header_featuredposts_rows'])
+								foreach ($components_elements as $key=>$value)
 								{
-									case 'Thumbnail':
-									if ( has_post_thumbnail() )
+									switch($value['opt_header_featuredposts_rows'])
 									{
-										if($cell_class=="tiny tiny-has-thumbnail")
+										case 'Thumbnail':
+										if ( has_post_thumbnail() )
 										{
-											$item_string.='
-											<div class="tiny-image">
-											<a href="'.get_permalink().'">';
-											$item_string.=thshpr_generate_image($small_width,$small_height,get_the_ID());
-											$item_string.='
-											</a>
-											</div>';
+											if($cell_class=="tiny tiny-has-thumbnail")
+											{
+												$item_string.='
+												<div class="tiny-image">
+												<a href="'.get_permalink().'">';
+												$item_string.=thshpr_generate_image($width,$height,get_the_ID());
+												$item_string.='
+												</a>
+												</div>';
+											}
+											else if($focus_has_thumbnail==1||$cell_class=="above-normal")
+											{
+												include locate_template('post-component-elements/image-string.php');
+											}
 										}
-										else if($focus_has_thumbnail==1)
-										{
-											include locate_template('post-component-elements/image-string.php');
-										}
+										break;
 									}
-									break;
 								}
 							}
-						}
-						if($cell_class=="tiny")
-						{
 							$item_string.='<div class="tiny-info">';
-						}
-						if ($components_elements)
-						{
-							foreach ($components_elements as $key=>$value)
+							if ($components_elements)
 							{
-								switch($value['opt_header_featuredposts_rows'])
+								foreach ($components_elements as $key=>$value)
 								{
-									case 'Title':
-										include locate_template('post-component-elements/title-string.php');
-									break;
-									case 'Excerpt':
-										include locate_template('post-component-elements/excerpt-string.php');
-									break;
-									case 'Categories':
-										include locate_template('post-component-elements/categories-string.php');
-									break;
-									case 'Tags':
-										include locate_template('post-component-elements/tags-string.php');
-									break;
-									case 'Read More':
-										include locate_template('post-component-elements/read-more-string.php');
-									break;
-									case 'Author':
-										include locate_template('post-component-elements/author-string.php');
-									break;
-									case 'Date':
-										include locate_template('post-component-elements/date-string.php');
-									break;
-									case 'Comments':
-										include locate_template('post-component-elements/comments-string.php');
-									break;
-									case 'Date+Comments':
-										include locate_template('post-component-elements/date-comments-string.php');
-									break;
-									case 'Comments+Author':
-										include locate_template('post-component-elements/comments-author-string.php');
-									break;
-									case 'Date+Author':
-										include locate_template('post-component-elements/date-author-string.php');
-									break;
-									case 'Date+Comments+Author':
-										include locate_template('post-component-elements/date-comments-author-string.php');
-									break;
-									case 'Share Boxes':
-										include locate_template('post-component-elements/share-boxes-string.php');
-									break;
-									case 'Divider':
-										include locate_template('post-component-elements/divider-string.php');
-									break;
+									switch($value['opt_header_featuredposts_rows'])
+									{
+										case 'Title':
+											include locate_template('post-component-elements/title-string.php');
+										break;
+										case 'Excerpt':
+											include locate_template('post-component-elements/excerpt-string.php');
+										break;
+										case 'Categories':
+											include locate_template('post-component-elements/categories-string.php');
+										break;
+										case 'Tags':
+											include locate_template('post-component-elements/tags-string.php');
+										break;
+										case 'Read More':
+											include locate_template('post-component-elements/read-more-string.php');
+										break;
+										case 'Author':
+											include locate_template('post-component-elements/author-string.php');
+										break;
+										case 'Date':
+											include locate_template('post-component-elements/date-string.php');
+										break;
+										case 'Comments':
+											include locate_template('post-component-elements/comments-string.php');
+										break;
+										case 'Date+Comments':
+											include locate_template('post-component-elements/date-comments-string.php');
+										break;
+										case 'Comments+Author':
+											include locate_template('post-component-elements/comments-author-string.php');
+										break;
+										case 'Date+Author':
+											include locate_template('post-component-elements/date-author-string.php');
+										break;
+										case 'Date+Comments+Author':
+											include locate_template('post-component-elements/date-comments-author-string.php');
+										break;
+										case 'Share Boxes':
+											include locate_template('post-component-elements/share-boxes-string.php');
+										break;
+										case 'Divider':
+											include locate_template('post-component-elements/divider-string.php');
+										break;
+										case 'Spacer 50px':
+											include locate_template('post-component-elements/spacer-50px.php');
+										break;
+										case 'Spacer 40px':
+											include locate_template('post-component-elements/spacer-40px.php');
+										break;
+										case 'Spacer 30px':
+											include locate_template('post-component-elements/spacer-30px.php');
+										break;
+										case 'Spacer 20px':
+											include locate_template('post-component-elements/spacer-20px.php');
+										break;
+										case 'Spacer 10px':
+											include locate_template('post-component-elements/spacer-10px.php');
+										break;
+										case 'Spacer 5px':
+											include locate_template('post-component-elements/spacer-5px.php');
+										break;
+										case 'Spacer 2px':
+											include locate_template('post-component-elements/spacer-2px.php');
+										break;
+										case 'Spacer 1px':
+											include locate_template('post-component-elements/spacer-1px.php');
+										break;
+									}
 								}
 							}
-						}
-						if($cell_class=="tiny")
-						{
 							$item_string.='</div>';
 						}
-						$l++;
+
+						else //normal
+						{
+							$focus_has_thumbnail="";
+							if ( has_post_thumbnail() && $thumbnail_exists) //post can have a thumbnail but thumbnails not be a component element
+							{
+								$focus_has_thumbnail=1;
+							}
+							if($posts_block_large_header=="Large")
+							{
+								$cell_class.="focus";
+							}
+							else
+							{
+								$cell_class.="above-normal";
+							}
+							$style_info="";
+							$item_string.='<div class="'.$cell_class.'" id="'.$id_class.'" '.$style_info.'>';
+
+							if ($components_elements)
+							{
+								foreach ($components_elements as $key=>$value)
+								{
+									switch($value['opt_header_featuredposts_rows'])
+									{
+										case 'Thumbnail':
+											include locate_template('post-component-elements/image-string.php');
+										break;
+										case 'Title':
+											include locate_template('post-component-elements/title-string.php');
+										break;
+										case 'Excerpt':
+											include locate_template('post-component-elements/excerpt-string.php');
+										break;
+										case 'Categories':
+											include locate_template('post-component-elements/categories-string.php');
+										break;
+										case 'Tags':
+											include locate_template('post-component-elements/tags-string.php');
+										break;
+										case 'Read More':
+											include locate_template('post-component-elements/read-more-string.php');
+										break;
+										case 'Author':
+											include locate_template('post-component-elements/author-string.php');
+										break;
+										case 'Date':
+											include locate_template('post-component-elements/date-string.php');
+										break;
+										case 'Comments':
+											include locate_template('post-component-elements/comments-string.php');
+										break;
+										case 'Date+Comments':
+											include locate_template('post-component-elements/date-comments-string.php');
+										break;
+										case 'Comments+Author':
+											include locate_template('post-component-elements/comments-author-string.php');
+										break;
+										case 'Date+Author':
+											include locate_template('post-component-elements/date-author-string.php');
+										break;
+										case 'Date+Comments+Author':
+											include locate_template('post-component-elements/date-comments-author-string.php');
+										break;
+										case 'Share Boxes':
+											include locate_template('post-component-elements/share-boxes-string.php');
+										break;
+										case 'Divider':
+											include locate_template('post-component-elements/divider-string.php');
+										break;
+										case 'Spacer 50px':
+											include locate_template('post-component-elements/spacer-50px.php');
+										break;
+										case 'Spacer 40px':
+											include locate_template('post-component-elements/spacer-40px.php');
+										break;
+										case 'Spacer 30px':
+											include locate_template('post-component-elements/spacer-30px.php');
+										break;
+										case 'Spacer 20px':
+											include locate_template('post-component-elements/spacer-20px.php');
+										break;
+										case 'Spacer 10px':
+											include locate_template('post-component-elements/spacer-10px.php');
+										break;
+										case 'Spacer 5px':
+											include locate_template('post-component-elements/spacer-5px.php');
+										break;
+										case 'Spacer 2px':
+											include locate_template('post-component-elements/spacer-2px.php');
+										break;
+										case 'Spacer 1px':
+											include locate_template('post-component-elements/spacer-1px.php');
+										break;
+									}
+								}
+							}
+						}
+
 						/*stores the id in a global array which is initialised when the containing section is
 						* created. This means that we can exclude all duplicate posts from the section from Separate
 						* post blocks */
@@ -253,6 +361,7 @@ $small_height= thshpr_generate_aspect_height($small_image_ratio,$small_width);
 					}
 				/* end if not in the duplicates list */
 				}
+				$l++;
 			/* end loop */
 			}
 			echo $item_string;
