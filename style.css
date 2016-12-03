@@ -1133,7 +1133,7 @@ button[type="submit"].search-submit
 	.effect-1:hover .item-1 div{opacity: 0.9;	-ms-transform: rotate(0deg) scale(1); /* IE 9 */-webkit-transform: rotate(0deg) scale(1); /* Chrome, Safari, Opera */transform: rotate(0deg) scale(1);}
 	.item-2 div{font-family: Playfair Display;letter-spacing: 1px;height: 100%;position: relative;opacity: 0;-webkit-transition: opacity 0.35s, -webkit-transform 0.35s;transition: opacity 0.35s, transform 0.35s;margin: 0 auto;max-width: 1500px;-webkit-transform: scale(3);transform: scale(3);font-size: 90px;line-height: 90px;transition-delay: 0.15s;}
 	.item-2.large div {font-size:140px;}
-	.effect-1:hover .item-2 div 	{opacity: 0.2;-webkit-transform: scale(1);transform: scale(1);}
+	.effect-1:hover .item-2 div 	{opacity: 0.3;-webkit-transform: scale(1);transform: scale(1);}
 	.small-arrow	{border: 0px solid #222;padding: 34px;}
 	.posts-block-5-mid img.lazy-hidden { opacity: 0;}
 	.posts-block-5-mid img.lazy-loaded { opacity: 1;}
