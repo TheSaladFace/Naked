@@ -1174,7 +1174,6 @@ button[type="submit"].search-submit
     line-height: 1;
     margin: -1px 0px -1px 0px;}
 
-	.general-meta a{transition:  all .35s linear; -moz-transition:  all .35s linear;  -o-transition:  all .35s linear;  -ms-transition:  all .35s linear;  transition:  all .35s linear;}
 	.slash-divider{    display: inline-block; padding-left: 3px; padding-right: 3px; color: #ccc;  font-size: 14px;}
 	.fa-comments:before { content: "\f086"; margin-right: 3px;}
 
@@ -1184,7 +1183,7 @@ button[type="submit"].search-submit
 	.author-thumbnail-visible{margin-top: 11px;height: 30px;}
 
 	/** excerpt **/
-	.large-excerpt a,.small-excerpt a{transition:  all .35s linear; -moz-transition:  all .35s linear;  -o-transition:  all .35s linear;  -ms-transition:  all .35s linear;  transition:  all .35s linear;}
+	.large-excerpt a,.small-excerpt a,.general-meta a, .small-italic a{transition:  all .35s linear; -moz-transition:  all .35s linear;  -o-transition:  all .35s linear;  -ms-transition:  all .35s linear;  transition:  all .35s linear;}
 
 
 
