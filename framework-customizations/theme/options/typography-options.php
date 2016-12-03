@@ -1607,9 +1607,127 @@ $options = array(
 		),
 	),
 
+	'large_italic_options' => array(
+		'title' => _('Large Other Meta Text', 'thshpr'),
+		'options' => array(
+
+			'opt_large_italic' =>array(
+			    'type' => 'typography-v2',
+			    'value' => array(
+					'family' => 'PT Serif',
+					'variation' => 'italic',
+        			'weight' => 400,
+			        'size' => 15,
+			        'line-height' => 15,
+			        'letter-spacing' => 0,
+			        'color' => '#a6a6a6'
+			    ),
+			    'components' => array(
+			        'family'         => true,
+			        'size'           => true,
+			        'line-height'    => true,
+			        'letter-spacing' => true,
+			        'color'          => true
+			    ),
+			    'label' => _('Large Other Meta Text - Large Devices / Widescreens', 'thshpr'),
+			    'desc'  => _('Choose the typography for large devices / wide screens (1200px+)', 'thshpr'),
+			),
+			'opt_large_italic_font_hover_color' =>array(
+		    'type'  => 'color-picker',
+		    'value' => '#111111',
+		    'label' => __('Large Other Meta Text - Font Hover Color', 'thshpr'),
+		    'desc'  => __('Choose a color for the font on mouse hover for the large other meta links', 'thshpr'),
+		    ),
+			'opt_large_italic_medium_devices_desktops' =>array(
+			    'type' => 'typography-v2',
+			    'value' => array(
+					'family' => 'Playfair Display',
+					'variation' => 'regular',
+        			'weight' => 400,
+			        'size' => 15,
+			        'line-height' => 15,
+			        'letter-spacing' => 0,
+			        'color' => '#111111'
+			    ),
+			    'components' => array(
+			        'family'         => false,
+			        'size'           => true,
+			        'line-height'    => true,
+			        'letter-spacing' => false,
+			        'color'          => false,
+			    ),
+			    'label' => _('Large Other Meta Text - Medium Devices / Desktops', 'thshpr'),
+			    'desc'  => _('Choose the size and line height for medium devices / desktops (992px+)', 'thshpr'),
+			),
+			'opt_large_italic_small_devices_tablets' =>array(
+			    'type' => 'typography-v2',
+			    'value' => array(
+					'family' => 'Playfair Display',
+					'variation' => 'regular',
+        			'weight' => 400,
+			        'size' => 15,
+			        'line-height' => 15,
+			        'letter-spacing' => 0,
+			        'color' => '#111111'
+			    ),
+			    'components' => array(
+			        'family'         => false,
+			        'size'           => true,
+			        'line-height'    => true,
+			        'letter-spacing' => false,
+			        'color'          => false,
+			    ),
+			    'label' => _('Large Other Meta Text - Small Devices / Tablets', 'thshpr'),
+			    'desc'  => _('Choose the size and line height for small devices / tablets (768px+)', 'thshpr'),
+			),
+			'opt_large_italic_extra_small_devices_phones' =>array(
+			    'type' => 'typography-v2',
+			    'value' => array(
+					'family' => 'Playfair Display',
+					'variation' => 'regular',
+        			'weight' => 400,
+			        'size' => 15,
+			        'line-height' => 15,
+			        'letter-spacing' => 0,
+			        'color' => '#111111'
+			    ),
+			    'components' => array(
+			        'family'         => false,
+			        'size'           => true,
+			        'line-height'    => true,
+			        'letter-spacing' => false,
+			        'color'          => false,
+			    ),
+			    'label' => _('Large Other Meta Text - Small Devices / Phones', 'thshpr'),
+			    'desc'  => _('Choose the size and line height for small devices / phones (480px+)', 'thshpr'),
+			),
+			'opt_large_italic_tiny_devices_phones' =>array(
+			    'type' => 'typography-v2',
+			    'value' => array(
+					'family' => 'Playfair Display',
+					'variation' => 'regular',
+        			'weight' => 400,
+			        'size' => 15,
+			        'line-height' => 15,
+			        'letter-spacing' => 0,
+			        'color' => '#111111'
+			    ),
+			    'components' => array(
+			        'family'         => false,
+			        'size'           => true,
+			        'line-height'    => true,
+			        'letter-spacing' => false,
+			        'color'          => false,
+			    ),
+			    'label' => _('Large Other Meta Text - Tiny Devices / Phones', 'thshpr'),
+			    'desc'  => _('Choose the size and line height for small devices / phones (320px+)', 'thshpr'),
+			),
+
+		),
+	),
 
 	'small_italic_options' => array(
-		'title' => _('Small Italic Text', 'thshpr'),
+		'title' => _('Small Other Meta Text', 'thshpr'),
 		'options' => array(
 
 			'opt_small_italic' =>array(
@@ -1630,14 +1748,14 @@ $options = array(
 			        'letter-spacing' => true,
 			        'color'          => true
 			    ),
-			    'label' => _('Small Italic Large Devices / Widescreens', 'thshpr'),
+			    'label' => _('Small Other Meta - Large Devices / Widescreens', 'thshpr'),
 			    'desc'  => _('Choose the typography for large devices / wide screens (1200px+)', 'thshpr'),
 			),
 			'opt_small_italic_font_hover_color' =>array(
 		    'type'  => 'color-picker',
 		    'value' => '#111111',
-		    'label' => __('Small Italic Links Font Hover Color', 'thshpr'),
-		    'desc'  => __('Choose a color for the font on mouse hover for the small italic links', 'thshpr'),
+		    'label' => __('Small Other Meta Font Hover Color', 'thshpr'),
+		    'desc'  => __('Choose a color for the font on mouse hover for the small other meta links', 'thshpr'),
 		    ),
 			'opt_small_italic_medium_devices_desktops' =>array(
 			    'type' => 'typography-v2',
@@ -1657,7 +1775,7 @@ $options = array(
 			        'letter-spacing' => false,
 			        'color'          => false,
 			    ),
-			    'label' => _('Small Italic - Medium Devices / Desktops', 'thshpr'),
+			    'label' => _('Small Other Meta - Medium Devices / Desktops', 'thshpr'),
 			    'desc'  => _('Choose the size and line height for medium devices / desktops (992px+)', 'thshpr'),
 			),
 			'opt_small_italic_small_devices_tablets' =>array(
@@ -1678,7 +1796,7 @@ $options = array(
 			        'letter-spacing' => false,
 			        'color'          => false,
 			    ),
-			    'label' => _('Small Italic - Small Devices / Tablets', 'thshpr'),
+			    'label' => _('Small Other Meta - Small Devices / Tablets', 'thshpr'),
 			    'desc'  => _('Choose the size and line height for small devices / tablets (768px+)', 'thshpr'),
 			),
 			'opt_small_italic_extra_small_devices_phones' =>array(
@@ -1699,7 +1817,7 @@ $options = array(
 			        'letter-spacing' => false,
 			        'color'          => false,
 			    ),
-			    'label' => _('Small Italic - Small Devices / Phones', 'thshpr'),
+			    'label' => _('Small Other Meta - Small Devices / Phones', 'thshpr'),
 			    'desc'  => _('Choose the size and line height for small devices / phones (480px+)', 'thshpr'),
 			),
 			'opt_small_italic_tiny_devices_phones' =>array(
@@ -1720,7 +1838,7 @@ $options = array(
 			        'letter-spacing' => false,
 			        'color'          => false,
 			    ),
-			    'label' => _('Small Italic - Tiny Devices / Phones', 'thshpr'),
+			    'label' => _('Small Other Meta - Tiny Devices / Phones', 'thshpr'),
 			    'desc'  => _('Choose the size and line height for small devices / phones (320px+)', 'thshpr'),
 			),
 

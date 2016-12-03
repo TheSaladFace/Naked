@@ -1263,9 +1263,10 @@ button[type="submit"].search-submit
 	.social-box .icon{margin:0px;padding:0px;font-size: 14px;  color:#fff; display: inline-block; text-align: center; padding: 5px 6px 4px 5px;  margin-right: 0px; margin-left: 0px; }
 	.social-box .icon.fa-link{font-size: 13px; padding: 6px 6px 4px 5px;}
 	.inner{width:36px;height:36px;padding-top: 6px;}
-	.share-label{display: inline-block;
-    padding: 12px 0px 0px 8px;
-    height: 36px;}
+	.share-label{    display: inline-block;
+    padding: 0px 0px 0px 8px;
+    height: 36px;
+    line-height: 36px!important;}
 	.inner{display: inline-block; text-align: center; margin-right: 0px; margin-left: 0px; }
 
 	/** social media - box colors **/
