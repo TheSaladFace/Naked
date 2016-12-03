@@ -13,10 +13,16 @@
 
 
 get_header();
-include(locate_template('global-templates/page-borders.php')); 
+include(locate_template('global-templates/page-borders.php'));
 include(locate_template('global-templates/header-nav.php'));
 ?>
 <div class="body-main-content">
-<?php get_template_part( 'content', 'page' ); ?>
+    <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+        <?php if (have_posts()) : ?>
+        <?php while (have_posts()) : the_post(); ?>
+        <?php the_content(); ?>
+        <?php endwhile; ?>
+        <?php endif; ?>
+    </article>
 </div>
 <?php get_footer(); ?>
