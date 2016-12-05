@@ -506,6 +506,8 @@ function thshpr_print_styles()
 	$body_small_devices_tablets=fw_get_db_customizer_option('opt_body_small_devices_tablets');
     $body_extra_small_devices_phones=fw_get_db_customizer_option('opt_body_extra_small_devices_phones');
     $body_tiny_devices_phones=fw_get_db_customizer_option('opt_body_tiny_devices_phones');
+    $link_color = fw_get_db_customizer_option('opt_link_color');
+    $link_hover_color = fw_get_db_customizer_option('opt_link_hover_color');
     $large_italic = fw_get_db_customizer_option('opt_large_italic');
     $large_italic_hover = fw_get_db_customizer_option('opt_large_italic_font_hover_color');
     $small_italic = fw_get_db_customizer_option('opt_small_italic');
@@ -600,6 +602,7 @@ function thshpr_print_styles()
     $site_borders_size=fw_get_db_customizer_option('opt_site_borders_size');
     $scroll_to_top_bottom_position=$site_borders_size+12;
 
+
 	$option_styles =
 	'
     @media only screen and (min-width : 320px)
@@ -615,6 +618,8 @@ function thshpr_print_styles()
     	.'h5{ font-family:'.esc_html($h5['family']).';'. thshpr_google_font_style_weight_split($h5['variation']) . 'font-size:'.esc_html($h5_tiny_devices_phones['size']).'px;'. 'color:'.esc_html($h5['color']).';'. 'letter-spacing:'.esc_html($h5['letter-spacing']).'px;'. 'line-height:'.esc_html($h5_tiny_devices_phones['line-height']).'px; }'
     	.'h6{ font-family:'.esc_html($h6['family']).';'. thshpr_google_font_style_weight_split($h6['variation']) . 'font-size:'.esc_html($h6_tiny_devices_phones['size']).'px;'. 'color:'.esc_html($h6['color']).';'. 'letter-spacing:'.esc_html($h6['letter-spacing']).'px;'. 'line-height:'.esc_html($h6_tiny_devices_phones['line-height']).'px; }'
     	.'body{ font-family:'.esc_html($body['family']).';'. thshpr_google_font_style_weight_split($body['variation']) . 'font-size:'.esc_html($body_tiny_devices_phones['size']).'px;'. 'color:'.esc_html($body['color']).';'. 'letter-spacing:'.esc_html($body['letter-spacing']).'px;'. 'line-height:'.esc_html($body_tiny_devices_phones['line-height']).'px; }'
+        .'body a{ color:'.esc_html($link_color).';}'
+        .'body a:hover{ color:'.esc_html($link_hover_color).';}'
         .'.lead-text{ font-family:'.esc_html($article_lead['family']).';'. thshpr_google_font_style_weight_split($article_lead['variation']) . 'font-size:'.esc_html($article_lead_tiny_devices_phones['size']).'px;'. 'color:'.esc_html($article_lead['color']).';'. 'letter-spacing:'.esc_html($article_lead['letter-spacing']).'px;'. 'line-height:'.esc_html($article_lead_tiny_devices_phones['line-height']).'px; }'
         .'blockquote{ font-family:'.esc_html($blockquote['family']).';'. thshpr_google_font_style_weight_split($blockquote['variation']) . 'font-size:'.esc_html($blockquote_tiny_devices_phones['size']).'px;'. 'color:'.esc_html($blockquote['color']).';'. 'letter-spacing:'.esc_html($blockquote['letter-spacing']).'px;'. 'line-height:'.esc_html($blockquote_tiny_devices_phones['line-height']).'px; }'
         .'h4.archive-description{ font-family:'.esc_html($archive_description['family']).';'. thshpr_google_font_style_weight_split($archive_description['variation']) . 'font-size:'.esc_html($archive_description_tiny_devices_phones['size']).'px;'. 'color:'.esc_html($archive_description['color']).';'. 'letter-spacing:'.esc_html($archive_description['letter-spacing']).'px;'. 'line-height:'.esc_html($archive_description_tiny_devices_phones['line-height']).'px; }'
@@ -646,6 +651,7 @@ function thshpr_print_styles()
         .'.offset-title,{ border-top:10px solid '.esc_html($dark_color).'; }'
 
         .'.mega-menu-row, .primary-navigation ul li ul li a,.sidr a,.primary-navigation .mega-menu a:hover{ background-color:'.esc_html($sub_menu_background_color).';color:'.esc_html($sub_level_menu['color']).';}'
+        .'.sidr a:hover{color:'.esc_html($sub_level_menu['color']).';}'
         .'.primary-navigation ul li ul li a:hover{ background-color:'.esc_html($menu_background_hover_color).'; color:'.esc_html($menu_background_hover_color_text).';  }'
         .'.sidr li li a{ background-color:'.esc_html($mobile_menu_sub_sub_color).';color:'.esc_html($sub_level_menu['color']).';}'
         .'.sidr li li li a{ background-color:'.esc_html($mobile_menu_sub_sub_sub_color).';color:'.esc_html($sub_level_menu['color']).';}'

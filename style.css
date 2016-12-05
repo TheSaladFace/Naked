@@ -1186,7 +1186,7 @@ button[type="submit"].search-submit
 	.author-thumbnail-visible{margin-top: 11px;height: 30px;}
 
 	/** excerpt **/
-	.large-excerpt a,.small-excerpt a,.general-meta a, .small-italic a{transition:  all .35s linear; -moz-transition:  all .35s linear;  -o-transition:  all .35s linear;  -ms-transition:  all .35s linear;  transition:  all .35s linear;}
+	.body-main-content a,.large-excerpt a,.small-excerpt a,.general-meta a, .small-italic a{transition:  all .35s linear; -moz-transition:  all .35s linear;  -o-transition:  all .35s linear;  -ms-transition:  all .35s linear;  transition:  all .35s linear;}
 
 
 

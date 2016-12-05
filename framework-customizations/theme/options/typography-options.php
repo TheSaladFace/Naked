@@ -916,6 +916,19 @@ $options = array(
 
 		),
 	),
+	'opt_link_color' =>array(
+	'type'  => 'color-picker',
+	'value' => '#111111',
+	'label' => __('Body Link Color', 'thshpr'),
+	'desc'  => __('Choose a color for the body links', 'thshpr'),
+	),
+
+	'opt_link_hover_color' =>array(
+	'type'  => 'color-picker',
+	'value' => '#a6a6a6',
+	'label' => __('Body Link Hover Color', 'thshpr'),
+	'desc'  => __('Choose a color for the font on mouse hover for the body links', 'thshpr'),
+	),
 
 	'article_blockquote' => array(
 		'title' => _('Blockquote', 'thshpr'),
