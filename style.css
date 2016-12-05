@@ -467,9 +467,9 @@ a:link {text-decoration: none;}
 	/**
 	 * Sidebars
 	 */
-	.sidebar{padding:30px 10px 0px 10px;}
-	.sidebar.fancy-header{padding: 45px 10px 0px 10px;}
-	.sidebar h3:before {
+	/*.sidebar{padding:30px 10px 0px 10px;}*/
+	.sidebar .fancy-header, , .shortcode-widget-area .fancy-header{padding: 45px 10px 0px 10px;}
+	.sidebar h3:before, .shortcode-widget-area h3:before{
 	content: "";
     display: inline-block;
     vertical-align: top;
@@ -480,18 +480,21 @@ a:link {text-decoration: none;}
     position: relative;
     display: block;}
 	.widget-paragraph {font-size:16px; line-height: 25px;margin-bottom:18px;}
-	.sidebar h3{margin-top:0px; margin-bottom:25px;display: inline-block;}
-	.sidebar .widget{margin-bottom: 60px;display: block;}
+	.sidebar h3, .shortcode-widget-area h3{margin-top:0px; margin-bottom:25px;display: inline-block;}
+	.sidebar .widget, .shortcode-widget-area .widget{margin-bottom: 60px;display: block;}
 
 	.sidebar .widget ul,
-	.sidebar .widget li
+	.sidebar .widget li,
+	.shortcode-widget-area .widget ul,
+	.shortcode-widget-area .widget li
 	{
 	    list-style-type: none;
 		margin:0;
 		padding:0px 0px 15px 0px;
 	}
 
-	.sidebar .widget.widget_rss li
+	.sidebar .widget.widget_rss li,
+	.shortcode-widget-area .widget.widget_rss li
 	{
 	    list-style-type: none;
 		margin:0;
@@ -499,13 +502,13 @@ a:link {text-decoration: none;}
 	}
 
 	/* pages and menu widgets */
-	.sidebar .widget ul.children, .sidebar .widget ul.sub-menu{ padding-top: 15px; padding-bottom: 0px;padding-left: 20px;}
-	.sidebar .widget ul.children ul.children, .sidebar .widget ul.sub-menu ul.sub-menu{ padding-left: 41px;}
-	.sidebar .widget ul.children ul.children ul.children, .sidebar .widget ul.sub-menu ul.sub-menu ul.sub-menu{ padding-left: 62px;}
-	.sidebar .widget ul li.page_item_has_children, .sidebar .widget ul li.menu-item-has-children{ padding-bottom: 0px;}
-	.sidebar .widget ul.children li, .sidebar .widget ul.sub-menu li{margin-left: -18px;}
-	.sidebar .widget ul.children li:before, .sidebar .widget ul.sub-menu li:before {content: "\f105";font-family: FontAwesome;font-style: normal;font-weight: normal; text-decoration: inherit; top: 10px; left: 0;	padding-right: 15px;}
-	.sidebar .menu-item-has-children>ul:before{display:none;}
+	.sidebar .widget ul.children, .sidebar .widget ul.sub-menu,.sidebar .widget ul.children, .shortcode-widget-area .widget ul.sub-menu{ padding-top: 15px; padding-bottom: 0px;padding-left: 20px;}
+	.sidebar .widget ul.children ul.children, .sidebar .widget ul.sub-menu ul.sub-menu,.shortcode-widget-area .widget ul.children ul.children, .sidebar .widget ul.sub-menu ul.sub-menu{ padding-left: 41px;}
+	.sidebar .widget ul.children ul.children ul.children, .sidebar .widget ul.sub-menu ul.sub-menu ul.sub-menu,.shortcode-widget-area .widget ul.children ul.children ul.children, .sidebar .widget ul.sub-menu ul.sub-menu ul.sub-menu{ padding-left: 62px;}
+	.sidebar .widget ul li.page_item_has_children, .sidebar .widget ul li.menu-item-has-children,.shortcode-widget-area .widget ul li.page_item_has_children, .sidebar .widget ul li.menu-item-has-children{ padding-bottom: 0px;}
+	.sidebar .widget ul.children li, .sidebar .widget ul.sub-menu li,.sidebar .widget ul.children li, .shortcode-widget-area .widget ul.sub-menu li{margin-left: -18px;}
+	.sidebar .widget ul.children li:before, .sidebar .widget ul.sub-menu li:before,.shortcode-widget-area .widget ul.children li:before, .sidebar .widget ul.sub-menu li:before {content: "\f105";font-family: FontAwesome;font-style: normal;font-weight: normal; text-decoration: inherit; top: 10px; left: 0;	padding-right: 15px;}
+	.sidebar .menu-item-has-children>ul:before,.shortcode-widget-area .menu-item-has-children>ul:before{display:none;}
 
 	.post-date,.rss-date{display:block;margin-top: 2px;}
 	.rss-widget-icon{display:none;}
@@ -529,14 +532,14 @@ a:link {text-decoration: none;}
 
 	/** social icons widget **/
 	.social-icons-widget{}
-	.sidebar .social-icons-widget .inner{line-height:14px!important;}
+	.sidebar .social-icons-widget .inner,.shortcode-widget-area .social-icons-widget .inner{line-height:14px!important;}
 	/*.sidebar .social-box{position:static;}*/
-	.sidebar .inner{box-sizing: border-box;}
-	.sidebar .social-share-boxes{float:none;}
+	.sidebar .inner,.social-icons-widget .inner{box-sizing: border-box;}
+	.sidebar .social-share-boxes,.social-icons-widget .social-share-boxes{float:none;}
 
 	/*Posts Widgets*/
-	.sidebar .widget .posts-widget li {margin-bottom:40px;}
-	.sidebar .widget .posts-widget ul li:last-child{margin-bottom:0px;}
+	.sidebar .widget .posts-widget li,.social-icons-widget .widget .posts-widget li {margin-bottom:40px;}
+	.sidebar .widget .posts-widget ul li:last-child,.social-icons-widget .widget .posts-widget ul li:last-child{margin-bottom:0px;}
 	/**
 	 * General
 	 */
