@@ -16,7 +16,6 @@ if ($components_elements): foreach ($components_elements as $key=>$value)
  	{
  		case 'Thumbnail':
  			$cell_class=""; /** forces the image template to use the small image **/
- 			$width=$small_width; /**force the width to large width **/
  			include locate_template('post-component-elements/image-string.php');
  		break;
  	}

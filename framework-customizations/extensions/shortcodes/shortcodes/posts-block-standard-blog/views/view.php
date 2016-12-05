@@ -70,11 +70,8 @@ $hover_bottom=thshpr_get_image_hover_string($atts['opt_image_hover_item_2']);
 
 /** image ratios **/
 $large_image_ratio=$atts['opt_large_image_ratio'];
-$small_image_ratio=$atts['opt_small_image_ratio'];
-$small_width=$atts['opt_small_image_max_width'];
-$large_width=$atts['opt_large_image_max_width'];//needs adding to options
-$large_height= thshpr_generate_aspect_height($large_image_ratio,$large_width);
-$small_height= thshpr_generate_aspect_height($small_image_ratio,$small_width);
+$width=$atts['opt_large_image_max_width'];
+$height= thshpr_generate_aspect_height($large_image_ratio,$width);
 
 
 
@@ -182,7 +179,6 @@ else
 }
 wp_reset_postdata();
 ?>
-</div>
 <?php
 
 if($enabled_pagination=="Yes")

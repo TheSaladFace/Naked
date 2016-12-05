@@ -20,7 +20,7 @@ if ( has_post_thumbnail() )
             <a href="'.$path.'" style="position: relative; display: inline-block;">
             ';
 
-            $image_string=thshpr_generate_wp_image($width,$large_height,get_the_ID());
+            $image_string=thshpr_generate_wp_image($width,$height,get_the_ID());
             $item_string.=$image_string;
             $item_string.='
 
@@ -34,7 +34,7 @@ if ( has_post_thumbnail() )
             $item_string.='
             <div class=" '.$image_offset_class.' featured-image">';
 
-            $image_string=thshpr_generate_image($width,$large_height,get_the_ID());
+            $image_string=thshpr_generate_image($width,$height,get_the_ID());
             $item_string.=$image_string;
             $item_string.='
 
