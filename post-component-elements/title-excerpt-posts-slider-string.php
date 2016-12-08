@@ -10,7 +10,7 @@ if(!isset($cell_class))
 }
 if($cell_class=="focus")
 {
-    $item_string.='<div class="component-element meta-title"><h3 class="large-h3"><a href="'.get_permalink().'">'.get_the_title().'</a></h3></div><div class="meta-excerpt small-excerpt component-element"><a href="'.get_permalink().'" >'.thshpr_stripped_excerpt($excerpt_length).'</a></div><div class="hidden-thumb">'.$hidden_thumb.'</div><span class="hidden-desc">'.get_the_title().'</span>';
+    $item_string.='<div class="component-element meta-title"><h3 class="large-h3"><a href="'.get_permalink().'">'.get_the_title().'</a></h3></div><div class="meta-excerpt large-excerpt component-element"><a href="'.get_permalink().'" >'.thshpr_stripped_excerpt($excerpt_length).'</a></div><div class="hidden-thumb">'.$hidden_thumb.'</div><span class="hidden-desc">'.get_the_title().'</span>';
 }
 else
 {

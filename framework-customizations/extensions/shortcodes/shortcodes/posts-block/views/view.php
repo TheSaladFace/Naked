@@ -29,6 +29,7 @@ $excerpt_length=$atts["opt_posts_block_excerpt_length"];
 $components_elements=$atts["opt_posts_block_functionality"];
 $read_more=$atts['opt_posts_block_read_more_text'];
 $max_posts=$atts['opt_posts_block_number_posts'];
+
 $divider_type=fw_locate_theme_path_uri('/static/img/').$atts['opt_divider_type'];
 $show_author_image=$atts['opt_posts_block_show_author_image'];
 
@@ -57,30 +58,11 @@ else
 }
 
 /** image ratios **/
-$small_image_ratio=$atts['opt_small_image_ratio'];
-$width=$atts['opt_small_image_max_width'];
-$small_height= thshpr_generate_aspect_height($small_image_ratio,$width);
+$large_image_ratio=$atts['opt_large_image_ratio'];
+$width=$atts['opt_large_image_max_width'];
+$height= thshpr_generate_aspect_height($large_image_ratio,$width);
 
-/*
-large column left
-	<div class="fw-row">
-		<div class="fw-col-sm-6 featured-cell focus">1
-		</div>
-		<div class="fw-col-sm-6">
-			<div class="fw-row">
-				<div class="fw-col-sm-6 featured-cell ">2</div>
-				<div class="fw-col-sm-6 featured-cell ">3</div>
-			</div>
-			<div class="fw-row">
-				<div class="fw-col-sm-6 featured-cell ">4</div>
-				<div class="fw-col-sm-6 featured-cell ">5</div>
-			</div>
-		</div>
-
-	</div>
-
-*/
- ?>
+?>
 
 <div class="featured-posts-grid-basic">
 	<div class="fw-row basic-row">
@@ -100,8 +82,9 @@ large column left
     }
     else
     {
-        $args = array(
+        $custom_query_args = array(
             'cat' => $post_categories,
+    		'posts_per_page' => $max_posts,
             'orderby' => $order_by,
             'post__not_in' => array($currentID)
         );
@@ -130,6 +113,7 @@ large column left
 			$cell_class="";
 			$hidden_thumb="";
 			/*loop begins*/
+
 			if ($components_elements): foreach ($components_elements as $key=>$value)
 			{
 				switch($value['opt_header_featuredposts_rows'])
@@ -178,6 +162,30 @@ large column left
 					break;
 					case 'Divider':
                         include locate_template('post-component-elements/divider-string.php');
+					break;
+					case 'Spacer 50px':
+						include locate_template('post-component-elements/spacer-50px.php');
+					break;
+					case 'Spacer 40px':
+						include locate_template('post-component-elements/spacer-40px.php');
+					break;
+					case 'Spacer 30px':
+						include locate_template('post-component-elements/spacer-30px.php');
+					break;
+					case 'Spacer 20px':
+						include locate_template('post-component-elements/spacer-20px.php');
+					break;
+					case 'Spacer 10px':
+						include locate_template('post-component-elements/spacer-10px.php');
+					break;
+					case 'Spacer 5px':
+						include locate_template('post-component-elements/spacer-5px.php');
+					break;
+					case 'Spacer 2px':
+						include locate_template('post-component-elements/spacer-2px.php');
+					break;
+					case 'Spacer 1px':
+						include locate_template('post-component-elements/spacer-1px.php');
 					break;
 				}
 			}
@@ -242,8 +250,6 @@ large column left
 if($enabled_pagination=="Yes")
 {
 
-	echo'<div class="next-text hidden">'.$next_text.'</div>';
-	echo'<div class="prev-text hidden">'.$prev_text.'</div>';
 	echo'<div class="page-nav-standard '.$show_page_numbers_string.'">'.$pagination.'</div>';
 }
 ?>

@@ -1181,6 +1181,41 @@ function thshpr_widgets_init() {
 		'after_title'   => '</h3>',
 	) );
 
+    //add a couple of spare sidebars for the pagebuilder easeOutCirc
+    register_sidebar( array(
+		'name'          => __( 'Pagebuilder Sidebar 1', 'naked' ),
+		'id'            => 'pagebuilder-sidebar-1',
+		'before_widget' => '<div id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</div>',
+		'before_title'  => '<h3 class="widget-title">',
+		'after_title'   => '</h3>',
+	) );
+    /*register_sidebar( array(
+		'name'          => __( 'Pagebuilder Sidebar 2', 'naked' ),
+		'id'            => 'pagebuilder-sidebar-2',
+		'before_widget' => '<div id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</div>',
+		'before_title'  => '<h3 class="widget-title">',
+		'after_title'   => '</h3>',
+	) );
+    register_sidebar( array(
+		'name'          => __( 'Pagebuilder Sidebar 3', 'naked' ),
+		'id'            => 'pagebuilder-sidebar-3',
+		'before_widget' => '<div id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</div>',
+		'before_title'  => '<h3 class="widget-title">',
+		'after_title'   => '</h3>',
+	) );
+    register_sidebar( array(
+		'name'          => __( 'Pagebuilder Sidebar 3', 'naked' ),
+		'id'            => 'pagebuilder-sidebar-3',
+		'before_widget' => '<div id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</div>',
+		'before_title'  => '<h3 class="widget-title">',
+		'after_title'   => '</h3>',
+	) );*/
+
+
     if(function_exists( 'fw_get_db_customizer_option' ))
     {
         $extra_top_bar_widget=fw_get_db_customizer_option('opt_header_extra_top_bar_widgets');

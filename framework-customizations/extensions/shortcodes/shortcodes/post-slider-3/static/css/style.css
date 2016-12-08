@@ -16,7 +16,6 @@
 
        	/*hide the meta for this size as they cant fit*/
        	 .featured-slider-3 .meta-excerpt, .featured-slider-3 .meta-categories, .featured-slider-3 .meta-tags, .featured-slider-3 .read-more,.featured-slider-3 .meta-author,.featured-slider-3 .meta-date,.featured-slider-3 .meta-date-comments, .featured-slider-3 .meta-comments,.featured-slider-3 .meta-date-comments-author,.featured-slider-3 .meta-date-author,.featured-slider-3 .meta-date-comments-author,.featured-slider-3 .share-boxes, .featured-slider-3 .divider-container{display:none;}
-        .featured-slider-3 .start-icon{ padding-left: 0px;}
 	.featured-slider-3 .item-5 {padding-top: 40px; }
 }
 

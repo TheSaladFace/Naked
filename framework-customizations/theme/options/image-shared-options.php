@@ -8,35 +8,6 @@ if (!defined('FW')) die('Forbidden');
 
 $options = array(
 
-	/*'opt_small_image_max_width' => array(
-		'label' => __( 'Small Maximum Image Width', 'thshpr' ),
-		'type' => 'text',
-		'value' => '900',
-		'desc' => __( 'Enter the small image maximum width in pixels','thshpr' ),
-		'help' =>__( 'This should be set to be at least as large as the largest image needed for this block. A large size might be needed due to responsive resizing', 'thshpr'  ),
-	),
-
-	'opt_small_image_ratio' => array(
-		'label'   => __( 'Small Image Ratio', 'thshpr' ),
-		'type'    => 'short-select',
-		'value'   => '0.75',
-		'desc'    => __( 'Please select the ratio of the small images for this block. You must ensure the image is of sufficient original size.','thshpr' ),
-		'choices' => array(
-			'0.25' => '4 to 1',
-			'0.33' => '3 to 1',
-			'0.4285714285714286' => '2.33 to 1 (21:9)',
-			'0.5' => '2 to 1',
-			'0.5625' => '1.7 to 1 (16:9)',
-			'0.6666666666666667' => '1.5 to 1 (3:2)',
-			'0.75' => '1.25 to 1 (4:3)',
-			'1.0' => '1 to 1',
-			'1.333333333333333' => '0.75 to 1 (3:4)',
-			'1.5' => '0.66 to 1 (2:3)',
-			'1.777777777777778' => '0.56 to 1 (9:16)',
-			'2.0' => '0.5 to 1',
-		),
-	),*/
-
 	'opt_large_image_max_width' => array(
 		'label' => __( 'Maximum Image Width', 'thshpr' ),
 		'type' => 'text',

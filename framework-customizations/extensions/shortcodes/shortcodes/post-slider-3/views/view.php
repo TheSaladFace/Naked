@@ -26,8 +26,8 @@ $order_by=$atts['opt_posts_block_ordering'];
 $category_tag_number=$atts['opt_posts_block_number_categories'];
 $components_elements=$atts['opt_posts_block_functionality'];
 $read_more=$atts['opt_posts_block_read_more_text'];
-$excerpt_length=$atts["opt_posts_block_excerpt_length"];
-$divider_type=fw_locate_theme_path_uri('/static/img/').$atts['opt_divider_type'];
+$excerpt_length=$atts["opt_posts_block_large_excerpt_length"];
+$divider_type=$atts['opt_divider_type'];
 $show_hover_effects="No";
 $cell_class="focus";
 $show_author_image=$atts['opt_posts_block_show_author_image'];
@@ -35,9 +35,9 @@ $auto_rotate_speed=$atts['opt_posts_block_auto_rotate_speed'];
 $hidden_thumb="";
 
 /** image ratios **/
-$small_image_ratio=$atts['opt_small_image_ratio'];
-$width=$atts['opt_small_image_max_width'];
-$small_height=thshpr_generate_aspect_height($small_image_ratio,$width);
+$large_image_ratio=$atts['opt_large_image_ratio'];
+$width=$atts['opt_large_image_max_width'];
+$height=thshpr_generate_aspect_height($large_image_ratio,$width);
 
 $autorotate_string="data-speed=".$auto_rotate_speed;
 
@@ -76,6 +76,7 @@ $autorotate_string="data-speed=".$auto_rotate_speed;
 						$the_query->the_post();
 						$item_string="";
 						$item_string_hover="";
+                        $cell_class="focus";
 						if ($components_elements): foreach ($components_elements as $key=>$value)
 						{
 
@@ -120,9 +121,33 @@ $autorotate_string="data-speed=".$auto_rotate_speed;
 								case 'Share Boxes':
                                 	include locate_template('post-component-elements/share-boxes-string.php');
 								break;
-								case 'Divider':
-									include locate_template('post-component-elements/divider-string.php');
-								break;
+                                case 'Divider':
+                        			include locate_template('post-component-elements/divider-string.php');
+                        		break;
+                        		case 'Spacer 50px':
+                        			include locate_template('post-component-elements/spacer-50px.php');
+                        		break;
+                        		case 'Spacer 40px':
+                        			include locate_template('post-component-elements/spacer-40px.php');
+                        		break;
+                        		case 'Spacer 30px':
+                        			include locate_template('post-component-elements/spacer-30px.php');
+                        		break;
+                        		case 'Spacer 20px':
+                        			include locate_template('post-component-elements/spacer-20px.php');
+                        		break;
+                        		case 'Spacer 10px':
+                        			include locate_template('post-component-elements/spacer-10px.php');
+                        		break;
+                        		case 'Spacer 5px':
+                        			include locate_template('post-component-elements/spacer-5px.php');
+                        		break;
+                        		case 'Spacer 2px':
+                        			include locate_template('post-component-elements/spacer-2px.php');
+                        		break;
+                        		case 'Spacer 1px':
+                        			include locate_template('post-component-elements/spacer-1px.php');
+                        		break;
 
 						    }
 
@@ -131,7 +156,7 @@ $autorotate_string="data-speed=".$auto_rotate_speed;
 						endif;
 
 						$title_string='<a href="'.get_permalink().'"><h3>'.get_the_title().'</h3></a>';
-						$image_string=thshpr_generate_image($width,$small_height,get_the_ID());
+						$image_string=thshpr_generate_image($width,$height,get_the_ID());
 						$final_string='
 								<div class="grid">
 									<div>'.$image_string.'

@@ -124,7 +124,7 @@ $options = array(
 	'opt_posts_block_large_excerpt_length' => array(
 		'label' => __( 'Featured Post Excerpt Length', 'thshpr' ),
 		'type' => 'text',
-		'value' => '180',
+		'value' => '47',
 		'desc' => __( 'Enter the length of the featured excerpt (in words) excerpts will be automatically trimmed to this length.)', 'thshpr' ),
 		'help' => __( 'This only applies to blocks with a featured (larger) post excerpt', 'thshpr'  ),
 	),
